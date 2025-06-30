@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
-  padding: 12px 8px 100px 8px;
+  padding: 36px 8px 70px 8px;
   background: none;
   min-height: calc(100vh - 64px);
   box-sizing: border-box;
@@ -43,7 +43,7 @@
   margin-top: 12px;
 }
 .section-title {
-  font-size: 0.872rem;
+  font-size: 0.75rem;
   color: var(--text-primary);
   font-weight: 600;
   letter-spacing: 0.01em;
@@ -51,7 +51,7 @@
 }
 .section-title-strict {
   font-family: 'Comfortaa', cursive;
-  font-size: 0.59rem;
+  font-size: 0.48rem;
   font-weight: 700;
   letter-spacing: 0.02em;
   color: var(--text-primary);
@@ -63,7 +63,7 @@
 @media (max-width: 480px) {
   .main-sections {
     gap: 8px;
-    padding: 8px 6px 88px 6px;
+    padding: 28px 6px 60px 6px;
   }
   .section-card {
     padding: 6px 0 4px 0;
@@ -75,8 +75,11 @@
     font-size: 1.14rem;
   }
   .section-title {
-    font-size: 0.821rem;
+    font-size: 0.68rem;
     color: var(--text-primary);
+  }
+  .section-title-strict {
+    font-size: 0.41rem;
   }
 }
 
