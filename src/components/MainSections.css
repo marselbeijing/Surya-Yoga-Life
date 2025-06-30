@@ -43,7 +43,7 @@
   margin-top: 12px;
 }
 .section-title {
-  font-size: 0.75rem;
+  font-size: 0.88rem;
   color: var(--text-primary);
   font-weight: 600;
   letter-spacing: 0.01em;
@@ -51,7 +51,7 @@
 }
 .section-title-strict {
   font-family: 'Comfortaa', cursive;
-  font-size: 0.48rem;
+  font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.02em;
   color: var(--text-primary);
@@ -75,11 +75,11 @@
     font-size: 1.14rem;
   }
   .section-title {
-    font-size: 0.68rem;
+    font-size: 0.77rem;
     color: var(--text-primary);
   }
   .section-title-strict {
-    font-size: 0.41rem;
+    font-size: 0.51rem;
   }
 }
 
