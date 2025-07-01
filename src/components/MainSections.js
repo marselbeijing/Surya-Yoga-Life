@@ -4,7 +4,7 @@ import './MainSections.css';
 const sections = [
   {
     key: 'yoga',
-    icon: <img src={process.env.PUBLIC_URL + '/yoga.svg'} alt="Йога" style={{ width: 64, height: 64, display: 'block', margin: '0 auto' }} />,
+    icon: <img src={process.env.PUBLIC_URL + '/meditatsiya.svg'} alt="Йога" style={{ width: 64, height: 64, display: 'block', margin: '0 auto' }} />,
     title: 'Йога',
   },
   {
