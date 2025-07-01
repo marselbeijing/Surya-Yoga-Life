@@ -3,6 +3,7 @@ import MainSections from './components/MainSections';
 import BottomBar from './components/BottomBar';
 import Header from './components/Header';
 import Settings from './components/Settings';
+import TelegramLoginButton from './components/TelegramLoginButton';
 import './App.css';
 
 function App() {
@@ -41,7 +42,7 @@ function App() {
       case 'settings':
         return <Settings isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />;
       case 'account':
-        return <div className="placeholder">Аккаунт</div>;
+        return <TelegramLoginButton />;
       default:
         return <MainSections />;
     }
