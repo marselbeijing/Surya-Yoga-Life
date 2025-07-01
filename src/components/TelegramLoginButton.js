@@ -4,22 +4,35 @@ import './TelegramLoginButton.css';
 export default function TelegramLoginButton() {
   const [user, setUser] = useState(null);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    try {
-      if (
-        window.Telegram &&
-        window.Telegram.WebApp &&
-        window.Telegram.WebApp.initDataUnsafe &&
-        window.Telegram.WebApp.initDataUnsafe.user
-      ) {
-        setUser(window.Telegram.WebApp.initDataUnsafe.user);
-      } else {
-        setError('Данные пользователя не получены. Откройте через Telegram Mini App.');
+    function tryGetUser() {
+      try {
+        if (
+          window.Telegram &&
+          window.Telegram.WebApp &&
+          window.Telegram.WebApp.initDataUnsafe &&
+          window.Telegram.WebApp.initDataUnsafe.user
+        ) {
+          setUser(window.Telegram.WebApp.initDataUnsafe.user);
+          setLoading(false);
+        } else {
+          setTimeout(() => {
+            // Повторная попытка через 1 секунду
+            if (!user) {
+              setLoading(false);
+              setError('Данные пользователя не получены. Откройте через Telegram Mini App на телефоне или в Telegram Desktop.');
+            }
+          }, 1000);
+        }
+      } catch (e) {
+        setLoading(false);
+        setError('Ошибка авторизации через Telegram.');
       }
-    } catch (e) {
-      setError('Ошибка авторизации через Telegram.');
     }
+    tryGetUser();
+    // eslint-disable-next-line
   }, []);
 
   if (user) {
@@ -49,7 +62,15 @@ export default function TelegramLoginButton() {
       <div className="account-info">
         <div className="account-name">Гость</div>
         <div className="account-id">ID: —</div>
-        <div className="account-status error">{error || 'Авторизация через Telegram...'}</div>
+        <div className="account-status error">
+          {loading ? 'Проверка авторизации...' : error || 'Авторизация через Telegram...'}
+        </div>
+        {!loading && (
+          <div style={{fontSize: '0.85em', color: '#bba6d4', marginTop: 6}}>
+            Для авторизации откройте приложение через Telegram Mini App на телефоне или в Telegram Desktop.<br/>
+            В браузере авторизация недоступна.
+          </div>
+        )}
       </div>
     </div>
   );
