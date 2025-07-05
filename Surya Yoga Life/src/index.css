@@ -7,15 +7,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: url('./waves-bg.svg') no-repeat center center fixed;
-  background-size: cover;
+  background: #e3d6f6 !important;
   position: relative;
   overflow-x: hidden;
 }
 
 body[data-theme='dark'] {
-  background: url('./waves-bg-dark.svg') no-repeat center center fixed;
-  background-size: cover;
+  background: #bba6d4 !important;
 }
 
 body::before {
