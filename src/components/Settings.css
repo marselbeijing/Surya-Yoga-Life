@@ -98,8 +98,7 @@
   background: #6b0ba3;
 }
 
-.theme-switch-label::after {
-  content: '';
+.theme-switch-slider {
   position: absolute;
   top: 2px;
   left: 2px;
@@ -108,9 +107,10 @@
   background: white;
   border-radius: 50%;
   transition: transform 0.3s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.theme-switch-input:checked + .theme-switch-label::after {
+.theme-switch-input:checked + .theme-switch-label .theme-switch-slider {
   transform: translateX(24px);
 }
 
