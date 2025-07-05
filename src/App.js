@@ -42,10 +42,7 @@ function App() {
 
   const renderContent = () => {
     if (selectedSection === 'Шанкапракшалана') {
-      return <>
-        <button style={{margin: '12px 0 16px 0', padding: '8px 18px', borderRadius: 8, border: 'none', background: '#a084ee', color: '#fff', fontWeight: 600, cursor: 'pointer'}} onClick={() => setSelectedSection(null)}>Назад</button>
-        <Shankaprakshalana />
-      </>;
+      return <Shankaprakshalana />;
     }
     switch (activeTab) {
       case 'home':
