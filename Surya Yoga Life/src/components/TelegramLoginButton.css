@@ -1,0 +1,84 @@
+.account-card {
+  max-width: 340px;
+  margin: 36px auto 0 auto;
+  background: var(--card-background, #fff);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px 0 rgba(86, 5, 145, 0.10), 0 1.5px 6px 0 rgba(86, 5, 145, 0.07);
+  border: 1.5px solid #e6d6fa;
+  display: flex;
+  align-items: center;
+  padding: 24px 20px;
+  gap: 20px;
+  min-height: 120px;
+  position: relative;
+}
+.account-avatar {
+  flex-shrink: 0;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f3ecfa 0%, #e6d6fa 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(86, 5, 145, 0.10);
+}
+.account-avatar-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ede7f6;
+}
+.account-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.account-name {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: var(--text-primary, #560591);
+  font-family: 'Comfortaa', cursive;
+}
+.account-id {
+  font-size: 0.98rem;
+  color: #a18ec1;
+  font-family: 'Comfortaa', cursive;
+}
+.account-status {
+  font-size: 0.92rem;
+  margin-top: 2px;
+  font-weight: 500;
+}
+.account-status.success {
+  color: #4caf50;
+}
+.account-status.error {
+  color: #b874e8;
+}
+@media (max-width: 480px) {
+  .account-card {
+    max-width: 98vw;
+    padding: 16px 8px;
+    gap: 12px;
+  }
+  .account-avatar {
+    width: 54px;
+    height: 54px;
+  }
+  .account-avatar-img {
+    width: 46px;
+    height: 46px;
+  }
+  .account-name {
+    font-size: 1.01rem;
+  }
+  .account-id {
+    font-size: 0.85rem;
+  }
+  .account-status {
+    font-size: 0.81rem;
+  }
+} 
