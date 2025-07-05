@@ -4,11 +4,13 @@ import BottomBar from './components/BottomBar';
 import Header from './components/Header';
 import Settings from './components/Settings';
 import TelegramLoginButton from './components/TelegramLoginButton';
+import { Shankaprakshalana } from './components';
 import './App.css';
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
   const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const [selectedSection, setSelectedSection] = useState(null);
 
   // Загрузка темы из localStorage при запуске
   useEffect(() => {
@@ -33,10 +35,18 @@ function App() {
     }
   };
 
+  // Сброс выбранной секции при смене вкладки
+  useEffect(() => {
+    setSelectedSection(null);
+  }, [activeTab]);
+
   const renderContent = () => {
+    if (selectedSection === 'Шанкапракшалана') {
+      return <Shankaprakshalana />;
+    }
     switch (activeTab) {
       case 'home':
-        return <MainSections />;
+        return <MainSections onSectionClick={setSelectedSection} />;
       case 'knowledge':
         return <div className="placeholder">База знаний</div>;
       case 'settings':
@@ -44,14 +54,14 @@ function App() {
       case 'account':
         return <TelegramLoginButton />;
       default:
-        return <MainSections />;
+        return <MainSections onSectionClick={setSelectedSection} />;
     }
   };
 
   return (
     <div className="app-root">
       <div className="mobile-frame">
-        {activeTab === 'home' && <Header />}
+        {activeTab === 'home' && !selectedSection && <Header />}
         {renderContent()}
         <BottomBar activeTab={activeTab} setActiveTab={setActiveTab} />
       </div>

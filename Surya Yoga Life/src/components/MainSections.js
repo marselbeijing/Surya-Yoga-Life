@@ -29,11 +29,16 @@ const sections = [
   },
 ];
 
-export default function MainSections() {
+export default function MainSections({ onSectionClick }) {
   return (
     <div className="main-sections">
       {sections.map((s) => (
-        <div className="section-card" key={s.title || s.key}>
+        <div
+          className="section-card"
+          key={s.title || s.key}
+          onClick={onSectionClick ? () => onSectionClick(s.title) : undefined}
+          style={{ cursor: onSectionClick ? 'pointer' : 'default' }}
+        >
           <div className="section-icon">{s.icon}</div>
           {s.title && <div className="section-title section-title-strict">{s.title}</div>}
         </div>
