@@ -42,7 +42,7 @@ function App() {
 
   const renderContent = () => {
     if (selectedSection === 'Шанкапракшалана') {
-      return <Shankaprakshalana />;
+      return <Shankaprakshalana onBack={() => setSelectedSection(null)} />;
     }
     switch (activeTab) {
       case 'home':

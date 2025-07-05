@@ -43,7 +43,7 @@ const complexBonuses = [
 ];
 const complexNote = 'Практика проходит в течение 1 дня\nНеобходимо соблюдать особое питание в течение 1 недели после практики';
 
-export default function Shankaprakshalana() {
+export default function Shankaprakshalana({ onBack }) {
   // Всегда отображаем всё
   const expanded = true;
   const [contraShowAll, setContraShowAll] = useState(false);
@@ -228,7 +228,7 @@ export default function Shankaprakshalana() {
       {/* Кнопка приобрести */}
       <div style={{ width: '100%', display: 'flex', justifyContent: 'center', margin: '24px 0 0 0' }}>
         <a
-          href="https://t.me/disha070"
+          href="https://t.me/disha070?text=Здравствуйте%2C%20хочу%20купить%20курс%20по%20очистке"
           target="_blank"
           rel="noopener noreferrer"
           style={{
@@ -245,13 +245,39 @@ export default function Shankaprakshalana() {
             letterSpacing: '0.01em',
             transition: 'background 0.2s, box-shadow 0.2s, transform 0.1s',
             textAlign: 'center',
-            marginBottom: 24,
+            marginBottom: 16,
           }}
           onMouseOver={e => { e.currentTarget.style.background = 'linear-gradient(90deg, #7c5bb3 0%, #b484f7 100%)'; e.currentTarget.style.transform = 'scale(1.04)'; }}
           onMouseOut={e => { e.currentTarget.style.background = 'linear-gradient(90deg, #b484f7 0%, #7c5bb3 100%)'; e.currentTarget.style.transform = 'scale(1)'; }}
         >
-          Приобрести за 4700 руб
+          Купить за 4700 руб
         </a>
+      </div>
+
+      {/* Кнопка назад */}
+      <div style={{ width: '100%', display: 'flex', justifyContent: 'center', margin: '0 0 24px 0' }}>
+        <button
+          onClick={onBack}
+          style={{
+            padding: '12px 24px',
+            background: 'rgba(184,116,232,0.1)',
+            color: '#7c5bb3',
+            fontFamily: 'Comfortaa, cursive',
+            fontWeight: 600,
+            fontSize: '1rem',
+            borderRadius: 12,
+            border: '2px solid #b484f7',
+            cursor: 'pointer',
+            textDecoration: 'none',
+            letterSpacing: '0.01em',
+            transition: 'background 0.2s, transform 0.1s',
+            textAlign: 'center',
+          }}
+          onMouseOver={e => { e.currentTarget.style.background = 'rgba(184,116,232,0.2)'; e.currentTarget.style.transform = 'scale(1.02)'; }}
+          onMouseOut={e => { e.currentTarget.style.background = 'rgba(184,116,232,0.1)'; e.currentTarget.style.transform = 'scale(1)'; }}
+        >
+          ← Назад
+        </button>
       </div>
     </div>
   );
