@@ -39,9 +39,9 @@
 
 /* CSS Variables for Theme */
 :root {
-  --bg-primary: #E3F6E5;
-  --bg-secondary: linear-gradient(135deg, #e8f5e8 0%, #f0e8ff 100%);
-  --card-background: #ffffff;
+  --bg-primary: #f7f3ea;
+  --bg-secondary: #f7f3ea;
+  --card-background: #fff8f2;
   --text-primary: #560591;
   --text-secondary: #666666;
   --shadow-color: rgba(86, 5, 145, 0.08);
@@ -49,18 +49,18 @@
 }
 
 [data-theme="dark"] {
-  --bg-primary: #1a1a1a;
-  --bg-secondary: linear-gradient(135deg, #2d1b4e 0%, #1a1a2e 100%);
-  --card-background: #2d2d2d;
-  --text-primary: #ffffff;
-  --text-secondary: #ffffff;
-  --shadow-color: rgba(184, 116, 232, 0.15);
-  --border-color: rgba(184, 116, 232, 0.2);
+  --bg-primary: #e5dfd2;
+  --bg-secondary: #e5dfd2;
+  --card-background: #f0ebe0;
+  --text-primary: #560591;
+  --text-secondary: #666666;
+  --shadow-color: rgba(86, 5, 145, 0.08);
+  --border-color: rgba(86, 5, 145, 0.1);
 }
 
 .app-root {
   min-height: 100vh;
-  /* background: var(--bg-primary); */
+  background: transparent !important;
   font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
   display: flex;
   flex-direction: column;
@@ -74,7 +74,7 @@
   width: 100%;
   max-width: 430px;
   min-height: 100vh;
-  /* background: var(--bg-secondary); */
+  background: transparent !important;
   box-shadow: 0 0 32px 0 var(--shadow-color);
   border-radius: 18px 18px 0 0;
   overflow: hidden;
@@ -97,7 +97,7 @@
 
 /* Принудительный белый цвет для темной темы */
 [data-theme="dark"] .placeholder {
-  color: #ffffff !important;
+  color: #560591 !important;
 }
 
 @media (max-width: 480px) {

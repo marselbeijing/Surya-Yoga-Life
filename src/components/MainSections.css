@@ -3,7 +3,7 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
   padding: 36px 8px 70px 8px;
-  background: none;
+  background: none !important;
   min-height: calc(100vh - 64px);
   box-sizing: border-box;
   position: relative;
@@ -11,7 +11,7 @@
 }
 
 .section-card {
-  background: linear-gradient(135deg, rgba(255,240,240,0.5) 0%, rgba(255,179,179,0.5) 100%), var(--card-background);
+  background: #fff8f2;
   border-radius: 14px;
   box-shadow: 0 1px 4px var(--shadow-color);
   display: flex;
@@ -89,7 +89,11 @@
 }
 
 @keyframes fadeInScale {
-  to {
+  0% {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  100% {
     opacity: 1;
     transform: scale(1);
   }

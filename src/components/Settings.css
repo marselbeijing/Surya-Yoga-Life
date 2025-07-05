@@ -6,9 +6,9 @@
 
 .settings-header {
   margin-bottom: 24px;
-  background: linear-gradient(90deg, #ffb347 0%, #ff7e5f 100%);
+  background: #fff8f2;
   border-radius: 18px;
-  box-shadow: 0 2px 12px 0 rgba(255, 126, 95, 0.10);
+  box-shadow: 0 2px 12px 0 rgba(86, 5, 145, 0.10);
   padding: 18px 0 8px 0;
   text-align: center;
   display: flex;
@@ -18,15 +18,15 @@
 }
 
 [data-theme="dark"] .settings-header {
-  background: linear-gradient(90deg, #ff7e5f 0%, #ff3c00 100%);
-  color: #fff;
+  background: #f0ebe0;
+  color: #560591;
 }
 
 .settings-header h2 {
   font-family: 'Comfortaa', cursive;
   font-size: 1.4rem;
   font-weight: 600;
-  color: #fff;
+  color: #560591;
   margin: 0;
   text-align: center;
 }
@@ -98,7 +98,8 @@
   background: #6b0ba3;
 }
 
-.theme-switch-slider {
+.theme-switch-label::after {
+  content: '';
   position: absolute;
   top: 2px;
   left: 2px;
@@ -107,10 +108,9 @@
   background: white;
   border-radius: 50%;
   transition: transform 0.3s;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.theme-switch-input:checked + .theme-switch-label .theme-switch-slider {
+.theme-switch-input:checked + .theme-switch-label::after {
   transform: translateX(24px);
 }
 

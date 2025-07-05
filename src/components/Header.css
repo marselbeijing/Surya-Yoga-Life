@@ -8,10 +8,10 @@
   font-size: 1.55rem;
   font-weight: 600;
   letter-spacing: 0.05em;
-  background: linear-gradient(90deg, #ffb347 0%, #ff7e5f 100%);
-  color: #fff;
+  background: #fff8f2;
+  color: #560591;
   border-radius: 18px;
-  box-shadow: 0 2px 12px 0 rgba(255, 126, 95, 0.10);
+  box-shadow: 0 2px 12px 0 rgba(86, 5, 145, 0.10);
   transition: background 0.3s ease;
   display: flex;
   align-items: center;
@@ -26,8 +26,8 @@
   }
 }
 
-/* Специальный градиент для темной темы */
+/* Специальный цвет для темной темы */
 [data-theme="dark"] .main-header {
-  background: linear-gradient(90deg, #ff7e5f 0%, #ff3c00 100%);
-  color: #fff;
+  background: #f0ebe0;
+  color: #560591;
 } 
