@@ -84,14 +84,14 @@ function KnowledgeHDMoviesPage({ onBack }) {
     'Мой король',
     'Молчание Доктора Ивенса',
     'Кассиопея',
-    'Нефариус 🔥',
-    'Главный герой 🔥✅',
-    'Элизиум 🔥',
-    'Интерстелар 🔥',
+    'Нефариус',
+    'Главный герой',
+    'Элизиум',
+    'Интерстелар',
     'Ян стивенсон реинкарнация книга',
-    'Звездные души ♥️',
-    'Шестой день ✅',
-    'Вспомнить все 💜',
+    'Звездные души',
+    'Шестой день',
+    'Вспомнить все',
     'Полный отсчет',
     'Самсара 2001',
     'Сериал 1923',
@@ -101,7 +101,8 @@ function KnowledgeHDMoviesPage({ onBack }) {
   return (
     <div className="knowledge-page">
       <div className="knowledge-title">ХД ФИЛЬМЫ</div>
-      <button className="knowledge-back" onClick={onBack}>← Назад</button>
+      <div style={{textAlign: 'center', marginBottom: 12, color: '#7c5bb3', fontSize: '1rem', fontFamily: 'Comfortaa, cursive'}}>Для просмотра фильма кликните по названию</div>
+      <button className="knowledge-back knowledge-back--small" onClick={onBack}>← Назад</button>
       <div className="knowledge-section">
         <ul className="knowledge-movie-list">
           {movies.map((movie, idx) => {
@@ -187,6 +188,7 @@ function KnowledgeHDMoviesPage({ onBack }) {
             );
           })}
         </ul>
+        <button className="knowledge-back knowledge-back--small" onClick={onBack} style={{marginTop: 18}}>← Назад</button>
       </div>
     </div>
   );
@@ -249,13 +251,15 @@ function KnowledgeDocumentariesPage({ onBack }) {
   return (
     <div className="knowledge-page">
       <div className="knowledge-title knowledge-title--small">Документальные фильмы</div>
-      <button className="knowledge-back" onClick={onBack}>← Назад</button>
+      <div style={{textAlign: 'center', marginBottom: 12, color: '#7c5bb3', fontSize: '1rem', fontFamily: 'Comfortaa, cursive'}}>Для просмотра фильма кликните по названию</div>
+      <button className="knowledge-back knowledge-back--small" onClick={onBack}>← Назад</button>
       <div className="knowledge-section">
         <ul className="knowledge-movie-list">
           {documentaries.map((doc, idx) => (
             <li className="knowledge-movie-item" key={idx}>{doc}</li>
           ))}
         </ul>
+        <button className="knowledge-back knowledge-back--small" onClick={onBack} style={{marginTop: 18}}>← Назад</button>
       </div>
     </div>
   );
