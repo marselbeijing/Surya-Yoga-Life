@@ -102,7 +102,7 @@ function KnowledgeHDMoviesPage({ onBack }) {
     <div className="knowledge-page">
       <div className="knowledge-title">ХД ФИЛЬМЫ</div>
       <div style={{textAlign: 'center', marginBottom: 12, color: '#7c5bb3', fontSize: '1rem', fontFamily: 'Comfortaa, cursive'}}>Для просмотра фильма кликните по названию</div>
-      <button className="knowledge-back knowledge-back--small" onClick={onBack}>← Назад</button>
+      <button className="knowledge-back knowledge-back--small" onClick={onBack} style={{display: 'block', margin: '18px auto 0 auto'}}>← Назад</button>
       <div className="knowledge-section">
         <ul className="knowledge-movie-list">
           {movies.map((movie, idx) => {
@@ -188,7 +188,7 @@ function KnowledgeHDMoviesPage({ onBack }) {
             );
           })}
         </ul>
-        <button className="knowledge-back knowledge-back--small" onClick={onBack} style={{marginTop: 18}}>← Назад</button>
+        <button className="knowledge-back knowledge-back--small" onClick={onBack} style={{display: 'block', margin: '18px auto 0 auto'}}>← Назад</button>
       </div>
     </div>
   );
@@ -252,14 +252,14 @@ function KnowledgeDocumentariesPage({ onBack }) {
     <div className="knowledge-page">
       <div className="knowledge-title knowledge-title--small">Документальные фильмы</div>
       <div style={{textAlign: 'center', marginBottom: 12, color: '#7c5bb3', fontSize: '1rem', fontFamily: 'Comfortaa, cursive'}}>Для просмотра фильма кликните по названию</div>
-      <button className="knowledge-back knowledge-back--small" onClick={onBack}>← Назад</button>
+      <button className="knowledge-back knowledge-back--small" onClick={onBack} style={{display: 'block', margin: '18px auto 0 auto'}}>← Назад</button>
       <div className="knowledge-section">
         <ul className="knowledge-movie-list">
           {documentaries.map((doc, idx) => (
             <li className="knowledge-movie-item" key={idx}>{doc}</li>
           ))}
         </ul>
-        <button className="knowledge-back knowledge-back--small" onClick={onBack} style={{marginTop: 18}}>← Назад</button>
+        <button className="knowledge-back knowledge-back--small" onClick={onBack} style={{display: 'block', margin: '18px auto 0 auto'}}>← Назад</button>
       </div>
     </div>
   );
@@ -358,7 +358,7 @@ function BreathSquarePage({ onBack }) {
         </ul>
         Затем цикл повторяется.
       </div>
-      <button className="knowledge-back knowledge-back--small" onClick={onBack} style={{marginTop: 18}}>← Назад</button>
+      <button className="knowledge-back knowledge-back--small" onClick={onBack} style={{display: 'block', margin: '18px auto 0 auto'}}>← Назад</button>
     </div>
   );
 }
@@ -454,15 +454,17 @@ function BreathTrianglePage({ onBack }) {
       <TriangleBreathingAnimation />
       <div style={{fontFamily: 'Comfortaa, cursive', color: '#7c5bb3', fontSize: '0.82rem', margin: '18px 0 0 0', textAlign: 'center', lineHeight: 1.5}}>
         <b>Формат:</b> вдох → задержка → выдох<br/>
-        <ul style={{textAlign: 'left', margin: '8px auto 8px 18px', maxWidth: 400, color: '#7c5bb3', fontSize: '0.82rem'}}>
-          <li><b>Вдох</b> — 4 секунды</li>
-          <li><b>Задержка</b> — 4 секунды</li>
-          <li><b>Выдох</b> — 4 секунды</li>
-        </ul>
+        <div style={{textAlign: 'center'}}>
+          <ul style={{display: 'inline-block', textAlign: 'left', margin: '8px auto 8px auto', maxWidth: 400, color: '#7c5bb3', fontSize: '0.82rem'}}>
+            <li><b>Вдох</b> — 4 секунды</li>
+            <li><b>Задержка</b> — 4 секунды</li>
+            <li><b>Выдох</b> — 4 секунды</li>
+          </ul>
+        </div>
         Используется для медитации, стабилизации эмоций.<br/>
         Затем цикл повторяется.
       </div>
-      <button className="knowledge-back knowledge-back--small" onClick={onBack} style={{marginTop: 18}}>← Назад</button>
+      <button className="knowledge-back knowledge-back--small" onClick={onBack} style={{display: 'block', margin: '18px auto 0 auto'}}>← Назад</button>
     </div>
   );
 }
