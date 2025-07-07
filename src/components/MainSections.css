@@ -23,8 +23,8 @@
 
 .section-card {
   background: #fff8f2;
+  box-shadow: 0 4px 18px 0 rgba(124,91,179,0.10), 0 1.5px 0 #ede3fa inset;
   border-radius: 14px;
-  box-shadow: 0 1px 4px var(--shadow-color);
   display: flex;
   flex-direction: column;
   align-items: center;
