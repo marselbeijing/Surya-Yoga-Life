@@ -265,11 +265,214 @@ function KnowledgeDocumentariesPage({ onBack }) {
   );
 }
 
+function BoxBreathingAnimation() {
+  const phases = [
+    { label: 'Вдох', color: '#7c5bb3' },
+    { label: 'Задержка', color: '#ff9a56' },
+    { label: 'Выдох', color: '#35b6ff' },
+    { label: 'Задержка', color: '#ff9a56' },
+  ];
+  const [phase, setPhase] = useState(0);
+  const [timer, setTimer] = useState(4);
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    let req;
+    let start = null;
+    let stopped = false;
+    setProgress(0);
+    setTimer(4);
+    function animate(ts) {
+      if (!start) start = ts;
+      const elapsed = (ts - start) / 1000;
+      if (!stopped) setProgress(Math.min(elapsed / 4, 1));
+      if (elapsed < 4 && !stopped) {
+        req = requestAnimationFrame(animate);
+      }
+    }
+    req = requestAnimationFrame(animate);
+    const timerTimeout = setTimeout(() => {
+      setPhase((p) => (p + 1) % 4);
+    }, 4000);
+    let timerInt = setInterval(() => {
+      setTimer((t) => (t > 1 ? t - 1 : 4));
+    }, 1000);
+    return () => {
+      stopped = true;
+      cancelAnimationFrame(req);
+      clearTimeout(timerTimeout);
+      clearInterval(timerInt);
+    };
+  }, [phase]);
+
+  const size = 220;
+  const offset = 18;
+  const lines = [
+    [offset, offset, size - offset, offset],
+    [size - offset, offset, size - offset, size - offset],
+    [size - offset, size - offset, offset, size - offset],
+    [offset, size - offset, offset, offset],
+  ];
+
+  return (
+    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 32}}>
+      <svg width={size} height={size} style={{marginBottom: 32, display: 'block'}}>
+        {lines.map(([x1, y1, x2, y2], idx) => {
+          const isActive = phase === idx;
+          const total = Math.sqrt((x2-x1)**2 + (y2-y1)**2);
+          const dash = isActive ? progress * total : phase > idx ? total : 0;
+          return (
+            <line
+              key={idx}
+              x1={x1} y1={y1} x2={x2} y2={y2}
+              stroke={isActive ? phases[phase].color : '#ede3fa'}
+              strokeWidth={12}
+              strokeLinecap="round"
+              strokeDasharray={total}
+              strokeDashoffset={total - dash}
+              style={{transition: isActive ? 'stroke 0.2s' : 'none'}}
+            />
+          );
+        })}
+      </svg>
+      <div style={{fontFamily: 'Comfortaa, cursive', fontWeight: 600, fontSize: '1.25rem', color: '#7c5bb3', marginBottom: 8}}>
+        {phases[phase].label}
+      </div>
+      <div style={{fontSize: '2.2rem', fontWeight: 700, color: '#560591', marginBottom: 8}}>{timer}</div>
+    </div>
+  );
+}
+
+function BreathSquarePage({ onBack }) {
+  return (
+    <div className="knowledge-page">
+      <div className="knowledge-title">Дыхание по квадрату</div>
+      <BoxBreathingAnimation />
+      <div style={{fontFamily: 'Comfortaa, cursive', color: '#7c5bb3', fontSize: '0.82rem', margin: '18px 0 0 0', textAlign: 'center', lineHeight: 1.5}}>
+        <b>Как выполнять:</b> Представьте, что вы дышите по сторонам квадрата — каждая сторона символизирует одну фазу дыхания. Каждая фаза длится одинаковое количество времени, например, по 4 секунды:
+        <ul style={{textAlign: 'left', margin: '8px auto 8px 18px', maxWidth: 400, color: '#7c5bb3', fontSize: '0.82rem'}}>
+          <li><b>Вдох</b> — 4 секунды (спокойно вдыхаете носом).</li>
+          <li><b>Задержка дыхания</b> — 4 секунды (не дышите после вдоха).</li>
+          <li><b>Выдох</b> — 4 секунды (медленно выдыхаете ртом).</li>
+          <li><b>Задержка дыхания</b> — 4 секунды (не дышите после выдоха).</li>
+        </ul>
+        Затем цикл повторяется.
+      </div>
+      <button className="knowledge-back knowledge-back--small" onClick={onBack} style={{marginTop: 18}}>← Назад</button>
+    </div>
+  );
+}
+
+function TriangleBreathingAnimation() {
+  const phases = [
+    { label: 'Вдох', color: '#7c5bb3' },
+    { label: 'Задержка', color: '#ff9a56' },
+    { label: 'Выдох', color: '#35b6ff' },
+  ];
+  const [phase, setPhase] = useState(0);
+  const [timer, setTimer] = useState(4);
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    let req;
+    let start = null;
+    let stopped = false;
+    setProgress(0);
+    setTimer(4);
+    function animate(ts) {
+      if (!start) start = ts;
+      const elapsed = (ts - start) / 1000;
+      if (!stopped) setProgress(Math.min(elapsed / 4, 1));
+      if (elapsed < 4 && !stopped) {
+        req = requestAnimationFrame(animate);
+      }
+    }
+    req = requestAnimationFrame(animate);
+    const timerTimeout = setTimeout(() => {
+      setPhase((p) => (p + 1) % 3);
+    }, 4000);
+    let timerInt = setInterval(() => {
+      setTimer((t) => (t > 1 ? t - 1 : 4));
+    }, 1000);
+    return () => {
+      stopped = true;
+      cancelAnimationFrame(req);
+      clearTimeout(timerTimeout);
+      clearInterval(timerInt);
+    };
+  }, [phase]);
+
+  const size = 240;
+  const r = 90;
+  const cx = size / 2;
+  const cy = size / 2 + 18;
+  // Вершины треугольника
+  const points = [
+    [cx, cy - r],
+    [cx - r * Math.sin(Math.PI / 3), cy + r / 2],
+    [cx + r * Math.sin(Math.PI / 3), cy + r / 2],
+  ];
+  const lines = [
+    [...points[0], ...points[1]],
+    [...points[1], ...points[2]],
+    [...points[2], ...points[0]],
+  ];
+
+  return (
+    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 32}}>
+      <svg width={size} height={size} style={{marginBottom: 32, display: 'block'}}>
+        {lines.map(([x1, y1, x2, y2], idx) => {
+          const isActive = phase === idx;
+          const total = Math.sqrt((x2-x1)**2 + (y2-y1)**2);
+          const dash = isActive ? progress * total : phase > idx ? total : 0;
+          return (
+            <line
+              key={idx}
+              x1={x1} y1={y1} x2={x2} y2={y2}
+              stroke={isActive ? phases[phase].color : '#ede3fa'}
+              strokeWidth={12}
+              strokeLinecap="round"
+              strokeDasharray={total}
+              strokeDashoffset={total - dash}
+              style={{transition: isActive ? 'stroke 0.2s' : 'none'}}
+            />
+          );
+        })}
+      </svg>
+      <div style={{fontFamily: 'Comfortaa, cursive', fontWeight: 600, fontSize: '1.25rem', color: '#7c5bb3', marginBottom: 8}}>
+        {phases[phase].label}
+      </div>
+      <div style={{fontSize: '2.2rem', fontWeight: 700, color: '#560591', marginBottom: 8}}>{timer}</div>
+    </div>
+  );
+}
+
+function BreathTrianglePage({ onBack }) {
+  return (
+    <div className="knowledge-page">
+      <div className="knowledge-title triangle-title">Дыхание по треугольнику</div>
+      <TriangleBreathingAnimation />
+      <div style={{fontFamily: 'Comfortaa, cursive', color: '#7c5bb3', fontSize: '0.82rem', margin: '18px 0 0 0', textAlign: 'center', lineHeight: 1.5}}>
+        <b>Формат:</b> вдох → задержка → выдох<br/>
+        <ul style={{textAlign: 'left', margin: '8px auto 8px 18px', maxWidth: 400, color: '#7c5bb3', fontSize: '0.82rem'}}>
+          <li><b>Вдох</b> — 4 секунды</li>
+          <li><b>Задержка</b> — 4 секунды</li>
+          <li><b>Выдох</b> — 4 секунды</li>
+        </ul>
+        Используется для медитации, стабилизации эмоций.<br/>
+        Затем цикл повторяется.
+      </div>
+      <button className="knowledge-back knowledge-back--small" onClick={onBack} style={{marginTop: 18}}>← Назад</button>
+    </div>
+  );
+}
+
 function App() {
   const [activeTab, setActiveTab] = useState('home');
   const [isDarkTheme, setIsDarkTheme] = useState(false);
   const [selectedSection, setSelectedSection] = useState(null);
   const [selectedKnowledgeSection, setSelectedKnowledgeSection] = useState(null);
+  const [selectedBreathPractice, setSelectedBreathPractice] = useState(null);
 
   // Загрузка темы из localStorage при запуске
   useEffect(() => {
@@ -297,11 +500,33 @@ function App() {
   // Сброс выбранной секции при смене вкладки
   useEffect(() => {
     setSelectedSection(null);
+    setSelectedBreathPractice(null);
   }, [activeTab]);
 
   const renderContent = () => {
     if (selectedSection === 'Шанкапракшалана') {
       return <Shankaprakshalana onBack={() => setSelectedSection(null)} />;
+    }
+    if (selectedSection === 'Дыхание') {
+      if (selectedBreathPractice === 'breath-square') {
+        return <BreathSquarePage onBack={() => setSelectedBreathPractice(null)} />;
+      }
+      if (selectedBreathPractice === 'breath-triangle') {
+        return <BreathTrianglePage onBack={() => setSelectedBreathPractice(null)} />;
+      }
+      return (
+        <div className="knowledge-page">
+          <div className="knowledge-title">Дыхательные практики</div>
+          <div className="breath-practice-row">
+            <div className="breath-square-icon" onClick={() => setSelectedBreathPractice('breath-square')}>
+              <span>Дыхание по квадрату</span>
+            </div>
+            <div className="breath-square-icon" onClick={() => setSelectedBreathPractice('breath-triangle')}>
+              <span>Дыхание по треугольнику</span>
+            </div>
+          </div>
+        </div>
+      );
     }
     if (activeTab === 'knowledge' && selectedKnowledgeSection === 'hd-movies') {
       return <KnowledgeHDMoviesPage onBack={() => setSelectedKnowledgeSection(null)} />;

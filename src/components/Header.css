@@ -9,7 +9,7 @@
   font-weight: 600;
   letter-spacing: 0.05em;
   background: linear-gradient(90deg, #ff9a56 0%, #ff6b35 100%);
-  color: #560591;
+  color: #f7f3ea;
   border-radius: 18px;
   box-shadow: 0 2px 12px 0 rgba(86, 5, 145, 0.10);
   transition: background 0.3s ease;
@@ -29,5 +29,5 @@
 /* Специальный цвет для темной темы */
 [data-theme="dark"] .main-header {
   background: linear-gradient(90deg, #ff9a56 0%, #ff6b35 100%);
-  color: #560591;
+  color: #f7f3ea;
 } 
