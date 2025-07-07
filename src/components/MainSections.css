@@ -10,6 +10,17 @@
   overflow: hidden;
 }
 
+.om-bg-animated {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  opacity: 0.18;
+  pointer-events: none;
+  filter: blur(0.5px);
+}
+
 .section-card {
   background: #fff8f2;
   border-radius: 14px;
@@ -97,4 +108,52 @@
     opacity: 1;
     transform: scale(1);
   }
+}
+
+.om-float {
+  position: absolute;
+  font-size: 1.1rem;
+  color: #b39ddb;
+  opacity: 0.22;
+  pointer-events: none;
+  z-index: 0;
+  user-select: none;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+  transition: none;
+}
+
+.om-float-1 {
+  left: 12%; top: 22%; animation-name: om-chaos-1; animation-delay: 0s;
+}
+.om-float-2 {
+  left: 68%; top: 18%; animation-name: om-chaos-2; animation-delay: 3s;
+}
+.om-float-3 {
+  left: 38%; top: 68%; animation-name: om-chaos-3; animation-delay: 6s;
+}
+@keyframes om-chaos-1 {
+  0% { transform: translate(0,0) scale(1) rotate(0deg); }
+  20% { transform: translate(18px, -12px) scale(1.08) rotate(8deg); }
+  40% { transform: translate(-10px, 24px) scale(0.95) rotate(-12deg); }
+  60% { transform: translate(22px, 18px) scale(1.12) rotate(14deg); }
+  80% { transform: translate(-16px, -18px) scale(0.98) rotate(-8deg); }
+  100% { transform: translate(0,0) scale(1) rotate(0deg); }
+}
+@keyframes om-chaos-2 {
+  0% { transform: translate(0,0) scale(1) rotate(0deg); }
+  15% { transform: translate(-16px, 18px) scale(1.1) rotate(-10deg); }
+  35% { transform: translate(20px, -20px) scale(0.93) rotate(12deg); }
+  55% { transform: translate(-22px, 12px) scale(1.15) rotate(-16deg); }
+  75% { transform: translate(18px, 22px) scale(0.97) rotate(10deg); }
+  100% { transform: translate(0,0) scale(1) rotate(0deg); }
+}
+@keyframes om-chaos-3 {
+  0% { transform: translate(0,0) scale(1) rotate(0deg); }
+  25% { transform: translate(14px, -18px) scale(1.12) rotate(7deg); }
+  50% { transform: translate(-18px, 16px) scale(0.92) rotate(-13deg); }
+  75% { transform: translate(20px, 20px) scale(1.09) rotate(11deg); }
+  100% { transform: translate(0,0) scale(1) rotate(0deg); }
 } 

@@ -58,7 +58,7 @@ export default function BottomBar({ activeTab, setActiveTab }) {
           onClick={() => setActiveTab(tab.key)}
         >
           <span className="bar-icon">{tab.icon}</span>
-          <span className="bar-title">{tab.title}</span>
+          <span className="bar-title">{tab.label}</span>
         </div>
       ))}
     </nav>
