@@ -183,6 +183,139 @@ function KnowledgeHDMoviesPage({ onBack }) {
                 </li>
               );
             }
+            if (movie === 'Шафрановое сердце') {
+              return (
+                <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
+                  <a href="https://www.youtube.com/watch?v=hk0vitEo2PA" target="_blank" rel="noopener noreferrer">{movie}</a>
+                </li>
+              );
+            }
+            if (movie === 'Почему Бодхидхарма ушел на восток') {
+              return (
+                <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
+                  <a href="https://vk.com/video-14702321_456240304" target="_blank" rel="noopener noreferrer">{movie}</a>
+                </li>
+              );
+            }
+            if (movie === 'Феномен') {
+              return (
+                <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
+                  <a href="https://rutube.ru/video/b2c90ac4fb80e8832060a471e774fbef/" target="_blank" rel="noopener noreferrer">{movie}</a>
+                </li>
+              );
+            }
+            if (movie === 'День сурка') {
+              return (
+                <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
+                  <a href="https://rutube.ru/video/7137fdcf6c797b32d455cc512a02a23b/" target="_blank" rel="noopener noreferrer">{movie}</a>
+                </li>
+              );
+            }
+            if (movie === 'Жизнь пи') {
+              return (
+                <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
+                  <a href="https://rutube.ru/video/e26ea59dbd368e41a385c33c96861c69/" target="_blank" rel="noopener noreferrer">{movie}</a>
+                </li>
+              );
+            }
+            if (movie === 'Сюань цзан') {
+              return (
+                <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
+                  <a href="https://vk.com/video-168299641_456239226" target="_blank" rel="noopener noreferrer">{movie}</a>
+                </li>
+              );
+            }
+            if (movie === 'Экспресс Мумбаи - Варанаси (2016)') {
+              return (
+                <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
+                  <a href="https://vk.com/wall-17262100_56985" target="_blank" rel="noopener noreferrer">{movie}</a>
+                </li>
+              );
+            }
+            if (movie === 'Окча  (2017)') {
+              return (
+                <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
+                  <a href="https://vk.com/video-220018529_456242302" target="_blank" rel="noopener noreferrer">{movie}</a>
+                </li>
+              );
+            }
+            if (movie === 'Человек который познал бесконечность (2015)') {
+              return (
+                <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
+                  <a href="https://rutube.ru/video/9be4c54ed5e8240f07e73f43b45cc1b5/" target="_blank" rel="noopener noreferrer">{movie}</a>
+                </li>
+              );
+            }
+            if (movie === 'Миларепа') {
+              return (
+                <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
+                  <a href="https://vk.com/video-14702321_456239138" target="_blank" rel="noopener noreferrer">{movie}</a>
+                </li>
+              );
+            }
+            if (movie === 'Мирный воин(2006)') {
+              return (
+                <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
+                  <a href="https://vk.com/video-212368293_456239095" target="_blank" rel="noopener noreferrer">{movie}</a>
+                </li>
+              );
+            }
+            if (movie === 'Беседы с богом  (2006)') {
+              return (
+                <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
+                  <a href="https://vk.com/video23789858_456241294" target="_blank" rel="noopener noreferrer">{movie}</a>
+                </li>
+              );
+            }
+            if (movie === 'Потерянные дети будды  (2006)') {
+              return (
+                <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
+                  <a href="https://www.youtube.com/watch?v=V5cRFdKA5iA" target="_blank" rel="noopener noreferrer">{movie}</a>
+                </li>
+              );
+            }
+            if (movie === 'Среди Белых облаков (2005)') {
+              return (
+                <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
+                  <a href="https://vk.com/video-37785226_171444115" target="_blank" rel="noopener noreferrer">{movie}</a>
+                </li>
+              );
+            }
+            if (movie === 'Спринт(2015)') {
+              return (
+                <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
+                  <a href="https://rutube.ru/video/67c10b0da15c24aeaec4c87118f15565/" target="_blank" rel="noopener noreferrer">{movie}</a>
+                </li>
+              );
+            }
+            if (movie === 'Когда солнца целует землю') {
+              return (
+                <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
+                  <a href="https://vk.com/video-163374311_456239382" target="_blank" rel="noopener noreferrer">{movie}</a>
+                </li>
+              );
+            }
+            if (movie === 'Манджи : человек горы') {
+              return (
+                <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
+                  <a href="https://vk.com/video-55268627_456243353" target="_blank" rel="noopener noreferrer">{movie}</a>
+                </li>
+              );
+            }
+            if (movie === 'Семь лет в тибете') {
+              return (
+                <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
+                  <a href="https://rutube.ru/video/dac2d38a6feebd1c52a4b617bc232f13/" target="_blank" rel="noopener noreferrer">{movie}</a>
+                </li>
+              );
+            }
+            if (movie === 'Дзен') {
+              return (
+                <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
+                  <a href="https://vk.com/video-37785226_171669738" target="_blank" rel="noopener noreferrer">{movie}</a>
+                </li>
+              );
+            }
             return (
               <li className="knowledge-movie-item" key={idx}>{movie}</li>
             );

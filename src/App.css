@@ -278,7 +278,7 @@
   height: 90px;
   background: #f7f3ea;
   border-radius: 22px;
-  box-shadow: 0 4px 18px 0 rgba(124,91,179,0.10), 0 1.5px 0 #ede3fa inset;
+  box-shadow: 0 8px 32px 0 rgba(124,91,179,0.18), 0 1.5px 0 #ede3fa inset;
   cursor: pointer;
   transition: box-shadow 0.2s;
 }

@@ -41,13 +41,6 @@ const Settings = ({ isDarkTheme, toggleTheme }) => {
             <p>1.0.0</p>
           </div>
         </div>
-        
-        <div className="setting-item">
-          <div className="setting-info">
-            <h3>ХД фильмы раскрывающие сознание</h3>
-            <p>Подборка фильмов в высоком качестве, расширяющих восприятие и способствующих развитию сознания.</p>
-          </div>
-        </div>
       </div>
     </div>
   );
