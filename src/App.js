@@ -44,31 +44,389 @@ function KnowledgeHDMoviesPage({ onBack }) {
         />
       ),
     },
-    'Сказка о потерянном времени',
-    'Курукшетра (2021)',
-    'Интервью с богом',
-    'Пробуждение',
-    'Хижина',
-    'Остров',
-    'Волк и лев',
-    'Посвященный',
-    'Падмавати',
-    'Шафрановое сердце',
-    'Почему Бодхидхарма ушел на восток',
-    'Феномен',
-    'День сурка',
-    'Жизнь пи',
-    'Сюань цзан',
-    'Экспресс Мумбаи - Варанаси (2016)',
+    {
+      title: 'Сказка о потерянном времени',
+      embed: (
+        <iframe
+          width="720"
+          height="405"
+          src="https://rutube.ru/play/embed/aa2718f0d136f7f2157a57e9a95ee1ce/"
+          frameBorder="0"
+          allow="clipboard-write; autoplay"
+          webkitAllowFullScreen
+          mozallowfullscreen
+          allowFullScreen
+          title="Сказка о потерянном времени"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Курукшетра (2021)',
+      embed: (
+        <iframe
+          src="https://vk.com/video_ext.php?oid=-78647366&id=456241690&hd=4&autoplay=1"
+          width="720"
+          height="405"
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+          frameBorder="0"
+          allowFullScreen
+          title="Курукшетра (2021)"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Интервью с богом',
+      embed: (
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/0P2dl8ZeBrk?si=U1ElFr0N_0gLSO9z"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Пробуждение',
+      embed: (
+        <iframe
+          width="720"
+          height="405"
+          src="https://rutube.ru/play/embed/023777d7a7a348b841755152ef3aee11/"
+          frameBorder="0"
+          allow="clipboard-write; autoplay"
+          webkitAllowFullScreen
+          mozallowfullscreen
+          allowFullScreen
+          title="Пробуждение"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Хижина',
+      embed: (
+        <iframe
+          width="720"
+          height="405"
+          src="https://rutube.ru/play/embed/1d6bd6281b49db4462fa06fc2b065fae/"
+          frameBorder="0"
+          allow="clipboard-write; autoplay"
+          webkitAllowFullScreen
+          mozallowfullscreen
+          allowFullScreen
+          title="Хижина"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Остров',
+      embed: (
+        <iframe
+          width="720"
+          height="405"
+          src="https://rutube.ru/play/embed/c31cca9505a7c74ca185cd73e002f881/"
+          frameBorder="0"
+          allow="clipboard-write; autoplay"
+          webkitAllowFullScreen
+          mozallowfullscreen
+          allowFullScreen
+          title="Остров"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Волк и лев',
+      embed: (
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/FTQqlCwm39g?si=julqo3if5jLt0oyW"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Посвященный',
+      embed: (
+        <iframe
+          src="https://vk.com/video_ext.php?oid=-56028029&id=456249006&hd=4&autoplay=1"
+          width="720"
+          height="405"
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+          frameBorder="0"
+          allowFullScreen
+          title="Посвященный"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Падмавати',
+      embed: (
+        <iframe
+          width="720"
+          height="405"
+          src="https://rutube.ru/play/embed/68c7c8637771e7e89957c3ecf0167635/"
+          frameBorder="0"
+          allow="clipboard-write; autoplay"
+          webkitAllowFullScreen
+          mozallowfullscreen
+          allowFullScreen
+          title="Падмавати"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Шафрановое сердце',
+      embed: (
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/hk0vitEo2PA?si=iJgWt8L7rypHvX7J"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Почему Бодхидхарма ушел на восток',
+      embed: (
+        <iframe
+          src="https://vk.com/video_ext.php?oid=-14702321&id=456240304&hd=3&autoplay=1"
+          width="720"
+          height="405"
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+          frameBorder="0"
+          allowFullScreen
+          title="Почему Бодхидхарма ушел на восток"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Феномен',
+      embed: (
+        <iframe
+          src="https://vk.com/video_ext.php?oid=-176294899&id=456244354&hd=4&autoplay=1"
+          width="720"
+          height="405"
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+          frameBorder="0"
+          allowFullScreen
+          title="Феномен"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'День сурка',
+      embed: (
+        <iframe
+          width="720"
+          height="405"
+          src="https://rutube.ru/play/embed/7137fdcf6c797b32d455cc512a02a23b/"
+          frameBorder="0"
+          allow="clipboard-write; autoplay"
+          webkitAllowFullScreen
+          mozallowfullscreen
+          allowFullScreen
+          title="День сурка"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Жизнь пи',
+      embed: (
+        <iframe
+          width="720"
+          height="405"
+          src="https://rutube.ru/play/embed/e26ea59dbd368e41a385c33c96861c69/"
+          frameBorder="0"
+          allow="clipboard-write; autoplay"
+          webkitAllowFullScreen
+          mozallowfullscreen
+          allowFullScreen
+          title="Жизнь пи"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Сюань цзан',
+      embed: (
+        <iframe
+          src="https://vk.com/video_ext.php?oid=-168299641&id=456239226&hd=3&autoplay=1"
+          width="720"
+          height="405"
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+          frameBorder="0"
+          allowFullScreen
+          title="Сюань цзан"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Экспресс Мумбаи - Варанаси (2016)',
+      embed: (
+        <iframe
+          src="https://vk.com/video_ext.php?oid=7514725&id=456239226&hd=4&autoplay=1"
+          width="720"
+          height="405"
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+          frameBorder="0"
+          allowFullScreen
+          title="Экспресс Мумбаи - Варанаси (2016)"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
     'Изгой(2017)',
-    'Окча  (2017)',
-    'Человек который познал бесконечность (2015)',
-    'Миларепа',
-    'Мирный воин(2006)',
-    'Беседы с богом  (2006)',
-    'Потерянные дети будды  (2006)',
-    'Среди Белых облаков (2005)',
-    'Спринт(2015)',
+    {
+      title: 'Окча  (2017)',
+      embed: (
+        <iframe
+          src="https://vk.com/video_ext.php?oid=-220018529&id=456242302&hd=4&autoplay=1"
+          width="720"
+          height="405"
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+          frameBorder="0"
+          allowFullScreen
+          title="Окча (2017)"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Человек который познал бесконечность (2015)',
+      embed: (
+        <iframe
+          width="720"
+          height="405"
+          src="https://rutube.ru/play/embed/9be4c54ed5e8240f07e73f43b45cc1b5/"
+          frameBorder="0"
+          allow="clipboard-write; autoplay"
+          webkitAllowFullScreen
+          mozallowfullscreen
+          allowFullScreen
+          title="Человек который познал бесконечность (2015)"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Миларепа',
+      embed: (
+        <iframe
+          src="https://vk.com/video_ext.php?oid=-14702321&id=456239138&hd=3&autoplay=1"
+          width="720"
+          height="405"
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+          frameBorder="0"
+          allowFullScreen
+          title="Миларепа"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Мирный воин(2006)',
+      embed: (
+        <iframe
+          src="https://vk.com/video_ext.php?oid=-212368293&id=456239095&hd=4&autoplay=1"
+          width="720"
+          height="405"
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+          frameBorder="0"
+          allowFullScreen
+          title="Мирный воин(2006)"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Беседы с богом  (2006)',
+      embed: (
+        <iframe
+          src="https://vk.com/video_ext.php?oid=23789858&id=456241294&hd=4&autoplay=1"
+          width="720"
+          height="405"
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+          frameBorder="0"
+          allowFullScreen
+          title="Беседы с богом (2006)"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Потерянные дети будды  (2006)',
+      embed: (
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/V5cRFdKA5iA?si=U7s0EZeQwnJVdOzT"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Среди Белых облаков (2005)',
+      embed: (
+        <iframe
+          src="https://vk.com/video_ext.php?oid=-37785226&id=171444115&hd=3&autoplay=1"
+          width="720"
+          height="405"
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+          frameBorder="0"
+          allowFullScreen
+          title="Среди Белых облаков (2005)"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Спринт(2015)',
+      embed: (
+        <iframe
+          width="720"
+          height="405"
+          src="https://rutube.ru/play/embed/67c10b0da15c24aeaec4c87118f15565/"
+          frameBorder="0"
+          allow="clipboard-write; autoplay"
+          webkitAllowFullScreen
+          mozallowfullscreen
+          allowFullScreen
+          title="Спринт(2015)"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
     'Когда солнца целует землю',
     'Манджи : человек горы',
     'Семь лет в тибете',
@@ -108,7 +466,6 @@ function KnowledgeHDMoviesPage({ onBack }) {
     'Меняющий реальность',
     'Восхождение юпитер',
     'Последняя надежда',
-    'Остров',
     'Гаттака',
     'Визитеры',
     'Люси',
@@ -134,8 +491,12 @@ function KnowledgeHDMoviesPage({ onBack }) {
   return (
     <div className="knowledge-page">
       <div className="knowledge-title">ХД ФИЛЬМЫ</div>
-      <div style={{textAlign: 'center', marginBottom: 12, color: '#7c5bb3', fontSize: '1rem', fontFamily: 'Comfortaa, cursive'}}>Для просмотра фильма кликните по названию</div>
-      <button className="knowledge-back knowledge-back--small" onClick={onBack} style={{display: 'block', margin: '18px auto 0 auto'}}>← Назад</button>
+      {!selectedMovie && (
+        <>
+          <div style={{textAlign: 'center', marginBottom: 12, color: '#7c5bb3', fontSize: '1rem', fontFamily: 'Comfortaa, cursive'}}>Для просмотра фильма кликните по названию</div>
+          <button className="knowledge-back knowledge-back--small" onClick={onBack} style={{display: 'block', margin: '18px auto 0 auto'}}>← Назад</button>
+        </>
+      )}
       <div className="knowledge-section">
         {selectedMovie ? (
           <div style={{textAlign: 'center'}}>
@@ -228,48 +589,6 @@ function KnowledgeHDMoviesPage({ onBack }) {
                   </li>
                 );
               }
-              if (movie === 'Шафрановое сердце') {
-                return (
-                  <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
-                    <a href="https://www.youtube.com/watch?v=hk0vitEo2PA" target="_blank" rel="noopener noreferrer">{movie}</a>
-                  </li>
-                );
-              }
-              if (movie === 'Почему Бодхидхарма ушел на восток') {
-                return (
-                  <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
-                    <a href="https://vk.com/video-14702321_456240304" target="_blank" rel="noopener noreferrer">{movie}</a>
-                  </li>
-                );
-              }
-              if (movie === 'Феномен') {
-                return (
-                  <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
-                    <a href="https://www.youtube.com/watch?v=bnuA2Wnk25Q" target="_blank" rel="noopener noreferrer">{movie}</a>
-                  </li>
-                );
-              }
-              if (movie === 'День сурка') {
-                return (
-                  <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
-                    <a href="https://rutube.ru/video/7137fdcf6c797b32d455cc512a02a23b/" target="_blank" rel="noopener noreferrer">{movie}</a>
-                  </li>
-                );
-              }
-              if (movie === 'Жизнь пи') {
-                return (
-                  <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
-                    <a href="https://rutube.ru/video/e26ea59dbd368e41a385c33c96861c69/" target="_blank" rel="noopener noreferrer">{movie}</a>
-                  </li>
-                );
-              }
-              if (movie === 'Сюань цзан') {
-                return (
-                  <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
-                    <a href="https://vk.com/video-168299641_456239226" target="_blank" rel="noopener noreferrer">{movie}</a>
-                  </li>
-                );
-              }
               if (movie === 'Экспресс Мумбаи - Варанаси (2016)') {
                 return (
                   <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
@@ -287,7 +606,7 @@ function KnowledgeHDMoviesPage({ onBack }) {
               if (movie === 'Человек который познал бесконечность (2015)') {
                 return (
                   <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
-                    <a href="https://rutube.ru/video/9be4c54ed5e8240f07e73f43b45cc1b5/" target="_blank" rel="noopener noreferrer">{movie}</a>
+                    <a href="https://rutube.ru/play/embed/9be4c54ed5e8240f07e73f43b45cc1b5/" target="_blank" rel="noopener noreferrer">{movie}</a>
                   </li>
                 );
               }
@@ -302,13 +621,6 @@ function KnowledgeHDMoviesPage({ onBack }) {
                 return (
                   <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
                     <a href="https://vk.com/video-212368293_456239095" target="_blank" rel="noopener noreferrer">{movie}</a>
-                  </li>
-                );
-              }
-              if (movie === 'Беседы с богом  (2006)') {
-                return (
-                  <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
-                    <a href="https://vk.com/video23789858_456241294" target="_blank" rel="noopener noreferrer">{movie}</a>
                   </li>
                 );
               }
@@ -329,7 +641,7 @@ function KnowledgeHDMoviesPage({ onBack }) {
               if (movie === 'Спринт(2015)') {
                 return (
                   <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
-                    <a href="https://rutube.ru/video/67c10b0da15c24aeaec4c87118f15565/" target="_blank" rel="noopener noreferrer">{movie}</a>
+                    <a href="https://rutube.ru/play/embed/67c10b0da15c24aeaec4c87118f15565/" target="_blank" rel="noopener noreferrer">{movie}</a>
                   </li>
                 );
               }
