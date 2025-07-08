@@ -27,7 +27,23 @@ function KnowledgeHDMoviesPage({ onBack }) {
         />
       ),
     },
-    'Шоу Трумана',
+    {
+      title: 'Шоу Трумана',
+      embed: (
+        <iframe
+          width="720"
+          height="405"
+          src="https://rutube.ru/play/embed/e2c5b63da3a296331dd1d6de6055034d/"
+          frameBorder="0"
+          allow="clipboard-write; autoplay"
+          webkitAllowFullScreen
+          mozallowfullscreen
+          allowFullScreen
+          title="Шоу Трумана"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
     'Сказка о потерянном времени',
     'Курукшетра (2021)',
     'Интервью с богом',
