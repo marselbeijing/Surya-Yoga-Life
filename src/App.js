@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import MainSections from './components/MainSections';
 import BottomBar from './components/BottomBar';
 import Header from './components/Header';
-import Settings from './components/Settings';
+
 import TelegramLoginButton from './components/TelegramLoginButton';
 import { Shankaprakshalana } from './components';
 import './App.css';
@@ -427,14 +427,130 @@ function KnowledgeHDMoviesPage({ onBack }) {
         />
       ),
     },
-    'Когда солнца целует землю',
-    'Манджи : человек горы',
-    'Семь лет в тибете',
-    'Дзен',
-    'Заплати другому (2000)',
-    'Сила веры (2007)',
-    'Чайка по имени Джонатан Ливингстон (1973)',
-    'Жизнь и эпоха Гаутамы будды',
+    {
+      title: 'Когда солнца целует землю',
+      embed: (
+        <iframe
+          src="https://vk.com/video_ext.php?oid=-163374311&id=456239382&hd=3&autoplay=1"
+          width="720"
+          height="405"
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+          frameBorder="0"
+          allowFullScreen
+          title="Когда солнца целует землю"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Манджи : человек горы',
+      embed: (
+        <iframe
+          src="https://vk.com/video_ext.php?oid=-55268627&id=456243353&hd=1&autoplay=1"
+          width="640"
+          height="360"
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+          frameBorder="0"
+          allowFullScreen
+          title="Манджи : человек горы"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Семь лет в тибете',
+      embed: (
+        <iframe
+          width="720"
+          height="405"
+          src="https://rutube.ru/play/embed/dac2d38a6feebd1c52a4b617bc232f13/"
+          frameBorder="0"
+          allow="clipboard-write; autoplay"
+          webkitAllowFullScreen
+          mozallowfullscreen
+          allowFullScreen
+          title="Семь лет в тибете"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Дзен',
+      embed: (
+        <iframe
+          src="https://vk.com/video_ext.php?oid=-37785226&id=171669738&hd=3&autoplay=1"
+          width="720"
+          height="405"
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+          frameBorder="0"
+          allowFullScreen
+          title="Дзен"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Заплати другому (2000)',
+      embed: (
+        <iframe
+          width="720"
+          height="405"
+          src="https://rutube.ru/play/embed/12fae6263b5938091c7036230686f83d/"
+          frameBorder="0"
+          allow="clipboard-write; autoplay"
+          webkitAllowFullScreen
+          mozallowfullscreen
+          allowFullScreen
+          title="Заплати другому (2000)"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Сила веры (2007)',
+      embed: (
+        <iframe
+          src="https://vk.com/video_ext.php?oid=-63596863&id=171247606&hd=3&autoplay=1"
+          width="720"
+          height="405"
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+          frameBorder="0"
+          allowFullScreen
+          title="Сила веры (2007)"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Чайка по имени Джонатан Ливингстон (1973)',
+      embed: (
+        <iframe
+          src="https://vk.com/video_ext.php?oid=-37785226&id=171552076&hd=3&autoplay=1"
+          width="1280"
+          height="720"
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+          frameBorder="0"
+          allowFullScreen
+          style={{maxWidth: '100%'}}
+          title="Чайка по имени Джонатан Ливингстон (1973)"
+        />
+      ),
+    },
+    {
+      title: 'Жизнь и эпоха Гаутамы будды',
+      embed: (
+        <iframe
+          src="https://vk.com/video_ext.php?oid=-52526415&id=456246535&hd=3&autoplay=1"
+          width="1280"
+          height="720"
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+          frameBorder="0"
+          allowFullScreen
+          style={{maxWidth: '100%'}}
+          title="Жизнь и эпоха Гаутамы будды"
+        />
+      ),
+    },
     'Гималаи (1999)',
     'Окраина (1998)',
     'Рамануджачарья(1988)',
@@ -505,10 +621,10 @@ function KnowledgeHDMoviesPage({ onBack }) {
             <button className="knowledge-back knowledge-back--small" onClick={() => setSelectedMovie(null)} style={{display: 'block', margin: '18px auto 0 auto'}}>← К списку фильмов</button>
           </div>
         ) : (
-          <ul className="knowledge-movie-list">
-            {movies.map((movie, idx) => {
+        <ul className="knowledge-movie-list">
+          {movies.map((movie, idx) => {
               if (typeof movie === 'object' && movie.title) {
-                return (
+              return (
                   <li
                     className="knowledge-movie-item"
                     key={idx}
@@ -516,79 +632,79 @@ function KnowledgeHDMoviesPage({ onBack }) {
                     onClick={() => setSelectedMovie(movie)}
                   >
                     {movie.title}
-                  </li>
-                );
-              }
-              if (idx === 1) {
-                return (
-                  <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
-                    <a href="https://rutube.ru/video/e2c5b63da3a296331dd1d6de6055034d/" target="_blank" rel="noopener noreferrer">{movie}</a>
-                  </li>
-                );
-              }
-              if (idx === 2) {
-                return (
-                  <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
-                    <a href="https://rutube.ru/video/aa2718f0d136f7f2157a57e9a95ee1ce/" target="_blank" rel="noopener noreferrer">{movie}</a>
-                  </li>
-                );
-              }
-              if (idx === 3) {
-                return (
-                  <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
-                    <a href="https://www.youtube.com/watch?v=pXYvnGFqGXU" target="_blank" rel="noopener noreferrer">{movie}</a>
-                  </li>
-                );
-              }
-              if (idx === 4) {
-                return (
-                  <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
-                    <a href="https://www.youtube.com/watch?v=0P2dl8ZeBrk" target="_blank" rel="noopener noreferrer">{movie}</a>
-                  </li>
-                );
-              }
-              if (idx === 5) {
-                return (
-                  <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
-                    <a href="https://rutube.ru/video/023777d7a7a348b841755152ef3aee11/" target="_blank" rel="noopener noreferrer">{movie}</a>
-                  </li>
-                );
-              }
-              if (idx === 6) {
-                return (
-                  <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
-                    <a href="https://rutube.ru/video/1d6bd6281b49db4462fa06fc2b065fae/" target="_blank" rel="noopener noreferrer">{movie}</a>
-                  </li>
-                );
-              }
-              if (idx === 7) {
-                return (
-                  <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
-                    <a href="https://rutube.ru/video/c31cca9505a7c74ca185cd73e002f881/" target="_blank" rel="noopener noreferrer">{movie}</a>
-                  </li>
-                );
-              }
-              if (idx === 8) {
-                return (
-                  <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
-                    <a href="https://www.youtube.com/watch?v=FTQqlCwm39g" target="_blank" rel="noopener noreferrer">{movie}</a>
-                  </li>
-                );
-              }
-              if (idx === 9) {
-                return (
-                  <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
-                    <a href="https://vk.com/video-56028029_456249006" target="_blank" rel="noopener noreferrer">{movie}</a>
-                  </li>
-                );
-              }
-              if (idx === 10) {
-                return (
-                  <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
-                    <a href="https://rutube.ru/video/68c7c8637771e7e89957c3ecf0167635/" target="_blank" rel="noopener noreferrer">{movie}</a>
-                  </li>
-                );
-              }
+                </li>
+              );
+            }
+            if (idx === 1) {
+              return (
+                <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
+                  <a href="https://rutube.ru/video/e2c5b63da3a296331dd1d6de6055034d/" target="_blank" rel="noopener noreferrer">{movie}</a>
+                </li>
+              );
+            }
+            if (idx === 2) {
+              return (
+                <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
+                  <a href="https://rutube.ru/video/aa2718f0d136f7f2157a57e9a95ee1ce/" target="_blank" rel="noopener noreferrer">{movie}</a>
+                </li>
+              );
+            }
+            if (idx === 3) {
+              return (
+                <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
+                  <a href="https://www.youtube.com/watch?v=pXYvnGFqGXU" target="_blank" rel="noopener noreferrer">{movie}</a>
+                </li>
+              );
+            }
+            if (idx === 4) {
+              return (
+                <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
+                  <a href="https://www.youtube.com/watch?v=0P2dl8ZeBrk" target="_blank" rel="noopener noreferrer">{movie}</a>
+                </li>
+              );
+            }
+            if (idx === 5) {
+              return (
+                <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
+                  <a href="https://rutube.ru/video/023777d7a7a348b841755152ef3aee11/" target="_blank" rel="noopener noreferrer">{movie}</a>
+                </li>
+              );
+            }
+            if (idx === 6) {
+              return (
+                <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
+                  <a href="https://rutube.ru/video/1d6bd6281b49db4462fa06fc2b065fae/" target="_blank" rel="noopener noreferrer">{movie}</a>
+                </li>
+              );
+            }
+            if (idx === 7) {
+              return (
+                <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
+                  <a href="https://rutube.ru/video/c31cca9505a7c74ca185cd73e002f881/" target="_blank" rel="noopener noreferrer">{movie}</a>
+                </li>
+              );
+            }
+            if (idx === 8) {
+              return (
+                <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
+                  <a href="https://www.youtube.com/watch?v=FTQqlCwm39g" target="_blank" rel="noopener noreferrer">{movie}</a>
+                </li>
+              );
+            }
+            if (idx === 9) {
+              return (
+                <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
+                  <a href="https://vk.com/video-56028029_456249006" target="_blank" rel="noopener noreferrer">{movie}</a>
+                </li>
+              );
+            }
+            if (idx === 10) {
+              return (
+                <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
+                  <a href="https://rutube.ru/video/68c7c8637771e7e89957c3ecf0167635/" target="_blank" rel="noopener noreferrer">{movie}</a>
+                </li>
+              );
+            }
               if (movie === 'Экспресс Мумбаи - Варанаси (2016)') {
                 return (
                   <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
@@ -662,7 +778,7 @@ function KnowledgeHDMoviesPage({ onBack }) {
               if (movie === 'Семь лет в тибете') {
                 return (
                   <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
-                    <a href="https://rutube.ru/video/dac2d38a6feebd1c52a4b617bc232f13/" target="_blank" rel="noopener noreferrer">{movie}</a>
+                    <a href="https://rutube.ru/play/embed/dac2d38a6feebd1c52a4b617bc232f13/" target="_blank" rel="noopener noreferrer">{movie}</a>
                   </li>
                 );
               }
@@ -673,11 +789,11 @@ function KnowledgeHDMoviesPage({ onBack }) {
                   </li>
                 );
               }
-              return (
-                <li className="knowledge-movie-item" key={idx}>{movie}</li>
-              );
-            })}
-          </ul>
+            return (
+              <li className="knowledge-movie-item" key={idx}>{movie}</li>
+            );
+          })}
+        </ul>
         )}
       </div>
     </div>
@@ -992,12 +1108,29 @@ function BreathTrianglePage({ onBack }) {
   );
 }
 
+function AboutDianaGuruPage({ onBack }) {
+  return (
+    <div className="knowledge-page">
+      <div className="knowledge-title">Диана Гуру</div>
+      <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 18, margin: '28px 0 0 0'}}>
+        <img src={require('./components/diana1.jpg')} alt="Диана 1" style={{maxWidth: 140, maxHeight: 180, borderRadius: 14, boxShadow: '0 2px 12px #e6e0f7', objectFit: 'cover'}} />
+        <img src={require('./components/diana2.jpg')} alt="Диана 2" style={{maxWidth: 140, maxHeight: 180, borderRadius: 14, boxShadow: '0 2px 12px #e6e0f7', objectFit: 'cover'}} />
+        <img src={require('./components/diana3.jpg')} alt="Диана 3" style={{maxWidth: 140, maxHeight: 180, borderRadius: 14, boxShadow: '0 2px 12px #e6e0f7', objectFit: 'cover'}} />
+        <img src={require('./components/diana4.jpg')} alt="Диана 4" style={{maxWidth: 140, maxHeight: 180, borderRadius: 14, boxShadow: '0 2px 12px #e6e0f7', objectFit: 'cover'}} />
+        <img src={require('./components/diana5.jpg')} alt="Диана 5" style={{maxWidth: 140, maxHeight: 180, borderRadius: 14, boxShadow: '0 2px 12px #e6e0f7', objectFit: 'cover'}} />
+      </div>
+      <button className="knowledge-back knowledge-back--small" onClick={onBack} style={{display: 'block', margin: '28px auto 0 auto'}}>← Назад</button>
+    </div>
+  );
+}
+
 function App() {
   const [activeTab, setActiveTab] = useState('home');
   const [isDarkTheme, setIsDarkTheme] = useState(false);
   const [selectedSection, setSelectedSection] = useState(null);
   const [selectedKnowledgeSection, setSelectedKnowledgeSection] = useState(null);
   const [selectedBreathPractice, setSelectedBreathPractice] = useState(null);
+  const [showDianaGuru, setShowDianaGuru] = useState(false);
 
   // Загрузка темы из localStorage при запуске
   useEffect(() => {
@@ -1083,10 +1216,46 @@ function App() {
             </div>
           </div>
         );
-      case 'settings':
-        return <Settings isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />;
+      case 'about':
+        if (showDianaGuru) {
+          return <AboutDianaGuruPage onBack={() => setShowDianaGuru(false)} />;
+        }
+        return (
+          <div className="knowledge-page">
+            <div className="knowledge-title">О нас</div>
+            <p style={{textAlign: 'center', color: '#111', margin: '18px 0 0 0', fontSize: '0.92rem', fontWeight: 500}}>
+              Добро пожаловать в мир гармонии и духовного развития! Наше приложение создано для тех, кто стремится к внутреннему равновесию и познанию себя.
+            </p>
+            <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 20, margin: '24px 0'}}>
+              <img src={require('./components/about1.jpg')} alt="Йога 1" style={{maxWidth: 140, maxHeight: 180, borderRadius: 14, boxShadow: '0 2px 12px #e6e0f7', objectFit: 'cover', cursor: 'pointer'}} onClick={() => setShowDianaGuru(true)} />
+              <img src={require('./components/about2.jpg')} alt="Йога 2" style={{maxWidth: 140, maxHeight: 180, borderRadius: 14, boxShadow: '0 2px 12px #e6e0f7', objectFit: 'cover'}} />
+            </div>
+            <div className="knowledge-section">
+              <h4 style={{textAlign: 'center', fontWeight: 700, marginTop: 28}}>Что мы предлагаем:</h4>
+              <ul style={{color: '#7c5bb3', lineHeight: 1.6}}>
+                <li><strong>Йога практики</strong> — упражнения для тела и духа</li>
+                <li><strong>Дыхательные техники</strong> — методы управления энергией</li>
+                <li><strong>Медитация</strong> — путь к внутреннему покою</li>
+                <li><strong>База знаний</strong> — фильмы и материалы для развития сознания</li>
+                <li><strong>Лила</strong> — духовная игра самопознания</li>
+                <li><strong>Шанкапракшалана</strong> — практика очищения</li>
+              </ul>
+
+              <h4 style={{textAlign: 'center', fontWeight: 700, marginTop: 32}}>Наша миссия</h4>
+              <p style={{color: '#111', textAlign: 'center'}}>
+                Помочь каждому найти свой путь к гармонии, здоровью и духовному росту через древние практики йоги и современные методы развития.
+              </p>
+
+              <div style={{marginTop: 20, padding: 15, background: 'rgba(124, 91, 179, 0.1)', borderRadius: 12, textAlign: 'center'}}>
+                <p style={{margin: 0, fontStyle: 'italic', color: '#7c5bb3'}}>
+                  "Путь к себе начинается с первого шага"
+                </p>
+              </div>
+            </div>
+          </div>
+        );
       case 'account':
-        return <TelegramLoginButton />;
+        return <TelegramLoginButton isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />;
       default:
         return <MainSections onSectionClick={setSelectedSection} />;
     }

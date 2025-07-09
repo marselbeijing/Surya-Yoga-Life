@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './TelegramLoginButton.css';
 
-export default function TelegramLoginButton() {
+export default function TelegramLoginButton({ isDarkTheme, toggleTheme }) {
   const [user, setUser] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -67,42 +67,73 @@ export default function TelegramLoginButton() {
     setTimeout(authorize, 500);
   }, []);
 
-  if (user) {
-    return (
+  return (
+    <div className="account-page">
+      {/* Секция аккаунта */}
       <div className="account-card">
         <div className="account-avatar">
           <img
-            src={user.photo_url || 'https://telegram.org/img/t_logo.png'}
-            alt={user.first_name}
+            src={user?.photo_url || 'https://telegram.org/img/t_logo.png'}
+            alt={user?.first_name || 'Telegram'}
             className="account-avatar-img"
           />
         </div>
         <div className="account-info">
-          <div className="account-name">{user.first_name} {user.last_name || ''}</div>
-          <div className="account-id">ID: {user.id}</div>
-          <div className="account-status success">✅ Авторизация через Telegram выполнена</div>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <div className="account-card">
-      <div className="account-avatar">
-        <img src="https://telegram.org/img/t_logo.png" alt="Telegram" className="account-avatar-img" />
-      </div>
-      <div className="account-info">
-        <div className="account-name">Гость</div>
-        <div className="account-id">ID: —</div>
-        <div className="account-status error">
-          {loading ? '🔄 Проверка авторизации...' : '❌ ' + (error || 'Авторизация через Telegram...')}
-        </div>
-        {!loading && (
-          <div style={{fontSize: '0.85em', color: '#bba6d4', marginTop: 6}}>
-            Для авторизации откройте приложение через Telegram Mini App на телефоне или в Telegram Desktop.<br/>
-            В браузере авторизация недоступна.
+          <div className="account-name">{user ? `${user.first_name} ${user.last_name || ''}` : 'Гость'}</div>
+          <div className="account-id">ID: {user?.id || '—'}</div>
+          <div className="account-status success">
+            {user ? '✅ Авторизация через Telegram выполнена' : 
+             loading ? '🔄 Проверка авторизации...' : '❌ ' + (error || 'Авторизация через Telegram...')}
           </div>
-        )}
+          {!loading && !user && (
+            <div style={{fontSize: '0.85em', color: '#bba6d4', marginTop: 6}}>
+              Для авторизации откройте приложение через Telegram Mini App на телефоне или в Telegram Desktop.<br/>
+              В браузере авторизация недоступна.
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Секция настроек */}
+      <div className="settings-section">
+        <div className="settings-header">
+          <h2>Настройки</h2>
+        </div>
+        
+        <div className="settings-content">
+          <div className="setting-item">
+            <div className="setting-info">
+              <h3>Тема приложения</h3>
+              <p>Переключение между светлой и темной темой</p>
+            </div>
+            <div className="theme-toggle">
+              <input
+                type="checkbox"
+                id="theme-switch"
+                checked={isDarkTheme}
+                onChange={toggleTheme}
+                className="theme-switch-input"
+              />
+              <label htmlFor="theme-switch" className="theme-switch-label">
+                <span className="theme-switch-slider"></span>
+              </label>
+            </div>
+          </div>
+          
+          <div className="setting-item">
+            <div className="setting-info">
+              <h3>О приложении</h3>
+              <p>Surya Yoga Life - ваш путь к гармонии</p>
+            </div>
+          </div>
+          
+          <div className="setting-item">
+            <div className="setting-info">
+              <h3>Версия</h3>
+              <p>1.0.0</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
