@@ -84,10 +84,21 @@
 }
 
 .bar-tab.active .bar-icon {
-  background: linear-gradient(135deg, #560591 0%, #B874E8 100%);
-  color: #fff;
-  box-shadow: 0 2px 8px rgba(86, 5, 145, 0.18);
-  transform: scale(1.08);
+  background: linear-gradient(90deg, #ff914d 0%, #ff5e62 100%);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 12px #ffd6b8;
+  margin-bottom: 2px;
+}
+
+.bar-tab.active .bar-icon img,
+.bar-tab.active .bar-icon svg {
+  width: 16px !important;
+  height: 16px !important;
 }
 
 .bar-title {

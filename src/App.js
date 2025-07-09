@@ -5,7 +5,9 @@ import Header from './components/Header';
 
 import TelegramLoginButton from './components/TelegramLoginButton';
 import { Shankaprakshalana } from './components';
+import PhotoIcons from './components/PhotoIcons';
 import './App.css';
+import telegramIcon from './components/telegram.svg';
 
 function KnowledgeHDMoviesPage({ onBack }) {
   const [selectedMovie, setSelectedMovie] = React.useState(null);
@@ -1111,7 +1113,45 @@ function BreathTrianglePage({ onBack }) {
 function AboutDianaGuruPage({ onBack }) {
   return (
     <div className="knowledge-page">
-      <div className="knowledge-title">Диана Гуру</div>
+      <div className="knowledge-title">Диана Середа</div>
+      
+      {/* Подробный текст о Диане Середе */}
+      <div style={{
+        margin: '20px 16px 28px 16px', 
+        color: '#333', 
+        fontSize: '0.9rem', 
+        lineHeight: 1.6, 
+        fontFamily: 'Comfortaa, cursive',
+        textAlign: 'center'
+      }}>
+        <p style={{margin: '0 0 12px 0'}}>
+          Приветствую 🙏<br/>
+          Меня зовут Диана Середа
+        </p>
+        
+        <p style={{margin: '0 0 12px 0'}}>
+          Я практикую хатха-йогу с 2007 года. С 2016 года являюсь сертифицированным преподавателем Центра индийской культуры Лала Бахадура Шастри. Также я окончила обучение в школе преподавателей йоги Oum.ru по направлениям хатха-йога и медитация и продолжаю обучение в Институте Бхагавад-гиты.
+        </p>
+        
+        <p style={{margin: '0 0 12px 0'}}>
+          Провожу групповые и индивидуальные занятия по хатха-йоге, пранаяме, медитации и релаксационным техникам на русском и английском языках. Разрабатываю программы для начинающих, для детей и для практикующих с разным уровнем подготовки, где особое внимание уделяется выравниванию тела и дыхания, укреплению позвоночника и суставов, развитию координации, пластичности, навыков "заземления", "укоренения" и ментальной устойчивости.
+        </p>
+        
+        <p style={{margin: '0 0 12px 0'}}>
+          Также я:
+        </p>
+        <ul style={{margin: '0 0 12px 0', padding: 0, listStyle: 'none', textAlign: 'center'}}>
+          <li>• провожу ретриты в Индию,</li>
+          <li>• являюсь проводником трансформационной игры "Лила",</li>
+          <li>• практикую и обучаю гвоздестоянию как способу внутренней настройки, концентрации и силы духа,</li>
+          <li>• увлечена путешествиями и горами.</li>
+        </ul>
+        
+        <p style={{margin: '0 0 0 0'}}>
+          Йога для меня — это путь к целостности, осознанности и бережному отношению к себе. Я с радостью делюсь этим знанием и сопровождаю тех, кто готов шаг за шагом возвращаться к своему естественному состоянию внутреннего покоя и силы🍃
+        </p>
+      </div>
+      
       <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 18, margin: '28px 0 0 0'}}>
         <img src={require('./components/diana1.jpg')} alt="Диана 1" style={{maxWidth: 140, maxHeight: 180, borderRadius: 14, boxShadow: '0 2px 12px #e6e0f7', objectFit: 'cover'}} />
         <img src={require('./components/diana2.jpg')} alt="Диана 2" style={{maxWidth: 140, maxHeight: 180, borderRadius: 14, boxShadow: '0 2px 12px #e6e0f7', objectFit: 'cover'}} />
@@ -1226,14 +1266,24 @@ function App() {
             <p style={{textAlign: 'center', color: '#111', margin: '18px 0 0 0', fontSize: '0.92rem', fontWeight: 500}}>
               Добро пожаловать в мир гармонии и духовного развития! Наше приложение создано для тех, кто стремится к внутреннему равновесию и познанию себя.
             </p>
-            <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 20, margin: '24px 0'}}>
-              <img src={require('./components/about1.jpg')} alt="Йога 1" style={{maxWidth: 140, maxHeight: 180, borderRadius: 14, boxShadow: '0 2px 12px #e6e0f7', objectFit: 'cover', cursor: 'pointer'}} onClick={() => setShowDianaGuru(true)} />
-              <img src={require('./components/about2.jpg')} alt="Йога 2" style={{maxWidth: 140, maxHeight: 180, borderRadius: 14, boxShadow: '0 2px 12px #e6e0f7', objectFit: 'cover'}} />
+            
+            {/* Квадратные иконки с кнопками ОТКРЫТЬ */}
+            <div style={{margin: '24px 0'}}>
+              <PhotoIcons onDianaGuruClick={() => setShowDianaGuru(true)} />
+            </div>
+            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 18}}>
+              <a href="https://t.me/surya_yogalife" target="_blank" rel="noopener noreferrer" style={{textDecoration: 'none', color: 'inherit'}}>
+                <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, marginTop: 6}}>
+                  <img src={telegramIcon} alt="Telegram" style={{ width: 54, height: 54 }} />
+                  <span style={{fontFamily: 'Comfortaa, cursive', fontWeight: 600, fontSize: '1.08rem', color: '#229ED9', marginTop: 2}}>Наш Телеграм канал</span>
+                </div>
+              </a>
             </div>
             <div className="knowledge-section">
               <h4 style={{textAlign: 'center', fontWeight: 700, marginTop: 28}}>Что мы предлагаем:</h4>
               <ul style={{color: '#7c5bb3', lineHeight: 1.6}}>
                 <li><strong>Йога практики</strong> — упражнения для тела и духа</li>
+                <li><strong>Гвоздестояние</strong> — практика концентрации и расслабления на доске с гвоздями</li>
                 <li><strong>Дыхательные техники</strong> — методы управления энергией</li>
                 <li><strong>Медитация</strong> — путь к внутреннему покою</li>
                 <li><strong>База знаний</strong> — фильмы и материалы для развития сознания</li>
