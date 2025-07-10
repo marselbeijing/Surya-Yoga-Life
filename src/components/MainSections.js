@@ -29,14 +29,13 @@ const sections = [
   },
 ];
 
-function OmFloat({ className }) {
+function OmFloat({ className, phaseIndex, total }) {
   const ref = useRef();
   const [pos, setPos] = useState({ x: 0, y: 0 });
   const [angle, setAngle] = useState(Math.random() * 360);
   const [speed] = useState(0.008 + Math.random() * 0.004); // радиан/кадр
   const [radius] = useState(80 + Math.random() * 40); // px
   const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
-  // Получаем размеры контейнера
   useEffect(() => {
     const parent = document.querySelector('.main-sections');
     if (parent) {
@@ -48,17 +47,15 @@ function OmFloat({ className }) {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-  // Случайная стартовая фаза
-  const [phase] = useState(Math.random() * Math.PI * 2);
+  // Фиксированная стартовая фаза для равномерного распределения
+  const phase = (phaseIndex ?? 0) * (2 * Math.PI / (total ?? 6));
   useEffect(() => {
     let frame;
     let t = phase;
     function animate() {
       t += speed;
-      // Центр контейнера
       const cx = containerSize.width / 2;
       const cy = containerSize.height / 2;
-      // Движение по окружности по часовой стрелке
       const x = cx + Math.cos(t) * radius;
       const y = cy + Math.sin(t) * radius;
       setPos({ x, y });
@@ -87,14 +84,12 @@ function OmFloat({ className }) {
 }
 
 export default function MainSections({ onSectionClick }) {
+  const omCount = 6;
   return (
     <div className="main-sections">
-      <OmFloat className="om-float om-float-1" />
-      <OmFloat className="om-float om-float-2" />
-      <OmFloat className="om-float om-float-3" />
-      <OmFloat className="om-float om-float-4" />
-      <OmFloat className="om-float om-float-5" />
-      <OmFloat className="om-float om-float-6" />
+      {[...Array(omCount)].map((_, i) => (
+        <OmFloat key={i} className={`om-float om-float-${i+1}`} phaseIndex={i} total={omCount} />
+      ))}
       {sections.map((s) => (
         <div
           className="section-card"
