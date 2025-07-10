@@ -1318,7 +1318,7 @@ function App() {
         return (
           <div className="knowledge-page">
             <div className="knowledge-title">О нас</div>
-            <p style={{textAlign: 'center', color: '#111', margin: '18px 0 0 0', fontSize: '0.92rem', fontWeight: 500}}>
+            <p style={{textAlign: 'center', color: '#fff', margin: '18px 0 0 0', fontSize: '0.92rem', fontWeight: 500}}>
               Добро пожаловать в мир гармонии и духовного развития! Наше приложение создано для тех, кто стремится к внутреннему равновесию и познанию себя.
             </p>
             
