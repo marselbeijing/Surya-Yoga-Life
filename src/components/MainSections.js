@@ -31,11 +31,10 @@ const sections = [
 
 function OmFloat({ className }) {
   const ref = useRef();
-  const containerRef = useRef();
   const [pos, setPos] = useState({ x: 0, y: 0 });
   const [angle, setAngle] = useState(Math.random() * 360);
-  const [speed] = useState(0.3 + Math.random() * 0.3);
-  const [radius] = useState(18 + Math.random() * 22);
+  const [speed] = useState(0.008 + Math.random() * 0.004); // радиан/кадр
+  const [radius] = useState(80 + Math.random() * 40); // px
   const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
   // Получаем размеры контейнера
   useEffect(() => {
@@ -49,30 +48,28 @@ function OmFloat({ className }) {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-  // Случайная стартовая позиция
-  const [base] = useState({
-    x: Math.random() * 0.7 + 0.15, // 0.15..0.85 (процент ширины)
-    y: Math.random() * 0.7 + 0.15  // 0.15..0.85 (процент высоты)
-  });
+  // Случайная стартовая фаза
+  const [phase] = useState(Math.random() * Math.PI * 2);
   useEffect(() => {
     let frame;
-    let t = Math.random() * 1000;
+    let t = phase;
     function animate() {
       t += speed;
-      // Хаотичное движение в пределах контейнера
-      const dx = Math.sin(t / 37) * radius + Math.sin(t / 53) * (radius * 0.7);
-      const dy = Math.cos(t / 41) * radius + Math.cos(t / 67) * (radius * 0.7);
-      const x = (base.x * containerSize.width) + dx;
-      const y = (base.y * containerSize.height) + dy;
+      // Центр контейнера
+      const cx = containerSize.width / 2;
+      const cy = containerSize.height / 2;
+      // Движение по окружности по часовой стрелке
+      const x = cx + Math.cos(t) * radius;
+      const y = cy + Math.sin(t) * radius;
       setPos({ x, y });
-      setAngle(a => a + 0.2 + Math.random() * 0.2);
+      setAngle((a) => a + 0.2 + Math.random() * 0.2);
       frame = requestAnimationFrame(animate);
     }
     if (containerSize.width && containerSize.height) {
       frame = requestAnimationFrame(animate);
     }
     return () => cancelAnimationFrame(frame);
-  }, [radius, speed, containerSize, base]);
+  }, [radius, speed, containerSize, phase]);
   return (
     <div
       ref={ref}
