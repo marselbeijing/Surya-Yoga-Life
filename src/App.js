@@ -1130,7 +1130,7 @@ function AboutDianaGuruPage({ onBack }) {
       {/* Подробный текст о Диане Середе */}
       <div style={{
         margin: '20px 16px 28px 16px', 
-        color: '#333', 
+        color: '#fff', 
         fontSize: '0.9rem', 
         lineHeight: 1.6, 
         fontFamily: 'Comfortaa, cursive',
