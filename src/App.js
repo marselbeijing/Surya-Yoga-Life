@@ -1166,7 +1166,7 @@ function AboutDianaGuruPage({ onBack }) {
         {/* Новый блок: заголовок и ссылки */}
         <div style={{margin: '28px 0 18px 0', textAlign: 'center'}}>
           <div style={{fontWeight: 700, fontSize: '1rem', color: '#7c5bb3', marginBottom: 10}}>
-            Преподаватель клуба йоги OUM.RU
+            Представитель клуба йоги OUM.RU
           </div>
           <div style={{display: 'flex', flexDirection: 'column', gap: 6, alignItems: 'center'}}>
             <a href="https://meditation.study/graduates/diana-sereda/" target="_blank" rel="noopener noreferrer" style={{color: '#229ED9', fontSize: '0.7rem', textDecoration: 'underline'}}>@https://meditation.study/graduates/diana-sereda/</a>
