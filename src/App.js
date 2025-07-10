@@ -788,9 +788,9 @@ function KnowledgeHDMoviesPage({ onBack }) {
                 return (
                   <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
                     <a href="https://vk.com/video-37785226_171669738" target="_blank" rel="noopener noreferrer">{movie}</a>
-                  </li>
-                );
-              }
+                </li>
+              );
+            }
             return (
               <li className="knowledge-movie-item" key={idx}>{movie}</li>
             );
@@ -902,6 +902,18 @@ function KnowledgeSeriesPage({ onBack }) {
         </ul>
         <button className="knowledge-back knowledge-back--small" onClick={onBack} style={{display: 'block', margin: '18px auto 0 auto'}}>← Назад</button>
       </div>
+    </div>
+  );
+}
+
+function SacredMusicPage({ onBack }) {
+  return (
+    <div className="knowledge-page">
+      <div className="knowledge-title">Сакральная музыка</div>
+      <div style={{textAlign: 'center', color: '#7c5bb3', fontSize: '1.05rem', margin: '32px 0 0 0', fontFamily: 'Comfortaa, cursive'}}>
+        Здесь будет раздел с подборкой сакральной музыки для практик, медитаций и вдохновения.
+      </div>
+      <button className="knowledge-back knowledge-back--small" onClick={onBack} style={{display: 'block', margin: '38px auto 0 auto'}}>← Назад</button>
     </div>
   );
 }
@@ -1150,15 +1162,35 @@ function AboutDianaGuruPage({ onBack }) {
         <p style={{margin: '0 0 0 0'}}>
           Йога для меня — это путь к целостности, осознанности и бережному отношению к себе. Я с радостью делюсь этим знанием и сопровождаю тех, кто готов шаг за шагом возвращаться к своему естественному состоянию внутреннего покоя и силы🍃
         </p>
+
+        {/* Новый блок: заголовок и ссылки */}
+        <div style={{margin: '28px 0 18px 0', textAlign: 'center'}}>
+          <div style={{fontWeight: 700, fontSize: '1rem', color: '#7c5bb3', marginBottom: 10}}>
+            Преподаватель клуба йоги OUM.RU
+          </div>
+          <div style={{display: 'flex', flexDirection: 'column', gap: 6, alignItems: 'center'}}>
+            <a href="https://meditation.study/graduates/diana-sereda/" target="_blank" rel="noopener noreferrer" style={{color: '#229ED9', fontSize: '0.7rem', textDecoration: 'underline'}}>@https://meditation.study/graduates/diana-sereda/</a>
+            <a href="https://www.oum.ru/regions/teachers/diana-sereda/" target="_blank" rel="noopener noreferrer" style={{color: '#229ED9', fontSize: '0.7rem', textDecoration: 'underline'}}>@https://www.oum.ru/regions/teachers/diana-sereda/</a>
+          </div>
+        </div>
       </div>
       
-      <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 18, margin: '28px 0 0 0'}}>
-        <img src={require('./components/diana1.jpg')} alt="Диана 1" style={{maxWidth: 140, maxHeight: 180, borderRadius: 14, boxShadow: '0 2px 12px #e6e0f7', objectFit: 'cover'}} />
-        <img src={require('./components/diana2.jpg')} alt="Диана 2" style={{maxWidth: 140, maxHeight: 180, borderRadius: 14, boxShadow: '0 2px 12px #e6e0f7', objectFit: 'cover'}} />
-        <img src={require('./components/diana3.jpg')} alt="Диана 3" style={{maxWidth: 140, maxHeight: 180, borderRadius: 14, boxShadow: '0 2px 12px #e6e0f7', objectFit: 'cover'}} />
-        <img src={require('./components/diana4.jpg')} alt="Диана 4" style={{maxWidth: 140, maxHeight: 180, borderRadius: 14, boxShadow: '0 2px 12px #e6e0f7', objectFit: 'cover'}} />
-        <img src={require('./components/diana5.jpg')} alt="Диана 5" style={{maxWidth: 140, maxHeight: 180, borderRadius: 14, boxShadow: '0 2px 12px #e6e0f7', objectFit: 'cover'}} />
+      <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 18, margin: '28px 0 0 0'}}>
+        <img src={require('./components/diana1.jpg')} alt="Диана 1" style={{maxWidth: 260, maxHeight: 340, borderRadius: 18, boxShadow: '0 4px 18px #e6e0f7', objectFit: 'cover', width: '100%', height: 'auto'}} />
+        <img src={require('./components/diana2.jpg')} alt="Диана 2" style={{maxWidth: 260, maxHeight: 340, borderRadius: 18, boxShadow: '0 4px 18px #e6e0f7', objectFit: 'cover', width: '100%', height: 'auto'}} />
+        <img src={require('./components/diana3.jpg')} alt="Диана 3" style={{maxWidth: 260, maxHeight: 340, borderRadius: 18, boxShadow: '0 4px 18px #e6e0f7', objectFit: 'cover', width: '100%', height: 'auto'}} />
+        <img src={require('./components/diana4.jpg')} alt="Диана 4" style={{maxWidth: 260, maxHeight: 340, borderRadius: 18, boxShadow: '0 4px 18px #e6e0f7', objectFit: 'cover', width: '100%', height: 'auto'}} />
+        <img src={require('./components/diana5.jpg')} alt="Диана 5" style={{maxWidth: 260, maxHeight: 340, borderRadius: 18, boxShadow: '0 4px 18px #e6e0f7', objectFit: 'cover', width: '100%', height: 'auto'}} />
       </div>
+      <button className="knowledge-back knowledge-back--small" onClick={onBack} style={{display: 'block', margin: '28px auto 0 auto'}}>← Назад</button>
+    </div>
+  );
+}
+
+function RetreatsPage({ onBack }) {
+  return (
+    <div className="knowledge-page">
+      <div className="knowledge-title">Наши ретриты</div>
       <button className="knowledge-back knowledge-back--small" onClick={onBack} style={{display: 'block', margin: '28px auto 0 auto'}}>← Назад</button>
     </div>
   );
@@ -1171,6 +1203,7 @@ function App() {
   const [selectedKnowledgeSection, setSelectedKnowledgeSection] = useState(null);
   const [selectedBreathPractice, setSelectedBreathPractice] = useState(null);
   const [showDianaGuru, setShowDianaGuru] = useState(false);
+  const [showRetreats, setShowRetreats] = useState(false);
 
   // Загрузка темы из localStorage при запуске
   useEffect(() => {
@@ -1178,6 +1211,18 @@ function App() {
     if (savedTheme === 'dark') {
       setIsDarkTheme(true);
       document.documentElement.setAttribute('data-theme', 'dark');
+    } else if (savedTheme === 'light') {
+      setIsDarkTheme(false);
+      document.documentElement.removeAttribute('data-theme');
+    } else {
+      // Если пользователь не выбирал, определяем по системной теме
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        setIsDarkTheme(true);
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        setIsDarkTheme(false);
+        document.documentElement.removeAttribute('data-theme');
+      }
     }
   }, []);
 
@@ -1235,6 +1280,9 @@ function App() {
     if (activeTab === 'knowledge' && selectedKnowledgeSection === 'series') {
       return <KnowledgeSeriesPage onBack={() => setSelectedKnowledgeSection(null)} />;
     }
+    if (activeTab === 'knowledge' && selectedKnowledgeSection === 'sacred-music') {
+      return <SacredMusicPage onBack={() => setSelectedKnowledgeSection(null)} />;
+    }
     switch (activeTab) {
       case 'home':
         return <MainSections onSectionClick={setSelectedSection} />;
@@ -1254,11 +1302,18 @@ function App() {
               <h3>Документальные фильмы</h3>
               <p>Подборка документальных фильмов о духовности, науке, природе и человеческом потенциале.</p>
             </div>
+            <div className="knowledge-section knowledge-linkable" onClick={() => setSelectedKnowledgeSection('sacred-music')} style={{cursor:'pointer'}}>
+              <h3>Сакральная музыка</h3>
+              <p>Подборка музыки для медитаций, практик и внутреннего вдохновения.</p>
+            </div>
           </div>
         );
       case 'about':
         if (showDianaGuru) {
           return <AboutDianaGuruPage onBack={() => setShowDianaGuru(false)} />;
+        }
+        if (showRetreats) {
+          return <RetreatsPage onBack={() => setShowRetreats(false)} />;
         }
         return (
           <div className="knowledge-page">
@@ -1271,17 +1326,36 @@ function App() {
             <div style={{margin: '24px 0'}}>
               <PhotoIcons onDianaGuruClick={() => setShowDianaGuru(true)} />
             </div>
-            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 18}}>
-              <a href="https://t.me/surya_yogalife" target="_blank" rel="noopener noreferrer" style={{textDecoration: 'none', color: 'inherit'}}>
-                <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, marginTop: 6}}>
-                  <img src={telegramIcon} alt="Telegram" style={{ width: 54, height: 54 }} />
-                  <span style={{fontFamily: 'Comfortaa, cursive', fontWeight: 600, fontSize: '1.08rem', color: '#229ED9', marginTop: 2}}>Наш Телеграм канал</span>
-                </div>
-              </a>
+            <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 12, marginBottom: 18, marginTop: 6}}>
+              <span style={{fontFamily: 'Comfortaa, cursive', fontWeight: 600, fontSize: '1.08rem', color: '#229ED9'}}>Наш Телеграм канал</span>
+              <img src={telegramIcon} alt="Telegram" style={{ width: 24, height: 24 }} />
+            </div>
+            {/* Красивая кнопка 'Наши ретриты' */}
+            <div style={{display: 'flex', justifyContent: 'center', marginBottom: 24}}>
+              <button
+                style={{
+                  background: 'linear-gradient(90deg, #28aae0 0%, #23b7ec 100%)',
+                  color: '#fff',
+                  fontFamily: 'Comfortaa, cursive',
+                  fontWeight: 700,
+                  fontSize: '1.08rem',
+                  border: 'none',
+                  borderRadius: 18,
+                  padding: '12px 36px',
+                  boxShadow: '0 4px 16px rgba(40,170,224,0.12)',
+                  cursor: 'pointer',
+                  transition: 'background 0.2s, transform 0.2s',
+                }}
+                onMouseOver={e => e.currentTarget.style.background = 'linear-gradient(90deg, #23b7ec 0%, #28aae0 100%)'}
+                onMouseOut={e => e.currentTarget.style.background = 'linear-gradient(90deg, #28aae0 0%, #23b7ec 100%)'}
+                onClick={() => setShowRetreats(true)}
+              >
+                Наши ретриты
+              </button>
             </div>
             <div className="knowledge-section">
               <h4 style={{textAlign: 'center', fontWeight: 700, marginTop: 28}}>Что мы предлагаем:</h4>
-              <ul style={{color: '#7c5bb3', lineHeight: 1.6}}>
+              <ul style={{color: '#7c5bb3', lineHeight: 1.6, fontSize: '0.92rem'}}>
                 <li><strong>Йога практики</strong> — упражнения для тела и духа</li>
                 <li><strong>Гвоздестояние</strong> — практика концентрации и расслабления на доске с гвоздями</li>
                 <li><strong>Дыхательные техники</strong> — методы управления энергией</li>

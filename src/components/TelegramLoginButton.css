@@ -81,7 +81,7 @@
   .account-status {
     font-size: 0.81rem;
   }
-}
+} 
 
 /* Добавляем стили для секции настроек */
 .account-page {
@@ -171,4 +171,34 @@
 
 .theme-switch-input:checked + .theme-switch-label .theme-switch-slider {
   transform: translateX(26px);
+} 
+
+[data-theme="dark"] .account-card {
+  background: #23202b;
+  border: 1.5px solid #3a2e4e;
+  box-shadow: 0 4px 24px 0 rgba(40, 40, 60, 0.18), 0 1.5px 6px 0 rgba(40, 40, 60, 0.12);
+}
+[data-theme="dark"] .account-name {
+  color: #fff !important;
+}
+[data-theme="dark"] .account-id {
+  color: #bba6d4 !important;
+}
+[data-theme="dark"] .account-status {
+  color: #bba6d4 !important;
+}
+[data-theme="dark"] .account-status.success {
+  color: #4caf50 !important;
+}
+[data-theme="dark"] .settings-section,
+[data-theme="dark"] .settings-header,
+[data-theme="dark"] .settings-content,
+[data-theme="dark"] .setting-item {
+  background: #23202b !important;
+  color: #fff !important;
+  border-color: #3a2e4e !important;
+}
+[data-theme="dark"] .setting-info h3,
+[data-theme="dark"] .setting-info p {
+  color: #fff !important;
 } 
