@@ -95,6 +95,9 @@ export default function MainSections({ onSectionClick }) {
       <OmFloat className="om-float om-float-1" />
       <OmFloat className="om-float om-float-2" />
       <OmFloat className="om-float om-float-3" />
+      <OmFloat className="om-float om-float-4" />
+      <OmFloat className="om-float om-float-5" />
+      <OmFloat className="om-float om-float-6" />
       {sections.map((s) => (
         <div
           className="section-card"
