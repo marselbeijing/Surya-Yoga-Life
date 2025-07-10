@@ -34,7 +34,7 @@ function OmFloat({ className, phaseIndex, total }) {
   const [pos, setPos] = useState({ x: 0, y: 0 });
   const [angle, setAngle] = useState(Math.random() * 360);
   const [speed] = useState(0.008 + Math.random() * 0.004); // радиан/кадр
-  const [radius] = useState(80 + Math.random() * 40); // px
+  const [radius] = useState(140 + Math.random() * 40); // px (увеличен радиус)
   const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
   useEffect(() => {
     const parent = document.querySelector('.main-sections');
