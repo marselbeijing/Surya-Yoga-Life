@@ -118,7 +118,9 @@ export default function TelegramLoginButton({ isDarkTheme, toggleTheme }) {
 
           {/* Рекламная картинка */}
           <div className="account-promo" style={{margin: '28px 0', textAlign: 'center'}}>
-            <img src="/promo.jpg" alt="Реклама" style={{maxWidth: '100%', borderRadius: 16, boxShadow: '0 2px 12px rgba(124,91,179,0.10)'}} />
+            <a href="https://t.me/iSpeechHelper" target="_blank" rel="noopener noreferrer">
+              <img src="/promo.jpg" alt="Реклама" style={{maxWidth: '100%', borderRadius: 16, boxShadow: '0 2px 12px rgba(124,91,179,0.10)', cursor: 'pointer'}} />
+            </a>
           </div>
           {/* Удалён блок 'О приложении' и блок с версией */}
         </div>
