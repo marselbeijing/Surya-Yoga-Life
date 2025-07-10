@@ -68,7 +68,7 @@ export default function Shankaprakshalana({ onBack }) {
         fontFamily: 'Comfortaa, cursive',
         fontWeight: 700,
         fontSize: '0.95rem',
-        color: '#111',
+        color: 'var(--text)',
         background: 'rgba(184,116,232,0.07)',
         borderRadius: 12,
         padding: 18,
@@ -84,7 +84,7 @@ export default function Shankaprakshalana({ onBack }) {
         fontFamily: 'Comfortaa, cursive',
         fontWeight: 400,
         fontSize: '0.82rem',
-        color: '#333',
+        color: 'var(--text)',
         background: 'rgba(184,116,232,0.04)',
         borderRadius: 10,
         padding: 12,
@@ -102,14 +102,14 @@ export default function Shankaprakshalana({ onBack }) {
             <li key={idx} style={{ marginBottom: 4 }}>{item}</li>
           ))}
         </ul>
-        <div style={{ marginTop: 10, fontStyle: 'italic', color: '#444', fontSize: '0.81rem', textAlign: 'left' }}>{detailsNote}</div>
+        <div style={{ marginTop: 10, fontStyle: 'italic', color: 'var(--text)', opacity: 0.8, fontSize: '0.81rem', textAlign: 'left' }}>{detailsNote}</div>
       </div>
       {/* Блок: Что входит в комплекс */}
       <div style={{
         fontFamily: 'Comfortaa, cursive',
         fontWeight: 400,
         fontSize: '0.92rem',
-        color: '#fff',
+        color: 'var(--text)',
         background: 'linear-gradient(100deg, #a084ee 0%, #7c5bb3 100%)',
         borderRadius: 18,
         padding: '22px 16px 18px 16px',
@@ -135,7 +135,7 @@ export default function Shankaprakshalana({ onBack }) {
             <li key={idx} style={{ marginBottom: 6 }}>{item}</li>
           ))}
         </ul>
-        <div style={{ marginTop: 14, fontStyle: 'italic', color: '#f7eaff', fontSize: '0.91rem', textAlign: 'left', whiteSpace: 'pre-line', fontWeight: 500 }}>
+        <div style={{ marginTop: 14, fontStyle: 'italic', color: 'var(--text)', opacity: 0.9, fontSize: '0.91rem', textAlign: 'left', whiteSpace: 'pre-line', fontWeight: 500 }}>
           {complexNote}
         </div>
       </div>
@@ -144,7 +144,7 @@ export default function Shankaprakshalana({ onBack }) {
         fontFamily: 'Comfortaa, cursive',
         fontWeight: 400,
         fontSize: '0.82rem',
-        color: '#333',
+        color: 'var(--text)',
         background: 'rgba(184,116,232,0.04)',
         borderRadius: 10,
         padding: 12,
@@ -205,7 +205,7 @@ export default function Shankaprakshalana({ onBack }) {
         fontFamily: 'Comfortaa, cursive',
         fontWeight: 400,
         fontSize: '0.82rem',
-        color: '#333',
+        color: 'var(--text)',
         background: 'rgba(184,116,232,0.04)',
         borderRadius: 10,
         padding: 12,
