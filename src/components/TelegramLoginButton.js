@@ -96,10 +96,6 @@ export default function TelegramLoginButton({ isDarkTheme, toggleTheme }) {
 
       {/* Секция настроек */}
       <div className="settings-section">
-        <div className="settings-header">
-          <h2>Настройки</h2>
-        </div>
-        
         <div className="settings-content">
           <div className="setting-item">
             <div className="setting-info">
@@ -119,20 +115,12 @@ export default function TelegramLoginButton({ isDarkTheme, toggleTheme }) {
               </label>
             </div>
           </div>
-          
-          <div className="setting-item">
-            <div className="setting-info">
-              <h3>О приложении</h3>
-              <p>Surya Yoga Life - ваш путь к гармонии</p>
-            </div>
+
+          {/* Рекламная картинка */}
+          <div className="account-promo" style={{margin: '28px 0', textAlign: 'center'}}>
+            <img src="/promo.jpg" alt="Реклама" style={{maxWidth: '100%', borderRadius: 16, boxShadow: '0 2px 12px rgba(124,91,179,0.10)'}} />
           </div>
-          
-          <div className="setting-item">
-            <div className="setting-info">
-              <h3>Версия</h3>
-              <p>1.0.0</p>
-            </div>
-          </div>
+          {/* Удалён блок 'О приложении' и блок с версией */}
         </div>
       </div>
     </div>
