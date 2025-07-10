@@ -1354,7 +1354,7 @@ function App() {
               </button>
             </div>
             <div className="knowledge-section">
-              <h4 style={{textAlign: 'center', fontWeight: 700, marginTop: 28}}>Что мы предлагаем:</h4>
+              <h4 style={{textAlign: 'center', fontWeight: 700, marginTop: 28, color: '#111'}}>Что мы предлагаем:</h4>
               <ul style={{color: '#7c5bb3', lineHeight: 1.6, fontSize: '0.92rem'}}>
                 <li><strong>Йога практики</strong> — упражнения для тела и духа</li>
                 <li><strong>Гвоздестояние</strong> — практика концентрации и расслабления на доске с гвоздями</li>
@@ -1365,7 +1365,7 @@ function App() {
                 <li><strong>Шанкапракшалана</strong> — практика очищения</li>
               </ul>
 
-              <h4 style={{textAlign: 'center', fontWeight: 700, marginTop: 32}}>Наша миссия</h4>
+              <h4 style={{textAlign: 'center', fontWeight: 700, marginTop: 32, color: '#111'}}>Наша миссия</h4>
               <p style={{color: '#111', textAlign: 'center'}}>
                 Помочь каждому найти свой путь к гармонии, здоровью и духовному росту через древние практики йоги и современные методы развития.
               </p>
