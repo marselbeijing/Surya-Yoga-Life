@@ -8,6 +8,7 @@ import { Shankaprakshalana } from './components';
 import PhotoIcons from './components/PhotoIcons';
 import './App.css';
 import telegramIcon from './components/telegram.svg';
+import about2 from './components/about2.jpg';
 
 function KnowledgeHDMoviesPage({ onBack }) {
   const [selectedMovie, setSelectedMovie] = React.useState(null);
@@ -1122,6 +1123,89 @@ function BreathTrianglePage({ onBack }) {
   );
 }
 
+function NailsPage({ onBack }) {
+  return (
+    <div className="knowledge-page">
+      <div className="knowledge-title">Гвоздестояние</div>
+      <button className="knowledge-back knowledge-back--small" onClick={onBack} style={{display: 'block', margin: '18px auto 18px auto'}}>← Назад</button>
+      <div style={{textAlign: 'center', fontFamily: 'Comfortaa, cursive', color: '#7c5bb3', fontSize: '1.08rem', fontWeight: 500, margin: '18px 0 0 0', lineHeight: 1.5}}>
+        🧿 ГВОЗДИ — путь к себе настоящему<br/>
+        Это не про боль. Это про силу.
+      </div>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, justifyContent: 'center', marginTop: 24, marginBottom: 24 }}>
+        <img src="/nails1.jpg" alt="Гвоздестояние 1" style={{ maxWidth: 150, borderRadius: 12 }} />
+        <img src="/nails2.jpg" alt="Гвоздестояние 2" style={{ maxWidth: 150, borderRadius: 12 }} />
+      </div>
+      <div style={{textAlign: 'center', fontFamily: 'Comfortaa, cursive', color: '#7c5bb3', fontSize: '0.95rem', fontWeight: 500, margin: '18px 0 0 0', lineHeight: 1.5}}>
+        🔥 Стояние на гвоздях — древняя мощная практика, пробуждающая тело, ум и дух.<br/>
+        Это момент встречи с собой — без масок, без суеты, без привычных реакций.<br/>
+        Остаётся только дыхание, осознанность… и ты настоящий.
+      </div>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, justifyContent: 'center', marginBottom: 24 }}>
+        <img src="/nails3.jpg" alt="Гвоздестояние 3" style={{ maxWidth: 150, borderRadius: 12 }} />
+        <img src="/nails4.jpg" alt="Гвоздестояние 4" style={{ maxWidth: 150, borderRadius: 12 }} />
+      </div>
+      <div style={{textAlign: 'center', fontFamily: 'Comfortaa, cursive', color: '#7c5bb3', fontSize: '0.92rem', fontWeight: 500, margin: '0 0 18px 0', lineHeight: 1.5}}>
+        <b>Что даёт практика:</b><br/>
+        🍃 Проработка внутренних травм, блоков, страхов <br/>
+        🌪 Очищение ума от тревог, суеты и зацикленных мыслей<br/>
+        🪬 Глубокое телесное заземление и возвращение в момент «здесь и сейчас»<br/>
+        ☘️ Формирование новых нейронных связей<br/>
+        💥 Прорыв через страх, боль, сомнение — в силу, свободу и ресурс<br/>
+        🧘‍♀️ Запуск процессов исцеления, перезагрузки и внутреннего роста<br/>
+        <br/>
+        Ты встаёшь — и весь мир замирает.<br/>
+        Открывается что-то древнее. Настоящее. Твоё.
+      </div>
+      <div style={{fontFamily: 'Comfortaa, cursive', fontSize: '1.55rem', fontWeight: 600, textAlign: 'center', color: '#7c5bb3', marginBottom: 18, marginTop: 0}}>Отзывы</div>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, justifyContent: 'center', marginBottom: 24 }}>
+        <img src="/review1.jpg" alt="Отзыв 1" style={{ width: '100%', maxWidth: 170, borderRadius: 12, objectFit: 'cover', justifySelf: 'center' }} />
+        <img src="/review2.jpg" alt="Отзыв 2" style={{ width: '100%', maxWidth: 170, borderRadius: 12, objectFit: 'cover', justifySelf: 'center' }} />
+        <img src="/review3.jpg" alt="Отзыв 3" style={{ width: '100%', maxWidth: 170, borderRadius: 12, objectFit: 'cover', justifySelf: 'center' }} />
+        <img src="/review4.jpg" alt="Отзыв 4" style={{ width: '100%', maxWidth: 170, borderRadius: 12, objectFit: 'cover', justifySelf: 'center' }} />
+        <img src="/review5.jpg" alt="Отзыв 5" style={{ width: '100%', maxWidth: 170, borderRadius: 12, objectFit: 'cover', justifySelf: 'center' }} />
+        <img src="/review6.jpg" alt="Отзыв 6" style={{ width: '100%', maxWidth: 170, borderRadius: 12, objectFit: 'cover', justifySelf: 'center' }} />
+      </div>
+      <div style={{textAlign: 'center', fontFamily: 'Comfortaa, cursive', color: '#7c5bb3', fontSize: '0.92rem', fontWeight: 500, margin: '0 0 24px 0', lineHeight: 1.5}}>
+        ✨ Стояние на гвоздях — под чутким сопровождением<br/>
+        🌿 В безопасном пространстве<br/>
+        🪷 В индивидуальном формате или мини-группе<br/>
+        ⏳ 2-3 часа работы  с глубоким телесным погружением<br/>
+        🍃 Работа с намерением по авторской методике , медитация , легкая разминка .<br/>
+        📍 Онлайн (с твоими досками) или офлайн (с моими)
+      </div>
+      <div style={{ width: '100%', display: 'flex', justifyContent: 'center', margin: '0 0 16px 0' }}>
+        <a
+          href="https://t.me/disha070?text=Здравствуйте%2C%20хочу%20купить%20практику%20гвоздестояния"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: 'inline-block',
+            padding: '16px 36px',
+            background: 'linear-gradient(90deg, #b484f7 0%, #7c5bb3 100%)',
+            color: '#fff',
+            fontFamily: 'Comfortaa, cursive',
+            fontWeight: 700,
+            fontSize: '1.12rem',
+            borderRadius: 16,
+            boxShadow: '0 2px 12px 0 rgba(124,91,179,0.13)',
+            textDecoration: 'none',
+            letterSpacing: '0.01em',
+            transition: 'background 0.2s, box-shadow 0.2s, transform 0.1s',
+            textAlign: 'center',
+            marginBottom: 0,
+          }}
+          onMouseOver={e => { e.currentTarget.style.background = 'linear-gradient(90deg, #7c5bb3 0%, #b484f7 100%)'; e.currentTarget.style.transform = 'scale(1.04)'; }}
+          onMouseOut={e => { e.currentTarget.style.background = 'linear-gradient(90deg, #b484f7 0%, #7c5bb3 100%)'; e.currentTarget.style.transform = 'scale(1)'; }}
+        >
+          Купить
+        </a>
+      </div>
+      <button className="knowledge-back knowledge-back--small" onClick={onBack} style={{display: 'block', margin: '28px auto 0 auto'}}>← Назад</button>
+    </div>
+  );
+}
+
 function AboutDianaGuruPage({ onBack }) {
   return (
     <div className="knowledge-page">
@@ -1196,6 +1280,21 @@ function RetreatsPage({ onBack }) {
   );
 }
 
+function MarinaSharipovaPage({ onBack }) {
+  return (
+    <div className="knowledge-page">
+      <div className="knowledge-title">Марина Шарипова</div>
+      <div style={{textAlign: 'center', margin: '28px 0'}}>
+        <img src={about2} alt="Марина Шарипова" style={{maxWidth: 260, maxHeight: 340, borderRadius: 18, boxShadow: '0 4px 18px #e6e0f7', objectFit: 'cover', width: '100%', height: 'auto'}} />
+      </div>
+      <div style={{fontFamily: 'Comfortaa, cursive', color: '#7c5bb3', fontSize: '0.92rem', margin: '0 0 18px 0', textAlign: 'center', lineHeight: 1.5}}>
+        {/* Здесь можно добавить биографию или описание */}
+      </div>
+      <button className="knowledge-back knowledge-back--small" onClick={onBack} style={{display: 'block', margin: '18px auto 0 auto'}}>← Назад</button>
+    </div>
+  );
+}
+
 function App() {
   const [activeTab, setActiveTab] = useState('home');
   const [isDarkTheme, setIsDarkTheme] = useState(false);
@@ -1204,6 +1303,7 @@ function App() {
   const [selectedBreathPractice, setSelectedBreathPractice] = useState(null);
   const [showDianaGuru, setShowDianaGuru] = useState(false);
   const [showRetreats, setShowRetreats] = useState(false);
+  const [showMarinaSharipova, setShowMarinaSharipova] = useState(false);
 
   // Загрузка темы из localStorage при запуске
   useEffect(() => {
@@ -1249,6 +1349,9 @@ function App() {
   const renderContent = () => {
     if (selectedSection === 'Шанкапракшалана') {
       return <Shankaprakshalana onBack={() => setSelectedSection(null)} />;
+    }
+    if (selectedSection === 'Гвоздестояние') {
+      return <NailsPage onBack={() => setSelectedSection(null)} />;
     }
     if (selectedSection === 'Дыхание') {
       if (selectedBreathPractice === 'breath-square') {
@@ -1315,6 +1418,9 @@ function App() {
         if (showRetreats) {
           return <RetreatsPage onBack={() => setShowRetreats(false)} />;
         }
+        if (showMarinaSharipova) {
+          return <MarinaSharipovaPage onBack={() => setShowMarinaSharipova(false)} />;
+        }
         return (
           <div className="knowledge-page">
             <div className="knowledge-title">О нас</div>
@@ -1324,7 +1430,10 @@ function App() {
             
             {/* Квадратные иконки с кнопками ОТКРЫТЬ */}
             <div style={{margin: '24px 0'}}>
-              <PhotoIcons onDianaGuruClick={() => setShowDianaGuru(true)} />
+              <PhotoIcons 
+                onDianaGuruClick={() => setShowDianaGuru(true)}
+                onMarinaSharipovaClick={() => setShowMarinaSharipova(true)}
+              />
             </div>
             <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 12, marginBottom: 18, marginTop: 6}}>
               <span style={{fontFamily: 'Comfortaa, cursive', fontWeight: 600, fontSize: '1.08rem', color: '#229ED9'}}>Наш Телеграм канал</span>

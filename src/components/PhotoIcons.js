@@ -5,7 +5,7 @@ import './PhotoIcons.css';
 import about1 from './about1.jpg';
 import about2 from './about2.jpg';
 
-const PhotoIcons = ({ onDianaGuruClick }) => {
+const PhotoIcons = ({ onDianaGuruClick, onMarinaSharipovaClick }) => {
   const photos = [
     {
       id: 1,
@@ -21,11 +21,11 @@ const PhotoIcons = ({ onDianaGuruClick }) => {
 
   const handlePhotoClick = (photoId) => {
     if (photoId === 1 && onDianaGuruClick) {
-      // Переход к странице Дианы Гуру для первой фотографии
       onDianaGuruClick();
+    } else if (photoId === 2 && onMarinaSharipovaClick) {
+      onMarinaSharipovaClick();
     } else {
       console.log(`Открываем фото ${photoId}`);
-      // Здесь можно добавить логику для открытия второй фотографии
     }
   };
 
