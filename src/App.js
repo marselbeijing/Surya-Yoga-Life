@@ -1126,26 +1126,21 @@ function BreathTrianglePage({ onBack }) {
 function NailsPage({ onBack }) {
   return (
     <div className="knowledge-page">
-      <div className="knowledge-title">Гвоздестояние</div>
-      <button className="knowledge-back knowledge-back--small" onClick={onBack} style={{display: 'block', margin: '18px auto 18px auto'}}>← Назад</button>
-      <div style={{textAlign: 'center', fontFamily: 'Comfortaa, cursive', color: '#7c5bb3', fontSize: '1.08rem', fontWeight: 500, margin: '18px 0 0 0', lineHeight: 1.5}}>
+      <div style={{textAlign: 'center', fontFamily: 'Comfortaa, cursive', color: '#7c5bb3', fontSize: '0.95rem', fontWeight: 500, margin: '18px 0 0 0', lineHeight: 1.5}}>
         🧿 ГВОЗДИ — путь к себе настоящему<br/>
         Это не про боль. Это про силу.
+      </div>
+      <button className="knowledge-back knowledge-back--small" onClick={onBack} style={{display: 'block', margin: '18px auto 18px auto'}}>← Назад</button>
+      <div style={{textAlign: 'center', fontFamily: 'Comfortaa, cursive', color: '#111', fontSize: '0.95rem', fontWeight: 500, margin: '18px 0 0 0', lineHeight: 1.5}}>
+        🔥 Стояние на гвоздях — древняя мощная практика, пробуждающая тело, ум и дух.<br/>
+        Это момент встречи с собой — без масок, без суеты, без привычных реакций.<br/>
+        Остаётся только дыхание, осознанность… и ты настоящий.
       </div>
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, justifyContent: 'center', marginTop: 24, marginBottom: 24 }}>
         <img src="/nails1.jpg" alt="Гвоздестояние 1" style={{ maxWidth: 150, borderRadius: 12 }} />
         <img src="/nails2.jpg" alt="Гвоздестояние 2" style={{ maxWidth: 150, borderRadius: 12 }} />
       </div>
-      <div style={{textAlign: 'center', fontFamily: 'Comfortaa, cursive', color: '#7c5bb3', fontSize: '0.95rem', fontWeight: 500, margin: '18px 0 0 0', lineHeight: 1.5}}>
-        🔥 Стояние на гвоздях — древняя мощная практика, пробуждающая тело, ум и дух.<br/>
-        Это момент встречи с собой — без масок, без суеты, без привычных реакций.<br/>
-        Остаётся только дыхание, осознанность… и ты настоящий.
-      </div>
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, justifyContent: 'center', marginBottom: 24 }}>
-        <img src="/nails3.jpg" alt="Гвоздестояние 3" style={{ maxWidth: 150, borderRadius: 12 }} />
-        <img src="/nails4.jpg" alt="Гвоздестояние 4" style={{ maxWidth: 150, borderRadius: 12 }} />
-      </div>
-      <div style={{textAlign: 'center', fontFamily: 'Comfortaa, cursive', color: '#7c5bb3', fontSize: '0.92rem', fontWeight: 500, margin: '0 0 18px 0', lineHeight: 1.5}}>
+      <div style={{textAlign: 'center', fontFamily: 'Comfortaa, cursive', color: '#111', fontSize: '0.92rem', fontWeight: 500, margin: '0 0 18px 0', lineHeight: 1.5}}>
         <b>Что даёт практика:</b><br/>
         🍃 Проработка внутренних травм, блоков, страхов <br/>
         🌪 Очищение ума от тревог, суеты и зацикленных мыслей<br/>
@@ -1154,8 +1149,8 @@ function NailsPage({ onBack }) {
         💥 Прорыв через страх, боль, сомнение — в силу, свободу и ресурс<br/>
         🧘‍♀️ Запуск процессов исцеления, перезагрузки и внутреннего роста<br/>
         <br/>
-        Ты встаёшь — и весь мир замирает.<br/>
-        Открывается что-то древнее. Настоящее. Твоё.
+        <span style={{color:'#111'}}>Ты встаёшь — и весь мир замирает.<br/>
+        Открывается что-то древнее. Настоящее. Твоё.</span>
       </div>
       <div style={{fontFamily: 'Comfortaa, cursive', fontSize: '1.55rem', fontWeight: 600, textAlign: 'center', color: '#7c5bb3', marginBottom: 18, marginTop: 0}}>Отзывы</div>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, justifyContent: 'center', marginBottom: 24 }}>
@@ -1166,7 +1161,7 @@ function NailsPage({ onBack }) {
         <img src="/review5.jpg" alt="Отзыв 5" style={{ width: '100%', maxWidth: 170, borderRadius: 12, objectFit: 'cover', justifySelf: 'center' }} />
         <img src="/review6.jpg" alt="Отзыв 6" style={{ width: '100%', maxWidth: 170, borderRadius: 12, objectFit: 'cover', justifySelf: 'center' }} />
       </div>
-      <div style={{textAlign: 'center', fontFamily: 'Comfortaa, cursive', color: '#7c5bb3', fontSize: '0.92rem', fontWeight: 500, margin: '0 0 24px 0', lineHeight: 1.5}}>
+      <div style={{textAlign: 'center', fontFamily: 'Comfortaa, cursive', color: '#111', fontSize: '0.92rem', fontWeight: 500, margin: '0 0 24px 0', lineHeight: 1.5}}>
         ✨ Стояние на гвоздях — под чутким сопровождением<br/>
         🌿 В безопасном пространстве<br/>
         🪷 В индивидуальном формате или мини-группе<br/>
