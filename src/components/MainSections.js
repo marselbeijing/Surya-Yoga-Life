@@ -3,27 +3,32 @@ import './MainSections.css';
 
 const sections = [
   {
-    key: 'yoga',
+    key: 'Йога',
     icon: <img src={process.env.PUBLIC_URL + '/meditatsiya.svg'} alt="Йога" style={{ width: 64, height: 64, display: 'block', margin: '0 auto' }} />,
     title: 'Йога',
   },
   {
+    key: 'Гвоздестояние',
     title: 'Гвоздестояние',
     icon: <img src={process.env.PUBLIC_URL + '/foot.svg'} alt="Гвоздестояние" style={{ width: 64, height: 64, display: 'block', margin: '0 auto' }} />,
   },
   {
-    title: 'ЛиЛа',
-    icon: <img src={process.env.PUBLIC_URL + '/card.svg'} alt="ЛиЛа" style={{ width: 64, height: 64, display: 'block', margin: '0 auto' }} />,
+    key: 'Лила',
+    title: 'Лила',
+    icon: <img src={process.env.PUBLIC_URL + '/card.svg'} alt="Лила" style={{ width: 64, height: 64, display: 'block', margin: '0 auto' }} />,
   },
   {
+    key: 'Медитация',
     title: 'Медитация',
     icon: <img src={process.env.PUBLIC_URL + '/medi.svg'} alt="Медитация" style={{ width: 64, height: 64, display: 'block', margin: '0 auto' }} />,
   },
   {
+    key: 'Шанкапракшалана',
     title: 'Шанкапракшалана',
     icon: <img src={process.env.PUBLIC_URL + '/water1.svg'} alt="Шанкапракшалана" style={{ width: 64, height: 64, display: 'block', margin: '0 auto' }} />,
   },
   {
+    key: 'Дыхание',
     title: 'Дыхание',
     icon: <img src={process.env.PUBLIC_URL + '/lung.svg'} alt="Дыхание" style={{ width: 64, height: 64, display: 'block', margin: '0 auto' }} />,
   },
@@ -93,8 +98,8 @@ export default function MainSections({ onSectionClick }) {
       {sections.map((s) => (
         <div
           className="section-card"
-          key={s.title || s.key}
-          onClick={onSectionClick ? () => onSectionClick(s.title) : undefined}
+          key={s.key || s.title}
+          onClick={onSectionClick ? () => onSectionClick(s.key || s.title) : undefined}
           style={{ cursor: onSectionClick ? 'pointer' : 'default' }}
         >
           <div className="section-icon">{s.icon}</div>

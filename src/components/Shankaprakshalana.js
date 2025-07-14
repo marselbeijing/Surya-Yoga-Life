@@ -53,6 +53,9 @@ export default function Shankaprakshalana({ onBack }) {
   const complexPreviewCount = 3;
   return (
     <div style={{ padding: '28px 16px 70px 16px', maxWidth: 430, margin: '0 auto' }}>
+      <div style={{ width: '100%', display: 'flex', justifyContent: 'center', margin: '0 0 18px 0' }}>
+        <button className="knowledge-back" onClick={onBack} style={{display: 'block', margin: '18px auto 0 auto'}}>← Назад</button>
+      </div>
       {/* <h2 style={{
         fontFamily: 'Comfortaa, cursive',
         fontWeight: 700,
@@ -240,6 +243,7 @@ export default function Shankaprakshalana({ onBack }) {
             fontWeight: 700,
             fontSize: '1.12rem',
             borderRadius: 16,
+            border: '3px solid #fff', // добавлено для белого ободка
             boxShadow: '0 2px 12px 0 rgba(124,91,179,0.13)',
             textDecoration: 'none',
             letterSpacing: '0.01em',
@@ -256,28 +260,7 @@ export default function Shankaprakshalana({ onBack }) {
 
       {/* Кнопка назад */}
       <div style={{ width: '100%', display: 'flex', justifyContent: 'center', margin: '0 0 24px 0' }}>
-        <button
-          onClick={onBack}
-          style={{
-            padding: '12px 24px',
-            background: 'rgba(184,116,232,0.1)',
-            color: '#7c5bb3',
-            fontFamily: 'Comfortaa, cursive',
-            fontWeight: 600,
-            fontSize: '1rem',
-            borderRadius: 12,
-            border: '2px solid #b484f7',
-            cursor: 'pointer',
-            textDecoration: 'none',
-            letterSpacing: '0.01em',
-            transition: 'background 0.2s, transform 0.1s',
-            textAlign: 'center',
-          }}
-          onMouseOver={e => { e.currentTarget.style.background = 'rgba(184,116,232,0.2)'; e.currentTarget.style.transform = 'scale(1.02)'; }}
-          onMouseOut={e => { e.currentTarget.style.background = 'rgba(184,116,232,0.1)'; e.currentTarget.style.transform = 'scale(1)'; }}
-        >
-          ← Назад
-        </button>
+        <button className="knowledge-back" onClick={onBack} style={{display: 'block', margin: '18px auto 0 auto'}}>← Назад</button>
       </div>
     </div>
   );

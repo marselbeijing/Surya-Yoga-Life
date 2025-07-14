@@ -613,7 +613,7 @@ function KnowledgeHDMoviesPage({ onBack }) {
       {!selectedMovie && (
         <>
           <div style={{textAlign: 'center', marginBottom: 12, color: '#7c5bb3', fontSize: '1rem', fontFamily: 'Comfortaa, cursive'}}>Для просмотра фильма кликните по названию</div>
-          <button className="knowledge-back knowledge-back--small" onClick={onBack} style={{display: 'block', margin: '18px auto 0 auto'}}>← Назад</button>
+          <button className="knowledge-back" onClick={onBack} style={{display: 'block', margin: '18px auto 0 auto'}}>← Назад</button>
         </>
       )}
       <div className="knowledge-section">
@@ -621,7 +621,7 @@ function KnowledgeHDMoviesPage({ onBack }) {
           <div style={{textAlign: 'center'}}>
             <div style={{marginBottom: 16, fontSize: 22, color: '#7c5bb3'}}>{selectedMovie.title}</div>
             {selectedMovie.embed}
-            <button className="knowledge-back knowledge-back--small" onClick={() => setSelectedMovie(null)} style={{display: 'block', margin: '18px auto 0 auto'}}>← К списку фильмов</button>
+            <button className="knowledge-back" onClick={() => setSelectedMovie(null)} style={{display: 'block', margin: '18px auto 0 auto'}}>← К списку фильмов</button>
           </div>
         ) : (
         <ul className="knowledge-movie-list">
@@ -861,14 +861,14 @@ function KnowledgeDocumentariesPage({ onBack }) {
     <div className="knowledge-page">
       <div className="knowledge-title knowledge-title--small">Документальные фильмы</div>
       <div style={{textAlign: 'center', marginBottom: 12, color: '#7c5bb3', fontSize: '1rem', fontFamily: 'Comfortaa, cursive'}}>Для просмотра фильма кликните по названию</div>
-      <button className="knowledge-back knowledge-back--small" onClick={onBack} style={{display: 'block', margin: '18px auto 0 auto'}}>← Назад</button>
+      <button className="knowledge-back" onClick={onBack} style={{display: 'block', margin: '18px auto 0 auto'}}>← Назад</button>
       <div className="knowledge-section">
         <ul className="knowledge-movie-list">
           {documentaries.map((doc, idx) => (
             <li className="knowledge-movie-item" key={idx}>{doc}</li>
           ))}
         </ul>
-        <button className="knowledge-back knowledge-back--small" onClick={onBack} style={{display: 'block', margin: '18px auto 0 auto'}}>← Назад</button>
+        <button className="knowledge-back" onClick={onBack} style={{display: 'block', margin: '18px auto 0 auto'}}>← Назад</button>
       </div>
     </div>
   );
@@ -894,14 +894,14 @@ function KnowledgeSeriesPage({ onBack }) {
     <div className="knowledge-page">
       <div className="knowledge-title">Сериалы</div>
       <div style={{textAlign: 'center', marginBottom: 12, color: '#7c5bb3', fontSize: '1rem', fontFamily: 'Comfortaa, cursive'}}>Для просмотра сериала кликните по названию</div>
-      <button className="knowledge-back knowledge-back--small" onClick={onBack} style={{display: 'block', margin: '18px auto 0 auto'}}>← Назад</button>
+      <button className="knowledge-back" onClick={onBack} style={{display: 'block', margin: '18px auto 0 auto'}}>← Назад</button>
       <div className="knowledge-section">
         <ul className="knowledge-movie-list">
           {series.map((item, idx) => (
             <li className="knowledge-movie-item" key={idx}>{item}</li>
           ))}
         </ul>
-        <button className="knowledge-back knowledge-back--small" onClick={onBack} style={{display: 'block', margin: '18px auto 0 auto'}}>← Назад</button>
+        <button className="knowledge-back" onClick={onBack} style={{display: 'block', margin: '18px auto 0 auto'}}>← Назад</button>
       </div>
     </div>
   );
@@ -914,7 +914,7 @@ function SacredMusicPage({ onBack }) {
       <div style={{textAlign: 'center', color: '#7c5bb3', fontSize: '1.05rem', margin: '32px 0 0 0', fontFamily: 'Comfortaa, cursive'}}>
         Здесь будет раздел с подборкой сакральной музыки для практик, медитаций и вдохновения.
       </div>
-      <button className="knowledge-back knowledge-back--small" onClick={onBack} style={{display: 'block', margin: '38px auto 0 auto'}}>← Назад</button>
+      <button className="knowledge-back" onClick={onBack} style={{display: 'block', margin: '38px auto 0 auto'}}>← Назад</button>
     </div>
   );
 }
@@ -1012,7 +1012,7 @@ function BreathSquarePage({ onBack }) {
         </ul>
         Затем цикл повторяется.
       </div>
-      <button className="knowledge-back knowledge-back--small" onClick={onBack} style={{display: 'block', margin: '18px auto 0 auto'}}>← Назад</button>
+      <button className="knowledge-back" onClick={onBack} style={{display: 'block', margin: '18px auto 0 auto'}}>← Назад</button>
     </div>
   );
 }
@@ -1118,14 +1118,15 @@ function BreathTrianglePage({ onBack }) {
         Используется для медитации, стабилизации эмоций.<br/>
         Затем цикл повторяется.
       </div>
-      <button className="knowledge-back knowledge-back--small" onClick={onBack} style={{display: 'block', margin: '18px auto 0 auto'}}>← Назад</button>
+      <button className="knowledge-back" onClick={onBack} style={{display: 'block', margin: '18px auto 0 auto'}}>← Назад</button>
     </div>
   );
 }
 
-function NailsPage({ onBack }) {
+function NailsPage({ onBack, setShowNailsPairPractice }) {
   return (
-    <div className="knowledge-page">
+    <div className="knowledge-page" style={{marginTop: -24}}>
+      <button className="knowledge-back" onClick={onBack} style={{display: 'block', margin: '18px auto 0 auto'}}>← Назад</button>
       <div style={{
         textAlign: 'center',
         fontFamily: 'Comfortaa, cursive',
@@ -1138,7 +1139,7 @@ function NailsPage({ onBack }) {
         borderRadius: 14,
         padding: '16px 8px 14px 8px'
       }}>
-        🧿 ГВОЗДИ — путь к себе настоящему<br/>
+        🧿 Доски Садху — путь к себе настоящему<br/>
         Это не про боль. Это про силу.
       </div>
       <div style={{
@@ -1177,12 +1178,12 @@ function NailsPage({ onBack }) {
         boxShadow: '0 2px 12px 0 rgba(124,91,179,0.08)'
       }}>
         <b style={{color:'#fff'}}>Что даёт практика:</b><br/>
-        <span style={{color:'#fff'}}>🍃 Проработка внутренних травм, блоков, страхов <br/>
-        🌪 Очищение ума от тревог, суеты и зацикленных мыслей<br/>
-        🪬 Глубокое телесное заземление и возвращение в момент «здесь и сейчас»<br/>
-        ☘️ Формирование новых нейронных связей<br/>
-        💥 Прорыв через страх, боль, сомнение — в силу, свободу и ресурс<br/>
-        🧘‍♀️ Запуск процессов исцеления, перезагрузки и внутреннего роста<br/></span>
+        <span style={{color:'#fff'}}>• Проработка внутренних травм, блоков, страхов <br/>
+        • Очищение ума от тревог, суеты и зацикленных мыслей<br/>
+        • Глубокое телесное заземление и возвращение в момент «здесь и сейчас»<br/>
+        • Формирование новых нейронных связей<br/>
+        • Прорыв через страх, боль, сомнение — в силу, свободу и ресурс<br/>
+        • Запуск процессов исцеления, перезагрузки и внутреннего роста<br/></span>
         <br/>
         <span style={{color:'#fff'}}>Ты встаёшь — и весь мир замирает.<br/>
         Открывается что-то древнее. Настоящее. Твоё.</span>
@@ -1208,41 +1209,78 @@ function NailsPage({ onBack }) {
         borderRadius: 14,
         padding: '16px 8px 14px 8px'
       }}>
-        ✨ Стояние на гвоздях — под чутким сопровождением<br/>
-        🌿 В безопасном пространстве<br/>
-        🪷 В индивидуальном формате или мини-группе<br/>
-        ⏳ 2-3 часа работы  с глубоким телесным погружением<br/>
-        🍃 Работа с намерением по авторской методике , медитация , легкая разминка .<br/>
-        📍 Онлайн (с твоими досками) или офлайн (с моими)
+        • Стояние на гвоздях — под чутким сопровождением<br/>
+        • В безопасном пространстве<br/>
+        • В индивидуальном формате или мини-группе<br/>
+        • 2-3 часа работы с глубоким телесным погружением<br/>
+        • Работа с намерением по авторской методике, медитация, легкая разминка.<br/>
+        • Онлайн (с твоими досками) или офлайн (с моими)
       </div>
-      <div style={{ width: '100%', display: 'flex', justifyContent: 'center', margin: '0 0 16px 0' }}>
-        <a
-          href="https://t.me/disha070?text=Здравствуйте%2C%20хочу%20купить%20практику%20гвоздестояния"
-          target="_blank"
-          rel="noopener noreferrer"
+      <div style={{ width: '100%', display: 'flex', justifyContent: 'center', margin: '0 0 8px 0' }}>
+        <button
+          type="button"
           style={{
             display: 'inline-block',
-            padding: '16px 36px',
+            padding: '10px 18px',
             background: 'linear-gradient(90deg, #b484f7 0%, #7c5bb3 100%)',
             color: '#fff',
             fontFamily: 'Comfortaa, cursive',
             fontWeight: 700,
-            fontSize: '1.12rem',
-            borderRadius: 16,
+            fontSize: '0.98rem',
+            borderRadius: 14,
+            border: '3px solid #fff', // добавлено для белого ободка
+            boxShadow: '0 2px 12px 0 rgba(124,91,179,0.13)',
+            textDecoration: 'none',
+            letterSpacing: '0.01em',
+            transition: 'background 0.2s, box-shadow 0.2s, transform 0.1s',
+            textAlign: 'center',
+            marginBottom: 2,
+            minWidth: 160,
+            width: '100%',
+            maxWidth: 260,
+            cursor: 'pointer',
+          }}
+          onClick={() => setShowNailsPairPractice(true)}
+        >
+          Парная практика
+        </button>
+      </div>
+      <div style={{ width: '100%', display: 'flex', justifyContent: 'center', margin: '0 0 0 0' }}>
+        <a
+          href="https://t.me/disha070"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: 'inline-block',
+            padding: '10px 18px',
+            background: 'linear-gradient(90deg, #b484f7 0%, #7c5bb3 100%)',
+            color: '#fff',
+            fontFamily: 'Comfortaa, cursive',
+            fontWeight: 700,
+            fontSize: '0.98rem',
+            borderRadius: 14,
+            border: '3px solid #fff', // добавлено для белого ободка
             boxShadow: '0 2px 12px 0 rgba(124,91,179,0.13)',
             textDecoration: 'none',
             letterSpacing: '0.01em',
             transition: 'background 0.2s, box-shadow 0.2s, transform 0.1s',
             textAlign: 'center',
             marginBottom: 0,
+            minWidth: 160,
+            width: '100%',
+            maxWidth: 260,
+            cursor: 'pointer',
           }}
           onMouseOver={e => { e.currentTarget.style.background = 'linear-gradient(90deg, #7c5bb3 0%, #b484f7 100%)'; e.currentTarget.style.transform = 'scale(1.04)'; }}
           onMouseOut={e => { e.currentTarget.style.background = 'linear-gradient(90deg, #b484f7 0%, #7c5bb3 100%)'; e.currentTarget.style.transform = 'scale(1)'; }}
         >
-          Купить
+          Записаться на сессию
         </a>
       </div>
-      <button className="knowledge-back knowledge-back--small" onClick={onBack} style={{display: 'block', margin: '28px auto 0 auto'}}>← Назад</button>
+      <div>
+        {/* <div>Отзывы и обратная связь</div> */}
+        <button className="knowledge-back" onClick={onBack} style={{display: 'block', margin: '28px auto 0 auto'}}>← Назад</button>
+      </div>
     </div>
   );
 }
@@ -1307,7 +1345,7 @@ function AboutDianaGuruPage({ onBack }) {
         <img src={require('./components/diana4.jpg')} alt="Диана 4" style={{maxWidth: 260, maxHeight: 340, borderRadius: 18, boxShadow: '0 4px 18px #e6e0f7', objectFit: 'cover', width: '100%', height: 'auto'}} />
         <img src={require('./components/diana5.jpg')} alt="Диана 5" style={{maxWidth: 260, maxHeight: 340, borderRadius: 18, boxShadow: '0 4px 18px #e6e0f7', objectFit: 'cover', width: '100%', height: 'auto'}} />
       </div>
-      <button className="knowledge-back knowledge-back--small" onClick={onBack} style={{display: 'block', margin: '28px auto 0 auto'}}>← Назад</button>
+      <button className="knowledge-back" onClick={onBack} style={{display: 'block', margin: '28px auto 0 auto'}}>← Назад</button>
     </div>
   );
 }
@@ -1316,7 +1354,7 @@ function RetreatsPage({ onBack }) {
   return (
     <div className="knowledge-page">
       <div className="knowledge-title">Наши ретриты</div>
-      <button className="knowledge-back knowledge-back--small" onClick={onBack} style={{display: 'block', margin: '28px auto 0 auto'}}>← Назад</button>
+      <button className="knowledge-back" onClick={onBack} style={{display: 'block', margin: '28px auto 0 auto'}}>← Назад</button>
     </div>
   );
 }
@@ -1331,7 +1369,158 @@ function MarinaSharipovaPage({ onBack }) {
       <div style={{fontFamily: 'Comfortaa, cursive', color: '#7c5bb3', fontSize: '0.92rem', margin: '0 0 18px 0', textAlign: 'center', lineHeight: 1.5}}>
         {/* Здесь можно добавить биографию или описание */}
       </div>
-      <button className="knowledge-back knowledge-back--small" onClick={onBack} style={{display: 'block', margin: '18px auto 0 auto'}}>← Назад</button>
+      <button className="knowledge-back" onClick={onBack} style={{display: 'block', margin: '18px auto 0 auto'}}>← Назад</button>
+    </div>
+  );
+}
+
+function NailsPairPracticePage({ onBack }) {
+  return (
+    <div className="knowledge-page">
+      <button className="knowledge-back" onClick={onBack} style={{display: 'block', margin: '0 auto 18px auto'}}>← Назад</button>
+      <div style={{
+        textAlign: 'center',
+        fontFamily: 'Comfortaa, cursive',
+        color: '#111',
+        fontSize: '0.95rem',
+        fontWeight: 500,
+        margin: '0 0 0 0',
+        lineHeight: 1.5,
+        background: '#e0e0e2',
+        borderRadius: 14,
+        padding: '16px 8px 14px 8px'
+      }}>
+        Парная практика гвоздестояния
+      </div>
+      <div style={{
+        background: '#ededf0',
+        borderRadius: 14,
+        padding: '16px 8px 14px 8px',
+        margin: '16px 0 0 0',
+        textAlign: 'center',
+        fontFamily: 'Comfortaa, cursive',
+        color: '#111',
+        fontSize: '0.92rem',
+        lineHeight: 1.6
+      }}>
+        <b>Я ВИЖУ ТЕБЯ 🍃</b>
+        <br/><br/>
+        В этой практике вы не просто стоите на гвоздях —<br/>
+        вы стоите рядом.<br/>
+        Вы — опора друг для друга.<br/>
+        Вы — зеркало друг для друга.<br/>
+        Вы — пространство, в котором можно быть настоящими.
+      </div>
+      <div style={{
+        background: '#ededf0',
+        borderRadius: 14,
+        padding: '16px 8px 14px 8px',
+        margin: '16px 0 0 0',
+        textAlign: 'center',
+        fontFamily: 'Comfortaa, cursive',
+        color: '#111',
+        fontSize: '0.92rem',
+        lineHeight: 1.6
+      }}>
+        <b>Как проходит практика:</b><br/>
+        Знакомство с участниками <br/>
+        Сессия с разбором запросов участников на практику<br/>
+        Колесо Жизненного Баланса <br/>
+        Формирование намерения<br/>
+        Глубокий диалог между участниками <br/>
+        Проработка негативных переживаний <br/>
+        Очень красивая и чувственная парная трансформация на гвоздях<br/>
+        Тантрическое дыхание
+      </div>
+      <div style={{
+        background: 'linear-gradient(135deg, #b484f7 0%, #7c5bb3 100%)',
+        borderRadius: 16,
+        padding: '18px 10px 16px 10px',
+        boxShadow: '0 2px 12px 0 rgba(124,91,179,0.08)',
+        textAlign: 'center',
+        fontFamily: 'Comfortaa, cursive',
+        color: '#fff',
+        fontSize: '0.92rem',
+        fontWeight: 500,
+        margin: '16px 0 0 0',
+        lineHeight: 1.5
+      }}>
+        <b style={{color:'#fff'}}>Что даёт парная практика:</b><br/>
+        <span style={{color:'#fff'}}>
+          • Сближение через телесный опыт<br/>
+          • Доверие — я рядом, я тебя чувствую<br/>
+          • Поддержка — ты не один / не одна<br/>
+          • Принятие — я вижу тебя без масок<br/>
+          • Совместное заземление и очищение<br/>
+          • Укрепление энергетической связи<br/>
+          • Прощение
+        </span>
+      </div>
+      <div style={{
+        background: '#ededf0',
+        borderRadius: 14,
+        padding: '16px 8px 14px 8px',
+        margin: '16px 0 0 0',
+        textAlign: 'center',
+        fontFamily: 'Comfortaa, cursive',
+        color: '#111',
+        fontSize: '0.92rem',
+        lineHeight: 1.7
+      }}>
+        И вот вы вместе сходите с досок…<br/>
+        Медленно, мягко ….<br/>
+        Как будто ступаете на новую землю, на другую глубину.<br/>
+        <br/>
+        Взгляд.<br/>
+        Объятие.<br/>
+        Без слов.<br/>
+        <br/>
+        "Я рядом."<br/>
+        "Я благодарю."<br/>
+        "Ты — мой путь внутрь себя."<br/>
+        <br/>
+        Иногда такие практики соединяют сильнее любых разговоров.<br/>
+        Стирают напряжение.<br/>
+        Открывают сердце.<br/>
+        <br/>
+        Пусть это останется с вами.<br/>
+        Внутри.<br/>
+        В теле.<br/>
+        В отношениях.
+      </div>
+      <div style={{ width: '100%', display: 'flex', justifyContent: 'center', margin: '24px 0 0 0' }}>
+        <a
+          href="https://t.me/disha070"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: 'inline-block',
+            padding: '16px 36px',
+            background: 'linear-gradient(90deg, #b484f7 0%, #7c5bb3 100%)',
+            color: '#fff',
+            fontFamily: 'Comfortaa, cursive',
+            fontWeight: 700,
+            fontSize: '1.08rem',
+            borderRadius: 16,
+            border: '3px solid #fff',
+            boxShadow: '0 2px 12px 0 rgba(124,91,179,0.13)',
+            textDecoration: 'none',
+            letterSpacing: '0.01em',
+            transition: 'background 0.2s, box-shadow 0.2s, transform 0.1s',
+            textAlign: 'center',
+            marginBottom: 0,
+            minWidth: 160,
+            width: '100%',
+            maxWidth: 260,
+            cursor: 'pointer',
+          }}
+          onMouseOver={e => { e.currentTarget.style.background = 'linear-gradient(90deg, #7c5bb3 0%, #b484f7 100%)'; e.currentTarget.style.transform = 'scale(1.04)'; }}
+          onMouseOut={e => { e.currentTarget.style.background = 'linear-gradient(90deg, #b484f7 0%, #7c5bb3 100%)'; e.currentTarget.style.transform = 'scale(1)'; }}
+        >
+          Записаться на сессию
+        </a>
+      </div>
+      <button className="knowledge-back" onClick={onBack} style={{display: 'block', margin: '28px auto 0 auto'}}>← Назад</button>
     </div>
   );
 }
@@ -1345,6 +1534,7 @@ function App() {
   const [showDianaGuru, setShowDianaGuru] = useState(false);
   const [showRetreats, setShowRetreats] = useState(false);
   const [showMarinaSharipova, setShowMarinaSharipova] = useState(false);
+  const [showNailsPairPractice, setShowNailsPairPractice] = useState(false);
 
   // Загрузка темы из localStorage при запуске
   useEffect(() => {
@@ -1388,11 +1578,14 @@ function App() {
   }, [activeTab]);
 
   const renderContent = () => {
+    if (showNailsPairPractice) {
+      return <NailsPairPracticePage onBack={() => setShowNailsPairPractice(false)} />;
+    }
     if (selectedSection === 'Шанкапракшалана') {
       return <Shankaprakshalana onBack={() => setSelectedSection(null)} />;
     }
     if (selectedSection === 'Гвоздестояние') {
-      return <NailsPage onBack={() => setSelectedSection(null)} />;
+      return <NailsPage onBack={() => setSelectedSection(null)} setShowNailsPairPractice={setShowNailsPairPractice} />;
     }
     if (selectedSection === 'Дыхание') {
       if (selectedBreathPractice === 'breath-square') {
@@ -1402,16 +1595,142 @@ function App() {
         return <BreathTrianglePage onBack={() => setSelectedBreathPractice(null)} />;
       }
       return (
-        <div className="knowledge-page">
-          <div className="knowledge-title">Дыхательные практики</div>
-          <div className="breath-practice-row">
-            <div className="breath-square-icon" onClick={() => setSelectedBreathPractice('breath-square')}>
-              <span>Дыхание по квадрату</span>
-            </div>
-            <div className="breath-square-icon" onClick={() => setSelectedBreathPractice('breath-triangle')}>
-              <span>Дыхание по треугольнику</span>
+        <div className="knowledge-page" style={{display: 'flex', flexDirection: 'column', minHeight: 'calc(100vh - 64px)'}}>
+          <div>
+            <div className="knowledge-title">Дыхательные практики</div>
+            <div className="breath-practice-row">
+              <div className="breath-square-icon" onClick={() => setSelectedBreathPractice('breath-square')}>
+                <span>Дыхание по квадрату</span>
+              </div>
+              <div className="breath-square-icon" onClick={() => setSelectedBreathPractice('breath-triangle')}>
+                <span>Дыхание по треугольнику</span>
+              </div>
             </div>
           </div>
+          <button className="knowledge-back" onClick={() => setSelectedSection(null)} style={{display: 'block', margin: '28px auto 0 auto', marginTop: 'auto'}}>← Назад</button>
+        </div>
+      );
+    }
+    if (selectedSection === 'Лила') {
+      return (
+        <div className="knowledge-page" style={{display: 'flex', flexDirection: 'column', minHeight: 'calc(100vh - 64px)'}}>
+          <button className="knowledge-back" onClick={() => setSelectedSection(null)} style={{display: 'block', margin: '-12px auto 4px auto'}}>
+            ← Назад
+          </button>
+          <div style={{
+            textAlign: 'center',
+            fontFamily: 'Comfortaa, cursive',
+            color: '#111',
+            fontSize: '0.95rem',
+            fontWeight: 500,
+            margin: '18px 0 0 0',
+            lineHeight: 1.5,
+            background: '#e0e0e2',
+            borderRadius: 14,
+            padding: '16px 8px 14px 8px'
+          }}>
+            🌟 Игра Лила – Путешествие вглубь себя 🌟<br/>
+            Не просто игра. Это зеркало твоей души, это разговор с высшим Я, это трансформация.
+          </div>
+
+          {/* Вопросы и описание */}
+          <div style={{
+            background: '#ededf0', // изменён цвет фона
+            borderRadius: 14,
+            padding: '16px 8px 14px 8px',
+            color: '#111',
+            fontFamily: 'Comfortaa, cursive',
+            fontSize: '0.95rem',
+            textAlign: 'center',
+            boxShadow: '0 2px 12px 0 rgba(124,91,179,0.07)',
+            maxWidth: 480,
+            margin: '0 auto 16px auto',
+            lineHeight: 1.7
+          }}>
+            Хочешь понять, почему в жизни повторяются одни и те же ситуации?<br/>
+            Столкнулся с выбором, сомнениями, внутренними противоречиями?<br/>
+            Игра Лила — древняя Ведическая практика, в которую играли Брахманы (представители духовной касты в Индии). Лила поможет тебе найти ответы, выйти за пределы ума и увидеть истинные причины происходящего.
+          </div>
+
+          {/* Блок "Что ты получишь во время игры" */}
+          <div style={{
+            background: 'linear-gradient(135deg, #b484f7 0%, #7c5bb3 100%)',
+            borderRadius: 16,
+            padding: '18px 10px 16px 10px',
+            color: '#fff',
+            fontFamily: 'Comfortaa, cursive',
+            fontSize: '0.95rem',
+            textAlign: 'center',
+            boxShadow: '0 2px 12px 0 rgba(124,91,179,0.08)',
+            maxWidth: 480,
+            margin: '0 auto 16px auto',
+            lineHeight: 1.55
+          }}>
+            <b>Что ты получишь во время игры:</b><br/><br/>
+            ✨ Мощное осознание своих текущих состояний<br/>
+            ✨ Ответы на глубинные вопросы<br/>
+            ✨ Прорыв в застойных ситуациях<br/>
+            ✨ Вдохновение, ясность и силу двигаться дальше<br/>
+            ✨ Найти  предназначение своей души
+          </div>
+
+          {/* Блок "Лила — это пространство, где играют Боги..." */}
+          <div style={{
+            background: '#ededf0',
+            borderRadius: 14,
+            padding: '16px 8px 14px 8px',
+            color: '#111',
+            fontFamily: 'Comfortaa, cursive',
+            fontSize: '0.95rem',
+            textAlign: 'center',
+            maxWidth: 480,
+            margin: '0 auto',
+            lineHeight: 1.55
+          }}>
+            Лила — это пространство, где играют Боги. И ты — один из них.<br/>
+            Здесь каждая клетка — символ этапа твоего пути. Каждая фишка — отражение внутреннего состояния.<br/><br/>
+            Игру ведёт опытный проводник, создавая безопасное и бережное поле.<br/>
+            Формат: индивидуально / в мини-группе (маленькое и большое поле 3*3)<br/>
+            Где: онлайн / вживую (по договорённости)<br/>
+            Продолжительность: 2,5–4 часа
+          </div>
+
+          {/* Кнопка "Записаться на сессию" */}
+          <div style={{ width: '100%', display: 'flex', justifyContent: 'center', margin: '32px 0 0 0' }}>
+            <a
+              href="https://t.me/disha070?text=Здравствуйте%2C%20хочу%20записаться%20на%20игру%20Лила"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-block',
+                padding: '10px 18px',
+                background: 'linear-gradient(90deg, #b484f7 0%, #7c5bb3 100%)',
+                color: '#fff',
+                fontFamily: 'Comfortaa, cursive',
+                fontWeight: 700,
+                fontSize: '0.98rem',
+                borderRadius: 14,
+                border: '3px solid #fff',
+                boxShadow: '0 2px 12px 0 rgba(124,91,179,0.13)',
+                textDecoration: 'none',
+                letterSpacing: '0.01em',
+                transition: 'background 0.2s, box-shadow 0.2s, transform 0.1s',
+                textAlign: 'center',
+                marginBottom: 0,
+                minWidth: 160,
+                width: '100%',
+                maxWidth: 260,
+                cursor: 'pointer',
+              }}
+              onMouseOver={e => { e.currentTarget.style.background = 'linear-gradient(90deg, #7c5bb3 0%, #b484f7 100%)'; e.currentTarget.style.transform = 'scale(1.04)'; }}
+              onMouseOut={e => { e.currentTarget.style.background = 'linear-gradient(90deg, #b484f7 0%, #7c5bb3 100%)'; e.currentTarget.style.transform = 'scale(1)'; }}
+            >
+              Записаться на сессию
+            </a>
+          </div>
+
+          {/* Нижняя кнопка "Назад" */}
+          <button className="knowledge-back" onClick={() => setSelectedSection(null)} style={{display: 'block', margin: '18px auto 24px auto'}}>← Назад</button>
         </div>
       );
     }
@@ -1450,7 +1769,7 @@ function App() {
               <h3>Сакральная музыка</h3>
               <p>Подборка музыки для медитаций, практик и внутреннего вдохновения.</p>
             </div>
-            <button className="knowledge-back knowledge-back--small" onClick={() => setActiveTab('home')} style={{display: 'block', margin: '38px auto 0 auto'}}>← Назад</button>
+            <button className="knowledge-back" onClick={() => setActiveTab('home')} style={{display: 'block', margin: '28px auto 0 auto'}}>← Назад</button>
           </div>
         );
       case 'about':
@@ -1469,7 +1788,6 @@ function App() {
             <p style={{textAlign: 'center', color: 'var(--about-greeting)', margin: '18px 0 0 0', fontSize: '0.92rem', fontWeight: 500}}>
               Добро пожаловать в мир гармонии и духовного развития! Наше приложение создано для тех, кто стремится к внутреннему равновесию и познанию себя.
             </p>
-            
             {/* Квадратные иконки с кнопками ОТКРЫТЬ */}
             <div style={{margin: '24px 0'}}>
               <PhotoIcons 
@@ -1527,10 +1845,32 @@ function App() {
                 </p>
               </div>
             </div>
+            <button className="knowledge-back" onClick={() => setActiveTab('home')} style={{display: 'block', margin: '28px auto 0 auto'}}>← Назад</button>
           </div>
         );
       case 'account':
         return <TelegramLoginButton isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />;
+      case 'лила':
+        return (
+          <div className="knowledge-page" style={{display: 'flex', flexDirection: 'column', minHeight: 'calc(100vh - 64px)'}}>
+            <button className="knowledge-back" onClick={() => setSelectedSection(null)} style={{display: 'block', margin: '28px auto 24px auto'}}>← Назад</button>
+            <div style={{
+              background: '#f7f3ff',
+              borderRadius: 16,
+              padding: '24px 16px',
+              color: '#7c5bb3',
+              fontFamily: 'Comfortaa, cursive',
+              fontSize: '1.08rem',
+              textAlign: 'center',
+              boxShadow: '0 2px 12px 0 rgba(124,91,179,0.07)',
+              maxWidth: 480,
+              margin: '0 auto',
+              lineHeight: 1.7
+            }}>
+              <b>Лила</b> — это древняя духовная игра самопознания, помогающая взглянуть на свою жизнь с новой стороны, осознать внутренние процессы и получить ответы на важные вопросы. Приглашаем вас в удивительное путешествие к себе!
+            </div>
+          </div>
+        );
       default:
         return <MainSections onSectionClick={setSelectedSection} />;
     }
