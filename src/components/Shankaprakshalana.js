@@ -52,9 +52,9 @@ export default function Shankaprakshalana({ onBack }) {
   const previewCount = 3;
   const complexPreviewCount = 3;
   return (
-    <div style={{ padding: '28px 16px 70px 16px', maxWidth: 430, margin: '0 auto' }}>
-      <div style={{ width: '100%', display: 'flex', justifyContent: 'center', margin: '0 0 18px 0' }}>
-        <button className="knowledge-back" onClick={onBack} style={{display: 'block', margin: '18px auto 0 auto'}}>← Назад</button>
+    <div style={{ padding: '28px 16px 100px 16px', maxWidth: 430, margin: '0 auto' }}>
+      <div style={{ width: '100%', display: 'flex', justifyContent: 'center', margin: '0 0 8px 0' }}>
+        <button className="knowledge-back" onClick={onBack} style={{display: 'block', margin: '0 auto 0 auto'}}>← Назад</button>
       </div>
       {/* <h2 style={{
         fontFamily: 'Comfortaa, cursive',
@@ -259,8 +259,8 @@ export default function Shankaprakshalana({ onBack }) {
       </div>
 
       {/* Кнопка назад */}
-      <div style={{ width: '100%', display: 'flex', justifyContent: 'center', margin: '0 0 24px 0' }}>
-        <button className="knowledge-back" onClick={onBack} style={{display: 'block', margin: '18px auto 0 auto'}}>← Назад</button>
+      <div style={{ width: '100%', display: 'flex', justifyContent: 'center', margin: '0 0 0px 0' }}>
+        <button className="knowledge-back" onClick={onBack} style={{display: 'block', margin: '0px auto 0 auto'}}>← Назад</button>
       </div>
     </div>
   );

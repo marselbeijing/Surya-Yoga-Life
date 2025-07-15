@@ -5,6 +5,7 @@ import Header from './components/Header';
 
 import TelegramLoginButton from './components/TelegramLoginButton';
 import { Shankaprakshalana } from './components';
+import MeditationPage from './components/MeditationPage';
 import PhotoIcons from './components/PhotoIcons';
 import './App.css';
 import telegramIcon from './components/telegram.svg';
@@ -1495,14 +1496,14 @@ function NailsPairPracticePage({ onBack }) {
           rel="noopener noreferrer"
           style={{
             display: 'inline-block',
-            padding: '16px 36px',
+            padding: '10px 18px',
             background: 'linear-gradient(90deg, #b484f7 0%, #7c5bb3 100%)',
             color: '#fff',
             fontFamily: 'Comfortaa, cursive',
             fontWeight: 700,
-            fontSize: '1.08rem',
-            borderRadius: 16,
-            border: '3px solid #fff',
+            fontSize: '0.98rem',
+            borderRadius: 14,
+            border: '3px solid #fff', // добавлено для белого ободка
             boxShadow: '0 2px 12px 0 rgba(124,91,179,0.13)',
             textDecoration: 'none',
             letterSpacing: '0.01em',
@@ -1733,6 +1734,9 @@ function App() {
           <button className="knowledge-back" onClick={() => setSelectedSection(null)} style={{display: 'block', margin: '18px auto 24px auto'}}>← Назад</button>
         </div>
       );
+    }
+    if (selectedSection === 'Медитация') {
+      return <MeditationPage onBack={() => setSelectedSection(null)} />;
     }
     if (activeTab === 'knowledge' && selectedKnowledgeSection === 'hd-movies') {
       return <KnowledgeHDMoviesPage onBack={() => setSelectedKnowledgeSection(null)} />;
