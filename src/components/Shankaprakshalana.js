@@ -52,7 +52,7 @@ export default function Shankaprakshalana({ onBack }) {
   const previewCount = 3;
   const complexPreviewCount = 3;
   return (
-    <div style={{ padding: '28px 16px 100px 16px', maxWidth: 430, margin: '0 auto' }}>
+    <div style={{ padding: '28px 16px 200px 16px', maxWidth: 430, margin: '0 auto' }}>
       <div style={{ width: '100%', display: 'flex', justifyContent: 'center', margin: '0 0 8px 0' }}>
         <button className="knowledge-back" onClick={onBack} style={{display: 'block', margin: '0 auto 0 auto'}}>← Назад</button>
       </div>

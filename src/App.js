@@ -6,6 +6,7 @@ import Header from './components/Header';
 import TelegramLoginButton from './components/TelegramLoginButton';
 import { Shankaprakshalana } from './components';
 import MeditationPage from './components/MeditationPage';
+import ChakraPage from './components/ChakraPage';
 import PhotoIcons from './components/PhotoIcons';
 import './App.css';
 import telegramIcon from './components/telegram.svg';
@@ -1536,6 +1537,7 @@ function App() {
   const [showRetreats, setShowRetreats] = useState(false);
   const [showMarinaSharipova, setShowMarinaSharipova] = useState(false);
   const [showNailsPairPractice, setShowNailsPairPractice] = useState(false);
+  const [showChakraPage, setShowChakraPage] = useState(false);
 
   // Загрузка темы из localStorage при запуске
   useEffect(() => {
@@ -1579,6 +1581,9 @@ function App() {
   }, [activeTab]);
 
   const renderContent = () => {
+    if (showChakraPage) {
+      return <ChakraPage onBack={() => setShowChakraPage(false)} />;
+    }
     if (showNailsPairPractice) {
       return <NailsPairPracticePage onBack={() => setShowNailsPairPractice(false)} />;
     }
@@ -1736,7 +1741,7 @@ function App() {
       );
     }
     if (selectedSection === 'Медитация') {
-      return <MeditationPage onBack={() => setSelectedSection(null)} />;
+      return <MeditationPage onBack={() => setSelectedSection(null)} setShowChakraPage={setShowChakraPage} />;
     }
     if (activeTab === 'knowledge' && selectedKnowledgeSection === 'hd-movies') {
       return <KnowledgeHDMoviesPage onBack={() => setSelectedKnowledgeSection(null)} />;
