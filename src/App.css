@@ -292,6 +292,15 @@
 .breath-square-icon:active {
   box-shadow: 0 2px 8px 0 rgba(124,91,179,0.10);
 }
+
+.meditation-chakra-button-text {
+  font-family: 'Comfortaa', cursive;
+  font-weight: 600;
+  font-size: 1.18rem;
+  color: #7c5bb3;
+  text-align: center;
+}
+
 @media (max-width: 480px) {
   .breath-square-icon {
     width: 44vw;
