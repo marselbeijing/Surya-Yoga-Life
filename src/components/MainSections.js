@@ -99,7 +99,8 @@ export default function MainSections({ onSectionClick }) {
         <div
           className="section-card"
           key={s.key || s.title}
-          style={{ cursor: 'default' }}
+          onClick={onSectionClick ? () => onSectionClick(s.key || s.title) : undefined}
+          style={{ cursor: onSectionClick ? 'pointer' : 'default' }}
         >
           <div className="section-icon">{s.icon}</div>
           {s.title && <div className="section-title section-title-strict">{s.title}</div>}
