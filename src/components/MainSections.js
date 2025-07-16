@@ -37,10 +37,11 @@ const sections = [
 function OmFloat({ className, phaseIndex, total }) {
   const ref = useRef();
   const [pos, setPos] = useState({ x: 0, y: 0 });
-  const [angle, setAngle] = useState(Math.random() * 360);
-  const [speed] = useState(0.008 + Math.random() * 0.004); // радиан/кадр
-  const [radius] = useState(140 + Math.random() * 40); // px (увеличен радиус)
+  const [angle, setAngle] = useState(0);
+  const speed = 0.012; // одинаковая скорость
+  const radius = 120; // одинаковый радиус
   const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
+
   useEffect(() => {
     const parent = document.querySelector('.main-sections');
     if (parent) {
@@ -52,8 +53,10 @@ function OmFloat({ className, phaseIndex, total }) {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-  // Фиксированная стартовая фаза для равномерного распределения
+
+  // Равномерный сдвиг по фазе
   const phase = (phaseIndex ?? 0) * (2 * Math.PI / (total ?? 6));
+
   useEffect(() => {
     let frame;
     let t = phase;
@@ -64,7 +67,7 @@ function OmFloat({ className, phaseIndex, total }) {
       const x = cx + Math.cos(t) * radius;
       const y = cy + Math.sin(t) * radius;
       setPos({ x, y });
-      setAngle((a) => a + 0.2 + Math.random() * 0.2);
+      setAngle((a) => a + 0.1); // плавное вращение
       frame = requestAnimationFrame(animate);
     }
     if (containerSize.width && containerSize.height) {
@@ -72,6 +75,7 @@ function OmFloat({ className, phaseIndex, total }) {
     }
     return () => cancelAnimationFrame(frame);
   }, [radius, speed, containerSize, phase]);
+
   return (
     <div
       ref={ref}
@@ -80,7 +84,14 @@ function OmFloat({ className, phaseIndex, total }) {
         position: 'absolute',
         left: 0,
         top: 0,
-        transform: `translate(${pos.x}px, ${pos.y}px) rotate(${angle}deg)`
+        transform: `translate(${pos.x}px, ${pos.y}px) rotate(${angle}deg)`,
+        color: '#5a3a7a',
+        opacity: 0.45,
+        fontSize: '1.25rem',
+        fontWeight: 700,
+        pointerEvents: 'none',
+        userSelect: 'none',
+        zIndex: 0
       }}
     >
       ॐ
