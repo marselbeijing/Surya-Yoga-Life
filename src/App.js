@@ -556,7 +556,21 @@ function KnowledgeHDMoviesPage({ onBack }) {
         />
       ),
     },
-    'Гималаи (1999)',
+    {
+      title: 'Гималаи (1999)',
+      embed: (
+        <iframe
+          src="https://vk.com/video_ext.php?oid=-3983541&id=456239599&hd=4&autoplay=1"
+          width="1920"
+          height="1080"
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+          frameBorder="0"
+          allowFullScreen
+          title="Гималаи (1999)"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
     'Окраина (1998)',
     'Рамануджачарья(1988)',
     'Гостья (2013)',
