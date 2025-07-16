@@ -603,7 +603,21 @@ function KnowledgeHDMoviesPage({ onBack }) {
         />
       ),
     },
-    'Мадхвачарья',
+    {
+      title: 'Мадхвачарья',
+      embed: (
+        <iframe
+          src="https://vk.com/video_ext.php?oid=-78647366&id=456240669&hd=3&autoplay=1"
+          width="1280"
+          height="720"
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+          frameBorder="0"
+          allowFullScreen
+          title="Мадхвачарья"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
     'Пудра (1995)',
     'Император Ашока (2001)',
     'Покрытая тайной: так что же мы знаем (2004)',
