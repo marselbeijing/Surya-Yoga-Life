@@ -7,6 +7,7 @@ import TelegramLoginButton from './components/TelegramLoginButton';
 import { Shankaprakshalana } from './components';
 import MeditationPage from './components/MeditationPage';
 import PhotoIcons from './components/PhotoIcons';
+import ChakraPage from './components/ChakraPage';
 import './App.css';
 import telegramIcon from './components/telegram.svg';
 import about2 from './components/about2.jpg';
@@ -1536,6 +1537,28 @@ function App() {
   const [showRetreats, setShowRetreats] = useState(false);
   const [showMarinaSharipova, setShowMarinaSharipova] = useState(false);
   const [showNailsPairPractice, setShowNailsPairPractice] = useState(false);
+  const [showChakraPage, setShowChakraPage] = useState(false);
+  const [telegramUser, setTelegramUser] = useState(null);
+
+  const isSubPageActive = selectedSection !== null ||
+                          selectedKnowledgeSection !== null ||
+                          selectedBreathPractice !== null ||
+                          showDianaGuru ||
+                          showRetreats ||
+                          showMarinaSharipova ||
+                          showNailsPairPractice ||
+                          showChakraPage;
+
+  const handleTabChange = (tab) => {
+    setActiveTab(tab);
+  };
+
+  const handleOpenChakraPage = () => {
+    console.log("handleOpenChakraPage called");
+    setShowChakraPage(true);
+    setSelectedSection(null);
+    console.log("showChakraPage set to true, selectedSection set to null");
+  };
 
   // Загрузка темы из localStorage при запуске
   useEffect(() => {
@@ -1578,9 +1601,18 @@ function App() {
     setSelectedBreathPractice(null);
   }, [activeTab]);
 
+  const handleBottomBarTabChange = (tab) => {
+    setShowChakraPage(false);
+    setActiveTab(tab);
+  };
+
   const renderContent = () => {
     if (showNailsPairPractice) {
       return <NailsPairPracticePage onBack={() => setShowNailsPairPractice(false)} />;
+    }
+    if (showChakraPage) {
+      console.log("Rendering ChakraPage");
+      return <ChakraPage onBack={() => setShowChakraPage(false)} />;
     }
     if (selectedSection === 'Шанкапракшалана') {
       return <Shankaprakshalana onBack={() => setSelectedSection(null)} />;
@@ -1736,7 +1768,7 @@ function App() {
       );
     }
     if (selectedSection === 'Медитация') {
-      return <MeditationPage onBack={() => setSelectedSection(null)} />;
+      return <MeditationPage onBack={() => setSelectedSection(null)} onChakraClick={handleOpenChakraPage} />;
     }
     if (activeTab === 'knowledge' && selectedKnowledgeSection === 'hd-movies') {
       return <KnowledgeHDMoviesPage onBack={() => setSelectedKnowledgeSection(null)} />;
@@ -1853,7 +1885,7 @@ function App() {
           </div>
         );
       case 'account':
-        return <TelegramLoginButton isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />;
+        return <TelegramLoginButton isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} onAuth={(user) => setTelegramUser(user)} />;
       case 'лила':
         return (
           <div className="knowledge-page" style={{display: 'flex', flexDirection: 'column', minHeight: 'calc(100vh - 64px)'}}>
@@ -1882,10 +1914,18 @@ function App() {
 
   return (
     <div className="app-root">
+      {activeTab === 'home' && !isSubPageActive && (
+        <Header
+          activeTab={activeTab}
+          onTabChange={handleTabChange}
+          isDarkTheme={isDarkTheme}
+          toggleTheme={toggleTheme}
+          telegramUser={telegramUser}
+        />
+      )}
       <div className="mobile-frame">
-        {activeTab === 'home' && !selectedSection && <Header />}
         {renderContent()}
-        <BottomBar activeTab={activeTab} setActiveTab={setActiveTab} />
+        <BottomBar activeTab={activeTab} setActiveTab={handleBottomBarTabChange} />
       </div>
     </div>
   );

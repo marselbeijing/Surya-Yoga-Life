@@ -1,16 +1,15 @@
 import React from 'react';
 import './MainSections.css';
 
-function MeditationPage({ onBack }) {
+function MeditationPage({ onBack, onChakraClick }) {
   const handleChakraClick = () => {
-    // Здесь будет логика для страницы "Прокачка чакр"
-    console.log('Переход к разделу Прокачка чакр');
+    onChakraClick();
   };
 
   return (
     <div className="knowledge-page meditation-page-container">
       <div style={{
-        fontFamily: 'Comfortaa, cursive',
+        fontFamily: 'Comfortaa, "cursive"',
         fontWeight: 700,
         fontSize: '0.88rem',
         color: 'var(--text)',
@@ -33,7 +32,7 @@ function MeditationPage({ onBack }) {
         onClick={handleChakraClick}
         style={{margin: '20px auto'}}
       >
-        <span className="meditation-chakra-button-text">ПРОКАЧКА ЧАКР</span>
+        <span>ПРОКАЧКА ЧАКР</span>
       </div>
 
       <button className="knowledge-back" onClick={onBack} style={{display: 'block', margin: '28px auto 0 auto'}}>← Назад</button>
