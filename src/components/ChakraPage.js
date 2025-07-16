@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './MainSections.css'; // Для стилей общего контейнера, если нужны
+import './chakra-pulse.css'; // Для анимации пульсации
 import Chakra1 from './chakras/chakra1-muladhara.svg';
 import Chakra2 from './chakras/chakra2-svadhisthana.svg';
 import Chakra3 from './chakras/chakra3-manipura.svg';
@@ -10,6 +11,7 @@ import Chakra7 from './chakras/chakra7-sahasrara.svg';
 
 function ChakraPage({ onBack }) {
   const [showAjnaVideo, setShowAjnaVideo] = useState(false);
+  const [showFullText, setShowFullText] = useState(false);
 
   const handleAjnaClick = () => setShowAjnaVideo(true);
   const handleCloseModal = (e) => {
@@ -39,13 +41,51 @@ function ChakraPage({ onBack }) {
         Чакры — это энергетические центры в теле, отвечающие за твое физическое и эмоциональное состояние. Когда чакры в балансе, ты чувствуешь гармонию, силу и внутренний покой.
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '18px', marginTop: '24px' }}>
-        <img src={Chakra7} alt="Сахасрара" width={56} height={56} />
-        <img src={Chakra6} alt="Аджна" width={56} height={56} style={{cursor: 'pointer'}} onClick={handleAjnaClick} />
-        <img src={Chakra5} alt="Вишуддха" width={56} height={56} />
-        <img src={Chakra4} alt="Анахата" width={56} height={56} />
-        <img src={Chakra3} alt="Манипура" width={56} height={56} />
-        <img src={Chakra2} alt="Свадхистхана" width={56} height={56} />
-        <img src={Chakra1} alt="Муладхара" width={56} height={56} />
+        <div style={{position: 'relative', width: 56, height: 56, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+          <div className="chakra-pulse-bg-purple" />
+          <img src={Chakra7} alt="Сахасрара" width={56} height={56} style={{position: 'relative', zIndex: 1}} />
+        </div>
+        <div style={{position: 'relative', width: 56, height: 56, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+          <div className="chakra-pulse-bg" />
+          <img src={Chakra6} alt="Аджна" width={56} height={56} style={{cursor: 'pointer', position: 'relative', zIndex: 1}} onClick={handleAjnaClick} />
+        </div>
+        <div style={{position: 'relative', width: 56, height: 56, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+          <div className="chakra-pulse-bg-lightblue" />
+          <img src={Chakra5} alt="Вишуддха" width={56} height={56} style={{position: 'relative', zIndex: 1}} />
+        </div>
+        <div style={{position: 'relative', width: 56, height: 56, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+          <div className="chakra-pulse-bg-green" />
+          <img src={Chakra4} alt="Анахата" width={56} height={56} style={{position: 'relative', zIndex: 1}} />
+        </div>
+        <div style={{position: 'relative', width: 56, height: 56, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+          <div className="chakra-pulse-bg-yellow" />
+          <img src={Chakra3} alt="Манипура" width={56} height={56} style={{position: 'relative', zIndex: 1}} />
+        </div>
+        <div style={{position: 'relative', width: 56, height: 56, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+          <div className="chakra-pulse-bg-orange" />
+          <img src={Chakra2} alt="Свадхистхана" width={56} height={56} style={{position: 'relative', zIndex: 1}} />
+        </div>
+        <div style={{position: 'relative', width: 56, height: 56, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+          <div className="chakra-pulse-bg-red" />
+          <img src={Chakra1} alt="Муладхара" width={56} height={56} style={{position: 'relative', zIndex: 1}} />
+        </div>
+      </div>
+      <div style={{maxWidth: 430, margin: '18px auto 0 auto', textAlign: 'center', fontFamily: 'Comfortaa, cursive', fontSize: '0.82rem', color: 'var(--text)', background: 'rgba(184,116,232,0.07)', borderRadius: 12, padding: 16, boxShadow: '0 1px 4px var(--shadow-color)'}}>
+        <div>
+          Прокачай свои чакры — смотри и визуализируй!
+          {showFullText && (
+            <span>
+              <br /><br />Сядь удобно, кликни на иконку с чакрой. На каждую чакру — 1 минута:<br />
+              Сфокусируйся на цвете и положении чакры.<br />
+              Представь пульсацию в этой зоне тела.<br />
+              Почувствуй, как энергия очищается и усиливается.<br /><br />
+              💫 Всего несколько минут в день — и твои чакры снова в балансе. Визуализация + внимание = мощная активация энергии!
+            </span>
+          )}
+        </div>
+        <button onClick={() => setShowFullText(v => !v)} style={{marginTop: 10, background: 'none', border: 'none', color: '#7c5bb3', fontWeight: 700, fontFamily: 'Comfortaa, cursive', fontSize: '0.95rem', cursor: 'pointer', textDecoration: 'underline'}}>
+          {showFullText ? 'Свернуть' : 'Читать полностью'}
+        </button>
       </div>
       {showAjnaVideo && (
         <div className="chakra-modal-overlay" onClick={handleCloseModal} style={{position: 'fixed', top:0, left:0, width:'100vw', height:'100vh', background:'rgba(0,0,0,0.45)', display:'flex', alignItems:'center', justifyContent:'center', zIndex:1000}}>

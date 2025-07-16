@@ -1,0 +1,33 @@
+.chakra-pulse-bg, .chakra-pulse-bg-red, .chakra-pulse-bg-orange, .chakra-pulse-bg-yellow, .chakra-pulse-bg-green, .chakra-pulse-bg-lightblue, .chakra-pulse-bg-purple {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 48px;
+  height: 48px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  animation: chakra-pulse 3.5s infinite;
+  z-index: 0;
+}
+.chakra-pulse-bg { background: rgba(37,99,235,0.7); }
+.chakra-pulse-bg-red { background: rgba(235, 37, 37, 0.7); }
+.chakra-pulse-bg-orange { background: rgba(255, 140, 0, 0.7); }
+.chakra-pulse-bg-yellow { background: rgba(255, 215, 0, 0.7); }
+.chakra-pulse-bg-green { background: rgba(0, 200, 83, 0.7); }
+.chakra-pulse-bg-lightblue { background: rgba(0, 191, 255, 0.7); }
+.chakra-pulse-bg-purple { background: rgba(124, 91, 179, 0.7); }
+
+@keyframes chakra-pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.8;
+  }
+  80% {
+    transform: translate(-50%, -50%) scale(1.45);
+    opacity: 0.18;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.8;
+  }
+} 
