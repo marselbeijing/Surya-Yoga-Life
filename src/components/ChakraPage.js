@@ -11,12 +11,30 @@ import Chakra7 from './chakras/chakra7-sahasrara.svg';
 
 function ChakraPage({ onBack }) {
   const [showAjnaVideo, setShowAjnaVideo] = useState(false);
+  const [showMuladharaVideo, setShowMuladharaVideo] = useState(false);
+  const [showSvadhisthanaVideo, setShowSvadhisthanaVideo] = useState(false);
+  const [showManipuraVideo, setShowManipuraVideo] = useState(false);
+  const [showAnahataVideo, setShowAnahataVideo] = useState(false);
+  const [showVishuddhaVideo, setShowVishuddhaVideo] = useState(false);
+  const [showSahasraraVideo, setShowSahasraraVideo] = useState(false);
   const [showFullText, setShowFullText] = useState(false);
 
   const handleAjnaClick = () => setShowAjnaVideo(true);
+  const handleMuladharaClick = () => setShowMuladharaVideo(true);
+  const handleSvadhisthanaClick = () => setShowSvadhisthanaVideo(true);
+  const handleManipuraClick = () => setShowManipuraVideo(true);
+  const handleAnahataClick = () => setShowAnahataVideo(true);
+  const handleVishuddhaClick = () => setShowVishuddhaVideo(true);
+  const handleSahasraraClick = () => setShowSahasraraVideo(true);
   const handleCloseModal = (e) => {
     if (e.target.className === 'chakra-modal-overlay' || e.target.className === 'chakra-modal-close') {
       setShowAjnaVideo(false);
+      setShowMuladharaVideo(false);
+      setShowSvadhisthanaVideo(false);
+      setShowManipuraVideo(false);
+      setShowAnahataVideo(false);
+      setShowVishuddhaVideo(false);
+      setShowSahasraraVideo(false);
     }
   };
 
@@ -43,7 +61,7 @@ function ChakraPage({ onBack }) {
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '18px', marginTop: '24px' }}>
         <div style={{position: 'relative', width: 56, height: 56, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
           <div className="chakra-pulse-bg-purple" />
-          <img src={Chakra7} alt="Сахасрара" width={56} height={56} style={{position: 'relative', zIndex: 1}} />
+          <img src={Chakra7} alt="Сахасрара" width={56} height={56} style={{position: 'relative', zIndex: 1, cursor: 'pointer'}} onClick={handleSahasraraClick} />
         </div>
         <div style={{position: 'relative', width: 56, height: 56, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
           <div className="chakra-pulse-bg" />
@@ -51,37 +69,34 @@ function ChakraPage({ onBack }) {
         </div>
         <div style={{position: 'relative', width: 56, height: 56, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
           <div className="chakra-pulse-bg-lightblue" />
-          <img src={Chakra5} alt="Вишуддха" width={56} height={56} style={{position: 'relative', zIndex: 1}} />
+          <img src={Chakra5} alt="Вишуддха" width={56} height={56} style={{position: 'relative', zIndex: 1, cursor: 'pointer'}} onClick={handleVishuddhaClick} />
         </div>
         <div style={{position: 'relative', width: 56, height: 56, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
           <div className="chakra-pulse-bg-green" />
-          <img src={Chakra4} alt="Анахата" width={56} height={56} style={{position: 'relative', zIndex: 1}} />
+          <img src={Chakra4} alt="Анахата" width={56} height={56} style={{position: 'relative', zIndex: 1, cursor: 'pointer'}} onClick={handleAnahataClick} />
         </div>
         <div style={{position: 'relative', width: 56, height: 56, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
           <div className="chakra-pulse-bg-yellow" />
-          <img src={Chakra3} alt="Манипура" width={56} height={56} style={{position: 'relative', zIndex: 1}} />
+          <img src={Chakra3} alt="Манипура" width={56} height={56} style={{position: 'relative', zIndex: 1, cursor: 'pointer'}} onClick={handleManipuraClick} />
         </div>
         <div style={{position: 'relative', width: 56, height: 56, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
           <div className="chakra-pulse-bg-orange" />
-          <img src={Chakra2} alt="Свадхистхана" width={56} height={56} style={{position: 'relative', zIndex: 1}} />
+          <img src={Chakra2} alt="Свадхистхана" width={56} height={56} style={{position: 'relative', zIndex: 1, cursor: 'pointer'}} onClick={handleSvadhisthanaClick} />
         </div>
         <div style={{position: 'relative', width: 56, height: 56, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
           <div className="chakra-pulse-bg-red" />
-          <img src={Chakra1} alt="Муладхара" width={56} height={56} style={{position: 'relative', zIndex: 1}} />
+          <img src={Chakra1} alt="Муладхара" width={56} height={56} style={{position: 'relative', zIndex: 1, cursor: 'pointer'}} onClick={handleMuladharaClick} />
         </div>
       </div>
       <div style={{maxWidth: 430, margin: '18px auto 0 auto', textAlign: 'center', fontFamily: 'Comfortaa, cursive', fontSize: '0.82rem', color: 'var(--text)', background: 'rgba(184,116,232,0.07)', borderRadius: 12, padding: 16, boxShadow: '0 1px 4px var(--shadow-color)'}}>
         <div>
-          Прокачай свои чакры — смотри и визуализируй!
-          {showFullText && (
-            <span>
-              <br /><br />Сядь удобно, кликни на иконку с чакрой. На каждую чакру — 1 минута:<br />
-              Сфокусируйся на цвете и положении чакры.<br />
-              Представь пульсацию в этой зоне тела.<br />
-              Почувствуй, как энергия очищается и усиливается.<br /><br />
-              💫 Всего несколько минут в день — и твои чакры снова в балансе. Визуализация + внимание = мощная активация энергии!
-            </span>
-          )}
+          Прокачай свои чакры — смотри и визуализируй!<br /><br />
+          Сядь удобно, кликни на иконку с чакрой.<br />
+          На каждую чакру — 1 минута:<br />
+          Сфокусируйся на цвете и положении чакры.<br />
+          Представь пульсацию в этой зоне тела.<br />
+          Почувствуй, как энергия очищается и усиливается.<br /><br />
+          💫 Всего несколько минут в день — и твои чакры снова в балансе. Визуализация + внимание = мощная активация энергии!
         </div>
         <button onClick={() => setShowFullText(v => !v)} style={{marginTop: 10, background: 'none', border: 'none', color: '#7c5bb3', fontWeight: 700, fontFamily: 'Comfortaa, cursive', fontSize: '0.95rem', cursor: 'pointer', textDecoration: 'underline'}}>
           {showFullText ? 'Свернуть' : 'Читать полностью'}
@@ -92,6 +107,54 @@ function ChakraPage({ onBack }) {
           <div style={{background:'#fff', borderRadius:16, padding:16, boxShadow:'0 4px 24px rgba(0,0,0,0.18)', position:'relative', maxWidth: '90vw', maxHeight: '80vh'}}>
             <button className="chakra-modal-close" onClick={handleCloseModal} style={{position:'absolute', top:8, right:12, background:'none', border:'none', fontSize:24, cursor:'pointer', color:'#7c5bb3'}}>×</button>
             <video src="/videos/chakra6-ajna.mp4" controls autoPlay style={{maxWidth:'80vw', maxHeight:'60vh', borderRadius:12}} />
+          </div>
+        </div>
+      )}
+      {showMuladharaVideo && (
+        <div className="chakra-modal-overlay" onClick={handleCloseModal} style={{position: 'fixed', top:0, left:0, width:'100vw', height:'100vh', background:'rgba(0,0,0,0.45)', display:'flex', alignItems:'center', justifyContent:'center', zIndex:1000}}>
+          <div style={{background:'#fff', borderRadius:16, padding:16, boxShadow:'0 4px 24px rgba(0,0,0,0.18)', position:'relative', maxWidth: '90vw', maxHeight: '80vh'}}>
+            <button className="chakra-modal-close" onClick={handleCloseModal} style={{position:'absolute', top:8, right:12, background:'none', border:'none', fontSize:24, cursor:'pointer', color:'#7c5bb3'}}>×</button>
+            <video src="/videos/chakra1-muladhara.mp4" controls autoPlay style={{maxWidth:'80vw', maxHeight:'60vh', borderRadius:12}} />
+          </div>
+        </div>
+      )}
+      {showSvadhisthanaVideo && (
+        <div className="chakra-modal-overlay" onClick={handleCloseModal} style={{position: 'fixed', top:0, left:0, width:'100vw', height:'100vh', background:'rgba(0,0,0,0.45)', display:'flex', alignItems:'center', justifyContent:'center', zIndex:1000}}>
+          <div style={{background:'#fff', borderRadius:16, padding:16, boxShadow:'0 4px 24px rgba(0,0,0,0.18)', position:'relative', maxWidth: '90vw', maxHeight: '80vh'}}>
+            <button className="chakra-modal-close" onClick={handleCloseModal} style={{position:'absolute', top:8, right:12, background:'none', border:'none', fontSize:24, cursor:'pointer', color:'#7c5bb3'}}>×</button>
+            <video src="/videos/chakra2-svadhisthana.mp4" controls autoPlay style={{maxWidth:'80vw', maxHeight:'60vh', borderRadius:12}} />
+          </div>
+        </div>
+      )}
+      {showManipuraVideo && (
+        <div className="chakra-modal-overlay" onClick={handleCloseModal} style={{position: 'fixed', top:0, left:0, width:'100vw', height:'100vh', background:'rgba(0,0,0,0.45)', display:'flex', alignItems:'center', justifyContent:'center', zIndex:1000}}>
+          <div style={{background:'#fff', borderRadius:16, padding:16, boxShadow:'0 4px 24px rgba(0,0,0,0.18)', position:'relative', maxWidth: '90vw', maxHeight: '80vh'}}>
+            <button className="chakra-modal-close" onClick={handleCloseModal} style={{position:'absolute', top:8, right:12, background:'none', border:'none', fontSize:24, cursor:'pointer', color:'#7c5bb3'}}>×</button>
+            <video src="/videos/chakra3-manipura.mp4" controls autoPlay style={{maxWidth:'80vw', maxHeight:'60vh', borderRadius:12}} />
+          </div>
+        </div>
+      )}
+      {showAnahataVideo && (
+        <div className="chakra-modal-overlay" onClick={handleCloseModal} style={{position: 'fixed', top:0, left:0, width:'100vw', height:'100vh', background:'rgba(0,0,0,0.45)', display:'flex', alignItems:'center', justifyContent:'center', zIndex:1000}}>
+          <div style={{background:'#fff', borderRadius:16, padding:16, boxShadow:'0 4px 24px rgba(0,0,0,0.18)', position:'relative', maxWidth: '90vw', maxHeight: '80vh'}}>
+            <button className="chakra-modal-close" onClick={handleCloseModal} style={{position:'absolute', top:8, right:12, background:'none', border:'none', fontSize:24, cursor:'pointer', color:'#7c5bb3'}}>×</button>
+            <video src="/videos/chakra4-anahata.mp4" controls autoPlay style={{maxWidth:'80vw', maxHeight:'60vh', borderRadius:12}} />
+          </div>
+        </div>
+      )}
+      {showVishuddhaVideo && (
+        <div className="chakra-modal-overlay" onClick={handleCloseModal} style={{position: 'fixed', top:0, left:0, width:'100vw', height:'100vh', background:'rgba(0,0,0,0.45)', display:'flex', alignItems:'center', justifyContent:'center', zIndex:1000}}>
+          <div style={{background:'#fff', borderRadius:16, padding:16, boxShadow:'0 4px 24px rgba(0,0,0,0.18)', position:'relative', maxWidth: '90vw', maxHeight: '80vh'}}>
+            <button className="chakra-modal-close" onClick={handleCloseModal} style={{position:'absolute', top:8, right:12, background:'none', border:'none', fontSize:24, cursor:'pointer', color:'#7c5bb3'}}>×</button>
+            <video src="/videos/chakra5-vishuddha.mp4" controls autoPlay style={{maxWidth:'80vw', maxHeight:'60vh', borderRadius:12}} />
+          </div>
+        </div>
+      )}
+      {showSahasraraVideo && (
+        <div className="chakra-modal-overlay" onClick={handleCloseModal} style={{position: 'fixed', top:0, left:0, width:'100vw', height:'100vh', background:'rgba(0,0,0,0.45)', display:'flex', alignItems:'center', justifyContent:'center', zIndex:1000}}>
+          <div style={{background:'#fff', borderRadius:16, padding:16, boxShadow:'0 4px 24px rgba(0,0,0,0.18)', position:'relative', maxWidth: '90vw', maxHeight: '80vh'}}>
+            <button className="chakra-modal-close" onClick={handleCloseModal} style={{position:'absolute', top:8, right:12, background:'none', border:'none', fontSize:24, cursor:'pointer', color:'#7c5bb3'}}>×</button>
+            <video src="/videos/chakra7-sahasrara.mp4" controls autoPlay style={{maxWidth:'80vw', maxHeight:'60vh', borderRadius:12}} />
           </div>
         </div>
       )}
