@@ -1912,17 +1912,18 @@ function App() {
     }
   };
 
+  useEffect(() => {
+    if (activeTab === 'home' && !isSubPageActive) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [activeTab, isSubPageActive]);
+
   return (
     <div className="app-root">
-      {activeTab === 'home' && !isSubPageActive && (
-        <Header
-          activeTab={activeTab}
-          onTabChange={handleTabChange}
-          isDarkTheme={isDarkTheme}
-          toggleTheme={toggleTheme}
-          telegramUser={telegramUser}
-        />
-      )}
+      {activeTab === 'home' && selectedSection !== 'Дыхание' && selectedSection !== 'Шанкапракшалана' && selectedSection !== 'Медитация' && !showChakraPage && selectedSection !== 'Лила' && selectedSection !== 'Гвоздестояние' && selectedSection !== 'Парная практика' && <Header />}
       <div className="mobile-frame">
         {renderContent()}
         <BottomBar activeTab={activeTab} setActiveTab={handleBottomBarTabChange} />
