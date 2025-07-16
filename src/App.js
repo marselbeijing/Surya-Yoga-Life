@@ -561,8 +561,8 @@ function KnowledgeHDMoviesPage({ onBack }) {
       embed: (
         <iframe
           src="https://vk.com/video_ext.php?oid=-3983541&id=456239599&hd=4&autoplay=1"
-          width="1920"
-          height="1080"
+          width="720"
+          height="405"
           allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
           frameBorder="0"
           allowFullScreen

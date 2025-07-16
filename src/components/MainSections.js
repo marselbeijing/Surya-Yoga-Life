@@ -39,7 +39,7 @@ function OmFloat({ className, phaseIndex, total }) {
   const [pos, setPos] = useState({ x: 0, y: 0 });
   const [angle, setAngle] = useState(0);
   const speed = 0.012; // одинаковая скорость
-  const radius = 120; // одинаковый радиус
+  const radius = 180; // увеличенный радиус для широкой траектории
   const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
