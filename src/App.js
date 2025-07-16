@@ -571,7 +571,21 @@ function KnowledgeHDMoviesPage({ onBack }) {
         />
       ),
     },
-    'Окраина (1998)',
+    {
+      title: 'Окраина (1998)',
+      embed: (
+        <iframe
+          src="https://vk.com/video_ext.php?oid=-216155816&id=456239798&hd=4&autoplay=1"
+          width="720"
+          height="405"
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+          frameBorder="0"
+          allowFullScreen
+          title="Окраина (1998)"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
     'Рамануджачарья(1988)',
     'Гостья (2013)',
     'Мадхвачарья',
