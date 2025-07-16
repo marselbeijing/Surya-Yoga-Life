@@ -586,7 +586,23 @@ function KnowledgeHDMoviesPage({ onBack }) {
         />
       ),
     },
-    'Гостья (2013)',
+    {
+      title: 'Гостья (2013)',
+      embed: (
+        <iframe
+          width="720"
+          height="405"
+          src="https://rutube.ru/play/embed/adfb0aa65fbc1387b1b1a382e596f12f/"
+          frameBorder="0"
+          allow="clipboard-write; autoplay"
+          webkitAllowFullScreen
+          mozallowfullscreen
+          allowFullScreen
+          title="Гостья (2013)"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
     'Мадхвачарья',
     'Пудра (1995)',
     'Император Ашока (2001)',
