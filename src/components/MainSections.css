@@ -4,8 +4,7 @@
   gap: 10px;
   padding: 36px 8px 70px 8px;
   background: none !important;
-  min-height: 100vh;
-  max-height: 100vh;
+  min-height: calc(100vh - 64px);
   box-sizing: border-box;
   position: relative;
   overflow: hidden;

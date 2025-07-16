@@ -603,43 +603,495 @@ function KnowledgeHDMoviesPage({ onBack }) {
         />
       ),
     },
-    'Мадхвачарья',
-    'Пудра (1995)',
-    'Император Ашока (2001)',
-    'Покрытая тайной: так что же мы знаем (2004)',
-    'Конфуций',
-    'Наш очаг, астральный город (2010)',
-    'Ганди (1982)',
-    'Чужие среди нас (1988)',
-    'Куда приводят мечты',
-    'Мастер дзен Бодхидхарма',
-    'Ангулимала (2003)',
-    'Ситхартха на пути к истине (1972)',
-    'Поле битвы Земля (2000)',
-    'Прекрасная зелёная',
-    'Миларепа (2006)',
-    'Самсара (2001)',
-    'Излечить страх (жизнь необыкновенного святого луки )',
-    'Отель Меринолд лучший из экзотических (2011)',
-    'Мальчик который обуздал ветер',
-    'Фильмы',
-    'Искусственный интеллект 2001',
-    'Знамение',
-    'Близкие контакты 2020',
-    'Дюна',
-    'Меняющий реальность',
-    'Восхождение юпитер',
-    'Последняя надежда',
-    'Гаттака',
-    'Визитеры',
-    'Люси',
-    'Бесконечность 20 21',
-    'Сериал мистер робот',
-    'Мой король',
-    'Молчание Доктора Ивенса',
-    'Кассиопея',
-    'Нефариус',
-    'Главный герой',
+    {
+      title: 'Мадхвачарья',
+      embed: (
+        <iframe
+          src="https://vk.com/video_ext.php?oid=-78647366&id=456240669&hd=3&autoplay=1"
+          width="1280"
+          height="720"
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+          frameBorder="0"
+          allowFullScreen
+          title="Мадхвачарья"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Пудра (1995)',
+      embed: (
+        <iframe
+          width="720"
+          height="405"
+          src="https://rutube.ru/play/embed/97e28eabc2a6f0134d31ff13e34a624c/"
+          frameBorder="0"
+          allow="clipboard-write; autoplay"
+          webkitAllowFullScreen
+          mozallowfullscreen
+          allowFullScreen
+          title="Пудра (1995)"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Покрытая тайной: так что же мы знаем (2004)',
+      embed: (
+        <iframe
+          width="720"
+          height="405"
+          src="https://rutube.ru/play/embed/a25ef7ac4ebde773d6c042070a50bad8/"
+          frameBorder="0"
+          allow="clipboard-write; autoplay"
+          webkitAllowFullScreen
+          mozallowfullscreen
+          allowFullScreen
+          title="Покрытая тайной: так что же мы знаем (2004)"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Конфуций',
+      embed: (
+        <iframe
+          src="https://vk.com/video_ext.php?oid=-213744&id=170137731&hd=3&autoplay=1"
+          width="1280"
+          height="720"
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+          frameBorder="0"
+          allowFullScreen
+          title="Конфуций"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Наш очаг, астральный город (2010)',
+      embed: (
+        <iframe
+          src="https://vk.com/video_ext.php?oid=4642538&id=456239025&hd=1&autoplay=1"
+          width="640"
+          height="360"
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+          frameBorder="0"
+          allowFullScreen
+          title="Наш очаг, астральный город (2010)"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Ганди (1982)',
+      embed: (
+        <iframe
+          src="https://vk.com/video_ext.php?oid=-34057964&id=456239900&hd=3&autoplay=1"
+          width="1280"
+          height="720"
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+          frameBorder="0"
+          allowFullScreen
+          title="Ганди (1982)"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Чужие среди нас (1988)',
+      embed: (
+        <iframe
+          src="https://vk.com/video_ext.php?oid=-56028029&id=456251125&hd=4&autoplay=1"
+          width="1920"
+          height="1080"
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+          frameBorder="0"
+          allowFullScreen
+          title="Чужие среди нас (1988)"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Куда приводят мечты',
+      embed: (
+        <iframe
+          src="https://vk.com/video_ext.php?oid=-180700900&id=456239546&hd=4&autoplay=1"
+          width="1920"
+          height="1080"
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+          frameBorder="0"
+          allowFullScreen
+          title="Куда приводят мечты"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Мастер дзен Бодхидхарма',
+      embed: (
+        <iframe
+          width="720"
+          height="405"
+          src="https://rutube.ru/play/embed/ca12aaa11ec16031efed53e9768176a8/"
+          frameBorder="0"
+          allow="clipboard-write; autoplay"
+          webkitAllowFullScreen
+          mozallowfullscreen
+          allowFullScreen
+          title="Мастер дзен Бодхидхарма"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Ангулимала (2003)',
+      embed: (
+        <iframe
+          src="https://vk.com/video_ext.php?oid=-37785226&id=171732976&hd=3&autoplay=1"
+          width="1280"
+          height="720"
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+          frameBorder="0"
+          allowFullScreen
+          title="Ангулимала (2003)"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Ситхартха на пути к истине (1972)',
+      embed: (
+        <iframe
+          src="https://vk.com/video_ext.php?oid=-52526415&id=456240642&hd=2&autoplay=1"
+          width="853"
+          height="480"
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+          frameBorder="0"
+          allowFullScreen
+          title="Ситхартха на пути к истине (1972)"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Поле битвы Земля (2000)',
+      embed: (
+        <iframe
+          width="720"
+          height="405"
+          src="https://rutube.ru/play/embed/9065d715c1bc396cb8e56ef9e228aa41/"
+          frameBorder="0"
+          allow="clipboard-write; autoplay"
+          webkitAllowFullScreen
+          mozallowfullscreen
+          allowFullScreen
+          title="Поле битвы Земля (2000)"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Самсара (2001)',
+      embed: (
+        <iframe
+          src="https://vk.com/video_ext.php?oid=-133093208&id=456239047&hd=1&autoplay=1"
+          width="640"
+          height="360"
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+          frameBorder="0"
+          allowFullScreen
+          title="Самсара (2001)"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Излечить страх (жизнь необыкновенного святого луки )',
+      embed: (
+        <iframe
+          src="https://vk.com/video_ext.php?oid=-107124334&id=456240476&hd=3&autoplay=1"
+          width="1280"
+          height="720"
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+          frameBorder="0"
+          allowFullScreen
+          title="Излечить страх (жизнь необыкновенного святого луки )"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Отель Меринолд лучший из экзотических (2011)',
+      embed: (
+        <iframe
+          src="https://vk.com/video_ext.php?oid=-220018529&id=456245252&hd=4&autoplay=1"
+          width="1920"
+          height="1080"
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+          frameBorder="0"
+          allowFullScreen
+          title="Отель Меринолд лучший из экзотических (2011)"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Мальчик который обуздал ветер',
+      embed: (
+        <iframe
+          src="https://vk.com/video_ext.php?oid=-76914461&id=456245216&hd=3&autoplay=1"
+          width="1280"
+          height="720"
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+          frameBorder="0"
+          allowFullScreen
+          title="Мальчик который обуздал ветер"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Искусственный интеллект 2001',
+      embed: (
+        <iframe
+          src="https://vk.com/video_ext.php?oid=-110645251&id=456240691&hd=4&autoplay=1"
+          width="1920"
+          height="1080"
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+          frameBorder="0"
+          allowFullScreen
+          title="Искусственный интеллект 2001"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Знамение',
+      embed: (
+        <iframe
+          src="https://vk.com/video_ext.php?oid=-176294899&id=456241805&hd=4&autoplay=1"
+          width="1920"
+          height="1080"
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+          frameBorder="0"
+          allowFullScreen
+          title="Знамение"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Близкие контакты 2020',
+      embed: (
+        <iframe
+          src="https://vk.com/video_ext.php?oid=-35615587&id=456248413&hd=3&autoplay=1"
+          width="1280"
+          height="720"
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+          frameBorder="0"
+          allowFullScreen
+          title="Близкие контакты 2020"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Дюна',
+      embed: (
+        <iframe
+          width="720"
+          height="405"
+          src="https://rutube.ru/play/embed/1179fde2c8dd1ca96973f7e6d20924f3/"
+          frameBorder="0"
+          allow="clipboard-write; autoplay"
+          webkitAllowFullScreen
+          mozallowfullscreen
+          allowFullScreen
+          title="Дюна"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Меняющий реальность',
+      embed: (
+        <iframe
+          width="720"
+          height="405"
+          src="https://rutube.ru/play/embed/6d75008b0cbe46a733e03845197bc602/"
+          frameBorder="0"
+          allow="clipboard-write; autoplay"
+          webkitAllowFullScreen
+          mozallowfullscreen
+          allowFullScreen
+          title="Меняющий реальность"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Восхождение юпитер',
+      embed: (
+        <iframe
+          width="720"
+          height="405"
+          src="https://rutube.ru/play/embed/0c7be31cda45494da907115ecd1b8e07/"
+          frameBorder="0"
+          allow="clipboard-write; autoplay"
+          webkitAllowFullScreen
+          mozallowfullscreen
+          allowFullScreen
+          title="Восхождение юпитер"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Последняя надежда',
+      embed: (
+        <iframe
+          width="720"
+          height="405"
+          src="https://rutube.ru/play/embed/28cb47afacdf701809e7216d26f9e5ea/"
+          frameBorder="0"
+          allow="clipboard-write; autoplay"
+          webkitAllowFullScreen
+          mozallowfullscreen
+          allowFullScreen
+          title="Последняя надежда"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Гаттака',
+      embed: (
+        <iframe
+          width="720"
+          height="405"
+          src="https://rutube.ru/play/embed/704cb06ebd6b22fc334758da4516f0e6/"
+          frameBorder="0"
+          allow="clipboard-write; autoplay"
+          webkitAllowFullScreen
+          mozallowfullscreen
+          allowFullScreen
+          title="Гаттака"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Люси',
+      embed: (
+        <iframe
+          width="720"
+          height="405"
+          src="https://rutube.ru/play/embed/9f6aaeaa583881300101aa504ba2e413/"
+          frameBorder="0"
+          allow="clipboard-write; autoplay"
+          webkitAllowFullScreen
+          mozallowfullscreen
+          allowFullScreen
+          title="Люси"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Бесконечность 2021',
+      embed: (
+        <iframe
+          width="720"
+          height="405"
+          src="https://rutube.ru/play/embed/8dc31ae985fc043de3891e585e80c732/"
+          frameBorder="0"
+          allow="clipboard-write; autoplay"
+          webkitAllowFullScreen
+          mozallowfullscreen
+          allowFullScreen
+          title="Бесконечность 2021"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Мой король',
+      embed: (
+        <iframe
+          src="https://vk.com/video_ext.php?oid=-220018529&id=456245091&hd=4&autoplay=1"
+          width="1920"
+          height="1080"
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+          frameBorder="0"
+          allowFullScreen
+          title="Мой король"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Молчание Доктора Ивенса',
+      embed: (
+        <iframe
+          src="https://vk.com/video_ext.php?oid=-37492055&id=456256302&autoplay=1"
+          width="426"
+          height="240"
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+          frameBorder="0"
+          allowFullScreen
+          title="Молчание Доктора Ивенса"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Кассиопея',
+      embed: (
+        <iframe
+          src="https://vk.com/video_ext.php?oid=-37492055&id=456253677&hd=4&autoplay=1"
+          width="1920"
+          height="1080"
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+          frameBorder="0"
+          allowFullScreen
+          title="Кассиопея"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Нефариус',
+      embed: (
+        <iframe
+          src="https://vk.com/video_ext.php?oid=533395491&id=456239232&hd=3&autoplay=1"
+          width="1280"
+          height="720"
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+          frameBorder="0"
+          allowFullScreen
+          title="Нефариус"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
+    {
+      title: 'Главный герой',
+      embed: (
+        <iframe
+          width="720"
+          height="405"
+          src="https://rutube.ru/play/embed/31dac5e2fc4c6ed319109b34a590a664/"
+          frameBorder="0"
+          allow="clipboard-write; autoplay"
+          webkitAllowFullScreen
+          mozallowfullscreen
+          allowFullScreen
+          title="Главный герой"
+          style={{maxWidth: '100%'}}
+        />
+      ),
+    },
     'Элизиум',
     'Интерстелар',
     'Ян стивенсон реинкарнация книга',
@@ -647,7 +1099,6 @@ function KnowledgeHDMoviesPage({ onBack }) {
     'Шестой день',
     'Вспомнить все',
     'Полный отсчет',
-    'Самсара 2001',
     'Сериал 1923',
     'Вишвамитра менака даровал нам Гаятри мантру',
     'Калки .'
