@@ -25,7 +25,7 @@ function KnowledgeHDMoviesPage({ onBack }) {
           frameBorder="0"
           allow="clipboard-write; autoplay"
           webkitAllowFullScreen
-          mozallowfullscreen
+          mozAllowFullScreen
           allowFullScreen
           title="Прекрасная Зеленая"
           style={{maxWidth: '100%'}}
@@ -42,7 +42,7 @@ function KnowledgeHDMoviesPage({ onBack }) {
           frameBorder="0"
           allow="clipboard-write; autoplay"
           webkitAllowFullScreen
-          mozallowfullscreen
+          mozAllowFullScreen
           allowFullScreen
           title="Шоу Трумана"
           style={{maxWidth: '100%'}}
@@ -59,7 +59,7 @@ function KnowledgeHDMoviesPage({ onBack }) {
           frameBorder="0"
           allow="clipboard-write; autoplay"
           webkitAllowFullScreen
-          mozallowfullscreen
+          mozAllowFullScreen
           allowFullScreen
           title="Сказка о потерянном времени"
           style={{maxWidth: '100%'}}
@@ -107,7 +107,7 @@ function KnowledgeHDMoviesPage({ onBack }) {
           frameBorder="0"
           allow="clipboard-write; autoplay"
           webkitAllowFullScreen
-          mozallowfullscreen
+          mozAllowFullScreen
           allowFullScreen
           title="Пробуждение"
           style={{maxWidth: '100%'}}
@@ -124,7 +124,7 @@ function KnowledgeHDMoviesPage({ onBack }) {
           frameBorder="0"
           allow="clipboard-write; autoplay"
           webkitAllowFullScreen
-          mozallowfullscreen
+          mozAllowFullScreen
           allowFullScreen
           title="Хижина"
           style={{maxWidth: '100%'}}
@@ -141,7 +141,7 @@ function KnowledgeHDMoviesPage({ onBack }) {
           frameBorder="0"
           allow="clipboard-write; autoplay"
           webkitAllowFullScreen
-          mozallowfullscreen
+          mozAllowFullScreen
           allowFullScreen
           title="Остров"
           style={{maxWidth: '100%'}}
@@ -189,7 +189,7 @@ function KnowledgeHDMoviesPage({ onBack }) {
           frameBorder="0"
           allow="clipboard-write; autoplay"
           webkitAllowFullScreen
-          mozallowfullscreen
+          mozAllowFullScreen
           allowFullScreen
           title="Падмавати"
           style={{maxWidth: '100%'}}
@@ -252,7 +252,7 @@ function KnowledgeHDMoviesPage({ onBack }) {
           frameBorder="0"
           allow="clipboard-write; autoplay"
           webkitAllowFullScreen
-          mozallowfullscreen
+          mozAllowFullScreen
           allowFullScreen
           title="День сурка"
           style={{maxWidth: '100%'}}
@@ -269,7 +269,7 @@ function KnowledgeHDMoviesPage({ onBack }) {
           frameBorder="0"
           allow="clipboard-write; autoplay"
           webkitAllowFullScreen
-          mozallowfullscreen
+          mozAllowFullScreen
           allowFullScreen
           title="Жизнь пи"
           style={{maxWidth: '100%'}}
@@ -332,7 +332,7 @@ function KnowledgeHDMoviesPage({ onBack }) {
           frameBorder="0"
           allow="clipboard-write; autoplay"
           webkitAllowFullScreen
-          mozallowfullscreen
+          mozAllowFullScreen
           allowFullScreen
           title="Человек который познал бесконечность (2015)"
           style={{maxWidth: '100%'}}
@@ -425,7 +425,7 @@ function KnowledgeHDMoviesPage({ onBack }) {
           frameBorder="0"
           allow="clipboard-write; autoplay"
           webkitAllowFullScreen
-          mozallowfullscreen
+          mozAllowFullScreen
           allowFullScreen
           title="Спринт(2015)"
           style={{maxWidth: '100%'}}
@@ -472,7 +472,7 @@ function KnowledgeHDMoviesPage({ onBack }) {
           frameBorder="0"
           allow="clipboard-write; autoplay"
           webkitAllowFullScreen
-          mozallowfullscreen
+          mozAllowFullScreen
           allowFullScreen
           title="Семь лет в тибете"
           style={{maxWidth: '100%'}}
@@ -504,7 +504,7 @@ function KnowledgeHDMoviesPage({ onBack }) {
           frameBorder="0"
           allow="clipboard-write; autoplay"
           webkitAllowFullScreen
-          mozallowfullscreen
+          mozAllowFullScreen
           allowFullScreen
           title="Заплати другому (2000)"
           style={{maxWidth: '100%'}}
@@ -596,7 +596,7 @@ function KnowledgeHDMoviesPage({ onBack }) {
           frameBorder="0"
           allow="clipboard-write; autoplay"
           webkitAllowFullScreen
-          mozallowfullscreen
+          mozAllowFullScreen
           allowFullScreen
           title="Гостья (2013)"
           style={{maxWidth: '100%'}}
@@ -628,7 +628,7 @@ function KnowledgeHDMoviesPage({ onBack }) {
           frameBorder="0"
           allow="clipboard-write; autoplay"
           webkitAllowFullScreen
-          mozallowfullscreen
+          mozAllowFullScreen
           allowFullScreen
           title="Пудра (1995)"
           style={{maxWidth: '100%'}}
@@ -645,7 +645,7 @@ function KnowledgeHDMoviesPage({ onBack }) {
           frameBorder="0"
           allow="clipboard-write; autoplay"
           webkitAllowFullScreen
-          mozallowfullscreen
+          mozAllowFullScreen
           allowFullScreen
           title="Покрытая тайной: так что же мы знаем (2004)"
           style={{maxWidth: '100%'}}
@@ -737,7 +737,7 @@ function KnowledgeHDMoviesPage({ onBack }) {
           frameBorder="0"
           allow="clipboard-write; autoplay"
           webkitAllowFullScreen
-          mozallowfullscreen
+          mozAllowFullScreen
           allowFullScreen
           title="Мастер дзен Бодхидхарма"
           style={{maxWidth: '100%'}}
@@ -784,7 +784,7 @@ function KnowledgeHDMoviesPage({ onBack }) {
           frameBorder="0"
           allow="clipboard-write; autoplay"
           webkitAllowFullScreen
-          mozallowfullscreen
+          mozAllowFullScreen
           allowFullScreen
           title="Поле битвы Земля (2000)"
           style={{maxWidth: '100%'}}
@@ -906,7 +906,7 @@ function KnowledgeHDMoviesPage({ onBack }) {
           frameBorder="0"
           allow="clipboard-write; autoplay"
           webkitAllowFullScreen
-          mozallowfullscreen
+          mozAllowFullScreen
           allowFullScreen
           title="Дюна"
           style={{maxWidth: '100%'}}
@@ -923,7 +923,7 @@ function KnowledgeHDMoviesPage({ onBack }) {
           frameBorder="0"
           allow="clipboard-write; autoplay"
           webkitAllowFullScreen
-          mozallowfullscreen
+          mozAllowFullScreen
           allowFullScreen
           title="Меняющий реальность"
           style={{maxWidth: '100%'}}
@@ -940,7 +940,7 @@ function KnowledgeHDMoviesPage({ onBack }) {
           frameBorder="0"
           allow="clipboard-write; autoplay"
           webkitAllowFullScreen
-          mozallowfullscreen
+          mozAllowFullScreen
           allowFullScreen
           title="Восхождение юпитер"
           style={{maxWidth: '100%'}}
@@ -957,7 +957,7 @@ function KnowledgeHDMoviesPage({ onBack }) {
           frameBorder="0"
           allow="clipboard-write; autoplay"
           webkitAllowFullScreen
-          mozallowfullscreen
+          mozAllowFullScreen
           allowFullScreen
           title="Последняя надежда"
           style={{maxWidth: '100%'}}
@@ -974,7 +974,7 @@ function KnowledgeHDMoviesPage({ onBack }) {
           frameBorder="0"
           allow="clipboard-write; autoplay"
           webkitAllowFullScreen
-          mozallowfullscreen
+          mozAllowFullScreen
           allowFullScreen
           title="Гаттака"
           style={{maxWidth: '100%'}}
@@ -991,7 +991,7 @@ function KnowledgeHDMoviesPage({ onBack }) {
           frameBorder="0"
           allow="clipboard-write; autoplay"
           webkitAllowFullScreen
-          mozallowfullscreen
+          mozAllowFullScreen
           allowFullScreen
           title="Люси"
           style={{maxWidth: '100%'}}
@@ -1008,7 +1008,7 @@ function KnowledgeHDMoviesPage({ onBack }) {
           frameBorder="0"
           allow="clipboard-write; autoplay"
           webkitAllowFullScreen
-          mozallowfullscreen
+          mozAllowFullScreen
           allowFullScreen
           title="Бесконечность 2021"
           style={{maxWidth: '100%'}}
@@ -1085,7 +1085,7 @@ function KnowledgeHDMoviesPage({ onBack }) {
           frameBorder="0"
           allow="clipboard-write; autoplay"
           webkitAllowFullScreen
-          mozallowfullscreen
+          mozAllowFullScreen
           allowFullScreen
           title="Главный герой"
           style={{maxWidth: '100%'}}
@@ -2222,6 +2222,19 @@ function App() {
             Продолжительность: 2,5–4 часа
           </div>
 
+          {/* Миниатюрное видео */}
+          <div style={{ width: '100%', display: 'flex', justifyContent: 'center', margin: '24px 0' }}>
+            <iframe 
+              src="https://vkvideo.ru/video_ext.php?oid=745985566&id=456239086&hd=4&autoplay=1" 
+              width="320" 
+              height="180" 
+              allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" 
+              frameBorder="0" 
+              allowFullScreen
+              style={{borderRadius: '12px', boxShadow: '0 2px 12px rgba(0,0,0,0.1)'}}
+            />
+          </div>
+
           {/* Кнопка "Записаться на сессию" */}
           <div style={{ width: '100%', display: 'flex', justifyContent: 'center', margin: '32px 0 0 0' }}>
             <a
@@ -2315,9 +2328,21 @@ function App() {
         return (
           <div className="knowledge-page">
             <div className="knowledge-title">О нас</div>
-            <p style={{textAlign: 'center', color: 'var(--about-greeting)', margin: '18px 0 0 0', fontSize: '0.92rem', fontWeight: 500}}>
+            <div style={{
+              background: '#f7f3ff',
+              borderRadius: 16,
+              padding: '24px 16px',
+              color: '#000',
+              fontFamily: 'Comfortaa, cursive',
+              fontSize: '0.95rem',
+              textAlign: 'center',
+              boxShadow: '0 2px 12px 0 rgba(124,91,179,0.07)',
+              maxWidth: 480,
+              margin: '18px auto 0 auto',
+              lineHeight: 1.7
+            }}>
               Добро пожаловать в мир гармонии и духовного развития! Наше приложение создано для тех, кто стремится к внутреннему равновесию и познанию себя.
-            </p>
+            </div>
             {/* Квадратные иконки с кнопками ОТКРЫТЬ */}
             <div style={{margin: '24px 0'}}>
               <PhotoIcons 
@@ -2352,9 +2377,21 @@ function App() {
                 Наши ретриты
               </button>
             </div>
-            <div className="knowledge-section">
-              <h4 style={{textAlign: 'center', fontWeight: 700, marginTop: 28, color: '#111'}}>Что мы предлагаем:</h4>
-              <ul style={{color: '#7c5bb3', lineHeight: 1.6, fontSize: '0.92rem'}}>
+            <div style={{
+              background: '#f7f3ff',
+              borderRadius: 16,
+              padding: '24px 16px',
+              color: '#000',
+              fontFamily: 'Comfortaa, cursive',
+              fontSize: '0.95rem',
+              textAlign: 'center',
+              boxShadow: '0 2px 12px 0 rgba(124,91,179,0.07)',
+              maxWidth: 480,
+              margin: '0 auto 24px auto',
+              lineHeight: 1.7
+            }}>
+              <div style={{fontWeight: 700, marginBottom: 12}}>Что мы предлагаем:</div>
+              <ul style={{color: '#000', lineHeight: 1.6, fontSize: '0.95rem', fontFamily: 'Comfortaa, cursive', textAlign: 'left', display: 'inline-block', margin: '0 auto 0 auto', paddingLeft: 0}}>
                 <li><strong>Йога практики</strong> — упражнения для тела и духа</li>
                 <li><strong>Гвоздестояние</strong> — практика концентрации и расслабления на доске с гвоздями</li>
                 <li><strong>Дыхательные техники</strong> — методы управления энергией</li>
@@ -2363,16 +2400,12 @@ function App() {
                 <li><strong>Лила</strong> — духовная игра самопознания</li>
                 <li><strong>Шанкапракшалана</strong> — практика очищения</li>
               </ul>
-
-              <h4 style={{textAlign: 'center', fontWeight: 700, marginTop: 32, color: '#111'}}>Наша миссия</h4>
-              <p style={{color: '#111', textAlign: 'center'}}>
+              <div style={{fontWeight: 700, marginTop: 24, marginBottom: 12}}>Наша миссия</div>
+              <div style={{color: '#000', fontSize: '0.95rem', fontFamily: 'Comfortaa, cursive', textAlign: 'center', marginBottom: 12}}>
                 Помочь каждому найти свой путь к гармонии, здоровью и духовному росту через древние практики йоги и современные методы развития.
-              </p>
-
-              <div style={{marginTop: 20, padding: 15, background: 'rgba(124, 91, 179, 0.1)', borderRadius: 12, textAlign: 'center'}}>
-                <p style={{margin: 0, fontStyle: 'italic', color: '#7c5bb3'}}>
-                  "Путь к себе начинается с первого шага"
-                </p>
+              </div>
+              <div style={{marginTop: 20, padding: 15, background: 'rgba(124, 91, 179, 0.10)', borderRadius: 12, textAlign: 'center', color: '#000', fontStyle: 'italic', fontWeight: 500, fontSize: '0.95rem', fontFamily: 'Comfortaa, cursive'}}>
+                "Путь к себе начинается с первого шага"
               </div>
             </div>
             <button className="knowledge-back" onClick={() => setActiveTab('home')} style={{display: 'block', margin: '28px auto 0 auto'}}>← Назад</button>

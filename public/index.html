@@ -25,6 +25,33 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+      // Подавление ошибок MetaMask
+      const originalConsoleError = console.error;
+      console.error = function(...args) {
+        const message = args.join(' ');
+        if (message.includes('MetaMask') || message.includes('chrome-extension')) {
+          return;
+        }
+        originalConsoleError.apply(console, args);
+      };
+      
+      window.addEventListener('error', function(e) {
+        if (e.message && (e.message.includes('MetaMask') || e.message.includes('chrome-extension'))) {
+          e.preventDefault();
+          e.stopPropagation();
+          return false;
+        }
+      });
+      
+      window.addEventListener('unhandledrejection', function(e) {
+        if (e.reason && e.reason.message && (e.reason.message.includes('MetaMask') || e.reason.message.includes('chrome-extension'))) {
+          e.preventDefault();
+          e.stopPropagation();
+          return false;
+        }
+      });
+    </script>
     <title>Surya Yoga Life</title>
   </head>
   <body>
