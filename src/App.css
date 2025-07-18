@@ -1,18 +1,10 @@
-@font-face {
-  font-family: 'Comfortaa';
-  src: url('./fonts/Comfortaa-Regular.woff2') format('woff2'),
-       url('./fonts/Comfortaa-Regular.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Comfortaa';
-  src: url('./fonts/Comfortaa-Bold.woff2') format('woff2'),
-       url('./fonts/Comfortaa-Bold.woff') format('woff');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .App {
