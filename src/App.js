@@ -1847,9 +1847,42 @@ function AboutDianaGuruPage({ onBack }) {
 }
 
 function RetreatsPage({ onBack }) {
+  React.useEffect(() => {
+    // Загружаем VK API
+    const script = document.createElement('script');
+    script.src = 'https://vk.com/js/api/openapi.js?173';
+    script.async = true;
+    script.onload = () => {
+      // Инициализируем виджеты после загрузки API
+      if (window.VK && window.VK.Widgets) {
+        window.VK.Widgets.Post("vk_post_745985566_138", 745985566, 138, 'pYy1Xpn08KPkb_s_LnPHgKMCWRM');
+        window.VK.Widgets.Post("vk_post_745985566_142", 745985566, 142, 'n4vadkEqmb-tJWpWIKC7jm-XnbM');
+      }
+    };
+    document.head.appendChild(script);
+
+    return () => {
+      // Очищаем скрипт при размонтировании компонента
+      const existingScript = document.querySelector('script[src="https://vk.com/js/api/openapi.js?173"]');
+      if (existingScript) {
+        document.head.removeChild(existingScript);
+      }
+    };
+  }, []);
+
   return (
     <div className="knowledge-page">
       <div className="knowledge-title">Наши ретриты</div>
+      
+      {/* VK виджеты с видео */}
+      <div style={{ margin: '20px auto', maxWidth: 480, textAlign: 'center' }}>
+        <div id="vk_post_745985566_138"></div>
+      </div>
+      
+      <div style={{ margin: '20px auto', maxWidth: 480, textAlign: 'center' }}>
+        <div id="vk_post_745985566_142"></div>
+      </div>
+      
       <button className="knowledge-back" onClick={onBack} style={{display: 'block', margin: '28px auto 0 auto'}}>← Назад</button>
     </div>
   );
@@ -2021,6 +2054,199 @@ function NailsPairPracticePage({ onBack }) {
   );
 }
 
+// Helper styles for DiaryStatesPage
+const featureBoxStyle = {
+  border: '1px solid #e0e0e0',
+  borderRadius: '12px',
+  padding: '16px',
+  margin: '20px 0',
+  textAlign: 'center',
+  backgroundColor: 'rgba(255, 255, 255, 0.5)',
+  boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
+};
+
+const featureTitleStyle = {
+  fontSize: '1.2rem',
+  fontWeight: 700,
+  color: '#333',
+  marginBottom: '10px'
+};
+
+const inputStyle = {
+  width: '100%',
+  padding: '10px',
+  borderRadius: '8px',
+  border: '1px solid #ccc',
+  fontFamily: 'Comfortaa, cursive',
+  marginBottom: '10px',
+  boxSizing: 'border-box'
+};
+
+const buttonStyle = {
+  padding: '10px 20px',
+  borderRadius: '8px',
+  border: 'none',
+  backgroundColor: '#8a6db1',
+  color: 'white',
+  fontFamily: 'Comfortaa, cursive',
+  cursor: 'pointer',
+  transition: 'background-color 0.2s ease'
+};
+
+const botResponseStyle = {
+  marginTop: '15px',
+  padding: '10px',
+  backgroundColor: '#e8f4fd',
+  borderRadius: '8px',
+  color: '#333',
+  textAlign: 'left',
+  lineHeight: 1.5
+};
+
+function DiaryStatesPage({ onBack }) {
+  const [feeling, setFeeling] = useState('');
+  const [botResponse, setBotResponse] = useState('');
+  const [wordOfDay, setWordOfDay] = useState('');
+  const [chatMessages, setChatMessages] = useState([]);
+  const [chatInput, setChatInput] = useState('');
+  const [emotionHistory, setEmotionHistory] = useState([
+    { day: 'Пн', mood: '😊' }, { day: 'Вт', mood: '😐' },
+    { day: 'Ср', mood: '😊' }, { day: 'Чт', mood: '😔' },
+    { day: 'Пт', mood: '😊' }, { day: 'Сб', mood: '😁' },
+    { day: 'Вс', mood: '😐' },
+  ]);
+
+  const handleFeelingSubmit = () => {
+    const lowerCaseFeeling = feeling.toLowerCase();
+    if (lowerCaseFeeling.includes('грустно') || lowerCaseFeeling.includes('плохо') || lowerCaseFeeling.includes('😔')) {
+      setBotResponse('Понимаю, это непросто. Попробуйте дыхательную практику "Квадрат". Она помогает успокоить ум. Вот цитата для вас: "Даже самая темная ночь закончится, и взойдет солнце."');
+    } else if (lowerCaseFeeling.includes('хорошо') || lowerCaseFeeling.includes('радостно') || lowerCaseFeeling.includes('😊')) {
+      setBotResponse('Замечательно! Рад за вас. Сохраняйте это чувство. Цитата дня: "Счастье — это не пункт назначения, а способ путешествовать."');
+    } else {
+      setBotResponse('Спасибо, что поделились. Важно прислушиваться к себе. Попробуйте медитацию на 5 минут, чтобы сфокусироваться на настоящем моменте.');
+    }
+    setFeeling('');
+  };
+
+  const handleWordSubmit = () => {
+    alert(`Ваше слово дня "${wordOfDay}" сохранено!`);
+    setWordOfDay('');
+  };
+
+  const handleChatSend = () => {
+    if (chatInput.trim() === '') return;
+    const newMessages = [...chatMessages, { sender: 'user', text: chatInput }];
+    setChatMessages(newMessages);
+    
+    setTimeout(() => {
+      setChatMessages(prev => [...prev, { sender: 'bot', text: 'Спасибо, что поделились. Я вас слушаю.' }]);
+    }, 1000);
+    setChatInput('');
+  };
+
+  return (
+    <div style={{ padding: '20px', fontFamily: 'Comfortaa, cursive', textAlign: 'center', maxWidth: '600px', margin: '0 auto' }}>
+      <h2 style={{ fontSize: '1.8rem', fontWeight: 700, marginBottom: '16px', color: '#333' }}>
+        Дневник Состояний
+      </h2>
+      <p style={{ fontSize: '1rem', lineHeight: 1.6, color: '#555', marginBottom: '24px' }}>
+        Познай себя глубже. Отслеживай свои эмоции, осознавай внутренние волны и находи баланс. Это твоя личная карта душевных путешествий.
+      </p>
+
+      <div style={featureBoxStyle}>
+        <h3 style={featureTitleStyle}>Сканер Состояния</h3>
+        <p>Как ты себя чувствуешь?</p>
+        <input 
+          type="text" 
+          value={feeling}
+          onChange={(e) => setFeeling(e.target.value)}
+          placeholder="Например: радостно 😊 или немного грустно 😔"
+          style={inputStyle}
+        />
+        <button onClick={handleFeelingSubmit} style={buttonStyle}>Отправить</button>
+        {botResponse && <p style={botResponseStyle}>{botResponse}</p>}
+      </div>
+
+      <div style={featureBoxStyle}>
+        <h3 style={featureTitleStyle}>График состояния (эмо-календарь)</h3>
+        <p>Ваши эмоции за последнюю неделю:</p>
+        <div style={{ display: 'flex', justifyContent: 'space-around', padding: '10px 0' }}>
+          {emotionHistory.map(item => (
+            <div key={item.day} style={{ textAlign: 'center' }}>
+              <div style={{ fontSize: '1.5rem' }}>{item.mood}</div>
+              <div style={{ fontSize: '0.7rem' }}>{item.day}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+      
+      <div style={featureBoxStyle}>
+        <h3 style={featureTitleStyle}>Слово дня</h3>
+        <p>Опишите свое состояние одним словом.</p>
+        <input 
+          type="text" 
+          value={wordOfDay}
+          onChange={(e) => setWordOfDay(e.target.value)}
+          placeholder="Например: спокойствие"
+          style={inputStyle}
+        />
+        <button onClick={handleWordSubmit} style={buttonStyle}>Сохранить</button>
+      </div>
+
+      <div style={featureBoxStyle}>
+        <h3 style={featureTitleStyle}>AI-компаньон</h3>
+        <p>Здесь можно выговориться. Это безопасно.</p>
+        <div style={{ height: '150px', border: '1px solid #ddd', borderRadius: '8px', padding: '10px', overflowY: 'auto', marginBottom: '10px', textAlign: 'left', background: '#fff' }}>
+          {chatMessages.map((msg, index) => (
+            <div key={index} style={{ marginBottom: '5px', textAlign: msg.sender === 'user' ? 'right' : 'left' }}>
+              <span style={{
+                background: msg.sender === 'user' ? '#e8f4fd' : '#f0f0f0',
+                padding: '5px 10px',
+                borderRadius: '10px',
+                display: 'inline-block',
+                maxWidth: '80%'
+              }}>
+                {msg.text}
+              </span>
+            </div>
+          ))}
+        </div>
+        <div style={{ display: 'flex' }}>
+          <input 
+            type="text" 
+            value={chatInput}
+            onChange={(e) => setChatInput(e.target.value)}
+            onKeyPress={(e) => e.key === 'Enter' && handleChatSend()}
+            placeholder="Напишите что-нибудь..."
+            style={{ ...inputStyle, flexGrow: 1, marginRight: '10px', marginBottom: 0 }}
+          />
+          <button onClick={handleChatSend} style={{ ...buttonStyle, padding: '10px' }}>➤</button>
+        </div>
+      </div>
+
+      <button 
+        onClick={onBack}
+        className="knowledge-back"
+        style={{display: 'block', margin: '28px auto 0 auto', marginTop: 'auto'}}>← Назад</button>
+    </div>
+  );
+}
+
+function DiaryWishesPage({ onBack }) {
+  return (
+    <div className="knowledge-page">
+      <div className="knowledge-title">Дневник Желаний</div>
+      <div style={{textAlign: 'center', margin: '28px 0'}}>
+        <img src={about2} alt="Дневник Желаний" style={{maxWidth: 260, maxHeight: 340, borderRadius: 18, boxShadow: '0 4px 18px #e6e0f7', objectFit: 'cover', width: '100%', height: 'auto'}} />
+      </div>
+      <div style={{fontFamily: 'Comfortaa, cursive', color: '#7c5bb3', fontSize: '0.92rem', margin: '0 0 18px 0', textAlign: 'center', lineHeight: 1.5}}>
+        {/* Здесь можно добавить описание или информацию о дневниках желаний */}
+      </div>
+      <button className="knowledge-back" onClick={onBack} style={{display: 'block', margin: '18px auto 0 auto'}}>← Назад</button>
+    </div>
+  );
+}
+
 function App() {
   const [activeTab, setActiveTab] = useState('home');
   const [isDarkTheme, setIsDarkTheme] = useState(false);
@@ -2032,6 +2258,7 @@ function App() {
   const [showMarinaSharipova, setShowMarinaSharipova] = useState(false);
   const [showNailsPairPractice, setShowNailsPairPractice] = useState(false);
   const [showChakraPage, setShowChakraPage] = useState(false);
+  const [showDiaryStatesPage, setShowDiaryStatesPage] = useState(false);
   const [telegramUser, setTelegramUser] = useState(null);
 
   const isSubPageActive = selectedSection !== null ||
@@ -2041,7 +2268,8 @@ function App() {
                           showRetreats ||
                           showMarinaSharipova ||
                           showNailsPairPractice ||
-                          showChakraPage;
+                          showChakraPage ||
+                          showDiaryStatesPage;
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
@@ -2097,6 +2325,13 @@ function App() {
 
   const handleBottomBarTabChange = (tab) => {
     setShowChakraPage(false);
+    setShowDianaGuru(false);
+    setShowRetreats(false);
+    setShowMarinaSharipova(false);
+    setShowNailsPairPractice(false);
+    setSelectedSection(null);
+    setSelectedKnowledgeSection(null);
+    setSelectedBreathPractice(null);
     setActiveTab(tab);
   };
 
@@ -2107,6 +2342,9 @@ function App() {
     if (showChakraPage) {
       console.log("Rendering ChakraPage");
       return <ChakraPage onBack={() => setShowChakraPage(false)} />;
+    }
+    if (showDiaryStatesPage) {
+      return <DiaryStatesPage onBack={() => setShowDiaryStatesPage(false)} />;
     }
     if (selectedSection === 'Шанкапракшалана') {
       return <Shankaprakshalana onBack={() => setSelectedSection(null)} />;
@@ -2201,6 +2439,24 @@ function App() {
             ✨ Найти  предназначение своей души
           </div>
 
+          {/* Заголовок "Отзывы" */}
+          <div style={{
+            textAlign: 'center',
+            margin: '24px auto 16px auto',
+            maxWidth: 480
+          }}>
+            <h2 style={{
+              color: '#7c5bb3',
+              fontFamily: 'Comfortaa, cursive',
+              fontSize: '1.4rem',
+              fontWeight: 700,
+              margin: 0,
+              letterSpacing: '0.02em'
+            }}>
+              Отзывы
+            </h2>
+          </div>
+
           {/* Блок "Лила — это пространство, где играют Боги..." */}
           <div style={{
             background: '#ededf0',
@@ -2276,6 +2532,143 @@ function App() {
     }
     if (selectedSection === 'Медитация') {
       return <MeditationPage onBack={() => setSelectedSection(null)} onChakraClick={handleOpenChakraPage} />;
+    }
+    if (selectedSection === 'Дневник Жизни') {
+      return (
+        <div className="knowledge-page" style={{display: 'flex', flexDirection: 'column', minHeight: 'calc(100vh - 64px)'}}>
+          <div style={{
+            background: '#f7f3ff',
+            borderRadius: 16,
+            padding: '24px 16px',
+            color: '#000',
+            fontFamily: 'Comfortaa, cursive',
+            fontSize: '0.95rem',
+            textAlign: 'center',
+            boxShadow: '0 2px 12px 0 rgba(124,91,179,0.07)',
+            maxWidth: 480,
+            margin: '18px auto 0 auto',
+            lineHeight: 1.7
+          }}>
+            Дневник Жизни — это твой личный проводник к внутренней гармонии.<br/><br/>
+            Записывай желания, практикуй благодарность, отслеживай свои состояния — и наблюдай, как преображается твоя реальность.<br/><br/>
+            Каждая запись — шаг к осознанной, наполненной жизни.
+          </div>
+          
+          {/* Три квадратные иконки в одну линию */}
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'flex-start',
+            gap: '16px',
+            margin: '24px 0'
+          }}>
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: '8px',
+              width: '120px'
+            }}>
+              <div style={{
+                width: '120px',
+                height: '120px',
+                backgroundColor: '#e8f4fd',
+                borderRadius: '12px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                cursor: 'pointer',
+                transition: 'transform 0.2s ease'
+              }}
+              onMouseOver={e => e.currentTarget.style.transform = 'scale(1.05)'}
+              onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'}
+              onClick={() => setShowDiaryStatesPage(true)}
+              >
+                <img src="/states-icon.svg" alt="Дневник Состояний" style={{ width: '64px', height: '64px' }} />
+              </div>
+              <span style={{
+                fontFamily: 'Comfortaa, cursive',
+                fontSize: '0.75rem',
+                fontWeight: 600,
+                color: '#333',
+                textAlign: 'center'
+              }}>Дневник<br/>Состояний</span>
+            </div>
+            
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: '8px',
+              width: '120px'
+            }}>
+              <div style={{
+                width: '120px',
+                height: '120px',
+                backgroundColor: '#f0f8ff',
+                borderRadius: '12px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                cursor: 'pointer',
+                transition: 'transform 0.2s ease'
+              }}
+              onMouseOver={e => e.currentTarget.style.transform = 'scale(1.05)'}
+              onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'}
+              >
+                <img src="/wishes-icon.svg" alt="Дневник Желаний" style={{ width: '64px', height: '64px' }} />
+              </div>
+              <span style={{
+                fontFamily: 'Comfortaa, cursive',
+                fontSize: '0.75rem',
+                fontWeight: 600,
+                color: '#333',
+                textAlign: 'center'
+              }}>Дневник<br/>Желаний</span>
+            </div>
+            
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: '8px',
+              width: '120px'
+            }}>
+              <div style={{
+                width: '120px',
+                height: '120px',
+                backgroundColor: '#f5f5f5',
+                borderRadius: '12px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                cursor: 'pointer',
+                transition: 'transform 0.2s ease'
+              }}
+              onMouseOver={e => e.currentTarget.style.transform = 'scale(1.05)'}
+              onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'}
+              >
+                <img src="/gratitude-icon.svg" alt="Дневник Благодарности" style={{ width: '64px', height: '64px' }} />
+              </div>
+              <span style={{
+                fontFamily: 'Comfortaa, cursive',
+                fontSize: '0.75rem',
+                fontWeight: 600,
+                color: '#333',
+                textAlign: 'center'
+              }}>Дневник<br/>Благодарности</span>
+            </div>
+          </div>
+          
+          <button 
+            onClick={() => setSelectedSection(null)}
+            className="knowledge-back"
+            style={{display: 'block', margin: '28px auto 0 auto', marginTop: 'auto'}}>← Назад</button>
+        </div>
+      );
     }
     if (activeTab === 'knowledge' && selectedKnowledgeSection === 'hd-movies') {
       return <KnowledgeHDMoviesPage onBack={() => setSelectedKnowledgeSection(null)} />;
@@ -2450,7 +2843,7 @@ function App() {
 
   return (
     <div className="app-root">
-      {activeTab === 'home' && selectedSection !== 'Дыхание' && selectedSection !== 'Шанкапракшалана' && selectedSection !== 'Медитация' && !showChakraPage && selectedSection !== 'Лила' && selectedSection !== 'Гвоздестояние' && selectedSection !== 'Парная практика' && <Header />}
+      {activeTab === 'home' && !isSubPageActive && <Header />}
       <div className="mobile-frame">
         {renderContent()}
         <BottomBar activeTab={activeTab} setActiveTab={handleBottomBarTabChange} />

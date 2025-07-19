@@ -1,9 +1,8 @@
 .main-sections {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  padding: 36px 8px 70px 8px;
-  background: none !important;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px 16px 70px 16px;
   min-height: calc(100vh - 64px);
   box-sizing: border-box;
   position: relative;
@@ -22,75 +21,129 @@
 }
 
 .section-card {
-  background: #fff8f2;
-  box-shadow: 0 8px 32px 0 rgba(124,91,179,0.18), 0 1.5px 0 #ede3fa inset;
-  border-radius: 14px;
+  background: linear-gradient(135deg, #7c5bb3 0%, #b484f7 100%);
+  border-radius: 16px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  padding: 4px 0 2px 0;
-  transition: box-shadow 0.2s, transform 0.15s, background 0.3s ease;
+  padding: 12px;
+  transition: transform 0.15s, box-shadow 0.2s ease;
   cursor: pointer;
-  aspect-ratio: 1;
-  width: 70%;
-  max-width: 70%;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
   touch-action: manipulation;
   user-select: none;
   position: relative;
   z-index: 1;
   opacity: 0;
-  transform: scale(0.92);
+  transform: scale(0.95);
   animation: fadeInScale 0.7s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  box-shadow: 0 4px 20px rgba(124,91,179,0.25);
 }
+
+.section-card:nth-child(1) {
+  background: linear-gradient(135deg, #8e44ad 0%, #9b59b6 100%);
+  animation-delay: 0.1s;
+}
+
+.section-card:nth-child(2) {
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+  animation-delay: 0.2s;
+}
+
+.section-card:nth-child(3) {
+  background: linear-gradient(135deg, #5dade2 0%, #3498db 100%);
+  animation-delay: 0.3s;
+}
+
+.section-card:nth-child(4) {
+  background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+  animation-delay: 0.4s;
+}
+
+.section-card:nth-child(5) {
+  background: linear-gradient(135deg, #f1c40f 0%, #f39c12 100%);
+  animation-delay: 0.5s;
+}
+
+.section-card:nth-child(6) {
+  background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+  animation-delay: 0.6s;
+}
+
+.section-card:nth-child(7) {
+  background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);
+  animation-delay: 0.7s;
+}
+
 .section-card:active {
-  box-shadow: 0 2px 8px var(--shadow-color);
   transform: scale(0.97);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
 }
+
 .section-icon {
-  font-size: 1.32rem;
-  margin-bottom: 4px;
-  margin-top: 12px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 14px;
+  flex-shrink: 0;
 }
+
+.section-icon img {
+  filter: brightness(0) invert(1);
+  width: 40px !important;
+  height: 40px !important;
+}
+
 .section-title {
-  font-size: 0.88rem;
-  color: var(--text-primary);
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  transition: color 0.3s ease;
-}
-.section-title-strict {
+  color: #fff !important;
   font-family: 'Comfortaa', cursive;
-  font-size: 0.62rem;
+  font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 0.02em;
-  color: var(--text-primary);
-  text-transform: uppercase;
-  margin-top: 2px;
-  margin-bottom: 0;
+  text-align: left;
+  flex: 1;
+  line-height: 1.3;
+}
+
+.section-title-strict {
+  color: #fff !important;
+  font-family: 'Comfortaa', cursive;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  margin: 0;
+  text-align: left;
+  line-height: 1.3;
 }
 
 @media (max-width: 480px) {
   .main-sections {
-    gap: 8px;
-    padding: 28px 6px 60px 6px;
+    gap: 10px;
+    padding: 16px 12px 60px 12px;
   }
   .section-card {
-    padding: 6px 0 4px 0;
-    border-radius: 12px;
-    width: 70%;
-    max-width: 70%;
+    padding: 10px;
+    border-radius: 14px;
   }
   .section-icon {
-    font-size: 1.14rem;
+    width: 42px;
+    height: 42px;
+    margin-right: 12px;
+  }
+  .section-icon img {
+    width: 32px !important;
+    height: 32px !important;
   }
   .section-title {
-    font-size: 0.77rem;
-    color: var(--text-primary);
+    font-size: 0.85rem;
   }
   .section-title-strict {
-    font-size: 0.51rem;
+    font-size: 0.85rem;
   }
 }
 
@@ -100,64 +153,16 @@
 }
 
 [data-theme="dark"] .section-title-strict {
-  color: #111 !important;
+  color: #ffffff !important;
 }
 
 @keyframes fadeInScale {
   0% {
     opacity: 0;
-    transform: scale(0.92);
+    transform: scale(0.95);
   }
   100% {
     opacity: 1;
     transform: scale(1);
   }
-}
-
-.om-float {
-  position: absolute;
-  font-size: 1.1rem;
-  color: #b39ddb;
-  opacity: 0.22;
-  pointer-events: none;
-  z-index: 0;
-  user-select: none;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  will-change: transform;
-  transition: none;
-}
-
-.om-float-1 {
-  left: 12%; top: 22%; animation-name: om-chaos-1; animation-delay: 0s;
-}
-.om-float-2 {
-  left: 68%; top: 18%; animation-name: om-chaos-2; animation-delay: 3s;
-}
-.om-float-3 {
-  left: 38%; top: 68%; animation-name: om-chaos-3; animation-delay: 6s;
-}
-@keyframes om-chaos-1 {
-  0% { transform: translate(0,0) scale(1) rotate(0deg); }
-  20% { transform: translate(18px, -12px) scale(1.08) rotate(8deg); }
-  40% { transform: translate(-10px, 24px) scale(0.95) rotate(-12deg); }
-  60% { transform: translate(22px, 18px) scale(1.12) rotate(14deg); }
-  80% { transform: translate(-16px, -18px) scale(0.98) rotate(-8deg); }
-  100% { transform: translate(0,0) scale(1) rotate(0deg); }
-}
-@keyframes om-chaos-2 {
-  0% { transform: translate(0,0) scale(1) rotate(0deg); }
-  15% { transform: translate(-16px, 18px) scale(1.1) rotate(-10deg); }
-  35% { transform: translate(20px, -20px) scale(0.93) rotate(12deg); }
-  55% { transform: translate(-22px, 12px) scale(1.15) rotate(-16deg); }
-  75% { transform: translate(18px, 22px) scale(0.97) rotate(10deg); }
-  100% { transform: translate(0,0) scale(1) rotate(0deg); }
-}
-@keyframes om-chaos-3 {
-  0% { transform: translate(0,0) scale(1) rotate(0deg); }
-  25% { transform: translate(14px, -18px) scale(1.12) rotate(7deg); }
-  50% { transform: translate(-18px, 16px) scale(0.92) rotate(-13deg); }
-  75% { transform: translate(20px, 20px) scale(1.09) rotate(11deg); }
-  100% { transform: translate(0,0) scale(1) rotate(0deg); }
 } 
