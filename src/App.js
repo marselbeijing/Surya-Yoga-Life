@@ -2125,6 +2125,49 @@ const botResponseStyle = {
       }
     }, []);
 
+    // Стили для мобильной адаптации
+    const mobileContainerStyle = {
+      padding: window.innerWidth <= 480 ? '12px 8px 80px 8px' : '20px',
+      fontFamily: 'Comfortaa, cursive',
+      textAlign: 'center',
+      maxWidth: window.innerWidth <= 480 ? '100%' : '600px',
+      margin: '0 auto',
+      overflowY: 'auto',
+      paddingBottom: window.innerWidth <= 480 ? '90px' : '100px'
+    };
+
+    const mobileCardStyle = {
+      background: '#f7f3ff',
+      borderRadius: window.innerWidth <= 480 ? '12px' : '16px',
+      padding: window.innerWidth <= 480 ? '12px 8px' : '16px',
+      margin: window.innerWidth <= 480 ? '8px 0' : '16px 0',
+      boxShadow: '0 4px 12px rgba(124,91,179,0.1)'
+    };
+
+    const mobileInputStyle = {
+      width: '100%',
+      padding: window.innerWidth <= 480 ? '8px' : '12px',
+      borderRadius: window.innerWidth <= 480 ? '6px' : '8px',
+      border: '1px solid #ddd',
+      fontFamily: 'Comfortaa, cursive',
+      fontSize: window.innerWidth <= 480 ? '0.85rem' : '0.9rem',
+      marginBottom: window.innerWidth <= 480 ? '8px' : '12px'
+    };
+
+    const mobileButtonStyle = {
+      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+      color: 'white',
+      border: 'none',
+      padding: window.innerWidth <= 480 ? '8px 16px' : '12px 24px',
+      borderRadius: window.innerWidth <= 480 ? '6px' : '8px',
+      cursor: 'pointer',
+      fontFamily: 'Comfortaa, cursive',
+      fontWeight: '600',
+      fontSize: window.innerWidth <= 480 ? '0.8rem' : '0.9rem',
+      margin: '0 8px',
+      minHeight: '40px'
+    };
+
     const handleFeelingSubmit = () => {
       const lowerCaseFeeling = feeling.toLowerCase();
       if (lowerCaseFeeling.includes('грустно') || lowerCaseFeeling.includes('плохо') || lowerCaseFeeling.includes('😔')) {
@@ -2194,15 +2237,7 @@ const botResponseStyle = {
     };
 
     return (
-      <div style={{ 
-        padding: '20px', 
-        fontFamily: 'Comfortaa, cursive', 
-        textAlign: 'center', 
-        maxWidth: '600px', 
-        margin: '0 auto',
-        overflowY: 'auto',
-        paddingBottom: '100px' // Добавляем отступ снизу для нижнего бара
-      }}>
+      <div style={mobileContainerStyle}>
         <h2 style={{ fontSize: '1.8rem', fontWeight: 700, marginBottom: '16px', color: '#333' }}>
           Дневник Состояний
         </h2>
@@ -2210,22 +2245,22 @@ const botResponseStyle = {
           Познай себя глубже. Отслеживай свои эмоции, осознавай внутренние волны и находи баланс. Это твоя личная карта душевных путешествий.
         </p>
 
-        <div style={featureBoxStyle}>
-          <h3 style={featureTitleStyle}>Сканер Состояния</h3>
+        <div style={mobileCardStyle}>
+          <h3 style={mobileCardStyle}>Сканер Состояния</h3>
           <p>Как ты себя чувствуешь?</p>
           <input 
             type="text" 
             value={feeling}
             onChange={(e) => setFeeling(e.target.value)}
             placeholder="Например: радостно 😊 или немного грустно 😔"
-            style={inputStyle}
+            style={mobileInputStyle}
           />
-          <button onClick={handleFeelingSubmit} style={buttonStyle}>Отправить</button>
+          <button onClick={handleFeelingSubmit} style={mobileButtonStyle}>Отправить</button>
           {botResponse && <p style={botResponseStyle}>{botResponse}</p>}
         </div>
 
-        <div style={featureBoxStyle}>
-          <h3 style={featureTitleStyle}>График состояния (эмо-календарь)</h3>
+        <div style={mobileCardStyle}>
+          <h3 style={mobileCardStyle}>График состояния (эмо-календарь)</h3>
           <p>Ваши эмоции за последнюю неделю:</p>
           <div style={{ display: 'flex', justifyContent: 'space-around', padding: '10px 0' }}>
             {emotionHistory.map(item => (
@@ -2237,21 +2272,21 @@ const botResponseStyle = {
           </div>
         </div>
         
-        <div style={featureBoxStyle}>
-          <h3 style={featureTitleStyle}>Слово дня</h3>
+        <div style={mobileCardStyle}>
+          <h3 style={mobileCardStyle}>Слово дня</h3>
           <p>Опишите свое состояние одним словом.</p>
           <input 
             type="text" 
             value={wordOfDay}
             onChange={(e) => setWordOfDay(e.target.value)}
             placeholder="Например: спокойствие"
-            style={inputStyle}
+            style={mobileInputStyle}
           />
-          <button onClick={handleWordSubmit} style={buttonStyle}>Сохранить</button>
+          <button onClick={handleWordSubmit} style={mobileButtonStyle}>Сохранить</button>
         </div>
 
-        <div style={featureBoxStyle}>
-          <h3 style={featureTitleStyle}>AI-компаньон</h3>
+        <div style={mobileCardStyle}>
+          <h3 style={mobileCardStyle}>AI-компаньон</h3>
           <p>Здесь можно выговориться. Это безопасно.</p>
           <div style={{ height: '150px', border: '1px solid #ddd', borderRadius: '8px', padding: '10px', overflowY: 'auto', marginBottom: '10px', textAlign: 'left', background: '#fff' }}>
             {chatMessages.map((msg, index) => (
@@ -2275,9 +2310,9 @@ const botResponseStyle = {
               onChange={(e) => setChatInput(e.target.value)}
               onKeyPress={(e) => e.key === 'Enter' && handleChatSend()}
               placeholder="Напишите что-нибудь..."
-              style={{ ...inputStyle, flexGrow: 1, marginRight: '10px', marginBottom: 0 }}
+              style={{ ...mobileInputStyle, flexGrow: 1, marginRight: '10px', marginBottom: 0 }}
             />
-            <button onClick={handleChatSend} style={{ ...buttonStyle, padding: '10px' }}>➤</button>
+            <button onClick={handleChatSend} style={{ ...mobileButtonStyle, padding: '10px' }}>➤</button>
           </div>
         </div>
 
@@ -3139,6 +3174,32 @@ function App() {
     setSelectedSection(null);
     console.log("showChakraPage set to true, selectedSection set to null");
   };
+
+  // Инициализация Telegram WebApp
+  useEffect(() => {
+    // Проверка на Telegram WebApp
+    if (window.Telegram && window.Telegram.WebApp) {
+      const tg = window.Telegram.WebApp;
+      tg.ready();
+      tg.expand();
+      
+      // Адаптация под тему Telegram
+      document.body.style.backgroundColor = tg.themeParams.bg_color || '#ffffff';
+      document.body.style.color = tg.themeParams.text_color || '#000000';
+      
+      // Добавление класса для Telegram стилей
+      document.body.classList.add('telegram-app');
+      
+      // Скрытие кнопки "Назад" в Telegram
+      tg.BackButton.hide();
+    }
+    
+    // Добавление viewport meta для мобильных
+    const viewport = document.querySelector('meta[name=viewport]');
+    if (viewport) {
+      viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover');
+    }
+  }, []);
 
   // Загрузка темы из localStorage при запуске
   useEffect(() => {
