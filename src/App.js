@@ -2103,146 +2103,982 @@ const botResponseStyle = {
   lineHeight: 1.5
 };
 
-function DiaryStatesPage({ onBack }) {
-  const [feeling, setFeeling] = useState('');
-  const [botResponse, setBotResponse] = useState('');
-  const [wordOfDay, setWordOfDay] = useState('');
-  const [chatMessages, setChatMessages] = useState([]);
-  const [chatInput, setChatInput] = useState('');
-  const [emotionHistory, setEmotionHistory] = useState([
-    { day: 'Пн', mood: '😊' }, { day: 'Вт', mood: '😐' },
-    { day: 'Ср', mood: '😊' }, { day: 'Чт', mood: '😔' },
-    { day: 'Пт', mood: '😊' }, { day: 'Сб', mood: '😁' },
-    { day: 'Вс', mood: '😐' },
-  ]);
+  function DiaryStatesPage({ onBack }) {
+    const [feeling, setFeeling] = useState('');
+    const [botResponse, setBotResponse] = useState('');
+    const [wordOfDay, setWordOfDay] = useState('');
+    const [chatMessages, setChatMessages] = useState([]);
+    const [chatInput, setChatInput] = useState('');
+    const [emotionHistory, setEmotionHistory] = useState([
+      { day: 'Пн', mood: '😊' }, { day: 'Вт', mood: '😐' },
+      { day: 'Ср', mood: '😊' }, { day: 'Чт', mood: '😔' },
+      { day: 'Пт', mood: '😊' }, { day: 'Сб', mood: '😁' },
+      { day: 'Вс', mood: '😐' },
+    ]);
 
-  const handleFeelingSubmit = () => {
-    const lowerCaseFeeling = feeling.toLowerCase();
-    if (lowerCaseFeeling.includes('грустно') || lowerCaseFeeling.includes('плохо') || lowerCaseFeeling.includes('😔')) {
-      setBotResponse('Понимаю, это непросто. Попробуйте дыхательную практику "Квадрат". Она помогает успокоить ум. Вот цитата для вас: "Даже самая темная ночь закончится, и взойдет солнце."');
-    } else if (lowerCaseFeeling.includes('хорошо') || lowerCaseFeeling.includes('радостно') || lowerCaseFeeling.includes('😊')) {
-      setBotResponse('Замечательно! Рад за вас. Сохраняйте это чувство. Цитата дня: "Счастье — это не пункт назначения, а способ путешествовать."');
-    } else {
-      setBotResponse('Спасибо, что поделились. Важно прислушиваться к себе. Попробуйте медитацию на 5 минут, чтобы сфокусироваться на настоящем моменте.');
-    }
-    setFeeling('');
+    // Загрузка сохранённых данных при инициализации
+    useEffect(() => {
+      const savedStatesData = localStorage.getItem('statesData');
+      if (savedStatesData) {
+        const data = JSON.parse(savedStatesData);
+        // Можно добавить загрузку других данных если нужно
+      }
+    }, []);
+
+    const handleFeelingSubmit = () => {
+      const lowerCaseFeeling = feeling.toLowerCase();
+      if (lowerCaseFeeling.includes('грустно') || lowerCaseFeeling.includes('плохо') || lowerCaseFeeling.includes('😔')) {
+        setBotResponse('Понимаю, это непросто. Попробуйте дыхательную практику "Квадрат". Она помогает успокоить ум. Вот цитата для вас: "Даже самая темная ночь закончится, и взойдет солнце."');
+      } else if (lowerCaseFeeling.includes('хорошо') || lowerCaseFeeling.includes('радостно') || lowerCaseFeeling.includes('😊')) {
+        setBotResponse('Замечательно! Рад за вас. Сохраняйте это чувство. Цитата дня: "Счастье — это не пункт назначения, а способ путешествовать."');
+      } else {
+        setBotResponse('Спасибо, что поделились. Важно прислушиваться к себе. Попробуйте медитацию на 5 минут, чтобы сфокусироваться на настоящем моменте.');
+      }
+      
+      // Сохранение в localStorage для дерева жизни
+      const statesData = JSON.parse(localStorage.getItem('statesData') || '{}');
+      const newEntry = {
+        id: Date.now(),
+        feeling: feeling,
+        date: new Date().toISOString(),
+        type: 'feeling'
+      };
+      const updatedEntries = [...(statesData.entries || []), newEntry];
+      localStorage.setItem('statesData', JSON.stringify({
+        entries: updatedEntries,
+        lastUpdate: new Date().toISOString()
+      }));
+      
+      setFeeling('');
+    };
+
+    const handleWordSubmit = () => {
+      // Сохранение в localStorage для дерева жизни
+      const statesData = JSON.parse(localStorage.getItem('statesData') || '{}');
+      const newEntry = {
+        id: Date.now(),
+        word: wordOfDay,
+        date: new Date().toISOString(),
+        type: 'word'
+      };
+      const updatedEntries = [...(statesData.entries || []), newEntry];
+      localStorage.setItem('statesData', JSON.stringify({
+        entries: updatedEntries,
+        lastUpdate: new Date().toISOString()
+      }));
+
+      alert(`Ваше слово дня "${wordOfDay}" сохранено!`);
+      setWordOfDay('');
+    };
+
+    const handleChatSend = () => {
+      if (chatInput.trim() === '') return;
+      const newMessages = [...chatMessages, { sender: 'user', text: chatInput }];
+      setChatMessages(newMessages);
+      
+      // Сохранение сообщений в localStorage
+      const statesData = JSON.parse(localStorage.getItem('statesData') || '{}');
+      const newEntry = {
+        id: Date.now(),
+        messages: newMessages,
+        date: new Date().toISOString(),
+        type: 'chat'
+      };
+      const updatedEntries = [...(statesData.entries || []), newEntry];
+      localStorage.setItem('statesData', JSON.stringify({
+        entries: updatedEntries,
+        lastUpdate: new Date().toISOString()
+      }));
+      
+      setChatInput('');
+    };
+
+    return (
+      <div style={{ 
+        padding: '20px', 
+        fontFamily: 'Comfortaa, cursive', 
+        textAlign: 'center', 
+        maxWidth: '600px', 
+        margin: '0 auto',
+        overflowY: 'auto',
+        paddingBottom: '100px' // Добавляем отступ снизу для нижнего бара
+      }}>
+        <h2 style={{ fontSize: '1.8rem', fontWeight: 700, marginBottom: '16px', color: '#333' }}>
+          Дневник Состояний
+        </h2>
+        <p style={{ fontSize: '1rem', lineHeight: 1.6, color: '#555', marginBottom: '24px' }}>
+          Познай себя глубже. Отслеживай свои эмоции, осознавай внутренние волны и находи баланс. Это твоя личная карта душевных путешествий.
+        </p>
+
+        <div style={featureBoxStyle}>
+          <h3 style={featureTitleStyle}>Сканер Состояния</h3>
+          <p>Как ты себя чувствуешь?</p>
+          <input 
+            type="text" 
+            value={feeling}
+            onChange={(e) => setFeeling(e.target.value)}
+            placeholder="Например: радостно 😊 или немного грустно 😔"
+            style={inputStyle}
+          />
+          <button onClick={handleFeelingSubmit} style={buttonStyle}>Отправить</button>
+          {botResponse && <p style={botResponseStyle}>{botResponse}</p>}
+        </div>
+
+        <div style={featureBoxStyle}>
+          <h3 style={featureTitleStyle}>График состояния (эмо-календарь)</h3>
+          <p>Ваши эмоции за последнюю неделю:</p>
+          <div style={{ display: 'flex', justifyContent: 'space-around', padding: '10px 0' }}>
+            {emotionHistory.map(item => (
+              <div key={item.day} style={{ textAlign: 'center' }}>
+                <div style={{ fontSize: '1.5rem' }}>{item.mood}</div>
+                <div style={{ fontSize: '0.7rem' }}>{item.day}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        <div style={featureBoxStyle}>
+          <h3 style={featureTitleStyle}>Слово дня</h3>
+          <p>Опишите свое состояние одним словом.</p>
+          <input 
+            type="text" 
+            value={wordOfDay}
+            onChange={(e) => setWordOfDay(e.target.value)}
+            placeholder="Например: спокойствие"
+            style={inputStyle}
+          />
+          <button onClick={handleWordSubmit} style={buttonStyle}>Сохранить</button>
+        </div>
+
+        <div style={featureBoxStyle}>
+          <h3 style={featureTitleStyle}>AI-компаньон</h3>
+          <p>Здесь можно выговориться. Это безопасно.</p>
+          <div style={{ height: '150px', border: '1px solid #ddd', borderRadius: '8px', padding: '10px', overflowY: 'auto', marginBottom: '10px', textAlign: 'left', background: '#fff' }}>
+            {chatMessages.map((msg, index) => (
+              <div key={index} style={{ marginBottom: '5px', textAlign: msg.sender === 'user' ? 'right' : 'left' }}>
+                <span style={{
+                  background: msg.sender === 'user' ? '#e8f4fd' : '#f0f0f0',
+                  padding: '5px 10px',
+                  borderRadius: '10px',
+                  display: 'inline-block',
+                  maxWidth: '80%'
+                }}>
+                  {msg.text}
+                </span>
+              </div>
+            ))}
+          </div>
+          <div style={{ display: 'flex' }}>
+            <input 
+              type="text" 
+              value={chatInput}
+              onChange={(e) => setChatInput(e.target.value)}
+              onKeyPress={(e) => e.key === 'Enter' && handleChatSend()}
+              placeholder="Напишите что-нибудь..."
+              style={{ ...inputStyle, flexGrow: 1, marginRight: '10px', marginBottom: 0 }}
+            />
+            <button onClick={handleChatSend} style={{ ...buttonStyle, padding: '10px' }}>➤</button>
+          </div>
+        </div>
+
+        <button 
+          onClick={onBack}
+          className="knowledge-back"
+          style={{display: 'block', margin: '28px auto 0 auto', marginTop: 'auto'}}>← Назад</button>
+      </div>
+    );
+  }
+
+function DiaryGratitudePage({ onBack }) {
+  const [gratitudes, setGratitudes] = useState([]);
+  const [newGratitude, setNewGratitude] = useState('');
+  const [streak, setStreak] = useState(0);
+  const [level, setLevel] = useState(1);
+  const [todaysGratitudes, setTodaysGratitudes] = useState(0);
+  const [wheelSuggestion, setWheelSuggestion] = useState('');
+
+  // Колесо благодарностей - подсказки
+  const gratitudeWheel = [
+    "Поблагодари за своё тело и здоровье",
+    "Поблагодари за природу вокруг тебя", 
+    "Поблагодари за урок, который получил сегодня",
+    "Поблагодари за близких людей",
+    "Поблагодари за дом и уют",
+    "Поблагодари за возможности роста",
+    "Поблагодари за еду и воду",
+    "Поблагодари за вдохновение",
+    "Поблагодари за прошлые трудности, что сделали тебя сильнее",
+    "Поблагодари за красоту в твоей жизни",
+    "Поблагодари за технологии и удобства",
+    "Поблагодари за мгновения радости",
+    "Поблагодари за свои таланты и способности",
+    "Поблагодари за безопасность",
+    "Поблагодари за возможность учиться"
+  ];
+
+  // Определение уровня осознанности
+  const getLevelInfo = (days) => {
+    if (days >= 90) return { level: 5, title: "Мастер Благодарности", emoji: "🌟", color: "#ff6b6b" };
+    if (days >= 30) return { level: 4, title: "Просветлённый", emoji: "✨", color: "#4ecdc4" };
+    if (days >= 10) return { level: 3, title: "Практикующий", emoji: "🌸", color: "#45b7d1" };
+    if (days >= 7) return { level: 2, title: "Ученик", emoji: "🌱", color: "#96ceb4" };
+    return { level: 1, title: "Новичок", emoji: "🌿", color: "#ffeaa7" };
   };
 
-  const handleWordSubmit = () => {
-    alert(`Ваше слово дня "${wordOfDay}" сохранено!`);
-    setWordOfDay('');
-  };
-
-  const handleChatSend = () => {
-    if (chatInput.trim() === '') return;
-    const newMessages = [...chatMessages, { sender: 'user', text: chatInput }];
-    setChatMessages(newMessages);
+  // Инициализация при загрузке
+  useEffect(() => {
+    const today = new Date().toDateString();
+    const savedData = localStorage.getItem('gratitudeData');
     
-    setTimeout(() => {
-      setChatMessages(prev => [...prev, { sender: 'bot', text: 'Спасибо, что поделились. Я вас слушаю.' }]);
-    }, 1000);
-    setChatInput('');
+    if (savedData) {
+      const data = JSON.parse(savedData);
+      setGratitudes(data.gratitudes || []);
+      setStreak(data.streak || 0);
+      
+      // Подсчёт благодарностей за сегодня
+      const todayCount = (data.gratitudes || []).filter(g => 
+        new Date(g.date).toDateString() === today
+      ).length;
+      setTodaysGratitudes(todayCount);
+    }
+
+    // Случайная подсказка из колеса
+    const randomSuggestion = gratitudeWheel[Math.floor(Math.random() * gratitudeWheel.length)];
+    setWheelSuggestion(randomSuggestion);
+  }, []);
+
+  // Сохранение данных
+  const saveData = (newGratitudes, newStreak) => {
+    const data = {
+      gratitudes: newGratitudes,
+      streak: newStreak,
+      lastUpdate: new Date().toISOString()
+    };
+    localStorage.setItem('gratitudeData', JSON.stringify(data));
+  };
+
+  // Добавление благодарности
+  const addGratitude = () => {
+    if (!newGratitude.trim()) return;
+
+    const today = new Date().toDateString();
+    const newEntry = {
+      id: Date.now(),
+      text: newGratitude,
+      date: new Date().toISOString(),
+      day: today
+    };
+
+    const updatedGratitudes = [...gratitudes, newEntry];
+    const todayCount = todaysGratitudes + 1;
+    
+    setGratitudes(updatedGratitudes);
+    setTodaysGratitudes(todayCount);
+    setNewGratitude('');
+
+    // Проверка на завершение дня (5 благодарностей)
+    if (todayCount === 5) {
+      const newStreak = streak + 1;
+      setStreak(newStreak);
+      saveData(updatedGratitudes, newStreak);
+      
+      const levelInfo = getLevelInfo(newStreak);
+      alert(`🎉 Отлично! День завершён! Серия: ${newStreak} дней. Уровень: ${levelInfo.title} ${levelInfo.emoji}`);
+    } else {
+      saveData(updatedGratitudes, streak);
+    }
+  };
+
+  // Новая подсказка из колеса
+  const spinWheel = () => {
+    const randomSuggestion = gratitudeWheel[Math.floor(Math.random() * gratitudeWheel.length)];
+    setWheelSuggestion(randomSuggestion);
+  };
+
+  const levelInfo = getLevelInfo(streak);
+  const progressToNext = todaysGratitudes / 5 * 100;
+
+  // Стили
+  const containerStyle = {
+    padding: '20px',
+    fontFamily: 'Comfortaa, cursive',
+    textAlign: 'center',
+    maxWidth: '600px',
+    margin: '0 auto',
+    overflowY: 'auto',
+    paddingBottom: '100px'
+  };
+
+  const cardStyle = {
+    background: '#f7f3ff',
+    borderRadius: '16px',
+    padding: '16px',
+    margin: '16px 0',
+    boxShadow: '0 4px 12px rgba(124,91,179,0.1)'
+  };
+
+  const inputStyle = {
+    width: '100%',
+    padding: '12px',
+    borderRadius: '8px',
+    border: '1px solid #ddd',
+    fontFamily: 'Comfortaa, cursive',
+    fontSize: '0.9rem',
+    marginBottom: '12px'
+  };
+
+  const buttonStyle = {
+    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    color: 'white',
+    border: 'none',
+    padding: '12px 24px',
+    borderRadius: '8px',
+    cursor: 'pointer',
+    fontFamily: 'Comfortaa, cursive',
+    fontWeight: '600',
+    fontSize: '0.9rem',
+    margin: '0 8px'
   };
 
   return (
-    <div style={{ padding: '20px', fontFamily: 'Comfortaa, cursive', textAlign: 'center', maxWidth: '600px', margin: '0 auto' }}>
+    <div style={containerStyle}>
       <h2 style={{ fontSize: '1.8rem', fontWeight: 700, marginBottom: '16px', color: '#333' }}>
-        Дневник Состояний
+        Дневник Благодарности
       </h2>
       <p style={{ fontSize: '1rem', lineHeight: 1.6, color: '#555', marginBottom: '24px' }}>
-        Познай себя глубже. Отслеживай свои эмоции, осознавай внутренние волны и находи баланс. Это твоя личная карта душевных путешествий.
+        Ощути изобилие жизни через простую практику благодарности. Чем больше ты благодаришь, тем больше получаешь.
       </p>
 
-      <div style={featureBoxStyle}>
-        <h3 style={featureTitleStyle}>Сканер Состояния</h3>
-        <p>Как ты себя чувствуешь?</p>
-        <input 
-          type="text" 
-          value={feeling}
-          onChange={(e) => setFeeling(e.target.value)}
-          placeholder="Например: радостно 😊 или немного грустно 😔"
-          style={inputStyle}
-        />
-        <button onClick={handleFeelingSubmit} style={buttonStyle}>Отправить</button>
-        {botResponse && <p style={botResponseStyle}>{botResponse}</p>}
-      </div>
-
-      <div style={featureBoxStyle}>
-        <h3 style={featureTitleStyle}>График состояния (эмо-календарь)</h3>
-        <p>Ваши эмоции за последнюю неделю:</p>
-        <div style={{ display: 'flex', justifyContent: 'space-around', padding: '10px 0' }}>
-          {emotionHistory.map(item => (
-            <div key={item.day} style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: '1.5rem' }}>{item.mood}</div>
-              <div style={{ fontSize: '0.7rem' }}>{item.day}</div>
-            </div>
-          ))}
+      {/* Уровень и прогресс */}
+      <div style={{...cardStyle, background: levelInfo.color}}>
+        <h3 style={{ color: '#333', marginBottom: '12px' }}>
+          {levelInfo.emoji} {levelInfo.title} - Уровень {levelInfo.level}
+        </h3>
+        <div style={{ fontSize: '1.2rem', margin: '8px 0', color: '#333' }}>
+          🔥 Серия: {streak} дней
+        </div>
+        <div style={{ fontSize: '0.9rem', color: '#333', marginBottom: '8px' }}>
+          Сегодня: {todaysGratitudes}/5 благодарностей
+        </div>
+        <div style={{
+          background: 'rgba(255,255,255,0.3)',
+          borderRadius: '10px',
+          height: '8px',
+          overflow: 'hidden'
+        }}>
+          <div style={{
+            background: 'white',
+            height: '100%',
+            width: `${progressToNext}%`,
+            transition: 'width 0.3s ease'
+          }}></div>
         </div>
       </div>
-      
-      <div style={featureBoxStyle}>
-        <h3 style={featureTitleStyle}>Слово дня</h3>
-        <p>Опишите свое состояние одним словом.</p>
-        <input 
-          type="text" 
-          value={wordOfDay}
-          onChange={(e) => setWordOfDay(e.target.value)}
-          placeholder="Например: спокойствие"
-          style={inputStyle}
-        />
-        <button onClick={handleWordSubmit} style={buttonStyle}>Сохранить</button>
+
+      {/* Достижения */}
+      <div style={cardStyle}>
+        <h3 style={{ color: '#7c5bb3', marginBottom: '12px' }}>🏆 Достижения</h3>
+        <div style={{ display: 'flex', justifyContent: 'space-around', textAlign: 'center' }}>
+          <div style={{ opacity: streak >= 10 ? 1 : 0.3 }}>
+            <div style={{ fontSize: '1.5rem' }}>🥉</div>
+            <div style={{ fontSize: '0.8rem' }}>10 дней</div>
+          </div>
+          <div style={{ opacity: streak >= 30 ? 1 : 0.3 }}>
+            <div style={{ fontSize: '1.5rem' }}>🥈</div>
+            <div style={{ fontSize: '0.8rem' }}>30 дней</div>
+          </div>
+          <div style={{ opacity: streak >= 90 ? 1 : 0.3 }}>
+            <div style={{ fontSize: '1.5rem' }}>🥇</div>
+            <div style={{ fontSize: '0.8rem' }}>90 дней</div>
+          </div>
+        </div>
       </div>
 
-      <div style={featureBoxStyle}>
-        <h3 style={featureTitleStyle}>AI-компаньон</h3>
-        <p>Здесь можно выговориться. Это безопасно.</p>
-        <div style={{ height: '150px', border: '1px solid #ddd', borderRadius: '8px', padding: '10px', overflowY: 'auto', marginBottom: '10px', textAlign: 'left', background: '#fff' }}>
-          {chatMessages.map((msg, index) => (
-            <div key={index} style={{ marginBottom: '5px', textAlign: msg.sender === 'user' ? 'right' : 'left' }}>
-              <span style={{
-                background: msg.sender === 'user' ? '#e8f4fd' : '#f0f0f0',
-                padding: '5px 10px',
-                borderRadius: '10px',
-                display: 'inline-block',
-                maxWidth: '80%'
+      {/* Колесо благодарностей */}
+      <div style={cardStyle}>
+        <h3 style={{ color: '#7c5bb3', marginBottom: '12px' }}>
+          🎯 Колесо Благодарностей
+        </h3>
+        <div style={{
+          padding: '16px',
+          background: 'rgba(124,91,179,0.1)',
+          borderRadius: '12px',
+          margin: '12px 0',
+          fontStyle: 'italic',
+          fontSize: '0.95rem'
+        }}>
+          "{wheelSuggestion}"
+        </div>
+        <button onClick={spinWheel} style={buttonStyle}>
+          🎲 Крутить колесо
+        </button>
+      </div>
+
+      {/* Добавление благодарности */}
+      <div style={cardStyle}>
+        <h3 style={{ color: '#7c5bb3', marginBottom: '12px' }}>
+          ✨ Запиши благодарность
+        </h3>
+        <textarea
+          value={newGratitude}
+          onChange={(e) => setNewGratitude(e.target.value)}
+          placeholder="За что ты благодарен сегодня? (используй подсказку выше)"
+          style={{...inputStyle, height: '80px', resize: 'vertical'}}
+        />
+        <button onClick={addGratitude} style={buttonStyle}>
+          💖 Добавить благодарность
+        </button>
+      </div>
+
+      {/* Список благодарностей за сегодня */}
+      {todaysGratitudes > 0 && (
+        <div style={cardStyle}>
+          <h3 style={{ color: '#7c5bb3', marginBottom: '12px' }}>
+            🌸 Сегодняшние благодарности
+          </h3>
+          {gratitudes
+            .filter(g => new Date(g.date).toDateString() === new Date().toDateString())
+            .map((gratitude, index) => (
+              <div key={gratitude.id} style={{
+                background: 'rgba(124,91,179,0.05)',
+                padding: '12px',
+                borderRadius: '8px',
+                margin: '8px 0',
+                textAlign: 'left'
               }}>
-                {msg.text}
-              </span>
-            </div>
-          ))}
+                <span style={{ fontWeight: '600', color: '#7c5bb3' }}>
+                  {index + 1}.
+                </span> {gratitude.text}
+              </div>
+            ))}
         </div>
-        <div style={{ display: 'flex' }}>
-          <input 
-            type="text" 
-            value={chatInput}
-            onChange={(e) => setChatInput(e.target.value)}
-            onKeyPress={(e) => e.key === 'Enter' && handleChatSend()}
-            placeholder="Напишите что-нибудь..."
-            style={{ ...inputStyle, flexGrow: 1, marginRight: '10px', marginBottom: 0 }}
-          />
-          <button onClick={handleChatSend} style={{ ...buttonStyle, padding: '10px' }}>➤</button>
-        </div>
-      </div>
+      )}
 
       <button 
         onClick={onBack}
         className="knowledge-back"
-        style={{display: 'block', margin: '28px auto 0 auto', marginTop: 'auto'}}>← Назад</button>
+        style={{display: 'block', margin: '28px auto 0 auto', marginTop: 'auto'}}>
+        ← Назад
+      </button>
     </div>
   );
 }
 
 function DiaryWishesPage({ onBack }) {
+  const [wishText, setWishText] = useState('');
+  const [wishes, setWishes] = useState([]);
+  const [generatedImage, setGeneratedImage] = useState('');
+  const [moonPhase, setMoonPhase] = useState('');
+  const [dailyChance, setDailyChance] = useState(0);
+  const [isGenerating, setIsGenerating] = useState(false);
+
+  // Определение фазы луны (упрощенная версия)
+  const getMoonPhase = () => {
+    const today = new Date();
+    const day = today.getDate();
+    if (day >= 1 && day <= 7) return { phase: 'Новолуние', emoji: '🌑', advice: 'Идеальное время для новых желаний и начинаний!' };
+    if (day >= 8 && day <= 14) return { phase: 'Растущая луна', emoji: '🌒', advice: 'Время роста и привлечения. Загадывайте желания о достижениях!' };
+    if (day >= 15 && day <= 21) return { phase: 'Полнолуние', emoji: '🌕', advice: 'Пик энергии! Мощное время для важных желаний!' };
+    return { phase: 'Убывающая луна', emoji: '🌘', advice: 'Время отпускания старого и очищения намерений.' };
+  };
+
+  // Генерация изображения
+  const generateVisionImage = async (wish) => {
+    const keywords = wish.toLowerCase();
+    
+    // Используем надёжные источники изображений
+    const imageOptions = {
+      дом: [
+        'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=400&h=300&fit=crop',
+        'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=400&h=300&fit=crop',
+        'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=400&h=300&fit=crop'
+      ],
+      машина: [
+        'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=400&h=300&fit=crop',
+        'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400&h=300&fit=crop',
+        'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=400&h=300&fit=crop'
+      ],
+      путешествия: [
+        'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=300&fit=crop',
+        'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&h=300&fit=crop',
+        'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop'
+      ],
+      работа: [
+        'https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=300&fit=crop',
+        'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=400&h=300&fit=crop',
+        'https://images.unsplash.com/photo-1486312338219-ce68e2c6b7b7?w=400&h=300&fit=crop'
+      ],
+      любовь: [
+        'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=400&h=300&fit=crop',
+        'https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?w=400&h=300&fit=crop',
+        'https://images.unsplash.com/photo-1545239351-1141bd82e8a6?w=400&h=300&fit=crop'
+      ],
+      здоровье: [
+        'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop',
+        'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=300&fit=crop',
+        'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=400&h=300&fit=crop'
+      ],
+      деньги: [
+        'https://images.unsplash.com/photo-1556740758-90de374c12ad?w=400&h=300&fit=crop',
+        'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=400&h=300&fit=crop',
+        'https://images.unsplash.com/photo-1564939558297-fc396f18e5c7?w=400&h=300&fit=crop'
+      ],
+      мечты: [
+        'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop',
+        'https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=400&h=300&fit=crop',
+        'https://images.unsplash.com/photo-1444927714506-8492d94b5ba0?w=400&h=300&fit=crop'
+      ]
+    };
+
+    let selectedCategory = 'мечты';
+    
+    if (keywords.includes('дом') || keywords.includes('квартир')) selectedCategory = 'дом';
+    else if (keywords.includes('машин') || keywords.includes('авто')) selectedCategory = 'машина';
+    else if (keywords.includes('путешеств') || keywords.includes('отпуск')) selectedCategory = 'путешествия';
+    else if (keywords.includes('работ') || keywords.includes('карьер')) selectedCategory = 'работа';
+    else if (keywords.includes('любов') || keywords.includes('отношени')) selectedCategory = 'любовь';
+    else if (keywords.includes('здоров') || keywords.includes('спорт')) selectedCategory = 'здоровье';
+    else if (keywords.includes('деньг') || keywords.includes('богатств')) selectedCategory = 'деньги';
+
+    const images = imageOptions[selectedCategory];
+    const randomImage = images[Math.floor(Math.random() * images.length)];
+    
+    return randomImage;
+  };
+
+  // Генерация случайного прогноза шансов
+  const generateDailyChance = () => {
+    const chances = [75, 80, 85, 90, 95];
+    const messages = [
+      'Звёзды благоволят вашим желаниям!',
+      'Сегодня особенно мощный день для проявления!',
+      'Вселенная настроена на исполнение ваших мечт!',
+      'Энергии сегодня идеально подходят для ваших целей!',
+      'Удача на вашей стороне, действуйте!'
+    ];
+    
+    const randomIndex = Math.floor(Math.random() * chances.length);
+    return {
+      chance: chances[randomIndex],
+      message: messages[randomIndex]
+    };
+  };
+
+  // Инициализация при загрузке
+  useEffect(() => {
+    setMoonPhase(getMoonPhase());
+    const dailyData = generateDailyChance();
+    setDailyChance(dailyData);
+    
+    // Загрузка сохранённых желаний
+    const savedWishesData = localStorage.getItem('wishesData');
+    if (savedWishesData) {
+      const data = JSON.parse(savedWishesData);
+      setWishes(data.wishes || []);
+    }
+  }, []);
+
+  // Добавление желания
+  const handleAddWish = async () => {
+    if (!wishText.trim()) return;
+
+    setIsGenerating(true);
+    
+    try {
+      const imageUrl = await generateVisionImage(wishText);
+      const newWish = {
+        id: Date.now(),
+        text: wishText,
+        image: imageUrl,
+        moonPhase: moonPhase.phase,
+        createdAt: new Date().toLocaleDateString('ru-RU'),
+        checklist: {
+          thought: false,
+          felt: false,
+          action: false,
+          gratitude: false
+        }
+      };
+
+      const updatedWishes = [...wishes, newWish];
+      setWishes(updatedWishes);
+      
+      // Сохранение в localStorage для дерева жизни
+      const wishesData = {
+        wishes: updatedWishes,
+        lastUpdate: new Date().toISOString()
+      };
+      localStorage.setItem('wishesData', JSON.stringify(wishesData));
+      
+      setWishText('');
+      alert('Желание добавлено в вашу доску визуализации! ✨');
+    } catch (error) {
+      console.error('Ошибка генерации изображения:', error);
+      alert('Не удалось создать изображение, но желание сохранено!');
+    } finally {
+      setIsGenerating(false);
+    }
+  };
+
+  // Обновление чеклиста
+  const updateChecklist = (wishId, item) => {
+    const updatedWishes = wishes.map(wish => 
+      wish.id === wishId 
+        ? { ...wish, checklist: { ...wish.checklist, [item]: !wish.checklist[item] } }
+        : wish
+    );
+    setWishes(updatedWishes);
+    
+    // Сохранение в localStorage
+    const wishesData = {
+      wishes: updatedWishes,
+      lastUpdate: new Date().toISOString()
+    };
+    localStorage.setItem('wishesData', JSON.stringify(wishesData));
+  };
+
+  // Стили
+  const containerStyle = {
+    padding: '20px',
+    fontFamily: 'Comfortaa, cursive',
+    textAlign: 'center',
+    maxWidth: '600px',
+    margin: '0 auto',
+    overflowY: 'auto',
+    paddingBottom: '100px'
+  };
+
+  const cardStyle = {
+    background: '#f7f3ff',
+    borderRadius: '16px',
+    padding: '16px',
+    margin: '16px 0',
+    boxShadow: '0 4px 12px rgba(124,91,179,0.1)'
+  };
+
+  const inputStyle = {
+    width: '100%',
+    padding: '12px',
+    borderRadius: '8px',
+    border: '1px solid #ddd',
+    fontFamily: 'Comfortaa, cursive',
+    fontSize: '0.9rem',
+    marginBottom: '12px'
+  };
+
+  const buttonStyle = {
+    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    color: 'white',
+    border: 'none',
+    padding: '12px 24px',
+    borderRadius: '8px',
+    cursor: 'pointer',
+    fontFamily: 'Comfortaa, cursive',
+    fontWeight: '600',
+    fontSize: '0.9rem'
+  };
+
   return (
-    <div className="knowledge-page">
-      <div className="knowledge-title">Дневник Желаний</div>
-      <div style={{textAlign: 'center', margin: '28px 0'}}>
-        <img src={about2} alt="Дневник Желаний" style={{maxWidth: 260, maxHeight: 340, borderRadius: 18, boxShadow: '0 4px 18px #e6e0f7', objectFit: 'cover', width: '100%', height: 'auto'}} />
+    <div style={containerStyle}>
+      <h2 style={{ fontSize: '1.8rem', fontWeight: 700, marginBottom: '16px', color: '#333' }}>
+        Дневник Желаний
+      </h2>
+      <p style={{ fontSize: '1rem', lineHeight: 1.6, color: '#555', marginBottom: '24px' }}>
+        Место, где рождаются мечты. Запиши своё намерение, активируй внутреннюю силу и наблюдай, как Вселенная начинает действовать.
+      </p>
+
+      {/* Лунный календарь */}
+      <div style={cardStyle}>
+        <h3 style={{ color: '#7c5bb3', marginBottom: '12px' }}>
+          {moonPhase.emoji} Лунный календарь исполнения
+        </h3>
+        <p style={{ fontSize: '0.9rem', margin: '8px 0' }}>
+          <strong>{moonPhase.phase}</strong>
+        </p>
+        <p style={{ fontSize: '0.85rem', color: '#666', fontStyle: 'italic' }}>
+          {moonPhase.advice}
+        </p>
       </div>
-      <div style={{fontFamily: 'Comfortaa, cursive', color: '#7c5bb3', fontSize: '0.92rem', margin: '0 0 18px 0', textAlign: 'center', lineHeight: 1.5}}>
-        {/* Здесь можно добавить описание или информацию о дневниках желаний */}
+
+      {/* Прогноз шансов */}
+      <div style={cardStyle}>
+        <h3 style={{ color: '#7c5bb3', marginBottom: '12px' }}>
+          🔮 Прогноз исполнения на сегодня
+        </h3>
+        <div style={{ fontSize: '2rem', margin: '8px 0', color: '#667eea' }}>
+          {dailyChance.chance}%
+        </div>
+        <p style={{ fontSize: '0.85rem', color: '#666', fontStyle: 'italic' }}>
+          {dailyChance.message}
+        </p>
       </div>
-      <button className="knowledge-back" onClick={onBack} style={{display: 'block', margin: '18px auto 0 auto'}}>← Назад</button>
+
+      {/* AI Vision Board */}
+      <div style={cardStyle}>
+        <h3 style={{ color: '#7c5bb3', marginBottom: '12px' }}>
+          ✨ AI Vision Board
+        </h3>
+        <textarea
+          value={wishText}
+          onChange={(e) => setWishText(e.target.value)}
+          placeholder="Опишите ваше желание подробно... (например: 'Хочу красивый дом у моря с большими окнами')"
+          style={{...inputStyle, height: '80px', resize: 'vertical'}}
+        />
+        <button onClick={handleAddWish} style={buttonStyle} disabled={isGenerating}>
+          {isGenerating ? 'Создаю магию... ✨' : 'Создать доску мечты 🎨'}
+        </button>
+      </div>
+
+      {/* Список желаний */}
+      {wishes.map(wish => (
+        <div key={wish.id} style={{...cardStyle, textAlign: 'left'}}>
+          <div style={{display: 'flex', gap: '16px', alignItems: 'flex-start'}}>
+            <div style={{flex: 1}}>
+              <h4 style={{color: '#333', marginBottom: '8px'}}>{wish.text}</h4>
+              <p style={{fontSize: '0.8rem', color: '#666', marginBottom: '8px'}}>
+                Загадано: {wish.createdAt} ({wish.moonPhase})
+              </p>
+              
+              {/* Чеклист проявления */}
+              <div style={{marginTop: '12px'}}>
+                <h5 style={{color: '#7c5bb3', marginBottom: '8px'}}>Чеклист проявления:</h5>
+                {[
+                  {key: 'thought', label: 'Подумал о желании', emoji: '💭'},
+                  {key: 'felt', label: 'Почувствовал как будто уже сбылось', emoji: '💖'},
+                  {key: 'action', label: 'Сделал реальный шаг', emoji: '👣'},
+                  {key: 'gratitude', label: 'Поблагодарил Вселенную', emoji: '🙏'}
+                ].map(item => (
+                  <div key={item.key} style={{margin: '4px 0'}}>
+                    <label style={{display: 'flex', alignItems: 'center', cursor: 'pointer'}}>
+                      <input
+                        type="checkbox"
+                        checked={wish.checklist[item.key]}
+                        onChange={() => updateChecklist(wish.id, item.key)}
+                        style={{marginRight: '8px'}}
+                      />
+                      <span style={{fontSize: '0.85rem'}}>
+                        {item.emoji} {item.label}
+                      </span>
+                    </label>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            {/* Vision Image */}
+            <div style={{flexShrink: 0}}>
+              <img 
+                src={wish.image} 
+                alt="Vision Board" 
+                onError={(e) => {
+                  // Fallback изображение при ошибке загрузки
+                  e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjkwIiB2aWV3Qm94PSIwIDAgMTIwIDkwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTIwIiBoZWlnaHQ9IjkwIiBmaWxsPSIjZjdmM2ZmIi8+CjxwYXRoIGQ9Ik02MCA0NUMzNy45MDg2IDQ1IDIwIDI3LjA5MTQgMjAgNUwyMCA0NUwyMCA4NUgxMDBIMTAwVjQ1VjVDMTAwIDI3LjA5MTQgODIuMDkxNCA0NSA2MCA0NVoiIGZpbGw9IiM3YzViYjMiLz4KPHN2ZyBpZD0iQ2lja2xlIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiIGZpbGw9IiNmZmYiLz4KPHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxMiAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBzdHlsZT0icG9zaXRpb246IGFic29sdXRlOyB0b3A6IDUwJTsgbGVmdDogNTAlOyB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlLCAtNTAlKTsiPgo8cGF0aCBkPSJNNiAxQzYuNTUyMjggMSA3IDEuNDQ3NzIgNyAyVjUuNTg1NzlMMTEuMjkyOSAxLjI5Mjg5QzExLjY4MzQgMC45MDIzNjkgMTIuMzE2NiAwLjkwMjM2OSAxMi43MDcxIDEuMjkyODlDMTMuMDk3NiAxLjY4MzQyIDEzLjA5NzYgMi4zMTY1OCAxMi43MDcxIDIuNzA3MTFMOC40MTQyMSA3SDEyQzEyLjU1MjMgNyAxMyA3LjQ0NzcyIDEzIDhDMTMgOC41NTIyOCAxMi41NTIzIDkgMTIgOUg4LjQxNDIxTDEyLjcwNzEgMTMuMjkyOUMxMy4wOTc2IDEzLjY4MzQgMTMuMDk3NiAxNC4zMTY2IDEyLjcwNzEgMTQuNzA3MUMxMi4zMTY2IDE1LjA5NzYgMTEuNjgzNCAxNS4wOTc2IDExLjI5MjkgMTQuNzA3MUw3IDEwLjQxNDJWMTRDNyAxNC41NTIzIDYuNTUyMjggMTUgNiAxNUM1LjQ0NzcyIDE1IDUgMTQuNTUyMyA1IDE0VjEwLjQxNDJMMC43MDcxMDcgMTQuNzA3MUMwLjMxNjU4MiAxNS4wOTc2IC0wLjMxNjU4MiAxNS4wOTc2IC0wLjcwNzEwNyAxNC43MDcxQy0xLjA5NzYzIDE0LjMxNjYgLTEuMDk3NjMgMTMuNjgzNCAtMC43MDcxMDcgMTMuMjkyOUwzLjU4NTc5IDlIMEMtMC41NTIyODUgOSAtMSA4LjU1MjI4IC0xIDhDLTEgNy40NDc3MiAtMC41NTIyODUgNyAwIDdIMy41ODU3OUwtMC43MDcxMDcgMi43MDcxMUMtMS4wOTc2MyAyLjMxNjU4IC0xLjA5NzYzIDEuNjgzNDIgLTAuNzA3MTA3IDEuMjkyODlDLTAuMzE2NTgyIDAuOTAyMzY5IDAuMzE2NTgyIDAuOTAyMzY5IDAuNzA3MTA3IDEuMjkyODlMNSA1LjU4NTc5VjJDNSAxLjQ0NzcyIDUuNDQ3NzIgMSA2IDF6IiBmaWxsPSIjN2M1YmIzIi8+Cjwvc3ZnPgo8L3N2Zz4=';
+                }}
+                style={{
+                  width: '120px',
+                  height: '90px',
+                  borderRadius: '8px',
+                  objectFit: 'cover',
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                  backgroundColor: '#f7f3ff'
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      ))}
+
+      <button 
+        onClick={onBack}
+        className="knowledge-back"
+        style={{display: 'block', margin: '28px auto 0 auto', marginTop: 'auto'}}>
+        ← Назад
+      </button>
+    </div>
+  );
+}
+
+// Компонент дерева жизни
+function TreeOfLife() {
+  const [treeData, setTreeData] = useState({ leaves: 0, branches: 0, level: 1 });
+
+  // Получение данных из всех дневников
+  const getAllDiaryData = () => {
+    const gratitudeData = JSON.parse(localStorage.getItem('gratitudeData') || '{}');
+    const wishesData = JSON.parse(localStorage.getItem('wishesData') || '{}');
+    const statesData = JSON.parse(localStorage.getItem('statesData') || '{}');
+
+    // Подсчёт активности
+    const gratitudeCount = (gratitudeData.gratitudes || []).length;
+    const gratitudeStreak = gratitudeData.streak || 0;
+    const wishesCount = (wishesData.wishes || []).length;
+    const statesCount = (statesData.entries || []).length;
+
+    // Общая активность
+    const totalActivity = gratitudeCount + wishesCount + statesCount;
+    const totalStreaks = gratitudeStreak;
+
+    // Расчёт уровня дерева
+    let level = 1;
+    let leaves = Math.min(totalActivity, 50); // Максимум 50 листьев
+    let branches = Math.floor(totalStreaks / 5); // Ветка каждые 5 дней серии
+
+    if (totalActivity >= 100) level = 5; // Могучее дерево
+    else if (totalActivity >= 50) level = 4; // Взрослое дерево
+    else if (totalActivity >= 20) level = 3; // Растущее дерево
+    else if (totalActivity >= 5) level = 2; // Молодое дерево
+    else level = 1; // Росток
+
+    return { leaves, branches, level, totalActivity, gratitudeStreak };
+  };
+
+  useEffect(() => {
+    const data = getAllDiaryData();
+    setTreeData(data);
+  }, []);
+
+  // Генерация SVG дерева
+  const generateTreeSVG = () => {
+    const { leaves, branches, level } = treeData;
+    
+    // Базовые цвета для разных уровней
+    const levelColors = {
+      1: { trunk: '#8B4513', leaves: '#90EE90' }, // Росток
+      2: { trunk: '#A0522D', leaves: '#32CD32' }, // Молодое
+      3: { trunk: '#654321', leaves: '#228B22' }, // Растущее
+      4: { trunk: '#4A4A4A', leaves: '#006400' }, // Взрослое
+      5: { trunk: '#2F4F4F', leaves: '#004000' }  // Могучее
+    };
+
+    const colors = levelColors[level];
+    
+    return (
+      <svg width="200" height="250" viewBox="0 0 200 250">
+        {/* Земля */}
+        <ellipse cx="100" cy="240" rx="80" ry="10" fill="#8B4513" opacity="0.3"/>
+        
+        {/* Ствол */}
+        <rect 
+          x="90" 
+          y={240 - (level * 30)} 
+          width={10 + level * 2} 
+          height={level * 30} 
+          fill={colors.trunk}
+          rx="5"
+        />
+        
+        {/* Основные ветки */}
+        {branches > 0 && (
+          <>
+            <line x1="95" y1={240 - level * 20} x2="75" y2={240 - level * 25} stroke={colors.trunk} strokeWidth="3"/>
+            <line x1="105" y1={240 - level * 20} x2="125" y2={240 - level * 25} stroke={colors.trunk} strokeWidth="3"/>
+          </>
+        )}
+        
+        {branches > 1 && (
+          <>
+            <line x1="95" y1={240 - level * 15} x2="70" y2={240 - level * 18} stroke={colors.trunk} strokeWidth="2"/>
+            <line x1="105" y1={240 - level * 15} x2="130" y2={240 - level * 18} stroke={colors.trunk} strokeWidth="2"/>
+          </>
+        )}
+        
+        {/* Крона - основная */}
+        <circle 
+          cx="100" 
+          cy={240 - level * 25} 
+          r={20 + level * 5} 
+          fill={colors.leaves} 
+          opacity="0.8"
+        />
+        
+        {/* Дополнительные части кроны для высоких уровней */}
+        {level >= 3 && (
+          <>
+            <circle cx="85" cy={240 - level * 30} r={15 + level * 2} fill={colors.leaves} opacity="0.6"/>
+            <circle cx="115" cy={240 - level * 30} r={15 + level * 2} fill={colors.leaves} opacity="0.6"/>
+          </>
+        )}
+        
+        {/* Листья как маленькие круги */}
+        {Array.from({length: Math.min(leaves, 20)}).map((_, i) => (
+          <circle
+            key={i}
+            cx={80 + (i % 5) * 8 + Math.random() * 10}
+            cy={220 - level * 25 + Math.floor(i / 5) * 8 + Math.random() * 10}
+            r="2"
+            fill={colors.leaves}
+            opacity="0.9"
+          />
+        ))}
+        
+        {/* Плоды/цветы для высоких уровней */}
+        {level >= 4 && Array.from({length: Math.min(Math.floor(leaves/10), 5)}).map((_, i) => (
+          <circle
+            key={`fruit-${i}`}
+            cx={90 + i * 5 + Math.random() * 20}
+            cy={230 - level * 25 + Math.random() * 15}
+            r="3"
+            fill="#FF6B6B"
+            opacity="0.8"
+          />
+        ))}
+      </svg>
+    );
+  };
+
+  const getLevelTitle = (level) => {
+    const titles = {
+      1: "🌱 Росток",
+      2: "🌿 Молодое дерево",
+      3: "🌳 Растущее дерево", 
+      4: "🌲 Взрослое дерево",
+      5: "🌟 Могучее дерево"
+    };
+    return titles[level] || "🌱 Росток";
+  };
+
+  return (
+    <div style={{
+      background: '#f7f3ff',
+      borderRadius: 16,
+      padding: '20px',
+      margin: '16px auto',
+      maxWidth: '400px',
+      textAlign: 'center',
+      boxShadow: '0 4px 12px rgba(124,91,179,0.1)'
+    }}>
+      <h3 style={{ color: '#7c5bb3', marginBottom: '16px', fontFamily: 'Comfortaa, cursive' }}>
+        🌳 Дерево Жизни
+      </h3>
+      
+      <div style={{ margin: '20px 0' }}>
+        {generateTreeSVG()}
+      </div>
+      
+      <div style={{ textAlign: 'center', fontFamily: 'Comfortaa, cursive' }}>
+        <div style={{ fontSize: '1.1rem', fontWeight: '600', color: '#333', marginBottom: '8px' }}>
+          {getLevelTitle(treeData.level)}
+        </div>
+        
+        <div style={{ fontSize: '0.9rem', color: '#666', lineHeight: 1.4 }}>
+          🍃 Листьев: {treeData.leaves}<br/>
+          🌿 Веток: {treeData.branches}<br/>
+          📊 Всего записей: {treeData.totalActivity}<br/>
+          🔥 Серия благодарности: {treeData.gratitudeStreak} дней
+        </div>
+        
+        <div style={{
+          marginTop: '12px',
+          padding: '8px 12px',
+          background: 'rgba(124,91,179,0.1)',
+          borderRadius: '8px',
+          fontSize: '0.8rem',
+          fontStyle: 'italic',
+          color: '#7c5bb3'
+        }}>
+          Каждая запись в дневниках делает твоё дерево сильнее! 🌱✨
+        </div>
+      </div>
     </div>
   );
 }
@@ -2259,6 +3095,8 @@ function App() {
   const [showNailsPairPractice, setShowNailsPairPractice] = useState(false);
   const [showChakraPage, setShowChakraPage] = useState(false);
   const [showDiaryStatesPage, setShowDiaryStatesPage] = useState(false);
+  const [showDiaryWishesPage, setShowDiaryWishesPage] = useState(false);
+  const [showDiaryGratitudePage, setShowDiaryGratitudePage] = useState(false);
   const [telegramUser, setTelegramUser] = useState(null);
 
   const isSubPageActive = selectedSection !== null ||
@@ -2269,7 +3107,9 @@ function App() {
                           showMarinaSharipova ||
                           showNailsPairPractice ||
                           showChakraPage ||
-                          showDiaryStatesPage;
+                          showDiaryStatesPage ||
+                          showDiaryWishesPage ||
+                          showDiaryGratitudePage;
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
@@ -2329,6 +3169,9 @@ function App() {
     setShowRetreats(false);
     setShowMarinaSharipova(false);
     setShowNailsPairPractice(false);
+    setShowDiaryStatesPage(false);
+    setShowDiaryWishesPage(false);
+    setShowDiaryGratitudePage(false);
     setSelectedSection(null);
     setSelectedKnowledgeSection(null);
     setSelectedBreathPractice(null);
@@ -2345,6 +3188,12 @@ function App() {
     }
     if (showDiaryStatesPage) {
       return <DiaryStatesPage onBack={() => setShowDiaryStatesPage(false)} />;
+    }
+    if (showDiaryWishesPage) {
+      return <DiaryWishesPage onBack={() => setShowDiaryWishesPage(false)} />;
+    }
+    if (showDiaryGratitudePage) {
+      return <DiaryGratitudePage onBack={() => setShowDiaryGratitudePage(false)} />;
     }
     if (selectedSection === 'Шанкапракшалана') {
       return <Shankaprakshalana onBack={() => setSelectedSection(null)} />;
@@ -2536,6 +3385,11 @@ function App() {
     if (selectedSection === 'Дневник Жизни') {
       return (
         <div className="knowledge-page" style={{display: 'flex', flexDirection: 'column', minHeight: 'calc(100vh - 64px)'}}>
+          <button 
+            onClick={() => setSelectedSection(null)}
+            className="knowledge-back"
+            style={{display: 'block', margin: '-12px auto 4px auto'}}>← Назад</button>
+          
           <div style={{
             background: '#f7f3ff',
             borderRadius: 16,
@@ -2553,6 +3407,9 @@ function App() {
             Записывай желания, практикуй благодарность, отслеживай свои состояния — и наблюдай, как преображается твоя реальность.<br/><br/>
             Каждая запись — шаг к осознанной, наполненной жизни.
           </div>
+          
+          {/* Дерево Жизни */}
+          <TreeOfLife />
           
           {/* Три квадратные иконки в одну линию */}
           <div style={{
@@ -2617,6 +3474,7 @@ function App() {
               }}
               onMouseOver={e => e.currentTarget.style.transform = 'scale(1.05)'}
               onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'}
+              onClick={() => setShowDiaryWishesPage(true)}
               >
                 <img src="/wishes-icon.svg" alt="Дневник Желаний" style={{ width: '64px', height: '64px' }} />
               </div>
@@ -2650,6 +3508,7 @@ function App() {
               }}
               onMouseOver={e => e.currentTarget.style.transform = 'scale(1.05)'}
               onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'}
+              onClick={() => setShowDiaryGratitudePage(true)}
               >
                 <img src="/gratitude-icon.svg" alt="Дневник Благодарности" style={{ width: '64px', height: '64px' }} />
               </div>
