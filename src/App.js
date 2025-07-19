@@ -2116,58 +2116,6 @@ const botResponseStyle = {
       { day: 'Вс', mood: '😐' },
     ]);
 
-    // Загрузка сохранённых данных при инициализации
-    useEffect(() => {
-      const savedStatesData = localStorage.getItem('statesData');
-      if (savedStatesData) {
-        const data = JSON.parse(savedStatesData);
-        // Можно добавить загрузку других данных если нужно
-      }
-    }, []);
-
-    // Стили для мобильной адаптации
-    const mobileContainerStyle = {
-      padding: window.innerWidth <= 480 ? '12px 8px 80px 8px' : '20px',
-      fontFamily: 'Comfortaa, cursive',
-      textAlign: 'center',
-      maxWidth: window.innerWidth <= 480 ? '100%' : '600px',
-      margin: '0 auto',
-      overflowY: 'auto',
-      paddingBottom: window.innerWidth <= 480 ? '90px' : '100px'
-    };
-
-    const mobileCardStyle = {
-      background: '#f7f3ff',
-      borderRadius: window.innerWidth <= 480 ? '12px' : '16px',
-      padding: window.innerWidth <= 480 ? '12px 8px' : '16px',
-      margin: window.innerWidth <= 480 ? '8px 0' : '16px 0',
-      boxShadow: '0 4px 12px rgba(124,91,179,0.1)'
-    };
-
-    const mobileInputStyle = {
-      width: '100%',
-      padding: window.innerWidth <= 480 ? '8px' : '12px',
-      borderRadius: window.innerWidth <= 480 ? '6px' : '8px',
-      border: '1px solid #ddd',
-      fontFamily: 'Comfortaa, cursive',
-      fontSize: window.innerWidth <= 480 ? '0.85rem' : '0.9rem',
-      marginBottom: window.innerWidth <= 480 ? '8px' : '12px'
-    };
-
-    const mobileButtonStyle = {
-      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-      color: 'white',
-      border: 'none',
-      padding: window.innerWidth <= 480 ? '8px 16px' : '12px 24px',
-      borderRadius: window.innerWidth <= 480 ? '6px' : '8px',
-      cursor: 'pointer',
-      fontFamily: 'Comfortaa, cursive',
-      fontWeight: '600',
-      fontSize: window.innerWidth <= 480 ? '0.8rem' : '0.9rem',
-      margin: '0 8px',
-      minHeight: '40px'
-    };
-
     const handleFeelingSubmit = () => {
       const lowerCaseFeeling = feeling.toLowerCase();
       if (lowerCaseFeeling.includes('грустно') || lowerCaseFeeling.includes('плохо') || lowerCaseFeeling.includes('😔')) {
@@ -2219,25 +2167,166 @@ const botResponseStyle = {
       const newMessages = [...chatMessages, { sender: 'user', text: chatInput }];
       setChatMessages(newMessages);
       
-      // Сохранение сообщений в localStorage
-      const statesData = JSON.parse(localStorage.getItem('statesData') || '{}');
-      const newEntry = {
-        id: Date.now(),
-        messages: newMessages,
-        date: new Date().toISOString(),
-        type: 'chat'
-      };
-      const updatedEntries = [...(statesData.entries || []), newEntry];
-      localStorage.setItem('statesData', JSON.stringify({
-        entries: updatedEntries,
-        lastUpdate: new Date().toISOString()
-      }));
-      
+      setTimeout(() => {
+        const userMessage = chatInput.toLowerCase().trim();
+        let botResponse = '';
+        let matched = false;
+
+        // Более детальный анализ сообщения пользователя
+        if (!matched && (userMessage.includes('грустно') || userMessage.includes('грусть') || userMessage.includes('плохо') || 
+            userMessage.includes('депресс') || userMessage.includes('тяжело') || userMessage.includes('печаль') || 
+            userMessage.includes('расстроен') || userMessage.includes('больно') || userMessage.includes('😢') || 
+            userMessage.includes('😭') || userMessage.includes('😔') || userMessage.includes('плачу'))) {
+          const sadResponses = [
+            'Понимаю, что вам сейчас нелегко. Попробуйте глубоко дышать - это поможет успокоить нервную систему.',
+            'Грусть - это естественная эмоция. Позвольте себе её прочувствовать, но помните: это временно.',
+            'В такие моменты важно быть добрым к себе. Что обычно вас успокаивает?',
+            'Тяжёлые периоды учат нас ценить светлые моменты. Вы справитесь с этим.',
+            'Боль в душе говорит о том, что вы живой человек. Позвольте себе время на исцеление.'
+          ];
+          botResponse = sadResponses[Math.floor(Math.random() * sadResponses.length)];
+          matched = true;
+        }
+        
+        if (!matched && (userMessage.includes('радостно') || userMessage.includes('радость') || userMessage.includes('хорошо') || 
+            userMessage.includes('счастлив') || userMessage.includes('отлично') || userMessage.includes('прекрасно') || 
+            userMessage.includes('весело') || userMessage.includes('здорово') || userMessage.includes('😊') || 
+            userMessage.includes('😄') || userMessage.includes('😁') || userMessage.includes('🙂'))) {
+          const happyResponses = [
+            'Как замечательно! Радость - это ваша естественная энергия. Сохраняйте это состояние.',
+            'Прекрасно! Попробуйте запомнить это ощущение, чтобы возвращаться к нему в трудные моменты.',
+            'Ваша радость заразительна! Поделитесь этой энергией с окружающими.',
+            'Счастье - это внутреннее состояние. Вы нашли правильный путь к нему.',
+            'Радость - это ваш природный дар. Наслаждайтесь каждым таким моментом!'
+          ];
+          botResponse = happyResponses[Math.floor(Math.random() * happyResponses.length)];
+          matched = true;
+        }
+        
+        if (!matched && (userMessage.includes('стресс') || userMessage.includes('тревога') || userMessage.includes('беспокойство') || 
+            userMessage.includes('волнуюсь') || userMessage.includes('нервничаю') || userMessage.includes('паника') || 
+            userMessage.includes('страх') || userMessage.includes('боюсь') || userMessage.includes('😰') || 
+            userMessage.includes('😨') || userMessage.includes('тревожно'))) {
+          const stressResponses = [
+            'Стресс сигнализирует о важности ситуации. Попробуйте технику "4-7-8": вдох на 4, задержка на 7, выдох на 8.',
+            'Тревога часто возникает из-за мыслей о будущем. Сосредоточьтесь на настоящем моменте.',
+            'Беспокойство можно трансформировать в действие. Что можно сделать прямо сейчас?',
+            'Ваше волнение показывает, что вам не всё равно. Это признак глубокой натуры.',
+            'Страх - это естественная реакция. Дышите глубже и найдите точку опоры в настоящем.'
+          ];
+          botResponse = stressResponses[Math.floor(Math.random() * stressResponses.length)];
+          matched = true;
+        }
+        
+        if (!matched && (userMessage.includes('устал') || userMessage.includes('усталость') || userMessage.includes('нет сил') || 
+            userMessage.includes('выжат') || userMessage.includes('изможден') || userMessage.includes('без энергии') || 
+            userMessage.includes('слабость') || userMessage.includes('истощен'))) {
+          const tiredResponses = [
+            'Усталость - сигнал о том, что пора позаботиться о себе. Отдых - это не роскошь, а необходимость.',
+            'Когда силы на исходе, важно остановиться и восстановиться. Что вас обычно восстанавливает?',
+            'Тело и душа просят передышку. Послушайте их мудрость.',
+            'Усталость может быть признаком того, что вы много отдаёте. Время получать заботу.',
+            'Истощение говорит о том, что вы превысили свои лимиты. Будьте добрее к себе.'
+          ];
+          botResponse = tiredResponses[Math.floor(Math.random() * tiredResponses.length)];
+          matched = true;
+        }
+        
+        if (!matched && (userMessage.includes('злость') || userMessage.includes('злой') || userMessage.includes('раздраж') || 
+            userMessage.includes('гнев') || userMessage.includes('бесит') || userMessage.includes('ярость') || 
+            userMessage.includes('агрессия') || userMessage.includes('fury') || userMessage.includes('😡') || 
+            userMessage.includes('🤬') || userMessage.includes('ненавижу'))) {
+          const angryResponses = [
+            'Гнев - это энергия, которую можно направить в конструктивное русло. Что вас больше всего беспокоит?',
+            'Злость говорит о ваших границах и ценностях. Она имеет право на существование.',
+            'Раздражение - сигнал о дисбалансе. Попробуйте найти, что именно нарушает вашу гармонию.',
+            'Иногда гнев - это замаскированная боль. Что скрывается за этими чувствами?',
+            'Ярость может стать силой для изменений. Главное - направить её созидательно.'
+          ];
+          botResponse = angryResponses[Math.floor(Math.random() * angryResponses.length)];
+          matched = true;
+        }
+        
+        if (!matched && (userMessage.includes('одиноко') || userMessage.includes('одиночество') || userMessage.includes('никто не понимает') || 
+            userMessage.includes('изолирован') || userMessage.includes('отвержен') || userMessage.includes('брошен') || 
+            userMessage.includes('нет друзей') || userMessage.includes('один'))) {
+          const lonelyResponses = [
+            'Одиночество - это возможность лучше узнать себя. Вы всегда можете быть хорошей компанией для себя.',
+            'Чувство одиночества показывает потребность в подлинной связи. Начните с принятия себя.',
+            'Даже в одиночестве вы не одни - весь мир находится внутри вас.',
+            'Понимание приходит к тем, кто готов понимать. Начните с понимания себя.',
+            'Одиночество может стать временем глубокого самопознания и роста.'
+          ];
+          botResponse = lonelyResponses[Math.floor(Math.random() * lonelyResponses.length)];
+          matched = true;
+        }
+        
+        if (!matched && (userMessage.includes('не знаю') || userMessage.includes('запутался') || userMessage.includes('что делать') || 
+            userMessage.includes('растерян') || userMessage.includes('неопределенность') || userMessage.includes('сомневаюсь') || 
+            userMessage.includes('выбор') || userMessage.includes('решение'))) {
+          const confusedResponses = [
+            'Неопределённость - это пространство для новых возможностей. Доверьтесь процессу.',
+            'Когда не знаешь что делать, лучше всего начать с дыхания и принятия текущего момента.',
+            'Запутанность - признак того, что вы растёте. Новые уровни требуют новых решений.',
+            'Иногда не знать - это мудрость. Позвольте ответу прийти естественно.',
+            'Сомнения говорят о вашей осознанности. Доверьтесь своей интуиции.'
+          ];
+          botResponse = confusedResponses[Math.floor(Math.random() * confusedResponses.length)];
+          matched = true;
+        }
+
+        // Специальные ответы на приветствия и простые фразы
+        if (!matched && (userMessage.includes('привет') || userMessage.includes('здравствуй') || userMessage === 'hi' || userMessage === 'hello')) {
+          const greetingResponses = [
+            'Приветствую! Я здесь, чтобы выслушать и поддержать вас. Как дела?',
+            'Здравствуйте! Расскажите, что у вас на душе?',
+            'Привет! Готов выслушать ваши мысли и переживания.',
+            'Добро пожаловать в безопасное пространство. Что вас волнует?'
+          ];
+          botResponse = greetingResponses[Math.floor(Math.random() * greetingResponses.length)];
+          matched = true;
+        }
+
+        // Ответы на вопросы о боте
+        if (!matched && (userMessage.includes('кто ты') || userMessage.includes('что ты') || userMessage.includes('как тебя зовут'))) {
+          const aboutResponses = [
+            'Я ваш AI-компаньон для эмоциональной поддержки. Здесь вы можете безопасно выражать свои чувства.',
+            'Я цифровой друг, созданный для того, чтобы выслушать и поддержать вас в любой момент.',
+            'Меня можно назвать вашим персональным помощником по эмоциональному благополучию.',
+            'Я здесь, чтобы создать пространство принятия и понимания для ваших переживаний.'
+          ];
+          botResponse = aboutResponses[Math.floor(Math.random() * aboutResponses.length)];
+          matched = true;
+        }
+        
+        // Если ничего не подошло, используем адаптивные общие ответы
+        if (!matched) {
+          const adaptiveResponses = [
+            `Спасибо, что поделились: "${userMessage}". Расскажите больше о ваших чувствах по этому поводу.`,
+            `Я слышу вас. Что именно в этой ситуации вас больше всего волнует?`,
+            `Понимаю. Как это влияет на ваше эмоциональное состояние?`,
+            `Интересно. Что вы чувствуете, когда думаете об этом?`,
+            `Благодарю за откровенность. Хотели бы углубиться в эти переживания?`,
+            `Ваши слова важны. Что бы вы хотели изменить в этой ситуации?`
+          ];
+          botResponse = adaptiveResponses[Math.floor(Math.random() * adaptiveResponses.length)];
+        }
+
+        setChatMessages(prev => [...prev, { sender: 'bot', text: botResponse }]);
+      }, 1000);
       setChatInput('');
     };
 
     return (
-      <div style={mobileContainerStyle}>
+      <div style={{ 
+        padding: '20px', 
+        fontFamily: 'Comfortaa, cursive', 
+        textAlign: 'center', 
+        maxWidth: '600px', 
+        margin: '0 auto',
+        overflowY: 'auto',
+        paddingBottom: '100px' // Добавляем отступ снизу для нижнего бара
+      }}>
         <h2 style={{ fontSize: '1.8rem', fontWeight: 700, marginBottom: '16px', color: '#333' }}>
           Дневник Состояний
         </h2>
@@ -2245,22 +2334,22 @@ const botResponseStyle = {
           Познай себя глубже. Отслеживай свои эмоции, осознавай внутренние волны и находи баланс. Это твоя личная карта душевных путешествий.
         </p>
 
-        <div style={mobileCardStyle}>
-          <h3 style={mobileCardStyle}>Сканер Состояния</h3>
+        <div style={featureBoxStyle}>
+          <h3 style={featureTitleStyle}>Сканер Состояния</h3>
           <p>Как ты себя чувствуешь?</p>
           <input 
             type="text" 
             value={feeling}
             onChange={(e) => setFeeling(e.target.value)}
             placeholder="Например: радостно 😊 или немного грустно 😔"
-            style={mobileInputStyle}
+            style={inputStyle}
           />
-          <button onClick={handleFeelingSubmit} style={mobileButtonStyle}>Отправить</button>
+          <button onClick={handleFeelingSubmit} style={buttonStyle}>Отправить</button>
           {botResponse && <p style={botResponseStyle}>{botResponse}</p>}
         </div>
 
-        <div style={mobileCardStyle}>
-          <h3 style={mobileCardStyle}>График состояния (эмо-календарь)</h3>
+        <div style={featureBoxStyle}>
+          <h3 style={featureTitleStyle}>График состояния (эмо-календарь)</h3>
           <p>Ваши эмоции за последнюю неделю:</p>
           <div style={{ display: 'flex', justifyContent: 'space-around', padding: '10px 0' }}>
             {emotionHistory.map(item => (
@@ -2272,21 +2361,21 @@ const botResponseStyle = {
           </div>
         </div>
         
-        <div style={mobileCardStyle}>
-          <h3 style={mobileCardStyle}>Слово дня</h3>
+        <div style={featureBoxStyle}>
+          <h3 style={featureTitleStyle}>Слово дня</h3>
           <p>Опишите свое состояние одним словом.</p>
           <input 
             type="text" 
             value={wordOfDay}
             onChange={(e) => setWordOfDay(e.target.value)}
             placeholder="Например: спокойствие"
-            style={mobileInputStyle}
+            style={inputStyle}
           />
-          <button onClick={handleWordSubmit} style={mobileButtonStyle}>Сохранить</button>
+          <button onClick={handleWordSubmit} style={buttonStyle}>Сохранить</button>
         </div>
 
-        <div style={mobileCardStyle}>
-          <h3 style={mobileCardStyle}>AI-компаньон</h3>
+        <div style={featureBoxStyle}>
+          <h3 style={featureTitleStyle}>AI-компаньон</h3>
           <p>Здесь можно выговориться. Это безопасно.</p>
           <div style={{ height: '150px', border: '1px solid #ddd', borderRadius: '8px', padding: '10px', overflowY: 'auto', marginBottom: '10px', textAlign: 'left', background: '#fff' }}>
             {chatMessages.map((msg, index) => (
@@ -2310,9 +2399,9 @@ const botResponseStyle = {
               onChange={(e) => setChatInput(e.target.value)}
               onKeyPress={(e) => e.key === 'Enter' && handleChatSend()}
               placeholder="Напишите что-нибудь..."
-              style={{ ...mobileInputStyle, flexGrow: 1, marginRight: '10px', marginBottom: 0 }}
+              style={{ ...inputStyle, flexGrow: 1, marginRight: '10px', marginBottom: 0 }}
             />
-            <button onClick={handleChatSend} style={{ ...mobileButtonStyle, padding: '10px' }}>➤</button>
+            <button onClick={handleChatSend} style={{ ...buttonStyle, padding: '10px' }}>➤</button>
           </div>
         </div>
 
@@ -2704,13 +2793,6 @@ function DiaryWishesPage({ onBack }) {
     setMoonPhase(getMoonPhase());
     const dailyData = generateDailyChance();
     setDailyChance(dailyData);
-    
-    // Загрузка сохранённых желаний
-    const savedWishesData = localStorage.getItem('wishesData');
-    if (savedWishesData) {
-      const data = JSON.parse(savedWishesData);
-      setWishes(data.wishes || []);
-    }
   }, []);
 
   // Добавление желания
@@ -2757,19 +2839,11 @@ function DiaryWishesPage({ onBack }) {
 
   // Обновление чеклиста
   const updateChecklist = (wishId, item) => {
-    const updatedWishes = wishes.map(wish => 
+    setWishes(prev => prev.map(wish => 
       wish.id === wishId 
         ? { ...wish, checklist: { ...wish.checklist, [item]: !wish.checklist[item] } }
         : wish
-    );
-    setWishes(updatedWishes);
-    
-    // Сохранение в localStorage
-    const wishesData = {
-      wishes: updatedWishes,
-      lastUpdate: new Date().toISOString()
-    };
-    localStorage.setItem('wishesData', JSON.stringify(wishesData));
+    ));
   };
 
   // Стили
@@ -3076,44 +3150,26 @@ function TreeOfLife() {
     <div style={{
       background: '#f7f3ff',
       borderRadius: 16,
-      padding: '16px 12px',
-      margin: '12px auto',
-      maxWidth: '100%',
-      width: '100%',
+      padding: '20px',
+      margin: '16px auto',
+      maxWidth: '400px',
       textAlign: 'center',
       boxShadow: '0 4px 12px rgba(124,91,179,0.1)'
     }}>
-      <h3 style={{ 
-        color: '#7c5bb3', 
-        marginBottom: '12px', 
-        fontFamily: 'Comfortaa, cursive',
-        fontSize: '1.2rem'
-      }}>
+      <h3 style={{ color: '#7c5bb3', marginBottom: '16px', fontFamily: 'Comfortaa, cursive' }}>
         🌳 Дерево Жизни
       </h3>
       
-      <div style={{ margin: '16px 0', display: 'flex', justifyContent: 'center' }}>
-        <div style={{ transform: 'scale(0.9)' }}>
-          {generateTreeSVG()}
-        </div>
+      <div style={{ margin: '20px 0' }}>
+        {generateTreeSVG()}
       </div>
       
       <div style={{ textAlign: 'center', fontFamily: 'Comfortaa, cursive' }}>
-        <div style={{ 
-          fontSize: '1rem', 
-          fontWeight: '600', 
-          color: '#333', 
-          marginBottom: '8px' 
-        }}>
+        <div style={{ fontSize: '1.1rem', fontWeight: '600', color: '#333', marginBottom: '8px' }}>
           {getLevelTitle(treeData.level)}
         </div>
         
-        <div style={{ 
-          fontSize: '0.85rem', 
-          color: '#666', 
-          lineHeight: 1.4,
-          marginBottom: '8px'
-        }}>
+        <div style={{ fontSize: '0.9rem', color: '#666', lineHeight: 1.4 }}>
           🍃 Листьев: {treeData.leaves}<br/>
           🌿 Веток: {treeData.branches}<br/>
           📊 Всего записей: {treeData.totalActivity}<br/>
@@ -3121,11 +3177,11 @@ function TreeOfLife() {
         </div>
         
         <div style={{
-          marginTop: '8px',
-          padding: '6px 10px',
+          marginTop: '12px',
+          padding: '8px 12px',
           background: 'rgba(124,91,179,0.1)',
           borderRadius: '8px',
-          fontSize: '0.75rem',
+          fontSize: '0.8rem',
           fontStyle: 'italic',
           color: '#7c5bb3'
         }}>
@@ -3174,32 +3230,6 @@ function App() {
     setSelectedSection(null);
     console.log("showChakraPage set to true, selectedSection set to null");
   };
-
-  // Инициализация Telegram WebApp
-  useEffect(() => {
-    // Проверка на Telegram WebApp
-    if (window.Telegram && window.Telegram.WebApp) {
-      const tg = window.Telegram.WebApp;
-      tg.ready();
-      tg.expand();
-      
-      // Адаптация под тему Telegram
-      document.body.style.backgroundColor = tg.themeParams.bg_color || '#ffffff';
-      document.body.style.color = tg.themeParams.text_color || '#000000';
-      
-      // Добавление класса для Telegram стилей
-      document.body.classList.add('telegram-app');
-      
-      // Скрытие кнопки "Назад" в Telegram
-      tg.BackButton.hide();
-    }
-    
-    // Добавление viewport meta для мобильных
-    const viewport = document.querySelector('meta[name=viewport]');
-    if (viewport) {
-      viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover');
-    }
-  }, []);
 
   // Загрузка темы из localStorage при запуске
   useEffect(() => {
@@ -3463,36 +3493,24 @@ function App() {
     }
     if (selectedSection === 'Дневник Жизни') {
       return (
-        <div className="knowledge-page" style={{
-          display: 'flex', 
-          flexDirection: 'column', 
-          minHeight: 'calc(100vh - 64px)',
-          padding: '0 8px',
-          maxWidth: '100%',
-          overflowX: 'hidden'
-        }}>
+        <div className="knowledge-page" style={{display: 'flex', flexDirection: 'column', minHeight: 'calc(100vh - 64px)'}}>
           <button 
             onClick={() => setSelectedSection(null)}
             className="knowledge-back"
-            style={{
-              display: 'block', 
-              margin: '-12px auto 4px auto',
-              fontSize: '0.9rem',
-              padding: '8px 16px'
-            }}>← Назад</button>
+            style={{display: 'block', margin: '-12px auto 4px auto'}}>← Назад</button>
           
           <div style={{
             background: '#f7f3ff',
             borderRadius: 16,
-            padding: '20px 12px',
+            padding: '24px 16px',
             color: '#000',
             fontFamily: 'Comfortaa, cursive',
-            fontSize: '0.9rem',
+            fontSize: '0.95rem',
             textAlign: 'center',
             boxShadow: '0 2px 12px 0 rgba(124,91,179,0.07)',
-            maxWidth: '100%',
-            margin: '16px auto 0 auto',
-            lineHeight: 1.6
+            maxWidth: 480,
+            margin: '18px auto 0 auto',
+            lineHeight: 1.7
           }}>
             Дневник Жизни — это твой личный проводник к внутренней гармонии.<br/><br/>
             Записывай желания, практикуй благодарность, отслеживай свои состояния — и наблюдай, как преображается твоя реальность.<br/><br/>
@@ -3507,54 +3525,40 @@ function App() {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'flex-start',
-            gap: '12px',
-            margin: '24px 0',
-            flexWrap: 'wrap',
-            padding: '0 8px'
+            gap: '16px',
+            margin: '24px 0'
           }}>
             <div style={{
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
               gap: '8px',
-              width: '110px',
-              minWidth: '110px'
+              width: '120px'
             }}>
               <div style={{
-                width: '110px',
-                height: '110px',
+                width: '120px',
+                height: '120px',
                 backgroundColor: '#e8f4fd',
-                borderRadius: '16px',
+                borderRadius: '12px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
                 cursor: 'pointer',
-                transition: 'all 0.3s ease',
-                border: '2px solid rgba(124,91,179,0.1)'
+                transition: 'transform 0.2s ease'
               }}
               onMouseOver={e => e.currentTarget.style.transform = 'scale(1.05)'}
               onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'}
               onClick={() => setShowDiaryStatesPage(true)}
               >
-                <img 
-                  src="/states-icon.svg" 
-                  alt="Дневник Состояний" 
-                  style={{ 
-                    width: '60px', 
-                    height: '60px',
-                    objectFit: 'contain',
-                    filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
-                  }} 
-                />
+                <img src="/states-icon.svg" alt="Дневник Состояний" style={{ width: '64px', height: '64px' }} />
               </div>
               <span style={{
                 fontFamily: 'Comfortaa, cursive',
-                fontSize: '0.7rem',
+                fontSize: '0.75rem',
                 fontWeight: 600,
                 color: '#333',
-                textAlign: 'center',
-                lineHeight: 1.2
+                textAlign: 'center'
               }}>Дневник<br/>Состояний</span>
             </div>
             
@@ -3563,44 +3567,32 @@ function App() {
               flexDirection: 'column',
               alignItems: 'center',
               gap: '8px',
-              width: '110px',
-              minWidth: '110px'
+              width: '120px'
             }}>
               <div style={{
-                width: '110px',
-                height: '110px',
+                width: '120px',
+                height: '120px',
                 backgroundColor: '#f0f8ff',
-                borderRadius: '16px',
+                borderRadius: '12px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
                 cursor: 'pointer',
-                transition: 'all 0.3s ease',
-                border: '2px solid rgba(124,91,179,0.1)'
+                transition: 'transform 0.2s ease'
               }}
               onMouseOver={e => e.currentTarget.style.transform = 'scale(1.05)'}
               onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'}
               onClick={() => setShowDiaryWishesPage(true)}
               >
-                <img 
-                  src="/wishes-icon.svg" 
-                  alt="Дневник Желаний" 
-                  style={{ 
-                    width: '60px', 
-                    height: '60px',
-                    objectFit: 'contain',
-                    filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
-                  }} 
-                />
+                <img src="/wishes-icon.svg" alt="Дневник Желаний" style={{ width: '64px', height: '64px' }} />
               </div>
               <span style={{
                 fontFamily: 'Comfortaa, cursive',
-                fontSize: '0.7rem',
+                fontSize: '0.75rem',
                 fontWeight: 600,
                 color: '#333',
-                textAlign: 'center',
-                lineHeight: 1.2
+                textAlign: 'center'
               }}>Дневник<br/>Желаний</span>
             </div>
             
@@ -3609,44 +3601,32 @@ function App() {
               flexDirection: 'column',
               alignItems: 'center',
               gap: '8px',
-              width: '110px',
-              minWidth: '110px'
+              width: '120px'
             }}>
               <div style={{
-                width: '110px',
-                height: '110px',
+                width: '120px',
+                height: '120px',
                 backgroundColor: '#f5f5f5',
-                borderRadius: '16px',
+                borderRadius: '12px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
                 cursor: 'pointer',
-                transition: 'all 0.3s ease',
-                border: '2px solid rgba(124,91,179,0.1)'
+                transition: 'transform 0.2s ease'
               }}
               onMouseOver={e => e.currentTarget.style.transform = 'scale(1.05)'}
               onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'}
               onClick={() => setShowDiaryGratitudePage(true)}
               >
-                <img 
-                  src="/gratitude-icon.svg" 
-                  alt="Дневник Благодарности" 
-                  style={{ 
-                    width: '60px', 
-                    height: '60px',
-                    objectFit: 'contain',
-                    filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
-                  }} 
-                />
+                <img src="/gratitude-icon.svg" alt="Дневник Благодарности" style={{ width: '64px', height: '64px' }} />
               </div>
               <span style={{
                 fontFamily: 'Comfortaa, cursive',
-                fontSize: '0.7rem',
+                fontSize: '0.75rem',
                 fontWeight: 600,
                 color: '#333',
-                textAlign: 'center',
-                lineHeight: 1.2
+                textAlign: 'center'
               }}>Дневник<br/>Благодарности</span>
             </div>
           </div>

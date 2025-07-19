@@ -123,59 +123,27 @@
 
 @media (max-width: 480px) {
   .main-sections {
-    gap: 8px;
-    padding: 12px 8px 70px 8px;
+    gap: 10px;
+    padding: 16px 12px 60px 12px;
   }
   .section-card {
-    padding: 8px 10px;
-    border-radius: 12px;
-    box-shadow: 0 2px 12px rgba(124,91,179,0.2);
-    min-height: 52px;
+    padding: 10px;
+    border-radius: 14px;
   }
   .section-icon {
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
+    width: 42px;
+    height: 42px;
+    margin-right: 12px;
   }
   .section-icon img {
-    width: 30px !important;
-    height: 30px !important;
-    filter: brightness(0) invert(1);
+    width: 32px !important;
+    height: 32px !important;
   }
   .section-title {
-    font-size: 0.8rem;
-    line-height: 1.2;
+    font-size: 0.85rem;
   }
   .section-title-strict {
-    font-size: 0.8rem;
-    line-height: 1.2;
-  }
-}
-
-/* Адаптация для очень узких экранов */
-@media (max-width: 360px) {
-  .main-sections {
-    padding: 10px 6px 70px 6px;
-    gap: 6px;
-  }
-  .section-card {
-    padding: 6px 8px;
-    min-height: 48px;
-  }
-  .section-icon {
-    width: 36px;
-    height: 36px;
-    margin-right: 8px;
-  }
-  .section-icon img {
-    width: 26px !important;
-    height: 26px !important;
-  }
-  .section-title {
-    font-size: 0.75rem;
-  }
-  .section-title-strict {
-    font-size: 0.75rem;
+    font-size: 0.85rem;
   }
 }
 
