@@ -3041,26 +3041,44 @@ function TreeOfLife() {
     <div style={{
       background: '#f7f3ff',
       borderRadius: 16,
-      padding: '20px',
-      margin: '16px auto',
-      maxWidth: '400px',
+      padding: '16px 12px',
+      margin: '12px auto',
+      maxWidth: '100%',
+      width: '100%',
       textAlign: 'center',
       boxShadow: '0 4px 12px rgba(124,91,179,0.1)'
     }}>
-      <h3 style={{ color: '#7c5bb3', marginBottom: '16px', fontFamily: 'Comfortaa, cursive' }}>
+      <h3 style={{ 
+        color: '#7c5bb3', 
+        marginBottom: '12px', 
+        fontFamily: 'Comfortaa, cursive',
+        fontSize: '1.2rem'
+      }}>
         🌳 Дерево Жизни
       </h3>
       
-      <div style={{ margin: '20px 0' }}>
-        {generateTreeSVG()}
+      <div style={{ margin: '16px 0', display: 'flex', justifyContent: 'center' }}>
+        <div style={{ transform: 'scale(0.9)' }}>
+          {generateTreeSVG()}
+        </div>
       </div>
       
       <div style={{ textAlign: 'center', fontFamily: 'Comfortaa, cursive' }}>
-        <div style={{ fontSize: '1.1rem', fontWeight: '600', color: '#333', marginBottom: '8px' }}>
+        <div style={{ 
+          fontSize: '1rem', 
+          fontWeight: '600', 
+          color: '#333', 
+          marginBottom: '8px' 
+        }}>
           {getLevelTitle(treeData.level)}
         </div>
         
-        <div style={{ fontSize: '0.9rem', color: '#666', lineHeight: 1.4 }}>
+        <div style={{ 
+          fontSize: '0.85rem', 
+          color: '#666', 
+          lineHeight: 1.4,
+          marginBottom: '8px'
+        }}>
           🍃 Листьев: {treeData.leaves}<br/>
           🌿 Веток: {treeData.branches}<br/>
           📊 Всего записей: {treeData.totalActivity}<br/>
@@ -3068,11 +3086,11 @@ function TreeOfLife() {
         </div>
         
         <div style={{
-          marginTop: '12px',
-          padding: '8px 12px',
+          marginTop: '8px',
+          padding: '6px 10px',
           background: 'rgba(124,91,179,0.1)',
           borderRadius: '8px',
-          fontSize: '0.8rem',
+          fontSize: '0.75rem',
           fontStyle: 'italic',
           color: '#7c5bb3'
         }}>
@@ -3384,24 +3402,36 @@ function App() {
     }
     if (selectedSection === 'Дневник Жизни') {
       return (
-        <div className="knowledge-page" style={{display: 'flex', flexDirection: 'column', minHeight: 'calc(100vh - 64px)'}}>
+        <div className="knowledge-page" style={{
+          display: 'flex', 
+          flexDirection: 'column', 
+          minHeight: 'calc(100vh - 64px)',
+          padding: '0 8px',
+          maxWidth: '100%',
+          overflowX: 'hidden'
+        }}>
           <button 
             onClick={() => setSelectedSection(null)}
             className="knowledge-back"
-            style={{display: 'block', margin: '-12px auto 4px auto'}}>← Назад</button>
+            style={{
+              display: 'block', 
+              margin: '-12px auto 4px auto',
+              fontSize: '0.9rem',
+              padding: '8px 16px'
+            }}>← Назад</button>
           
           <div style={{
             background: '#f7f3ff',
             borderRadius: 16,
-            padding: '24px 16px',
+            padding: '20px 12px',
             color: '#000',
             fontFamily: 'Comfortaa, cursive',
-            fontSize: '0.95rem',
+            fontSize: '0.9rem',
             textAlign: 'center',
             boxShadow: '0 2px 12px 0 rgba(124,91,179,0.07)',
-            maxWidth: 480,
-            margin: '18px auto 0 auto',
-            lineHeight: 1.7
+            maxWidth: '100%',
+            margin: '16px auto 0 auto',
+            lineHeight: 1.6
           }}>
             Дневник Жизни — это твой личный проводник к внутренней гармонии.<br/><br/>
             Записывай желания, практикуй благодарность, отслеживай свои состояния — и наблюдай, как преображается твоя реальность.<br/><br/>
@@ -3416,40 +3446,54 @@ function App() {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'flex-start',
-            gap: '16px',
-            margin: '24px 0'
+            gap: '12px',
+            margin: '24px 0',
+            flexWrap: 'wrap',
+            padding: '0 8px'
           }}>
             <div style={{
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
               gap: '8px',
-              width: '120px'
+              width: '110px',
+              minWidth: '110px'
             }}>
               <div style={{
-                width: '120px',
-                height: '120px',
+                width: '110px',
+                height: '110px',
                 backgroundColor: '#e8f4fd',
-                borderRadius: '12px',
+                borderRadius: '16px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
                 cursor: 'pointer',
-                transition: 'transform 0.2s ease'
+                transition: 'all 0.3s ease',
+                border: '2px solid rgba(124,91,179,0.1)'
               }}
               onMouseOver={e => e.currentTarget.style.transform = 'scale(1.05)'}
               onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'}
               onClick={() => setShowDiaryStatesPage(true)}
               >
-                <img src="/states-icon.svg" alt="Дневник Состояний" style={{ width: '64px', height: '64px' }} />
+                <img 
+                  src="/states-icon.svg" 
+                  alt="Дневник Состояний" 
+                  style={{ 
+                    width: '60px', 
+                    height: '60px',
+                    objectFit: 'contain',
+                    filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
+                  }} 
+                />
               </div>
               <span style={{
                 fontFamily: 'Comfortaa, cursive',
-                fontSize: '0.75rem',
+                fontSize: '0.7rem',
                 fontWeight: 600,
                 color: '#333',
-                textAlign: 'center'
+                textAlign: 'center',
+                lineHeight: 1.2
               }}>Дневник<br/>Состояний</span>
             </div>
             
@@ -3458,32 +3502,44 @@ function App() {
               flexDirection: 'column',
               alignItems: 'center',
               gap: '8px',
-              width: '120px'
+              width: '110px',
+              minWidth: '110px'
             }}>
               <div style={{
-                width: '120px',
-                height: '120px',
+                width: '110px',
+                height: '110px',
                 backgroundColor: '#f0f8ff',
-                borderRadius: '12px',
+                borderRadius: '16px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
                 cursor: 'pointer',
-                transition: 'transform 0.2s ease'
+                transition: 'all 0.3s ease',
+                border: '2px solid rgba(124,91,179,0.1)'
               }}
               onMouseOver={e => e.currentTarget.style.transform = 'scale(1.05)'}
               onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'}
               onClick={() => setShowDiaryWishesPage(true)}
               >
-                <img src="/wishes-icon.svg" alt="Дневник Желаний" style={{ width: '64px', height: '64px' }} />
+                <img 
+                  src="/wishes-icon.svg" 
+                  alt="Дневник Желаний" 
+                  style={{ 
+                    width: '60px', 
+                    height: '60px',
+                    objectFit: 'contain',
+                    filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
+                  }} 
+                />
               </div>
               <span style={{
                 fontFamily: 'Comfortaa, cursive',
-                fontSize: '0.75rem',
+                fontSize: '0.7rem',
                 fontWeight: 600,
                 color: '#333',
-                textAlign: 'center'
+                textAlign: 'center',
+                lineHeight: 1.2
               }}>Дневник<br/>Желаний</span>
             </div>
             
@@ -3492,32 +3548,44 @@ function App() {
               flexDirection: 'column',
               alignItems: 'center',
               gap: '8px',
-              width: '120px'
+              width: '110px',
+              minWidth: '110px'
             }}>
               <div style={{
-                width: '120px',
-                height: '120px',
+                width: '110px',
+                height: '110px',
                 backgroundColor: '#f5f5f5',
-                borderRadius: '12px',
+                borderRadius: '16px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
                 cursor: 'pointer',
-                transition: 'transform 0.2s ease'
+                transition: 'all 0.3s ease',
+                border: '2px solid rgba(124,91,179,0.1)'
               }}
               onMouseOver={e => e.currentTarget.style.transform = 'scale(1.05)'}
               onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'}
               onClick={() => setShowDiaryGratitudePage(true)}
               >
-                <img src="/gratitude-icon.svg" alt="Дневник Благодарности" style={{ width: '64px', height: '64px' }} />
+                <img 
+                  src="/gratitude-icon.svg" 
+                  alt="Дневник Благодарности" 
+                  style={{ 
+                    width: '60px', 
+                    height: '60px',
+                    objectFit: 'contain',
+                    filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
+                  }} 
+                />
               </div>
               <span style={{
                 fontFamily: 'Comfortaa, cursive',
-                fontSize: '0.75rem',
+                fontSize: '0.7rem',
                 fontWeight: 600,
                 color: '#333',
-                textAlign: 'center'
+                textAlign: 'center',
+                lineHeight: 1.2
               }}>Дневник<br/>Благодарности</span>
             </div>
           </div>
