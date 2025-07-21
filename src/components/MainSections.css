@@ -1,8 +1,8 @@
 .main-sections {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px 18px;
-  padding: 24px 0 24px 0;
+  gap: 18px 12px;
+  padding: 12px 0 12px 0;
   justify-items: center;
 }
 
@@ -94,13 +94,17 @@
   height: 54px !important;
   object-fit: contain;
   border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
 }
 
 .section-title,
 .section-title-strict {
   color: #fff !important;
   font-family: 'Comfortaa', cursive;
-  font-size: 0.78rem;
+  font-size: 0.7rem;
   font-weight: 700;
   text-align: center;
   margin: 0;
@@ -111,27 +115,20 @@
 
 @media (max-width: 480px) {
   .main-sections {
-    gap: 10px;
-    padding: 16px 12px 60px 12px;
+    gap: 10px 6px;
+    padding: 6px 0 6px 0;
   }
   .section-card {
-    padding: 10px;
-    border-radius: 14px;
+    width: 90px;
+    height: 90px;
+    border-radius: 16px;
   }
-  .section-icon {
-    width: 42px;
-    height: 42px;
-    margin-right: 12px;
+  .section-icon, .section-icon img {
+    width: 44px !important;
+    height: 44px !important;
   }
-  .section-icon img {
-    width: 32px !important;
-    height: 32px !important;
-  }
-  .section-title {
-    font-size: 0.85rem;
-  }
-  .section-title-strict {
-    font-size: 0.85rem;
+  .section-title, .section-title-strict {
+    font-size: 0.62rem;
   }
 }
 
