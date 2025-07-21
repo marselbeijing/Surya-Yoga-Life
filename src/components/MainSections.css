@@ -1,9 +1,17 @@
 .main-sections {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  min-height: calc(100vh - 210px);
+  padding: 0;
+}
+
+.sections-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 18px 12px;
-  padding: 12px 0 12px 0;
-  justify-items: center;
+  margin-top: 32px;
 }
 
 .om-bg-animated {
@@ -104,7 +112,7 @@
 .section-title-strict {
   color: #fff !important;
   font-family: 'Comfortaa', cursive;
-  font-size: 0.7rem;
+  font-size: 0.58rem;
   font-weight: 700;
   text-align: center;
   margin: 0;
