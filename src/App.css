@@ -90,6 +90,7 @@ body {
   width: 100%;
   max-width: 430px;
   min-height: 100vh;
+  margin: 0 auto;
   background: transparent !important;
   box-shadow: 0 0 32px 0 var(--shadow-color);
   border-radius: 18px 18px 0 0;

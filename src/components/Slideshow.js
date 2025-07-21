@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import './Slideshow.css';
 
 const slides = [
@@ -21,49 +21,15 @@ const slides = [
 
 export default function Slideshow() {
   const [activeIndex, setActiveIndex] = useState(1);
-  const wrapperRef = useRef(null);
-
-  const handleScroll = () => {
-    if (wrapperRef.current) {
-      const { scrollLeft, clientWidth } = wrapperRef.current;
-      const slideWidth = wrapperRef.current.children[0]?.clientWidth || 0;
-      const newIndex = Math.round(scrollLeft / slideWidth);
-      setActiveIndex(newIndex);
-    }
-  };
-
-  const scrollToSlide = (index) => {
-    if (wrapperRef.current) {
-      const slideWidth = wrapperRef.current.children[index]?.clientWidth || 0;
-      wrapperRef.current.scrollTo({
-        left: slideWidth * index,
-        behavior: 'smooth',
-      });
-      setActiveIndex(index);
-    }
-  };
-
-  useEffect(() => {
-    const wrapper = wrapperRef.current;
-    if (wrapper) {
-      wrapper.addEventListener('scroll', handleScroll, { passive: true });
-      return () => wrapper.removeEventListener('scroll', handleScroll);
-    }
-  }, []);
-  
-  useEffect(() => {
-    scrollToSlide(activeIndex);
-  }, []);
-
   return (
     <div className="slideshow-container">
-      <div className="slideshow-wrapper" ref={wrapperRef}>
+      <div className="slideshow-wrapper">
         {slides.map((slide, index) => (
-          <div 
+          <div
             key={index}
-            className="slideshow-slide" 
-            onClick={() => slide.onClick()}
-            tabIndex={0} 
+            className="slideshow-slide"
+            onClick={slide.onClick}
+            tabIndex={0}
             role="button"
           >
             <img src={slide.img} alt={slide.alt} className="slideshow-img" />
@@ -72,10 +38,10 @@ export default function Slideshow() {
       </div>
       <div className="slideshow-dots">
         {slides.map((_, i) => (
-          <span 
-            key={i} 
-            className={i === activeIndex ? 'dot active' : 'dot'} 
-            onClick={() => scrollToSlide(i)} 
+          <span
+            key={i}
+            className={i === activeIndex ? 'dot active' : 'dot'}
+            onClick={() => setActiveIndex(i)}
           />
         ))}
       </div>
