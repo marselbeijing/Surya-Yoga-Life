@@ -23,40 +23,36 @@ const slides = [
 ];
 
 export default function Slideshow() {
-  const [startIndex, setStartIndex] = useState(0);
-
-  const next = () => setStartIndex((i) => (i + 1) % slides.length);
-  const prev = () => setStartIndex((i) => (i - 1 + slides.length) % slides.length);
-
-  const getTransform = () => {
-    return `translateX(-${startIndex * (100/3)}%)`;
-  };
+  const [activeIndex, setActiveIndex] = useState(1); // Средний элемент активен по умолчанию
 
   return (
     <div className="slideshow-container">
-      <button className="slideshow-arrow left" onClick={prev} aria-label="Назад">&#8592;</button>
       <div className="slideshow-wrapper">
-        <div className="slideshow-track" style={{ transform: getTransform() }}>
-          {slides.map((slide, index) => (
-            <div 
-              key={index}
-              className="slideshow-slide" 
-              onClick={slide.onClick} 
-              tabIndex={0} 
-              role="button"
-            >
-              <img src={slide.img} alt={slide.alt} className="slideshow-img" />
-              <div className="slideshow-label">{slide.label}</div>
-            </div>
-          ))}
-        </div>
-        <div className="slideshow-dots">
-          {slides.map((_, i) => (
-            <span key={i} className={i === startIndex ? 'dot active' : 'dot'} onClick={() => setStartIndex(i)} />
-          ))}
-        </div>
+        {slides.map((slide, index) => (
+          <div 
+            key={index}
+            className="slideshow-slide" 
+            onClick={() => {
+              setActiveIndex(index);
+              slide.onClick();
+            }} 
+            tabIndex={0} 
+            role="button"
+          >
+            <img src={slide.img} alt={slide.alt} className="slideshow-img" />
+            <div className="slideshow-label">{slide.label}</div>
+          </div>
+        ))}
       </div>
-      <button className="slideshow-arrow right" onClick={next} aria-label="Вперёд">&#8594;</button>
+      <div className="slideshow-dots">
+        {slides.map((_, i) => (
+          <span 
+            key={i} 
+            className={i === activeIndex ? 'dot active' : 'dot'} 
+            onClick={() => setActiveIndex(i)} 
+          />
+        ))}
+      </div>
     </div>
   );
 } 
