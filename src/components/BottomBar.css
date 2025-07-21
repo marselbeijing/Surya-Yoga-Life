@@ -132,6 +132,8 @@
     transform: translateX(-50%);
     bottom: 12px;
     border-radius: 28px;
+    align-items: center !important;
+    display: flex;
   }
   .bar-tab {
     font-size: 0.65rem;
