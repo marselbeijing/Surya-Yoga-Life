@@ -22,10 +22,12 @@
   transition: all 0.3s ease;
   overflow: hidden;
 }
+
 .bar-tab {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   color: rgba(86, 5, 145, 0.6);
   font-size: 0.7rem;
   font-weight: 600;
@@ -39,9 +41,11 @@
   border-radius: 16px;
   position: relative;
 }
+
 .bar-tab:active {
   transform: scale(0.95);
 }
+
 .bar-tab.active {
   background: none !important;
   box-shadow: none !important;
@@ -50,58 +54,33 @@
   border-radius: 16px !important;
 }
 
-/* Темная тема для bottom-bar */
-[data-theme="dark"] .bottom-bar {
-  background: linear-gradient(90deg, #b39ddb 0%, #9575cd 100%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 
-              0 2px 8px rgba(0, 0, 0, 0.2),
-              inset 0 1px 0 rgba(255, 255, 255, 0.1);
-}
-
-[data-theme="dark"] .bar-tab {
-  color: rgba(86, 5, 145, 0.7);
-}
-
-[data-theme="dark"] .bar-tab.active {
-  background: linear-gradient(135deg, #B874E8 0%, #8B4CB8 100%);
-  box-shadow: 0 4px 16px rgba(184, 116, 232, 0.4),
-              0 2px 4px rgba(184, 116, 232, 0.3),
-              inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  padding: 4px 2px !important;
-  margin: 4px !important;
-  border-radius: 12px !important;
-}
 .bar-icon {
   width: 24px;
   height: 24px;
-  max-width: 24px;
-  max-height: 24px;
   border-radius: 50%;
   margin-bottom: 2px;
-  transition: transform 0.3s ease, background 0.3s;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
 }
+
 .bar-icon img, .bar-icon svg {
   width: 100%;
   height: 100%;
   object-fit: contain;
   display: block;
 }
+
 .bar-tab.active .bar-icon {
   background: linear-gradient(90deg, #ff914d 0%, #ff5e62 100%);
   border-radius: 50%;
   width: 32px;
   height: 32px;
-  max-width: 32px;
-  max-height: 32px;
   box-shadow: 0 2px 12px #ffd6b8;
   margin-bottom: 2px;
-  overflow: hidden;
 }
+
 .bar-tab.active .bar-icon img,
 .bar-tab.active .bar-icon svg {
   width: 100%;
@@ -110,7 +89,7 @@
 
 .bar-title {
   margin-top: 2px;
-  font-size: 0.68rem;
+  font-size: 0.62rem;
   color: #111 !important;
   font-family: 'Comfortaa', cursive;
   font-weight: 600;
@@ -121,6 +100,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 48px;
+  text-align: center;
 }
 
 @media (max-width: 480px) {
