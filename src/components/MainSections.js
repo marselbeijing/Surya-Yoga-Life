@@ -10,7 +10,7 @@ const sections = [
   {
     key: 'Прокачка чакр',
     title: 'Прокачка чакр',
-    icon: <img src={process.env.PUBLIC_URL + '/chakra.svg'} alt="Прокачка чакр" style={{ width: 81, height: 81, display: 'block', margin: '0 auto' }} />,
+    icon: <img src={process.env.PUBLIC_URL + '/icon.chakra.svg'} alt="Прокачка чакр" style={{ width: 81, height: 81, display: 'block', margin: '0 auto' }} />,
   },
   {
     key: 'Йога',
@@ -41,6 +41,11 @@ const sections = [
     key: 'Гвоздестояние',
     title: 'Гвоздестояние',
     icon: <img src={process.env.PUBLIC_URL + '/foot.svg'} alt="Гвоздестояние" style={{ width: 81, height: 81, display: 'block', margin: '0 auto' }} />,
+  },
+  {
+    key: 'Послание дня',
+    title: 'Послание дня',
+    icon: <img src={process.env.PUBLIC_URL + '/poslanie.svg'} alt="Послание дня" style={{ width: 81, height: 81, display: 'block', margin: '0 auto' }} />,
   },
 ];
 

@@ -32,6 +32,11 @@ const sections = [
     icon: '/dihanie.svg',
     key: 'breath',
   },
+  {
+    title: 'Послание дня',
+    icon: '/knowledge.svg',
+    key: 'message',
+  },
 ];
 
 export default function MainSections({ onSectionClick }) {
@@ -43,8 +48,8 @@ export default function MainSections({ onSectionClick }) {
           key={section.key}
           onClick={() => onSectionClick && onSectionClick(section.key)}
         >
-          <div className="main-section__icon">
-            <img src={section.icon} alt={section.title} />
+          <div className="main-section__icon" style={{ width: 65, height: 65 }}>
+            <img src={section.icon} alt={section.title} style={{ width: '100%', height: '100%' }} />
           </div>
           <div className="main-section__title">{section.title}</div>
         </div>
