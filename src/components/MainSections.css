@@ -35,10 +35,6 @@
   border-radius: 1.375rem;
   width: 7.87rem;
   height: 7.87rem;
-  min-width: 97px;
-  min-height: 97px;
-  max-width: 134px;
-  max-height: 134px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -94,12 +90,8 @@
 }
 
 .section-icon {
-  width: 3.63rem;
-  height: 3.63rem;
-  min-width: 44px;
-  min-height: 44px;
-  max-width: 66px;
-  max-height: 66px;
+  width: 58px;
+  height: 58px;
   background: none;
   border-radius: 0;
   overflow: visible;
@@ -111,13 +103,11 @@
 }
 
 .section-icon img {
-  width: 100% !important;
-  height: 100% !important;
+  width: 58px !important;
+  height: 58px !important;
   object-fit: contain;
   border-radius: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
   margin: 0 auto;
 }
 
@@ -140,13 +130,17 @@
     padding: 10px 0;
   }
   .section-card {
-    width: 90px;
-    height: 90px;
+    width: 80px;
+    height: 80px;
     border-radius: 16px;
   }
-  .section-icon, .section-icon img {
-    width: 44px !important;
-    height: 44px !important;
+  .section-icon {
+    width: 48px !important;
+    height: 48px !important;
+  }
+  .section-icon img {
+    width: 48px !important;
+    height: 48px !important;
   }
   .section-title, .section-title-strict {
     font-size: 0.62rem;
