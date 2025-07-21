@@ -11,7 +11,7 @@
 
 .slideshow-wrapper {
   display: flex;
-  gap: 8px;
+  gap: 12px;
   width: 100%;
   justify-content: center;
   align-items: center;
@@ -24,76 +24,56 @@
   align-items: center;
   cursor: pointer;
   outline: none;
-  transition: box-shadow 0.2s, transform 0.2s;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px 0 rgba(124,91,179,0.08);
+  transition: transform 0.3s ease, box-shadow 0.2s;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px 0 rgba(124,91,179,0.12);
   background: #fff;
   min-width: 0;
-  max-width: 120px;
+  max-width: 140px;
+  overflow: hidden;
 }
 
 .slideshow-img {
   width: 100%;
-  height: 80px;
+  height: 120px;
   object-fit: cover;
-  border-radius: 10px 10px 0 0;
+  border-radius: 16px;
+  transition: transform 0.2s ease;
 }
 
-.slideshow-slide:active,
-.slideshow-slide:focus {
-  transform: scale(1.02);
-  box-shadow: 0 4px 16px 0 rgba(124,91,179,0.15);
+.slideshow-slide:active {
+  transform: translateX(-3px);
 }
 
-.slideshow-label {
-  font-family: 'Comfortaa', cursive;
-  font-size: 0.7rem;
-  font-weight: 600;
-  color: #7c5bb3;
-  text-align: center;
-  padding: 6px 4px 5px 4px;
-  background: #fff;
-  border-radius: 0 0 10px 10px;
-  width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  line-height: 1.1;
+.slideshow-slide:active .slideshow-img {
+  transform: scale(0.98);
 }
 
-.slideshow-arrow {
-  background: none;
-  border: none;
-  color: #b484f7;
-  font-size: 1.8rem;
-  cursor: pointer;
-  padding: 0 6px;
-  transition: color 0.2s;
-  user-select: none;
-  flex-shrink: 0;
-}
-
-.slideshow-arrow:active {
-  color: #7c5bb3;
+.slideshow-slide:hover {
+  box-shadow: 0 5px 20px 0 rgba(124,91,179,0.18);
 }
 
 .slideshow-dots {
   position: absolute;
-  bottom: -20px;
+  bottom: -25px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 6px;
+  gap: 8px;
 }
 
 .dot {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: #e0d6f7;
   display: inline-block;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.dot:hover {
+  transform: scale(1.2);
 }
 
 .dot.active {
@@ -103,32 +83,22 @@
 @media (max-width: 600px) {
   .slideshow-container {
     max-width: 98vw;
-    padding: 0 4px;
+    padding: 0 6px;
   }
   
   .slideshow-wrapper {
-    gap: 6px;
+    gap: 8px;
   }
   
   .slideshow-slide {
-    max-width: 100px;
+    max-width: 110px;
   }
   
   .slideshow-img {
-    height: 65px;
-  }
-  
-  .slideshow-label {
-    font-size: 0.65rem;
-    padding: 5px 3px 4px 3px;
-  }
-  
-  .slideshow-arrow {
-    font-size: 1.5rem;
-    padding: 0 4px;
+    height: 95px;
   }
   
   .slideshow-dots {
-    bottom: -18px;
+    bottom: -22px;
   }
 } 

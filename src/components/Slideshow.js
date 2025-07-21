@@ -5,19 +5,16 @@ const slides = [
   {
     img: process.env.PUBLIC_URL + '/slideshow/knowledge.jpg',
     alt: 'База знаний',
-    label: 'База знаний',
     onClick: () => window.location.hash = '#knowledge',
   },
   {
     img: process.env.PUBLIC_URL + '/slideshow/dream-journal.jpg',
     alt: 'Журнал сновидений',
-    label: 'Журнал сновидений',
     onClick: () => window.location.hash = '#dream-journal',
   },
   {
     img: process.env.PUBLIC_URL + '/slideshow/lucidity-test.jpg',
     alt: 'Тест на осознанность',
-    label: 'Тест на осознанность',
     onClick: () => window.location.hash = '#lucidity-test',
   },
 ];
@@ -40,7 +37,6 @@ export default function Slideshow() {
             role="button"
           >
             <img src={slide.img} alt={slide.alt} className="slideshow-img" />
-            <div className="slideshow-label">{slide.label}</div>
           </div>
         ))}
       </div>
