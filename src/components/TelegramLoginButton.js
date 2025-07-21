@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './TelegramLoginButton.css';
 
-export default function TelegramLoginButton({ isDarkTheme, toggleTheme }) {
+export default function TelegramLoginButton() {
   const [user, setUser] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -97,32 +97,12 @@ export default function TelegramLoginButton({ isDarkTheme, toggleTheme }) {
       {/* Секция настроек */}
       <div className="settings-section">
         <div className="settings-content">
-          <div className="setting-item">
-            <div className="setting-info">
-              <h3>Тема приложения</h3>
-              <p>Переключение между светлой и темной темой</p>
-            </div>
-            <div className="theme-toggle">
-              <input
-                type="checkbox"
-                id="theme-switch"
-                checked={isDarkTheme}
-                onChange={toggleTheme}
-                className="theme-switch-input"
-              />
-              <label htmlFor="theme-switch" className="theme-switch-label">
-                <span className="theme-switch-slider"></span>
-              </label>
-            </div>
-          </div>
-
           {/* Рекламная картинка */}
           <div className="account-promo" style={{margin: '28px 0', textAlign: 'center'}}>
             <a href="https://t.me/iSpeechHelper" target="_blank" rel="noopener noreferrer">
               <img src="/promo.jpg" alt="Реклама" style={{maxWidth: '100%', borderRadius: 16, boxShadow: '0 2px 12px rgba(124,91,179,0.10)', cursor: 'pointer'}} />
             </a>
           </div>
-          {/* Удалён блок 'О приложении' и блок с версией */}
         </div>
       </div>
     </div>

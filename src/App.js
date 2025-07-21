@@ -3195,7 +3195,6 @@ function TreeOfLife() {
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
   const [selectedSection, setSelectedSection] = useState(null);
   const [selectedKnowledgeSection, setSelectedKnowledgeSection] = useState(null);
   const [selectedBreathPractice, setSelectedBreathPractice] = useState(null);
@@ -3222,41 +3221,6 @@ function App() {
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
-  };
-
-  // Загрузка темы из localStorage при запуске
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-      setIsDarkTheme(true);
-      document.documentElement.setAttribute('data-theme', 'dark');
-    } else if (savedTheme === 'light') {
-      setIsDarkTheme(false);
-      document.documentElement.removeAttribute('data-theme');
-    } else {
-      // Если пользователь не выбирал, определяем по системной теме
-      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        setIsDarkTheme(true);
-        document.documentElement.setAttribute('data-theme', 'dark');
-      } else {
-        setIsDarkTheme(false);
-        document.documentElement.removeAttribute('data-theme');
-      }
-    }
-  }, []);
-
-  // Переключение темы
-  const toggleTheme = () => {
-    const newTheme = !isDarkTheme;
-    setIsDarkTheme(newTheme);
-    
-    if (newTheme) {
-      document.documentElement.setAttribute('data-theme', 'dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.removeAttribute('data-theme');
-      localStorage.setItem('theme', 'light');
-    }
   };
 
   // Сброс выбранной секции при смене вкладки
@@ -3769,7 +3733,7 @@ function App() {
           </div>
         );
       case 'account':
-        return <TelegramLoginButton isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />;
+        return <TelegramLoginButton />;
       case 'лила':
         return (
           <div className="knowledge-page" style={{display: 'flex', flexDirection: 'column', minHeight: 'calc(100vh - 64px)'}}>

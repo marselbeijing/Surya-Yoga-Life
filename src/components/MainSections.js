@@ -24,19 +24,19 @@ const sections = [
     key: 'Дыхание',
     title: 'Дыхание',
     icon: <img src={process.env.PUBLIC_URL + '/lung.svg'} alt="Дыхание" style={{ width: 81, height: 81, display: 'block', margin: '0 auto' }} />,
-    cardStyle: { background: 'linear-gradient(135deg, #ffe259 0%, #ffa751 100%)' },
+    cardStyle: { background: 'linear-gradient(135deg, #27ae60 0%, #2ecc71 100%)' },
   },
   {
     key: 'Лила',
     title: 'Лила',
     icon: <img src={process.env.PUBLIC_URL + '/card.svg'} alt="Лила" style={{ width: 81, height: 81, display: 'block', margin: '0 auto' }} />,
-    cardStyle: { background: 'linear-gradient(135deg, #ffe259 0%, #ffa751 100%)' },
+    cardStyle: { background: 'linear-gradient(135deg, #27ae60 0%, #2ecc71 100%)' },
   },
   {
     key: 'Шанкапракшалана',
     title: 'Шанкапракшалана',
     icon: <img src={process.env.PUBLIC_URL + '/water1.svg'} alt="Шанкапракшалана" style={{ width: 81, height: 81, display: 'block', margin: '0 auto' }} />,
-    cardStyle: { background: 'linear-gradient(135deg, #ffe259 0%, #ffa751 100%)' },
+    cardStyle: { background: 'linear-gradient(135deg, #27ae60 0%, #2ecc71 100%)' },
   },
   {
     key: 'Дневник Жизни',
