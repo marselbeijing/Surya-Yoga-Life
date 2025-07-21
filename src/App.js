@@ -6,7 +6,6 @@ import BottomBar from './components/BottomBar';
 import Header from './components/Header';
 
 import TelegramLoginButton from './components/TelegramLoginButton';
-import { Shankaprakshalana } from './components';
 import MeditationPage from './components/MeditationPage';
 import PhotoIcons from './components/PhotoIcons';
 import ChakraPage from './components/ChakraPage';
