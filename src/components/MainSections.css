@@ -10,6 +10,7 @@
   padding: 0;
   box-sizing: border-box;
   flex: 1 1 0;
+  gap: 8px;
 }
 
 .sections-grid {
