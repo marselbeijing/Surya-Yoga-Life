@@ -45,12 +45,8 @@ const complexNote = 'Практика проходит в течение 1 дн�
 
 export default function Shankaprakshalana({ onBack }) {
   // Всегда отображаем всё
-  const expanded = true;
   const [contraShowAll, setContraShowAll] = useState(false);
   const contraPreviewCount = 5;
-  const complexExpanded = true;
-  const previewCount = 3;
-  const complexPreviewCount = 3;
   return (
     <div style={{ padding: '28px 16px 100px 16px', maxWidth: 430, margin: '0 auto' }}>
       <div style={{ width: '100%', display: 'flex', justifyContent: 'center', margin: '0 0 8px 0' }}>

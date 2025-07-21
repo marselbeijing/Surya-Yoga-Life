@@ -8,9 +8,12 @@ import { Shankaprakshalana } from './components';
 import MeditationPage from './components/MeditationPage';
 import PhotoIcons from './components/PhotoIcons';
 import ChakraPage from './components/ChakraPage';
+import MessageOfTheDayPage from './components/MessageOfTheDayPage';
 import './App.css';
 import telegramIcon from './components/telegram.svg';
 import about2 from './components/about2.jpg';
+
+
 
 function KnowledgeHDMoviesPage({ onBack }) {
   const [selectedMovie, setSelectedMovie] = React.useState(null);
@@ -2109,7 +2112,7 @@ const botResponseStyle = {
     const [wordOfDay, setWordOfDay] = useState('');
     const [chatMessages, setChatMessages] = useState([]);
     const [chatInput, setChatInput] = useState('');
-    const [emotionHistory, setEmotionHistory] = useState([
+    const [emotionHistory] = useState([
       { day: 'Пн', mood: '😊' }, { day: 'Вт', mood: '😐' },
       { day: 'Ср', mood: '😊' }, { day: 'Чт', mood: '😔' },
       { day: 'Пт', mood: '😊' }, { day: 'Сб', mood: '😁' },
@@ -2417,7 +2420,6 @@ function DiaryGratitudePage({ onBack }) {
   const [gratitudes, setGratitudes] = useState([]);
   const [newGratitude, setNewGratitude] = useState('');
   const [streak, setStreak] = useState(0);
-  const [level, setLevel] = useState(1);
   const [todaysGratitudes, setTodaysGratitudes] = useState(0);
   const [wheelSuggestion, setWheelSuggestion] = useState('');
 
@@ -2691,7 +2693,6 @@ function DiaryGratitudePage({ onBack }) {
 function DiaryWishesPage({ onBack }) {
   const [wishText, setWishText] = useState('');
   const [wishes, setWishes] = useState([]);
-  const [generatedImage, setGeneratedImage] = useState('');
   const [moonPhase, setMoonPhase] = useState('');
   const [dailyChance, setDailyChance] = useState(0);
   const [isGenerating, setIsGenerating] = useState(false);
@@ -3206,7 +3207,6 @@ function App() {
   const [showDiaryStatesPage, setShowDiaryStatesPage] = useState(false);
   const [showDiaryWishesPage, setShowDiaryWishesPage] = useState(false);
   const [showDiaryGratitudePage, setShowDiaryGratitudePage] = useState(false);
-  const [telegramUser, setTelegramUser] = useState(null);
 
   const isSubPageActive = selectedSection !== null ||
                           selectedKnowledgeSection !== null ||
@@ -3643,6 +3643,9 @@ function App() {
     if (activeTab === 'knowledge' && selectedKnowledgeSection === 'sacred-music') {
       return <SacredMusicPage onBack={() => setSelectedKnowledgeSection(null)} />;
     }
+    if (selectedSection === 'Послание дня') {
+      return <MessageOfTheDayPage onBack={() => setSelectedSection(null)} />;
+    }
     switch (activeTab) {
       case 'home':
         return <MainSections onSectionClick={handleSectionClick} />;
@@ -3766,7 +3769,7 @@ function App() {
           </div>
         );
       case 'account':
-        return <TelegramLoginButton isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} onAuth={(user) => setTelegramUser(user)} />;
+        return <TelegramLoginButton isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />;
       case 'лила':
         return (
           <div className="knowledge-page" style={{display: 'flex', flexDirection: 'column', minHeight: 'calc(100vh - 64px)'}}>
