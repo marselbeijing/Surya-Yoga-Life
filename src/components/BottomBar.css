@@ -6,7 +6,7 @@
   width: calc(100% - 40px);
   max-width: 390px;
   height: 60px;
-  background: linear-gradient(90deg, #e7d6f7 0%, #d1c4e9 100%);
+  background: linear-gradient(90deg, #a18cd1 0%, #fbc2eb 100%);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   display: flex;

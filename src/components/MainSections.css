@@ -3,11 +3,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 140px);
+  min-height: calc(100vh - 160px);
+  height: auto;
   width: 100vw;
   max-width: 400px;
   margin: 0 auto;
-  padding: 0;
+  padding: 20px 0;
 }
 
 .sections-grid {
@@ -135,9 +136,8 @@
 
 @media (max-width: 480px) {
   .main-sections {
-    padding-bottom: calc(70px + env(safe-area-inset-bottom));
-    height: auto;
-    min-height: 100vh;
+    min-height: calc(100vh - 120px);
+    padding: 10px 0;
   }
   .section-card {
     width: 90px;
