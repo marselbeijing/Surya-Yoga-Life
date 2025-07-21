@@ -5,13 +5,18 @@
   align-items: center;
   min-height: calc(100vh - 210px);
   padding: 0;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 .sections-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 18px 12px;
-  margin-top: 32px;
+  gap: 1.125rem 0.75rem;
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 360px;
 }
 
 .om-bg-animated {
@@ -27,14 +32,14 @@
 
 .section-card {
   background: linear-gradient(135deg, #7c5bb3 0%, #b484f7 100%);
-  border-radius: 22px;
-  width: 110px;
-  height: 110px;
+  border-radius: 1.375rem;
+  width: 6.875rem;
+  height: 6.875rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 20px rgba(124,91,179,0.25);
+  box-shadow: 0 0.25rem 1.25rem rgba(124,91,179,0.25);
   cursor: pointer;
   margin: 0;
   position: relative;
@@ -85,8 +90,8 @@
 }
 
 .section-icon {
-  width: 54px;
-  height: 54px;
+  width: 3.375rem;
+  height: 3.375rem;
   background: none;
   border-radius: 0;
   overflow: visible;
@@ -94,12 +99,12 @@
   align-items: center;
   justify-content: center;
   box-shadow: none;
-  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
 }
 
 .section-icon img {
-  width: 54px !important;
-  height: 54px !important;
+  width: 3.375rem !important;
+  height: 3.375rem !important;
   object-fit: contain;
   border-radius: 0;
   display: flex;
