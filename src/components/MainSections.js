@@ -8,6 +8,11 @@ const sections = [
     icon: <img src={process.env.PUBLIC_URL + '/medi.svg'} alt="Медитация" style={{ width: 81, height: 81, display: 'block', margin: '0 auto' }} />,
   },
   {
+    key: 'Прокачка чакр',
+    title: 'Прокачка чакр',
+    icon: <img src={process.env.PUBLIC_URL + '/chakra.svg'} alt="Прокачка чакр" style={{ width: 81, height: 81, display: 'block', margin: '0 auto' }} />,
+  },
+  {
     key: 'Йога',
     icon: <img src={process.env.PUBLIC_URL + '/meditatsiya.svg'} alt="Йога" style={{ width: 81, height: 81, display: 'block', margin: '0 auto' }} />,
     title: 'Йога',

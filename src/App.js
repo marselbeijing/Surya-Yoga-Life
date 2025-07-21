@@ -3652,7 +3652,7 @@ function App() {
     }
     switch (activeTab) {
       case 'home':
-        return <MainSections onSectionClick={setSelectedSection} />;
+        return <MainSections onSectionClick={handleSectionClick} />;
       case 'knowledge':
         return (
           <div className="knowledge-page">
@@ -3808,6 +3808,15 @@ function App() {
     }
     return () => { document.body.style.overflow = ''; };
   }, [activeTab, isSubPageActive]);
+
+  const handleSectionClick = (key) => {
+    if (key === 'Прокачка чакр') {
+      setShowChakraPage(true);
+      setSelectedSection(null);
+      return;
+    }
+    setSelectedSection(key);
+  };
 
   return (
     <div className="app-root">
