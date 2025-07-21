@@ -3224,13 +3224,6 @@ function App() {
     setActiveTab(tab);
   };
 
-  const handleOpenChakraPage = () => {
-    console.log("handleOpenChakraPage called");
-    setShowChakraPage(true);
-    setSelectedSection(null);
-    console.log("showChakraPage set to true, selectedSection set to null");
-  };
-
   // Загрузка темы из localStorage при запуске
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
@@ -3489,7 +3482,7 @@ function App() {
       );
     }
     if (selectedSection === 'Медитация') {
-      return <MeditationPage onBack={() => setSelectedSection(null)} onChakraClick={handleOpenChakraPage} />;
+      return <MeditationPage onBack={() => setSelectedSection(null)} />;
     }
     if (selectedSection === 'Дневник Жизни') {
       return (

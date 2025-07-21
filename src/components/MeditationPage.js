@@ -1,11 +1,7 @@
 import React from 'react';
 import './MainSections.css';
 
-function MeditationPage({ onBack, onChakraClick }) {
-  const handleChakraClick = () => {
-    onChakraClick();
-  };
-
+function MeditationPage({ onBack }) {
   return (
     <div className="knowledge-page meditation-page-container">
       <div style={{
@@ -25,14 +21,6 @@ function MeditationPage({ onBack, onChakraClick }) {
         margin: '0 auto 20px auto',
       }}>
         Медитация — это перезагрузка для ума и тела. Она помогает снизить стресс, улучшить концентрацию и восстановить внутренний баланс. Всего несколько минут в день — и ты чувствуешь себя спокойнее, яснее и увереннее.
-      </div>
-      
-      <div 
-        className="breath-square-icon" 
-        onClick={handleChakraClick}
-        style={{margin: '20px auto'}}
-      >
-        <span>ПРОКАЧКА ЧАКР</span>
       </div>
 
       <button className="knowledge-back" onClick={onBack} style={{display: 'block', margin: '28px auto 0 auto'}}>← Назад</button>
