@@ -1,6 +1,5 @@
 import React from 'react';
 import './MainSections.css';
-import Slideshow from './Slideshow';
 
 const sections = [
   {
@@ -62,7 +61,6 @@ const sections = [
 export default function MainSections({ onSectionClick }) {
   return (
     <div className="main-sections">
-      <Slideshow />
       <div className="sections-grid">
       {sections.map((s) => (
         <div
