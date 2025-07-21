@@ -153,3 +153,11 @@
     font-size: 0.7em;
   }
 } 
+
+@media (max-width: 600px) {
+  .bottom-bar {
+    height: 64px;
+    align-items: center !important;
+    display: flex;
+  }
+} 
