@@ -20,6 +20,7 @@
   z-index: 1000;
   padding-bottom: env(safe-area-inset-bottom, 0);
   transition: all 0.3s ease;
+  overflow: hidden;
 }
 .bar-tab {
   display: flex;
@@ -72,7 +73,6 @@
   border-radius: 12px !important;
 }
 .bar-icon {
-  font-size: 1.1rem;
   width: 24px;
   height: 24px;
   max-width: 24px;
@@ -83,24 +83,29 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
-
+.bar-icon img, .bar-icon svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
 .bar-tab.active .bar-icon {
   background: linear-gradient(90deg, #ff914d 0%, #ff5e62 100%);
   border-radius: 50%;
   width: 32px;
   height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  max-width: 32px;
+  max-height: 32px;
   box-shadow: 0 2px 12px #ffd6b8;
   margin-bottom: 2px;
+  overflow: hidden;
 }
-
 .bar-tab.active .bar-icon img,
 .bar-tab.active .bar-icon svg {
-  width: 16px !important;
-  height: 16px !important;
+  width: 100%;
+  height: 100%;
 }
 
 .bar-title {
