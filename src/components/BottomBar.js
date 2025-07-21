@@ -9,22 +9,22 @@ const tabs = [
   {
     key: 'home',
     label: 'Главная',
-    icon: <img src={HomeIcon} alt="Главная" />,
+    icon: <img src={HomeIcon} alt="Главная" style={{width: 24, height: 24}} />,
   },
   {
     key: 'knowledge',
     label: 'База знаний',
-    icon: <img src={KnowledgeIcon} alt="База знаний" />,
+    icon: <img src={KnowledgeIcon} alt="База знаний" style={{width: 24, height: 24}} />,
   },
   {
     key: 'about',
     label: 'О нас',
-    icon: <img src={AboutIcon} alt="О нас" />,
+    icon: <img src={AboutIcon} alt="О нас" style={{width: 24, height: 24}} />,
   },
   {
     key: 'account',
     label: 'Аккаунт',
-    icon: <img src={AccountIcon} alt="Аккаунт" />,
+    icon: <img src={AccountIcon} alt="Аккаунт" style={{width: 24, height: 24}} />,
   },
 ];
 
