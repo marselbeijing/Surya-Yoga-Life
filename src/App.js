@@ -1627,31 +1627,39 @@ function NailsPage({ onBack, setShowNailsPairPractice }) {
     <div className="knowledge-page" style={{marginTop: -24}}>
       <button className="knowledge-back" onClick={onBack} style={{display: 'block', margin: '18px auto 0 auto'}}>← Назад</button>
       <div style={{
-        textAlign: 'center',
         fontFamily: 'Comfortaa, cursive',
-        color: '#111',
-        fontSize: '0.95rem',
-        fontWeight: 500,
-        margin: '18px 0 0 0',
-        lineHeight: 1.5,
-        background: '#e0e0e2',
-        borderRadius: 14,
-        padding: '16px 8px 14px 8px'
+        fontWeight: 700,
+        fontSize: '0.88rem',
+        color: 'var(--text)',
+        background: 'rgba(184,116,232,0.07)',
+        borderRadius: 12,
+        padding: 18,
+        boxShadow: '0 1px 4px var(--shadow-color)',
+        marginBottom: 12,
+        textAlign: 'center',
+        lineHeight: 1.6,
+        letterSpacing: '0.01em',
+        maxWidth: 430,
+        margin: '18px auto 0 auto',
       }}>
         🧿 Доски Садху — путь к себе настоящему<br/>
         Это не про боль. Это про силу.
       </div>
       <div style={{
-        textAlign: 'center',
         fontFamily: 'Comfortaa, cursive',
-        color: '#111',
-        fontSize: '0.95rem',
-        fontWeight: 500,
-        margin: '18px 0 0 0',
-        lineHeight: 1.5,
-        background: '#ededf0',
-        borderRadius: 14,
-        padding: '16px 8px 14px 8px'
+        fontWeight: 700,
+        fontSize: '0.88rem',
+        color: 'var(--text)',
+        background: 'rgba(184,116,232,0.07)',
+        borderRadius: 12,
+        padding: 18,
+        boxShadow: '0 1px 4px var(--shadow-color)',
+        marginBottom: 12,
+        textAlign: 'center',
+        lineHeight: 1.6,
+        letterSpacing: '0.01em',
+        maxWidth: 430,
+        margin: '18px auto 0 auto',
       }}>
         🔥 Стояние на гвоздях — древняя мощная практика, пробуждающая тело, ум и дух.<br/>
         Это момент встречи с собой — без масок, без суеты, без привычных реакций.<br/>
@@ -1697,16 +1705,20 @@ function NailsPage({ onBack, setShowNailsPairPractice }) {
         <img src="/review6.jpg" alt="Отзыв 6" style={{ width: '100%', maxWidth: 170, borderRadius: 12, objectFit: 'cover', justifySelf: 'center' }} />
       </div>
       <div style={{
-        textAlign: 'center',
         fontFamily: 'Comfortaa, cursive',
-        color: '#111',
-        fontSize: '0.92rem',
-        fontWeight: 500,
-        margin: '0 0 24px 0',
-        lineHeight: 1.5,
-        background: '#ededf0',
-        borderRadius: 14,
-        padding: '16px 8px 14px 8px'
+        fontWeight: 700,
+        fontSize: '0.88rem',
+        color: 'var(--text)',
+        background: 'rgba(184,116,232,0.07)',
+        borderRadius: 12,
+        padding: 18,
+        boxShadow: '0 1px 4px var(--shadow-color)',
+        marginBottom: 12,
+        textAlign: 'center',
+        lineHeight: 1.6,
+        letterSpacing: '0.01em',
+        maxWidth: 430,
+        margin: '0 auto 24px auto',
       }}>
         • Стояние на гвоздях — под чутким сопровождением<br/>
         • В безопасном пространстве<br/>
@@ -1911,29 +1923,38 @@ function NailsPairPracticePage({ onBack }) {
     <div className="knowledge-page">
       <button className="knowledge-back" onClick={onBack} style={{display: 'block', margin: '0 auto 18px auto'}}>← Назад</button>
       <div style={{
-        textAlign: 'center',
         fontFamily: 'Comfortaa, cursive',
-        color: '#111',
-        fontSize: '0.95rem',
-        fontWeight: 500,
-        margin: '0 0 0 0',
-        lineHeight: 1.5,
-        background: '#e0e0e2',
-        borderRadius: 14,
-        padding: '16px 8px 14px 8px'
+        fontWeight: 700,
+        fontSize: '0.88rem',
+        color: 'var(--text)',
+        background: 'rgba(184,116,232,0.07)',
+        borderRadius: 12,
+        padding: 18,
+        boxShadow: '0 1px 4px var(--shadow-color)',
+        marginBottom: 12,
+        textAlign: 'center',
+        lineHeight: 1.6,
+        letterSpacing: '0.01em',
+        maxWidth: 430,
+        margin: '0 auto 0 auto',
       }}>
         Парная практика гвоздестояния
       </div>
       <div style={{
-        background: '#ededf0',
-        borderRadius: 14,
-        padding: '16px 8px 14px 8px',
-        margin: '16px 0 0 0',
-        textAlign: 'center',
         fontFamily: 'Comfortaa, cursive',
-        color: '#111',
-        fontSize: '0.92rem',
-        lineHeight: 1.6
+        fontWeight: 700,
+        fontSize: '0.88rem',
+        color: 'var(--text)',
+        background: 'rgba(184,116,232,0.07)',
+        borderRadius: 12,
+        padding: 18,
+        boxShadow: '0 1px 4px var(--shadow-color)',
+        marginBottom: 12,
+        textAlign: 'center',
+        lineHeight: 1.6,
+        letterSpacing: '0.01em',
+        maxWidth: 430,
+        margin: '16px auto 0 auto',
       }}>
         <b>Я ВИЖУ ТЕБЯ 🍃</b>
         <br/><br/>
@@ -1944,15 +1965,20 @@ function NailsPairPracticePage({ onBack }) {
         Вы — пространство, в котором можно быть настоящими.
       </div>
       <div style={{
-        background: '#ededf0',
-        borderRadius: 14,
-        padding: '16px 8px 14px 8px',
-        margin: '16px 0 0 0',
-        textAlign: 'center',
         fontFamily: 'Comfortaa, cursive',
-        color: '#111',
-        fontSize: '0.92rem',
-        lineHeight: 1.6
+        fontWeight: 700,
+        fontSize: '0.88rem',
+        color: 'var(--text)',
+        background: 'rgba(184,116,232,0.07)',
+        borderRadius: 12,
+        padding: 18,
+        boxShadow: '0 1px 4px var(--shadow-color)',
+        marginBottom: 12,
+        textAlign: 'center',
+        lineHeight: 1.6,
+        letterSpacing: '0.01em',
+        maxWidth: 430,
+        margin: '16px auto 0 auto',
       }}>
         <b>Как проходит практика:</b><br/>
         Знакомство с участниками <br/>
@@ -1989,13 +2015,13 @@ function NailsPairPracticePage({ onBack }) {
         </span>
       </div>
       <div style={{
-        background: '#ededf0',
+        background: 'rgba(184,116,232,0.07)',
         borderRadius: 14,
         padding: '16px 8px 14px 8px',
         margin: '16px 0 0 0',
         textAlign: 'center',
         fontFamily: 'Comfortaa, cursive',
-        color: '#111',
+        color: 'var(--text)',
         fontSize: '0.92rem',
         lineHeight: 1.7
       }}>
@@ -2125,7 +2151,7 @@ const botResponseStyle = {
         setBotResponse('Понимаю, это непросто. Попробуйте дыхательную практику "Квадрат". Она помогает успокоить ум. Вот цитата для вас: "Даже самая темная ночь закончится, и взойдет солнце."');
       } else if (lowerCaseFeeling.includes('хорошо') || lowerCaseFeeling.includes('радостно') || lowerCaseFeeling.includes('😊')) {
         setBotResponse('Замечательно! Рад за вас. Сохраняйте это чувство. Цитата дня: "Счастье — это не пункт назначения, а способ путешествовать."');
-      } else {
+    } else {
         setBotResponse('Спасибо, что поделились. Важно прислушиваться к себе. Попробуйте медитацию на 5 минут, чтобы сфокусироваться на настоящем моменте.');
       }
       
@@ -3280,10 +3306,16 @@ function App() {
             <div className="knowledge-title">Дыхательные практики</div>
             <div className="breath-practice-row">
               <div className="breath-square-icon" onClick={() => setSelectedBreathPractice('breath-square')}>
-                <span>Дыхание по квадрату</span>
+                <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px'}}>
+                  <img src={process.env.PUBLIC_URL + '/breath-square.svg'} alt="Дыхание по квадрату" style={{width: '40px', height: '40px'}} />
+                  <span>Дыхание по квадрату</span>
+                </div>
               </div>
               <div className="breath-square-icon" onClick={() => setSelectedBreathPractice('breath-triangle')}>
-                <span>Дыхание по треугольнику</span>
+                <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px'}}>
+                  <img src={process.env.PUBLIC_URL + '/breath-triangle.svg'} alt="Дыхание по треугольнику" style={{width: '40px', height: '40px'}} />
+                  <span>Дыхание по треугольнику</span>
+                </div>
               </div>
             </div>
           </div>
@@ -3298,16 +3330,20 @@ function App() {
             ← Назад
           </button>
           <div style={{
-            textAlign: 'center',
             fontFamily: 'Comfortaa, cursive',
-            color: '#111',
-            fontSize: '0.95rem',
-            fontWeight: 500,
-            margin: '18px 0 0 0',
-            lineHeight: 1.5,
-            background: '#e0e0e2',
-            borderRadius: 14,
-            padding: '16px 8px 14px 8px'
+            fontWeight: 700,
+            fontSize: '0.88rem',
+            color: 'var(--text)',
+            background: 'rgba(184,116,232,0.07)',
+            borderRadius: 12,
+            padding: 18,
+            boxShadow: '0 1px 4px var(--shadow-color)',
+            marginBottom: 12,
+            textAlign: 'center',
+            lineHeight: 1.6,
+            letterSpacing: '0.01em',
+            maxWidth: 430,
+            margin: '18px auto 0 auto',
           }}>
             🌟 Игра Лила – Путешествие вглубь себя 🌟<br/>
             Не просто игра. Это зеркало твоей души, это разговор с высшим Я, это трансформация.
@@ -3315,17 +3351,20 @@ function App() {
 
           {/* Вопросы и описание */}
           <div style={{
-            background: '#ededf0', // изменён цвет фона
-            borderRadius: 14,
-            padding: '16px 8px 14px 8px',
-            color: '#111',
             fontFamily: 'Comfortaa, cursive',
-            fontSize: '0.95rem',
+            fontWeight: 700,
+            fontSize: '0.88rem',
+            color: 'var(--text)',
+            background: 'rgba(184,116,232,0.07)',
+            borderRadius: 12,
+            padding: 18,
+            boxShadow: '0 1px 4px var(--shadow-color)',
+            marginBottom: 12,
             textAlign: 'center',
-            boxShadow: '0 2px 12px 0 rgba(124,91,179,0.07)',
-            maxWidth: 480,
+            lineHeight: 1.6,
+            letterSpacing: '0.01em',
+            maxWidth: 430,
             margin: '0 auto 16px auto',
-            lineHeight: 1.7
           }}>
             Хочешь понять, почему в жизни повторяются одни и те же ситуации?<br/>
             Столкнулся с выбором, сомнениями, внутренними противоречиями?<br/>
@@ -3374,16 +3413,20 @@ function App() {
 
           {/* Блок "Лила — это пространство, где играют Боги..." */}
           <div style={{
-            background: '#ededf0',
-            borderRadius: 14,
-            padding: '16px 8px 14px 8px',
-            color: '#111',
             fontFamily: 'Comfortaa, cursive',
-            fontSize: '0.95rem',
+            fontWeight: 700,
+            fontSize: '0.88rem',
+            color: 'var(--text)',
+            background: 'rgba(184,116,232,0.07)',
+            borderRadius: 12,
+            padding: 18,
+            boxShadow: '0 1px 4px var(--shadow-color)',
+            marginBottom: 12,
             textAlign: 'center',
-            maxWidth: 480,
+            lineHeight: 1.6,
+            letterSpacing: '0.01em',
+            maxWidth: 430,
             margin: '0 auto',
-            lineHeight: 1.55
           }}>
             Лила — это пространство, где играют Боги. И ты — один из них.<br/>
             Здесь каждая клетка — символ этапа твоего пути. Каждая фишка — отражение внутреннего состояния.<br/><br/>
@@ -3457,17 +3500,20 @@ function App() {
             style={{display: 'block', margin: '-12px auto 4px auto'}}>← Назад</button>
           
           <div style={{
-            background: '#f7f3ff',
-            borderRadius: 16,
-            padding: '24px 16px',
-            color: '#000',
             fontFamily: 'Comfortaa, cursive',
-            fontSize: '0.95rem',
+            fontWeight: 700,
+            fontSize: '0.88rem',
+            color: 'var(--text)',
+            background: 'rgba(184,116,232,0.07)',
+            borderRadius: 12,
+            padding: 18,
+            boxShadow: '0 1px 4px var(--shadow-color)',
+            marginBottom: 12,
             textAlign: 'center',
-            boxShadow: '0 2px 12px 0 rgba(124,91,179,0.07)',
-            maxWidth: 480,
+            lineHeight: 1.6,
+            letterSpacing: '0.01em',
+            maxWidth: 430,
             margin: '18px auto 0 auto',
-            lineHeight: 1.7
           }}>
             Дневник Жизни — это твой личный проводник к внутренней гармонии.<br/><br/>
             Записывай желания, практикуй благодарность, отслеживай свои состояния — и наблюдай, как преображается твоя реальность.<br/><br/>
@@ -3650,17 +3696,20 @@ function App() {
           <div className="knowledge-page">
             <div className="knowledge-title">О нас</div>
             <div style={{
-              background: '#f7f3ff',
-              borderRadius: 16,
-              padding: '24px 16px',
-              color: '#000',
               fontFamily: 'Comfortaa, cursive',
-              fontSize: '0.95rem',
+              fontWeight: 700,
+              fontSize: '0.88rem',
+              color: 'var(--text)',
+              background: 'rgba(184,116,232,0.07)',
+              borderRadius: 12,
+              padding: 18,
+              boxShadow: '0 1px 4px var(--shadow-color)',
+              marginBottom: 12,
               textAlign: 'center',
-              boxShadow: '0 2px 12px 0 rgba(124,91,179,0.07)',
-              maxWidth: 480,
+              lineHeight: 1.6,
+              letterSpacing: '0.01em',
+              maxWidth: 430,
               margin: '18px auto 0 auto',
-              lineHeight: 1.7
             }}>
               Добро пожаловать в мир гармонии и духовного развития! Наше приложение создано для тех, кто стремится к внутреннему равновесию и познанию себя.
             </div>
@@ -3699,7 +3748,7 @@ function App() {
               </button>
             </div>
             <div style={{
-              background: '#f7f3ff',
+              background: 'rgba(184,116,232,0.07)',
               borderRadius: 16,
               padding: '24px 16px',
               color: '#000',
@@ -3711,8 +3760,8 @@ function App() {
               margin: '0 auto 24px auto',
               lineHeight: 1.7
             }}>
-              <div style={{fontWeight: 700, marginBottom: 12}}>Что мы предлагаем:</div>
-              <ul style={{color: '#000', lineHeight: 1.6, fontSize: '0.95rem', fontFamily: 'Comfortaa, cursive', textAlign: 'left', display: 'inline-block', margin: '0 auto 0 auto', paddingLeft: 0}}>
+              <div style={{fontWeight: 700, marginBottom: 12, color: 'var(--text)'}}>Что мы предлагаем:</div>
+              <ul style={{color: 'var(--text)', lineHeight: 1.6, fontSize: '0.88rem', fontFamily: 'Comfortaa, cursive', textAlign: 'left', display: 'inline-block', margin: '0 auto 0 auto', paddingLeft: 0}}>
                 <li><strong>Йога практики</strong> — упражнения для тела и духа</li>
                 <li><strong>Гвоздестояние</strong> — практика концентрации и расслабления на доске с гвоздями</li>
                 <li><strong>Дыхательные техники</strong> — методы управления энергией</li>
@@ -3721,11 +3770,11 @@ function App() {
                 <li><strong>Лила</strong> — духовная игра самопознания</li>
                 <li><strong>Шанкапракшалана</strong> — практика очищения</li>
               </ul>
-              <div style={{fontWeight: 700, marginTop: 24, marginBottom: 12}}>Наша миссия</div>
-              <div style={{color: '#000', fontSize: '0.95rem', fontFamily: 'Comfortaa, cursive', textAlign: 'center', marginBottom: 12}}>
+              <div style={{fontWeight: 700, marginTop: 24, marginBottom: 12, color: 'var(--text)'}}>Наша миссия</div>
+              <div style={{color: 'var(--text)', fontSize: '0.88rem', fontFamily: 'Comfortaa, cursive', textAlign: 'center', marginBottom: 12}}>
                 Помочь каждому найти свой путь к гармонии, здоровью и духовному росту через древние практики йоги и современные методы развития.
               </div>
-              <div style={{marginTop: 20, padding: 15, background: 'rgba(124, 91, 179, 0.10)', borderRadius: 12, textAlign: 'center', color: '#000', fontStyle: 'italic', fontWeight: 500, fontSize: '0.95rem', fontFamily: 'Comfortaa, cursive'}}>
+              <div style={{marginTop: 20, padding: 15, background: 'rgba(184,116,232,0.07)', borderRadius: 12, textAlign: 'center', color: 'var(--text)', fontStyle: 'italic', fontWeight: 500, fontSize: '0.88rem', fontFamily: 'Comfortaa, cursive'}}>
                 "Путь к себе начинается с первого шага"
               </div>
             </div>

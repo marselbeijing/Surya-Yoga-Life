@@ -278,7 +278,7 @@ body {
   justify-content: center;
   width: 200px;
   height: 90px;
-  background: #f7f3ea;
+  background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
   border-radius: 22px;
   box-shadow: 0 8px 32px 0 rgba(124,91,179,0.18), 0 1.5px 0 #ede3fa inset;
   cursor: pointer;
@@ -287,8 +287,8 @@ body {
 .breath-square-icon span {
   font-family: 'Comfortaa', cursive;
   font-weight: 600;
-  font-size: 1.18rem;
-  color: #7c5bb3;
+  font-size: 0.7rem;
+  color: #000;
   text-align: center;
 }
 .breath-square-icon:active {
@@ -308,7 +308,9 @@ body {
     width: 44vw;
     min-width: 120px;
     height: 70px;
-    font-size: 1rem;
+  }
+  .breath-square-icon span {
+    font-size: 0.6rem;
   }
   .breath-practice-row {
     gap: 12px;
