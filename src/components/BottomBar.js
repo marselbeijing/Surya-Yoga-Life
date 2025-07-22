@@ -1,5 +1,6 @@
 import React from 'react';
 import './BottomBar.css';
+import KnowledgeIcon from './knowledge.svg';
 import HomeIcon from './home.svg';
 import AboutIcon from './about.svg';
 import AccountIcon from './account.svg';
@@ -9,6 +10,11 @@ const tabs = [
     key: 'home',
     label: 'Главная',
     icon: <img src={HomeIcon} alt="Главная" />,
+  },
+  {
+    key: 'knowledge',
+    label: 'База знаний',
+    icon: <img src={KnowledgeIcon} alt="База знаний" />,
   },
   {
     key: 'about',

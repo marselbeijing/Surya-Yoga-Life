@@ -12,8 +12,6 @@ import MessageOfTheDayPage from './components/MessageOfTheDayPage';
 import './App.css';
 import telegramIcon from './components/telegram.svg';
 import about2 from './components/about2.jpg';
-import KnowledgeMainPage from './components/KnowledgeMainPage';
-import Slideshow from './components/Slideshow';
 
 
 
@@ -2127,7 +2125,7 @@ const botResponseStyle = {
         setBotResponse('Понимаю, это непросто. Попробуйте дыхательную практику "Квадрат". Она помогает успокоить ум. Вот цитата для вас: "Даже самая темная ночь закончится, и взойдет солнце."');
       } else if (lowerCaseFeeling.includes('хорошо') || lowerCaseFeeling.includes('радостно') || lowerCaseFeeling.includes('😊')) {
         setBotResponse('Замечательно! Рад за вас. Сохраняйте это чувство. Цитата дня: "Счастье — это не пункт назначения, а способ путешествовать."');
-    } else {
+      } else {
         setBotResponse('Спасибо, что поделились. Важно прислушиваться к себе. Попробуйте медитацию на 5 минут, чтобы сфокусироваться на настоящем моменте.');
       }
       
@@ -3208,7 +3206,6 @@ function App() {
   const [showDiaryStatesPage, setShowDiaryStatesPage] = useState(false);
   const [showDiaryWishesPage, setShowDiaryWishesPage] = useState(false);
   const [showDiaryGratitudePage, setShowDiaryGratitudePage] = useState(false);
-  const [showKnowledgePage, setShowKnowledgePage] = useState(false);
 
   const isSubPageActive = selectedSection !== null ||
                           selectedKnowledgeSection !== null ||
@@ -3781,33 +3778,11 @@ function App() {
     setSelectedSection(key);
   };
 
-  const handleKnowledgeSection = (section) => {
-    setSelectedKnowledgeSection(section);
-    setShowKnowledgePage(false);
-  };
-
-  const handleKnowledgeBack = () => {
-    setSelectedKnowledgeSection(null);
-  };
-
   return (
     <div className="app-root">
-      {activeTab === 'home' && !isSubPageActive && !showKnowledgePage && <Header />}
+      {activeTab === 'home' && !isSubPageActive && <Header />}
       <div className="mobile-frame">
-        {activeTab === 'home' && !isSubPageActive ? (
-          selectedKnowledgeSection ? (
-            // Здесь рендерим нужный раздел, например:
-            selectedKnowledgeSection === 'hd-movies' ? <KnowledgeHDMoviesPage onBack={handleKnowledgeBack} /> :
-            selectedKnowledgeSection === 'series' ? <KnowledgeSeriesPage onBack={handleKnowledgeBack} /> :
-            selectedKnowledgeSection === 'documentaries' ? <div>Документальные фильмы</div> :
-            selectedKnowledgeSection === 'sacred-music' ? <div>Сакральная музыка</div> :
-            null
-          ) : (
-            <MainSections onSectionClick={setSelectedSection}>
-              <Slideshow setShowKnowledgePage={setShowKnowledgePage} onKnowledgeSection={handleKnowledgeSection} onKnowledgeBack={handleKnowledgeBack} />
-            </MainSections>
-          )
-        ) : renderContent()}
+        {renderContent()}
         <BottomBar activeTab={activeTab} setActiveTab={handleBottomBarTabChange} />
       </div>
     </div>
