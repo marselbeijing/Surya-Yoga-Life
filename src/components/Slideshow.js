@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './Slideshow.css';
 
 const slideImages = [
@@ -19,26 +19,38 @@ const slideImages = [
 export default function Slideshow() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const goToPrevious = () => {
+  const goToPrevious = useCallback((e) => {
+    if (e) e.preventDefault();
     setCurrentIndex((prevIndex) => 
       prevIndex === 0 ? slideImages.length - 1 : prevIndex - 1
     );
-  };
+  }, []);
 
-  const goToNext = () => {
+  const goToNext = useCallback((e) => {
+    if (e) e.preventDefault();
     setCurrentIndex((prevIndex) => 
       prevIndex === slideImages.length - 1 ? 0 : prevIndex + 1
     );
-  };
+  }, []);
 
-  const goToSlide = (index) => {
+  const goToSlide = useCallback((index) => {
     setCurrentIndex(index);
-  };
+  }, []);
+
+  // Автопереключение каждые 4 секунды
+  useEffect(() => {
+    const interval = setInterval(goToNext, 4000);
+    return () => clearInterval(interval);
+  }, [goToNext]);
 
   return (
     <div className="slideshow-container">
       <div className="slideshow-wrapper">
-        <button className="slideshow-arrow slideshow-arrow-left" onClick={goToPrevious}>
+        <button 
+          className="slideshow-arrow slideshow-arrow-left" 
+          onClick={goToPrevious}
+          onTouchStart={goToPrevious}
+        >
           &#8249;
         </button>
         
@@ -50,7 +62,11 @@ export default function Slideshow() {
           />
         </div>
         
-        <button className="slideshow-arrow slideshow-arrow-right" onClick={goToNext}>
+        <button 
+          className="slideshow-arrow slideshow-arrow-right" 
+          onClick={goToNext}
+          onTouchStart={goToNext}
+        >
           &#8250;
         </button>
       </div>
