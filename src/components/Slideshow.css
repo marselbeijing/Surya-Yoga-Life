@@ -44,6 +44,7 @@
   background: transparent;
   display: block;
   z-index: 1;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
 .slideshow-arrow {
