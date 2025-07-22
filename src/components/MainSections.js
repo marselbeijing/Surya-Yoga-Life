@@ -1,6 +1,7 @@
 import React from 'react';
 import './MainSections.css';
 import Slideshow from './Slideshow';
+import ShopIcon from './shop.svg';
 
 const sections = [
   {
@@ -38,6 +39,12 @@ const sections = [
     title: 'Шанкапракшалана',
     icon: <img src={process.env.PUBLIC_URL + '/water1.svg'} alt="Шанкапракшалана" style={{ display: 'block', margin: '0 auto' }} />,
     cardStyle: { background: 'linear-gradient(135deg, #27ae60 0%, #2ecc71 100%)' },
+  },
+  {
+    key: 'Магазин',
+    title: 'Магазин',
+    icon: <img src={ShopIcon} alt="Магазин" style={{ display: 'block', margin: '0 auto' }} />,
+    cardStyle: { background: 'linear-gradient(135deg, #f1c40f 0%, #f39c12 100%)' },
   },
   {
     key: 'Дневник Жизни',
