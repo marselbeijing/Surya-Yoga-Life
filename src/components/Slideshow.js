@@ -58,6 +58,7 @@ export default function Slideshow() {
             src={slideImages[currentIndex].src} 
             alt={slideImages[currentIndex].alt}
             className="slideshow-image"
+            style={{ borderRadius: 16 }}
           />
         </div>
         
