@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import './Slideshow.css';
+import ChakraPage from './ChakraPage';
 
 const slideImages = [
   {
@@ -18,6 +19,7 @@ const slideImages = [
 
 export default function Slideshow() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [showKnowledge, setShowKnowledge] = useState(false);
 
   const goToPrevious = useCallback((e) => {
     if (e) e.preventDefault();
@@ -43,6 +45,10 @@ export default function Slideshow() {
     return () => clearInterval(interval);
   }, [goToNext]);
 
+  if (showKnowledge) {
+    return <ChakraPage onBack={() => setShowKnowledge(false)} />;
+  }
+
   return (
     <div className="slideshow-container">
       <div className="slideshow-wrapper">
@@ -58,6 +64,9 @@ export default function Slideshow() {
             src={slideImages[currentIndex].src} 
             alt={slideImages[currentIndex].alt}
             className="slideshow-image"
+            onClick={() => {
+              if (currentIndex === 0) setShowKnowledge(true);
+            }}
             style={{ borderRadius: 16 }}
           />
         </div>
