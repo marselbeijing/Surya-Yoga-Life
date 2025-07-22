@@ -163,7 +163,7 @@ body, #root, .App {
 
 .mantra-title {
   font-family: 'Comfortaa', cursive;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-weight: 700;
   color: #a18cd1;
   margin: 0 0 0.2rem 0;
@@ -177,7 +177,7 @@ body, #root, .App {
 }
 
 .mantra-sanskrit {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-weight: 600;
   color: #7c5bb3;
   line-height: 1;
@@ -186,7 +186,7 @@ body, #root, .App {
 
 .mantra-transliteration {
   font-family: 'Comfortaa', cursive;
-  font-size: 0.6rem;
+  font-size: 0.55rem;
   font-weight: 600;
   color: #9b7bc7;
   font-style: italic;
@@ -196,7 +196,7 @@ body, #root, .App {
 
 .mantra-russian {
   font-family: 'Comfortaa', cursive;
-  font-size: 0.6rem;
+  font-size: 0.55rem;
   font-weight: 600;
   color: #b199d1;
   letter-spacing: 0.01em;
@@ -205,7 +205,7 @@ body, #root, .App {
 
 .mantra-meaning {
   font-family: 'Comfortaa', cursive;
-  font-size: 0.55rem;
+  font-size: 0.5rem;
   font-weight: 400;
   color: var(--text);
   line-height: 1.2;
