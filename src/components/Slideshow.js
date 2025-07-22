@@ -49,7 +49,6 @@ export default function Slideshow() {
         <button 
           className="slideshow-arrow slideshow-arrow-left" 
           onClick={goToPrevious}
-          onTouchStart={goToPrevious}
         >
           &#8249;
         </button>
@@ -65,7 +64,6 @@ export default function Slideshow() {
         <button 
           className="slideshow-arrow slideshow-arrow-right" 
           onClick={goToNext}
-          onTouchStart={goToNext}
         >
           &#8250;
         </button>
