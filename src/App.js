@@ -12,6 +12,8 @@ import MessageOfTheDayPage from './components/MessageOfTheDayPage';
 import './App.css';
 import telegramIcon from './components/telegram.svg';
 import about2 from './components/about2.jpg';
+import KnowledgeMainPage from './components/KnowledgeMainPage';
+import Slideshow from './components/Slideshow';
 
 
 
@@ -3206,6 +3208,7 @@ function App() {
   const [showDiaryStatesPage, setShowDiaryStatesPage] = useState(false);
   const [showDiaryWishesPage, setShowDiaryWishesPage] = useState(false);
   const [showDiaryGratitudePage, setShowDiaryGratitudePage] = useState(false);
+  const [showKnowledgePage, setShowKnowledgePage] = useState(false);
 
   const isSubPageActive = selectedSection !== null ||
                           selectedKnowledgeSection !== null ||
@@ -3778,11 +3781,33 @@ function App() {
     setSelectedSection(key);
   };
 
+  const handleKnowledgeSection = (section) => {
+    setSelectedKnowledgeSection(section);
+    setShowKnowledgePage(false);
+  };
+
+  const handleKnowledgeBack = () => {
+    setSelectedKnowledgeSection(null);
+  };
+
   return (
     <div className="app-root">
-      {activeTab === 'home' && !isSubPageActive && <Header />}
+      {activeTab === 'home' && !isSubPageActive && !showKnowledgePage && <Header />}
       <div className="mobile-frame">
-        {renderContent()}
+        {activeTab === 'home' && !isSubPageActive ? (
+          selectedKnowledgeSection ? (
+            // Здесь рендерим нужный раздел, например:
+            selectedKnowledgeSection === 'hd-movies' ? <KnowledgeHDMoviesPage onBack={handleKnowledgeBack} /> :
+            selectedKnowledgeSection === 'series' ? <KnowledgeSeriesPage onBack={handleKnowledgeBack} /> :
+            selectedKnowledgeSection === 'documentaries' ? <div>Документальные фильмы</div> :
+            selectedKnowledgeSection === 'sacred-music' ? <div>Сакральная музыка</div> :
+            null
+          ) : (
+            <MainSections onSectionClick={setSelectedSection}>
+              <Slideshow setShowKnowledgePage={setShowKnowledgePage} onKnowledgeSection={handleKnowledgeSection} onKnowledgeBack={handleKnowledgeBack} />
+            </MainSections>
+          )
+        ) : renderContent()}
         <BottomBar activeTab={activeTab} setActiveTab={handleBottomBarTabChange} />
       </div>
     </div>

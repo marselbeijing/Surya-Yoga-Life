@@ -3,6 +3,7 @@ import React from 'react';
 export default function KnowledgeMainPage({ onBack, onSection }) {
   return (
     <div className="knowledge-page">
+      <div className="knowledge-title">База Знаний</div>
       <div className="knowledge-section knowledge-linkable" onClick={() => onSection && onSection('hd-movies')} style={{cursor:'pointer'}}>
         <h3>ХД фильмы раскрывающие сознание</h3>
         <p>Подборка фильмов в высоком качестве, расширяющих восприятие и способствующих развитию сознания.</p>

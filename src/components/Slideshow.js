@@ -17,7 +17,7 @@ const slideImages = [
   }
 ];
 
-export default function Slideshow() {
+export default function Slideshow({ setShowKnowledgePage, onKnowledgeSection, onKnowledgeBack }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showKnowledge, setShowKnowledge] = useState(false);
 
@@ -45,8 +45,16 @@ export default function Slideshow() {
     return () => clearInterval(interval);
   }, [goToNext]);
 
+  useEffect(() => {
+    if (showKnowledge && setShowKnowledgePage) setShowKnowledgePage(true);
+    if (!showKnowledge && setShowKnowledgePage) setShowKnowledgePage(false);
+  }, [showKnowledge, setShowKnowledgePage]);
+
   if (showKnowledge) {
-    return <KnowledgeMainPage onBack={() => setShowKnowledge(false)} />;
+    return <KnowledgeMainPage onBack={() => {
+      setShowKnowledge(false);
+      if (onKnowledgeBack) onKnowledgeBack();
+    }} onSection={onKnowledgeSection} />;
   }
 
   return (
