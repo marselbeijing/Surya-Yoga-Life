@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './Slideshow.css';
 
 const slideImages = [
@@ -34,12 +34,6 @@ export default function Slideshow() {
   const goToSlide = (index) => {
     setCurrentIndex(index);
   };
-
-  // Автоматическое переключение слайдов каждые 5 секунд
-  useEffect(() => {
-    const interval = setInterval(goToNext, 5000);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <div className="slideshow-container">
