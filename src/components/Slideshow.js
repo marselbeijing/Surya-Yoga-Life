@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import './Slideshow.css';
-import ChakraPage from './ChakraPage';
+import KnowledgeMainPage from './KnowledgeMainPage';
 
 const slideImages = [
   {
@@ -46,7 +46,7 @@ export default function Slideshow() {
   }, [goToNext]);
 
   if (showKnowledge) {
-    return <ChakraPage onBack={() => setShowKnowledge(false)} />;
+    return <KnowledgeMainPage onBack={() => setShowKnowledge(false)} />;
   }
 
   return (
