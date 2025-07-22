@@ -1,6 +1,68 @@
 import React from 'react';
 import './MainSections.css';
 
+const DailyMantra = () => {
+  const mantras = {
+    0: { // Воскресенье - Солнце
+      sanskrit: "ॐ सूर्याय नमः",
+      transliteration: "Om Suryaya Namaha",
+      russian: "Ом Сурьяя Намаха",
+      meaning: "Приветствую Солнце, источник жизни и света, дарующий энергию и жизненную силу."
+    },
+    1: { // Понедельник - Луна  
+      sanskrit: "ॐ सोमाय नमः",
+      transliteration: "Om Somaya Namaha", 
+      russian: "Ом Сомая Намаха",
+      meaning: "Приветствую Луну, дарующую спокойствие, умиротворение и эмоциональное равновесие."
+    },
+    2: { // Вторник - Марс
+      sanskrit: "ॐ मंगलाय नमः",
+      transliteration: "Om Mangalaya Namaha",
+      russian: "Ом Мангалая Намаха", 
+      meaning: "Приветствую Марс, дарующий силу, мужество и энергию для преодоления препятствий."
+    },
+    3: { // Среда - Меркурий
+      sanskrit: "ॐ बुधाय नमः",
+      transliteration: "Om Budhaya Namaha",
+      russian: "Ом Будхая Намаха",
+      meaning: "Приветствую Меркурий, дарующий мудрость, ясность ума и способность к обучению."
+    },
+    4: { // Четверг - Юпитер
+      sanskrit: "ॐ गुरवे नमः", 
+      transliteration: "Om Gurave Namaha",
+      russian: "Ом Гураве Намаха",
+      meaning: "Приветствую Юпитер, великого учителя, дарующего знания, процветание и духовный рост."
+    },
+    5: { // Пятница - Венера
+      sanskrit: "ॐ शुक्राय नमः",
+      transliteration: "Om Shukraya Namaha", 
+      russian: "Ом Шукрая Намаха",
+      meaning: "Приветствую Венеру, дарующую красоту, любовь, гармонию и творческое вдохновение."
+    },
+    6: { // Суббота - Сатурн
+      sanskrit: "ॐ शनैश्चराय नमः",
+      transliteration: "Om Shanaishcharaya Namaha",
+      russian: "Ом Шанайшчарая Намаха", 
+      meaning: "Приветствую Сатурн, учителя терпения, дисциплины и духовного очищения."
+    }
+  };
+
+  const today = new Date().getDay();
+  const todayMantra = mantras[today];
+
+  return (
+    <div className="daily-mantra">
+      <h3 className="mantra-title">Мантра дня</h3>
+      <div className="mantra-content">
+        <div className="mantra-sanskrit">{todayMantra.sanskrit}</div>
+        <div className="mantra-transliteration">{todayMantra.transliteration}</div>
+        <div className="mantra-russian">{todayMantra.russian}</div>
+        <div className="mantra-meaning">"{todayMantra.meaning}"</div>
+      </div>
+    </div>
+  );
+};
+
 const sections = [
   {
     key: 'Медитация',
@@ -74,6 +136,7 @@ export default function MainSections({ onSectionClick }) {
         </div>
       ))}
       </div>
+      <DailyMantra />
     </div>
   );
 } 

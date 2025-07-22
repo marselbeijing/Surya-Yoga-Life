@@ -147,6 +147,75 @@ body, #root, .App {
   padding: 0 2px;
 }
 
+/* Стили для ежедневных мантр */
+.daily-mantra {
+  margin-top: 1.5rem;
+  padding: 0.6rem;
+  background: rgba(161, 140, 209, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(124, 91, 179, 0.1);
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(161, 140, 209, 0.2);
+}
+
+.mantra-title {
+  font-family: 'Comfortaa', cursive;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #a18cd1;
+  margin: 0 0 0.2rem 0;
+  letter-spacing: 0.02em;
+}
+
+.mantra-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.mantra-sanskrit {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #7c5bb3;
+  line-height: 1;
+  margin-bottom: 0;
+}
+
+.mantra-transliteration {
+  font-family: 'Comfortaa', cursive;
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: #9b7bc7;
+  font-style: italic;
+  letter-spacing: 0.01em;
+  margin: 0.02rem 0 0 0;
+}
+
+.mantra-russian {
+  font-family: 'Comfortaa', cursive;
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: #b199d1;
+  letter-spacing: 0.01em;
+  margin: 0.02rem 0 0 0;
+}
+
+.mantra-meaning {
+  font-family: 'Comfortaa', cursive;
+  font-size: 0.55rem;
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1.2;
+  margin-top: 0.15rem;
+  padding: 0.3rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border-left: 3px solid #a18cd1;
+}
+
 @media (min-width: 768px) {
   .main-sections {
     max-width: 500px;
@@ -208,6 +277,32 @@ body, #root, .App {
   }
   .section-title, .section-title-strict {
     font-size: 0.54rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .daily-mantra {
+    margin-top: 2rem;
+    padding: 1.2rem;
+    max-width: 95vw;
+  }
+  
+  .mantra-title {
+    font-size: 1.1rem;
+  }
+  
+  .mantra-sanskrit {
+    font-size: 1.2rem;
+  }
+  
+  .mantra-transliteration,
+  .mantra-russian {
+    font-size: 0.9rem;
+  }
+  
+  .mantra-meaning {
+    font-size: 0.85rem;
+    padding: 0.6rem;
   }
 }
 
