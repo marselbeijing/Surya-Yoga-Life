@@ -1115,7 +1115,18 @@ function KnowledgeHDMoviesPage({ onBack }) {
           <button className="knowledge-back" onClick={onBack} style={{display: 'block', margin: '18px auto 0 auto'}}>← Назад</button>
         </>
       )}
-      <div className="knowledge-section">
+      <div className="knowledge-section" style={{
+        background: 'rgba(184,116,232,0.07)',
+        borderRadius: 12,
+        padding: 18,
+        boxShadow: '0 1px 4px var(--shadow-color)',
+        marginBottom: 12,
+        textAlign: 'center',
+        lineHeight: 1.6,
+        letterSpacing: '0.01em',
+        maxWidth: 430,
+        margin: '18px auto 0 auto',
+      }}>
         {selectedMovie ? (
           <div style={{textAlign: 'center'}}>
             <div style={{marginBottom: 16, fontSize: 22, color: '#7c5bb3'}}>{selectedMovie.title}</div>
@@ -1123,6 +1134,7 @@ function KnowledgeHDMoviesPage({ onBack }) {
             <button className="knowledge-back" onClick={() => setSelectedMovie(null)} style={{display: 'block', margin: '18px auto 0 auto'}}>← К списку фильмов</button>
           </div>
         ) : (
+        <div>
         <ul className="knowledge-movie-list">
           {movies.map((movie, idx) => {
               if (typeof movie === 'object' && movie.title) {
@@ -1130,7 +1142,7 @@ function KnowledgeHDMoviesPage({ onBack }) {
                   <li
                     className="knowledge-movie-item"
                     key={idx}
-                    style={{cursor: 'pointer'}}
+                    style={{cursor: 'pointer', color: 'var(--text)'}}
                     onClick={() => setSelectedMovie(movie)}
                   >
                     {movie.title}
@@ -1140,162 +1152,164 @@ function KnowledgeHDMoviesPage({ onBack }) {
             if (idx === 1) {
               return (
                 <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
-                  <a href="https://rutube.ru/video/e2c5b63da3a296331dd1d6de6055034d/" target="_blank" rel="noopener noreferrer">{movie}</a>
+                  <a href="https://rutube.ru/video/e2c5b63da3a296331dd1d6de6055034d/" target="_blank" rel="noopener noreferrer" style={{color: 'var(--text)'}}>{movie}</a>
                 </li>
               );
             }
             if (idx === 2) {
               return (
                 <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
-                  <a href="https://rutube.ru/video/aa2718f0d136f7f2157a57e9a95ee1ce/" target="_blank" rel="noopener noreferrer">{movie}</a>
+                  <a href="https://rutube.ru/video/aa2718f0d136f7f2157a57e9a95ee1ce/" target="_blank" rel="noopener noreferrer" style={{color: 'var(--text)'}}>{movie}</a>
                 </li>
               );
             }
             if (idx === 3) {
               return (
                 <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
-                  <a href="https://www.youtube.com/watch?v=pXYvnGFqGXU" target="_blank" rel="noopener noreferrer">{movie}</a>
+                  <a href="https://www.youtube.com/watch?v=pXYvnGFqGXU" target="_blank" rel="noopener noreferrer" style={{color: 'var(--text)'}}>{movie}</a>
                 </li>
               );
             }
             if (idx === 4) {
               return (
                 <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
-                  <a href="https://www.youtube.com/watch?v=0P2dl8ZeBrk" target="_blank" rel="noopener noreferrer">{movie}</a>
+                  <a href="https://www.youtube.com/watch?v=0P2dl8ZeBrk" target="_blank" rel="noopener noreferrer" style={{color: 'var(--text)'}}>{movie}</a>
                 </li>
               );
             }
             if (idx === 5) {
               return (
                 <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
-                  <a href="https://rutube.ru/video/023777d7a7a348b841755152ef3aee11/" target="_blank" rel="noopener noreferrer">{movie}</a>
+                  <a href="https://rutube.ru/video/023777d7a7a348b841755152ef3aee11/" target="_blank" rel="noopener noreferrer" style={{color: 'var(--text)'}}>{movie}</a>
                 </li>
               );
             }
             if (idx === 6) {
               return (
                 <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
-                  <a href="https://rutube.ru/video/1d6bd6281b49db4462fa06fc2b065fae/" target="_blank" rel="noopener noreferrer">{movie}</a>
+                  <a href="https://rutube.ru/video/1d6bd6281b49db4462fa06fc2b065fae/" target="_blank" rel="noopener noreferrer" style={{color: 'var(--text)'}}>{movie}</a>
                 </li>
               );
             }
             if (idx === 7) {
               return (
                 <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
-                  <a href="https://rutube.ru/video/c31cca9505a7c74ca185cd73e002f881/" target="_blank" rel="noopener noreferrer">{movie}</a>
+                  <a href="https://rutube.ru/video/c31cca9505a7c74ca185cd73e002f881/" target="_blank" rel="noopener noreferrer" style={{color: 'var(--text)'}}>{movie}</a>
                 </li>
               );
             }
             if (idx === 8) {
               return (
                 <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
-                  <a href="https://www.youtube.com/watch?v=FTQqlCwm39g" target="_blank" rel="noopener noreferrer">{movie}</a>
+                  <a href="https://www.youtube.com/watch?v=FTQqlCwm39g" target="_blank" rel="noopener noreferrer" style={{color: 'var(--text)'}}>{movie}</a>
                 </li>
               );
             }
             if (idx === 9) {
               return (
                 <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
-                  <a href="https://vk.com/video-56028029_456249006" target="_blank" rel="noopener noreferrer">{movie}</a>
+                  <a href="https://vk.com/video-56028029_456249006" target="_blank" rel="noopener noreferrer" style={{color: 'var(--text)'}}>{movie}</a>
                 </li>
               );
             }
             if (idx === 10) {
               return (
                 <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
-                  <a href="https://rutube.ru/video/68c7c8637771e7e89957c3ecf0167635/" target="_blank" rel="noopener noreferrer">{movie}</a>
+                  <a href="https://rutube.ru/video/68c7c8637771e7e89957c3ecf0167635/" target="_blank" rel="noopener noreferrer" style={{color: 'var(--text)'}}>{movie}</a>
                 </li>
               );
             }
               if (movie === 'Экспресс Мумбаи - Варанаси (2016)') {
                 return (
                   <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
-                    <a href="https://vk.com/wall-17262100_56985" target="_blank" rel="noopener noreferrer">{movie}</a>
+                    <a href="https://vk.com/wall-17262100_56985" target="_blank" rel="noopener noreferrer" style={{color: 'var(--text)'}}>{movie}</a>
                   </li>
                 );
               }
               if (movie === 'Окча  (2017)') {
                 return (
                   <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
-                    <a href="https://vk.com/video-220018529_456242302" target="_blank" rel="noopener noreferrer">{movie}</a>
+                    <a href="https://vk.com/video-220018529_456242302" target="_blank" rel="noopener noreferrer" style={{color: 'var(--text)'}}>{movie}</a>
                   </li>
                 );
               }
               if (movie === 'Человек который познал бесконечность (2015)') {
                 return (
                   <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
-                    <a href="https://rutube.ru/play/embed/9be4c54ed5e8240f07e73f43b45cc1b5/" target="_blank" rel="noopener noreferrer">{movie}</a>
+                    <a href="https://rutube.ru/play/embed/9be4c54ed5e8240f07e73f43b45cc1b5/" target="_blank" rel="noopener noreferrer" style={{color: 'var(--text)'}}>{movie}</a>
                   </li>
                 );
               }
               if (movie === 'Миларепа') {
                 return (
                   <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
-                    <a href="https://vk.com/video-14702321_456239138" target="_blank" rel="noopener noreferrer">{movie}</a>
+                    <a href="https://vk.com/video-14702321_456239138" target="_blank" rel="noopener noreferrer" style={{color: 'var(--text)'}}>{movie}</a>
                   </li>
                 );
               }
               if (movie === 'Мирный воин(2006)') {
                 return (
                   <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
-                    <a href="https://vk.com/video-212368293_456239095" target="_blank" rel="noopener noreferrer">{movie}</a>
+                    <a href="https://vk.com/video-212368293_456239095" target="_blank" rel="noopener noreferrer" style={{color: 'var(--text)'}}>{movie}</a>
                   </li>
                 );
               }
               if (movie === 'Потерянные дети будды  (2006)') {
                 return (
                   <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
-                    <a href="https://www.youtube.com/watch?v=V5cRFdKA5iA" target="_blank" rel="noopener noreferrer">{movie}</a>
+                    <a href="https://www.youtube.com/watch?v=V5cRFdKA5iA" target="_blank" rel="noopener noreferrer" style={{color: 'var(--text)'}}>{movie}</a>
                   </li>
                 );
               }
               if (movie === 'Среди Белых облаков (2005)') {
                 return (
                   <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
-                    <a href="https://vk.com/video-37785226_171444115" target="_blank" rel="noopener noreferrer">{movie}</a>
+                    <a href="https://vk.com/video-37785226_171444115" target="_blank" rel="noopener noreferrer" style={{color: 'var(--text)'}}>{movie}</a>
                   </li>
                 );
               }
               if (movie === 'Спринт(2015)') {
                 return (
                   <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
-                    <a href="https://rutube.ru/play/embed/67c10b0da15c24aeaec4c87118f15565/" target="_blank" rel="noopener noreferrer">{movie}</a>
+                    <a href="https://rutube.ru/play/embed/67c10b0da15c24aeaec4c87118f15565/" target="_blank" rel="noopener noreferrer" style={{color: 'var(--text)'}}>{movie}</a>
                   </li>
                 );
               }
               if (movie === 'Когда солнца целует землю') {
                 return (
                   <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
-                    <a href="https://vk.com/video-163374311_456239382" target="_blank" rel="noopener noreferrer">{movie}</a>
+                    <a href="https://vk.com/video-163374311_456239382" target="_blank" rel="noopener noreferrer" style={{color: 'var(--text)'}}>{movie}</a>
                   </li>
                 );
               }
               if (movie === 'Манджи : человек горы') {
                 return (
                   <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
-                    <a href="https://vk.com/video-55268627_456243353" target="_blank" rel="noopener noreferrer">{movie}</a>
+                    <a href="https://vk.com/video-55268627_456243353" target="_blank" rel="noopener noreferrer" style={{color: 'var(--text)'}}>{movie}</a>
                   </li>
                 );
               }
               if (movie === 'Семь лет в тибете') {
                 return (
                   <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
-                    <a href="https://rutube.ru/play/embed/dac2d38a6feebd1c52a4b617bc232f13/" target="_blank" rel="noopener noreferrer">{movie}</a>
+                    <a href="https://rutube.ru/play/embed/dac2d38a6feebd1c52a4b617bc232f13/" target="_blank" rel="noopener noreferrer" style={{color: 'var(--text)'}}>{movie}</a>
                   </li>
                 );
               }
               if (movie === 'Дзен') {
                 return (
                   <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
-                    <a href="https://vk.com/video-37785226_171669738" target="_blank" rel="noopener noreferrer">{movie}</a>
+                    <a href="https://vk.com/video-37785226_171669738" target="_blank" rel="noopener noreferrer" style={{color: 'var(--text)'}}>{movie}</a>
                 </li>
               );
             }
             return (
-              <li className="knowledge-movie-item" key={idx}>{movie}</li>
+              <li className="knowledge-movie-item" key={idx} style={{color: 'var(--text)'}}>{movie}</li>
             );
           })}
         </ul>
+        <button className="knowledge-back" onClick={onBack} style={{display: 'block', margin: '18px auto 0 auto'}}>← Назад</button>
+        </div>
         )}
       </div>
     </div>
@@ -1361,10 +1375,21 @@ function KnowledgeDocumentariesPage({ onBack }) {
       <div className="knowledge-title knowledge-title--small">Документальные фильмы</div>
       <div style={{textAlign: 'center', marginBottom: 12, color: '#7c5bb3', fontSize: '1rem', fontFamily: 'Comfortaa, cursive'}}>Для просмотра фильма кликните по названию</div>
       <button className="knowledge-back" onClick={onBack} style={{display: 'block', margin: '18px auto 0 auto'}}>← Назад</button>
-      <div className="knowledge-section">
+      <div className="knowledge-section" style={{
+        background: 'rgba(184,116,232,0.07)',
+        borderRadius: 12,
+        padding: 18,
+        boxShadow: '0 1px 4px var(--shadow-color)',
+        marginBottom: 12,
+        textAlign: 'center',
+        lineHeight: 1.6,
+        letterSpacing: '0.01em',
+        maxWidth: 430,
+        margin: '18px auto 0 auto',
+      }}>
         <ul className="knowledge-movie-list">
           {documentaries.map((doc, idx) => (
-            <li className="knowledge-movie-item" key={idx}>{doc}</li>
+            <li className="knowledge-movie-item" key={idx} style={{color: 'var(--text)'}}>{doc}</li>
           ))}
         </ul>
         <button className="knowledge-back" onClick={onBack} style={{display: 'block', margin: '18px auto 0 auto'}}>← Назад</button>
@@ -1394,10 +1419,21 @@ function KnowledgeSeriesPage({ onBack }) {
       <div className="knowledge-title">Сериалы</div>
       <div style={{textAlign: 'center', marginBottom: 12, color: '#7c5bb3', fontSize: '1rem', fontFamily: 'Comfortaa, cursive'}}>Для просмотра сериала кликните по названию</div>
       <button className="knowledge-back" onClick={onBack} style={{display: 'block', margin: '18px auto 0 auto'}}>← Назад</button>
-      <div className="knowledge-section">
+      <div className="knowledge-section" style={{
+        background: 'rgba(184,116,232,0.07)',
+        borderRadius: 12,
+        padding: 18,
+        boxShadow: '0 1px 4px var(--shadow-color)',
+        marginBottom: 12,
+        textAlign: 'center',
+        lineHeight: 1.6,
+        letterSpacing: '0.01em',
+        maxWidth: 430,
+        margin: '18px auto 0 auto',
+      }}>
         <ul className="knowledge-movie-list">
           {series.map((item, idx) => (
-            <li className="knowledge-movie-item" key={idx}>{item}</li>
+            <li className="knowledge-movie-item" key={idx} style={{color: 'var(--text)'}}>{item}</li>
           ))}
         </ul>
         <button className="knowledge-back" onClick={onBack} style={{display: 'block', margin: '18px auto 0 auto'}}>← Назад</button>
@@ -2356,10 +2392,10 @@ const botResponseStyle = {
         overflowY: 'auto',
         paddingBottom: '100px' // Добавляем отступ снизу для нижнего бара
       }}>
-        <h2 style={{ fontSize: '1.8rem', fontWeight: 700, marginBottom: '16px', color: '#333' }}>
+        <h2 style={{ fontSize: '1.8rem', fontWeight: 700, marginBottom: '16px', color: 'var(--text)' }}>
           Дневник Состояний
         </h2>
-        <p style={{ fontSize: '1rem', lineHeight: 1.6, color: '#555', marginBottom: '24px' }}>
+        <p style={{ fontSize: '1rem', lineHeight: 1.6, color: 'var(--text)', marginBottom: '24px' }}>
           Познай себя глубже. Отслеживай свои эмоции, осознавай внутренние волны и находи баланс. Это твоя личная карта душевных путешествий.
         </p>
 
@@ -2594,10 +2630,10 @@ function DiaryGratitudePage({ onBack }) {
 
   return (
     <div style={containerStyle}>
-      <h2 style={{ fontSize: '1.8rem', fontWeight: 700, marginBottom: '16px', color: '#333' }}>
+      <h2 style={{ fontSize: '1.8rem', fontWeight: 700, marginBottom: '16px', color: '#fff' }}>
         Дневник Благодарности
       </h2>
-      <p style={{ fontSize: '1rem', lineHeight: 1.6, color: '#555', marginBottom: '24px' }}>
+      <p style={{ fontSize: '1rem', lineHeight: 1.6, color: '#fff', marginBottom: '24px' }}>
         Ощути изобилие жизни через простую практику благодарности. Чем больше ты благодаришь, тем больше получаешь.
       </p>
 
@@ -2647,7 +2683,7 @@ function DiaryGratitudePage({ onBack }) {
       </div>
 
       {/* Колесо благодарностей */}
-      <div style={cardStyle}>
+      <div style={{...cardStyle, backgroundColor: 'rgba(255, 255, 255, 0.5)'}}>
         <h3 style={{ color: '#7c5bb3', marginBottom: '12px' }}>
           🎯 Колесо Благодарностей
         </h3>
@@ -2667,7 +2703,7 @@ function DiaryGratitudePage({ onBack }) {
       </div>
 
       {/* Добавление благодарности */}
-      <div style={cardStyle}>
+      <div style={{...cardStyle, backgroundColor: 'rgba(255, 255, 255, 0.5)'}}>
         <h3 style={{ color: '#7c5bb3', marginBottom: '12px' }}>
           ✨ Запиши благодарность
         </h3>
@@ -2916,42 +2952,42 @@ function DiaryWishesPage({ onBack }) {
 
   return (
     <div style={containerStyle}>
-      <h2 style={{ fontSize: '1.8rem', fontWeight: 700, marginBottom: '16px', color: '#333' }}>
+      <h2 style={{ fontSize: '1.8rem', fontWeight: 700, marginBottom: '16px', color: 'var(--text)' }}>
         Дневник Желаний
       </h2>
-      <p style={{ fontSize: '1rem', lineHeight: 1.6, color: '#555', marginBottom: '24px' }}>
+      <p style={{ fontSize: '1rem', lineHeight: 1.6, color: 'var(--text)', marginBottom: '24px' }}>
         Место, где рождаются мечты. Запиши своё намерение, активируй внутреннюю силу и наблюдай, как Вселенная начинает действовать.
       </p>
 
       {/* Лунный календарь */}
-      <div style={cardStyle}>
-        <h3 style={{ color: '#7c5bb3', marginBottom: '12px' }}>
+      <div style={{...cardStyle, backgroundColor: 'rgba(255, 255, 255, 0.5)'}}>
+        <h3 style={{ color: '#181818', marginBottom: '12px' }}>
           {moonPhase.emoji} Лунный календарь исполнения
         </h3>
         <p style={{ fontSize: '0.9rem', margin: '8px 0' }}>
           <strong>{moonPhase.phase}</strong>
         </p>
-        <p style={{ fontSize: '0.85rem', color: '#666', fontStyle: 'italic' }}>
+        <p style={{ fontSize: '0.85rem', color: '#181818', fontStyle: 'italic' }}>
           {moonPhase.advice}
         </p>
       </div>
 
       {/* Прогноз шансов */}
-      <div style={cardStyle}>
-        <h3 style={{ color: '#7c5bb3', marginBottom: '12px' }}>
+      <div style={{...cardStyle, backgroundColor: 'rgba(255, 255, 255, 0.5)'}}>
+        <h3 style={{ color: '#181818', marginBottom: '12px' }}>
           🔮 Прогноз исполнения на сегодня
         </h3>
-        <div style={{ fontSize: '2rem', margin: '8px 0', color: '#667eea' }}>
+        <div style={{ fontSize: '2rem', margin: '8px 0', color: 'var(--text)' }}>
           {dailyChance.chance}%
         </div>
-        <p style={{ fontSize: '0.85rem', color: '#666', fontStyle: 'italic' }}>
+        <p style={{ fontSize: '0.85rem', color: '#181818', fontStyle: 'italic' }}>
           {dailyChance.message}
         </p>
       </div>
 
       {/* AI Vision Board */}
-      <div style={cardStyle}>
-        <h3 style={{ color: '#7c5bb3', marginBottom: '12px' }}>
+      <div style={{...cardStyle, backgroundColor: 'rgba(255, 255, 255, 0.5)'}}>
+        <h3 style={{ color: '#181818', marginBottom: '12px' }}>
           ✨ AI Vision Board
         </h3>
         <textarea
@@ -3175,7 +3211,7 @@ function TreeOfLife() {
 
   return (
     <div style={{
-      background: '#f7f3ff',
+      background: 'rgba(184,116,232,0.07)',
       borderRadius: 16,
       padding: '20px',
       margin: '16px auto',
@@ -3192,11 +3228,11 @@ function TreeOfLife() {
       </div>
       
       <div style={{ textAlign: 'center', fontFamily: 'Comfortaa, cursive' }}>
-        <div style={{ fontSize: '1.1rem', fontWeight: '600', color: '#333', marginBottom: '8px' }}>
+        <div style={{ fontSize: '1.1rem', fontWeight: '600', color: 'var(--text)', marginBottom: '8px' }}>
           {getLevelTitle(treeData.level)}
         </div>
         
-        <div style={{ fontSize: '0.9rem', color: '#666', lineHeight: 1.4 }}>
+        <div style={{ fontSize: '0.9rem', color: 'var(--text)', lineHeight: 1.4 }}>
           🍃 Листьев: {treeData.leaves}<br/>
           🌿 Веток: {treeData.branches}<br/>
           📊 Всего записей: {treeData.totalActivity}<br/>
@@ -3304,6 +3340,26 @@ function App() {
         <div className="knowledge-page" style={{display: 'flex', flexDirection: 'column', minHeight: 'calc(100vh - 64px)'}}>
           <div>
             <div className="knowledge-title">Дыхательные практики</div>
+            <div style={{
+              fontFamily: 'Comfortaa, cursive',
+              fontWeight: 700,
+              fontSize: '0.95rem',
+              color: 'var(--text)',
+              background: 'rgba(184,116,232,0.07)',
+              borderRadius: 12,
+              padding: 18,
+              boxShadow: '0 1px 4px var(--shadow-color)',
+              marginBottom: 18,
+              textAlign: 'center',
+              lineHeight: 1.6,
+              letterSpacing: '0.01em',
+              maxWidth: 430,
+              margin: '18px auto 0 auto',
+            }}>
+              Медитация — это путь к себе.<br/>
+              Она помогает успокоить мысли, почувствовать момент "здесь и сейчас" и наполняет день ясностью и спокойствием.<br/>
+              Просто закрой глаза — и начни слушать себя.
+            </div>
             <div className="breath-practice-row">
               <div className="breath-square-icon" onClick={() => setSelectedBreathPractice('breath-square')}>
                 <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px'}}>
@@ -3560,7 +3616,7 @@ function App() {
                 fontFamily: 'Comfortaa, cursive',
                 fontSize: '0.75rem',
                 fontWeight: 600,
-                color: '#333',
+                color: 'var(--text)',
                 textAlign: 'center'
               }}>Дневник<br/>Состояний</span>
             </div>
@@ -3594,7 +3650,7 @@ function App() {
                 fontFamily: 'Comfortaa, cursive',
                 fontSize: '0.75rem',
                 fontWeight: 600,
-                color: '#333',
+                color: 'var(--text)',
                 textAlign: 'center'
               }}>Дневник<br/>Желаний</span>
             </div>
@@ -3628,7 +3684,7 @@ function App() {
                 fontFamily: 'Comfortaa, cursive',
                 fontSize: '0.75rem',
                 fontWeight: 600,
-                color: '#333',
+                color: 'var(--text)',
                 textAlign: 'center'
               }}>Дневник<br/>Благодарности</span>
             </div>
@@ -3663,21 +3719,69 @@ function App() {
         return (
           <div className="knowledge-page">
             <div className="knowledge-title">База знаний</div>
-            <div className="knowledge-section knowledge-linkable" onClick={() => setSelectedKnowledgeSection('hd-movies')} style={{cursor:'pointer'}}>
-              <h3>ХД фильмы раскрывающие сознание</h3>
-              <p>Подборка фильмов в высоком качестве, расширяющих восприятие и способствующих развитию сознания.</p>
+            <div className="knowledge-section knowledge-linkable" onClick={() => setSelectedKnowledgeSection('hd-movies')} style={{
+              cursor:'pointer',
+              background: 'rgba(184,116,232,0.07)',
+              borderRadius: 12,
+              padding: 18,
+              boxShadow: '0 1px 4px var(--shadow-color)',
+              marginBottom: 12,
+              textAlign: 'center',
+              lineHeight: 1.6,
+              letterSpacing: '0.01em',
+              maxWidth: 430,
+              margin: '18px auto 0 auto',
+            }}>
+              <h3 style={{color: '#7c5bb3'}}>ХД фильмы раскрывающие сознание</h3>
+              <p style={{color: 'var(--text)', fontSize: '0.85rem'}}>Подборка фильмов в высоком качестве, расширяющих восприятие и способствующих развитию сознания.</p>
             </div>
-            <div className="knowledge-section knowledge-linkable" onClick={() => setSelectedKnowledgeSection('series')} style={{cursor:'pointer'}}>
-              <h3>Сериалы раскрывающие сознание</h3>
-              <p>Список сериалов, которые помогают взглянуть на мир шире, стимулируют осознанность и развитие.</p>
+            <div className="knowledge-section knowledge-linkable" onClick={() => setSelectedKnowledgeSection('series')} style={{
+              cursor:'pointer',
+              background: 'rgba(184,116,232,0.07)',
+              borderRadius: 12,
+              padding: 18,
+              boxShadow: '0 1px 4px var(--shadow-color)',
+              marginBottom: 12,
+              textAlign: 'center',
+              lineHeight: 1.6,
+              letterSpacing: '0.01em',
+              maxWidth: 430,
+              margin: '18px auto 0 auto',
+            }}>
+              <h3 style={{color: '#7c5bb3'}}>Сериалы раскрывающие сознание</h3>
+              <p style={{color: 'var(--text)', fontSize: '0.85rem'}}>Список сериалов, которые помогают взглянуть на мир шире, стимулируют осознанность и развитие.</p>
             </div>
-            <div className="knowledge-section knowledge-linkable" onClick={() => setSelectedKnowledgeSection('documentaries')} style={{cursor:'pointer'}}>
-              <h3>Документальные фильмы</h3>
-              <p>Подборка документальных фильмов о духовности, науке, природе и человеческом потенциале.</p>
+            <div className="knowledge-section knowledge-linkable" onClick={() => setSelectedKnowledgeSection('documentaries')} style={{
+              cursor:'pointer',
+              background: 'rgba(184,116,232,0.07)',
+              borderRadius: 12,
+              padding: 18,
+              boxShadow: '0 1px 4px var(--shadow-color)',
+              marginBottom: 12,
+              textAlign: 'center',
+              lineHeight: 1.6,
+              letterSpacing: '0.01em',
+              maxWidth: 430,
+              margin: '18px auto 0 auto',
+            }}>
+              <h3 style={{color: '#7c5bb3'}}>Документальные фильмы</h3>
+              <p style={{color: 'var(--text)', fontSize: '0.85rem'}}>Подборка документальных фильмов о духовности, науке, природе и человеческом потенциале.</p>
             </div>
-            <div className="knowledge-section knowledge-linkable" onClick={() => setSelectedKnowledgeSection('sacred-music')} style={{cursor:'pointer'}}>
-              <h3>Сакральная музыка</h3>
-              <p>Подборка музыки для медитаций, практик и внутреннего вдохновения.</p>
+            <div className="knowledge-section knowledge-linkable" onClick={() => setSelectedKnowledgeSection('sacred-music')} style={{
+              cursor:'pointer',
+              background: 'rgba(184,116,232,0.07)',
+              borderRadius: 12,
+              padding: 18,
+              boxShadow: '0 1px 4px var(--shadow-color)',
+              marginBottom: 12,
+              textAlign: 'center',
+              lineHeight: 1.6,
+              letterSpacing: '0.01em',
+              maxWidth: 430,
+              margin: '18px auto 0 auto',
+            }}>
+              <h3 style={{color: '#7c5bb3'}}>Сакральная музыка</h3>
+              <p style={{color: 'var(--text)', fontSize: '0.85rem'}}>Подборка музыки для медитаций, практик и внутреннего вдохновения.</p>
             </div>
             <button className="knowledge-back" onClick={() => setActiveTab('home')} style={{display: 'block', margin: '28px auto 0 auto'}}>← Назад</button>
           </div>
