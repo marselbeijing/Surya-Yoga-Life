@@ -3339,11 +3339,11 @@ function App() {
       return (
         <div className="knowledge-page" style={{display: 'flex', flexDirection: 'column', minHeight: 'calc(100vh - 64px)'}}>
           <div>
-            <div className="knowledge-title">Дыхательные практики</div>
+            <button className="knowledge-back" onClick={() => setSelectedSection(null)} style={{display: 'block', margin: '-12px auto 4px auto'}}>← Назад</button>
             <div style={{
               fontFamily: 'Comfortaa, cursive',
               fontWeight: 700,
-              fontSize: '0.95rem',
+              fontSize: '0.85rem',
               color: 'var(--text)',
               background: 'rgba(184,116,232,0.07)',
               borderRadius: 12,
@@ -3356,9 +3356,7 @@ function App() {
               maxWidth: 430,
               margin: '18px auto 0 auto',
             }}>
-              Медитация — это путь к себе.<br/>
-              Она помогает успокоить мысли, почувствовать момент "здесь и сейчас" и наполняет день ясностью и спокойствием.<br/>
-              Просто закрой глаза — и начни слушать себя.
+              Правильное дыхание — основа йоги и ключ к внутренней гармонии. Оно успокаивает ум, насыщает тело кислородом, снижает стресс и восстанавливает энергию. Осознанное дыхание помогает контролировать эмоции, углубляет медитацию и пробуждает жизненную силу (прану). Начни дышать правильно — и почувствуй, как меняется всё внутри тебя.
             </div>
             <div className="breath-practice-row">
               <div className="breath-square-icon" onClick={() => setSelectedBreathPractice('breath-square')}>
@@ -3375,7 +3373,6 @@ function App() {
               </div>
             </div>
           </div>
-          <button className="knowledge-back" onClick={() => setSelectedSection(null)} style={{display: 'block', margin: '28px auto 0 auto', marginTop: 'auto'}}>← Назад</button>
         </div>
       );
     }
