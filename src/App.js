@@ -1220,7 +1220,7 @@ function KnowledgeHDMoviesPage({ onBack }) {
               );
             }
               if (movie === 'Экспресс Мумбаи - Варанаси (2016)') {
-                return (
+            return (
                   <li className="knowledge-movie-item knowledge-movie-link" key={idx}>
                     <a href="https://vk.com/wall-17262100_56985" target="_blank" rel="noopener noreferrer" style={{color: 'var(--text)'}}>{movie}</a>
                   </li>
@@ -1888,8 +1888,8 @@ function AboutDianaGuruPage({ onBack }) {
       <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 18, margin: '28px 0 0 0'}}>
         <img src={require('./components/diana1.jpg')} alt="Диана 1" style={{maxWidth: 260, maxHeight: 340, borderRadius: 18, boxShadow: '0 4px 18px #e6e0f7', objectFit: 'cover', width: '100%', height: 'auto'}} />
         <img src={require('./components/diana2.jpg')} alt="Диана 2" style={{maxWidth: 260, maxHeight: 340, borderRadius: 18, boxShadow: '0 4px 18px #e6e0f7', objectFit: 'cover', width: '100%', height: 'auto'}} />
-        <img src={require('./components/diana3.jpg')} alt="Диана 3" style={{maxWidth: 260, maxHeight: 340, borderRadius: 18, boxShadow: '0 4px 18px #e6e0f7', objectFit: 'cover', width: '100%', height: 'auto'}} />
-        <img src={require('./components/diana4.jpg')} alt="Диана 4" style={{maxWidth: 260, maxHeight: 340, borderRadius: 18, boxShadow: '0 4px 18px #e6e0f7', objectFit: 'cover', width: '100%', height: 'auto'}} />
+        {/* <img src={require('./components/diana3.jpg')} alt="Диана 3" style={{maxWidth: 260, maxHeight: 340, borderRadius: 18, boxShadow: '0 4px 18px #e6e0f7', objectFit: 'cover', width: '100%', height: 'auto'}} /> */}
+        {/* <img src={require('./components/diana4.jpg')} alt="Диана 4" style={{maxWidth: 260, maxHeight: 340, borderRadius: 18, boxShadow: '0 4px 18px #e6e0f7', objectFit: 'cover', width: '100%', height: 'auto'}} /> */}
         <img src={require('./components/diana5.jpg')} alt="Диана 5" style={{maxWidth: 260, maxHeight: 340, borderRadius: 18, boxShadow: '0 4px 18px #e6e0f7', objectFit: 'cover', width: '100%', height: 'auto'}} />
       </div>
       <button className="knowledge-back" onClick={onBack} style={{display: 'block', margin: '28px auto 0 auto'}}>← Назад</button>
@@ -1958,24 +1958,7 @@ function NailsPairPracticePage({ onBack }) {
   return (
     <div className="knowledge-page">
       <button className="knowledge-back" onClick={onBack} style={{display: 'block', margin: '0 auto 18px auto'}}>← Назад</button>
-      <div style={{
-        fontFamily: 'Comfortaa, cursive',
-        fontWeight: 700,
-        fontSize: '0.88rem',
-        color: 'var(--text)',
-        background: 'rgba(184,116,232,0.07)',
-        borderRadius: 12,
-        padding: 18,
-        boxShadow: '0 1px 4px var(--shadow-color)',
-        marginBottom: 12,
-        textAlign: 'center',
-        lineHeight: 1.6,
-        letterSpacing: '0.01em',
-        maxWidth: 430,
-        margin: '0 auto 0 auto',
-      }}>
-        Парная практика гвоздестояния
-      </div>
+
       <div style={{
         fontFamily: 'Comfortaa, cursive',
         fontWeight: 700,
@@ -3339,11 +3322,11 @@ function App() {
       return (
         <div className="knowledge-page" style={{display: 'flex', flexDirection: 'column', minHeight: 'calc(100vh - 64px)'}}>
           <div>
-            <div className="knowledge-title">Дыхательные практики</div>
+            <button className="knowledge-back" onClick={() => setSelectedSection(null)} style={{display: 'block', margin: '-12px auto 4px auto'}}>← Назад</button>
             <div style={{
               fontFamily: 'Comfortaa, cursive',
               fontWeight: 700,
-              fontSize: '0.95rem',
+              fontSize: '0.85rem',
               color: 'var(--text)',
               background: 'rgba(184,116,232,0.07)',
               borderRadius: 12,
@@ -3356,9 +3339,7 @@ function App() {
               maxWidth: 430,
               margin: '18px auto 0 auto',
             }}>
-              Медитация — это путь к себе.<br/>
-              Она помогает успокоить мысли, почувствовать момент "здесь и сейчас" и наполняет день ясностью и спокойствием.<br/>
-              Просто закрой глаза — и начни слушать себя.
+              Правильное дыхание — основа йоги и ключ к внутренней гармонии. Оно успокаивает ум, насыщает тело кислородом, снижает стресс и восстанавливает энергию. Осознанное дыхание помогает контролировать эмоции, углубляет медитацию и пробуждает жизненную силу (прану). Начни дышать правильно — и почувствуй, как меняется всё внутри тебя.
             </div>
             <div className="breath-practice-row">
               <div className="breath-square-icon" onClick={() => setSelectedBreathPractice('breath-square')}>
@@ -3375,7 +3356,34 @@ function App() {
               </div>
             </div>
           </div>
-          <button className="knowledge-back" onClick={() => setSelectedSection(null)} style={{display: 'block', margin: '28px auto 0 auto', marginTop: 'auto'}}>← Назад</button>
+        </div>
+      );
+    }
+    if (selectedSection === 'Йога') {
+      return (
+        <div className="knowledge-page" style={{display: 'flex', flexDirection: 'column', minHeight: 'calc(100vh - 64px)'}}>
+          <button className="knowledge-back" onClick={() => setSelectedSection(null)} style={{display: 'block', margin: '-12px auto 4px auto'}}>
+            ← Назад
+          </button>
+          <div style={{
+            fontFamily: 'Comfortaa, cursive',
+            fontWeight: 700,
+            fontSize: '0.88rem',
+            color: 'var(--text)',
+            background: 'rgba(184,116,232,0.07)',
+            borderRadius: 12,
+            padding: 18,
+            boxShadow: '0 1px 4px var(--shadow-color)',
+            marginBottom: 12,
+            textAlign: 'center',
+            lineHeight: 1.6,
+            letterSpacing: '0.01em',
+            maxWidth: 430,
+            margin: '18px auto 0 auto',
+          }}>
+            Открой силу йоги 🧘‍♂️<br/><br/>
+            Йога — это не просто упражнения, это путь к внутреннему балансу, ясности и силе. Всего несколько минут практики в день помогают снять стресс, улучшить концентрацию и наполниться энергией. Ваше тело скажет спасибо. Ум — тоже.
+          </div>
         </div>
       );
     }

@@ -155,10 +155,10 @@ function MessageOfTheDayPage({ onBack }) {
         className="knowledge-back"
         style={{display: 'block', margin: '-12px auto 4px auto'}}>← Назад</button>
       <div style={{
-        background: '#f7f3ff',
+        background: 'rgba(184,116,232,0.07)',
         borderRadius: 16,
         padding: '24px 16px',
-        color: '#000',
+        color: 'var(--text)',
         fontFamily: 'Comfortaa, cursive',
         fontSize: '0.95rem',
         textAlign: 'center',
@@ -175,7 +175,7 @@ function MessageOfTheDayPage({ onBack }) {
         <div style={{display: 'flex', flexDirection: 'column', gap: 18, margin: '28px 0 0 0'}}>
           {cards.map((card, idx) => (
             <div key={idx} style={{
-              background: '#fff',
+              background: 'rgba(184,116,232,0.07)',
               borderRadius: 14,
               boxShadow: '0 2px 8px 0 rgba(124,91,179,0.08)',
               padding: '18px 14px',
@@ -183,12 +183,12 @@ function MessageOfTheDayPage({ onBack }) {
               margin: '0 auto',
               textAlign: 'center',
               fontFamily: 'Comfortaa, cursive',
-              color: '#222',
+              color: 'var(--text)',
             }}>
               <div style={{fontSize: 28, marginBottom: 6}}>{card.icon}</div>
-              <div style={{fontWeight: 700, fontSize: '1.08rem', marginBottom: 4}}>{card.title}</div>
+              <div style={{fontWeight: 700, fontSize: '1.08rem', marginBottom: 4, color: 'var(--text)'}}>{card.title}</div>
               <div style={{fontSize: '0.92rem', color: '#7c5bb3', marginBottom: 6}}>{card.description}</div>
-              <div style={{fontSize: '1.01rem', marginTop: 8}}>{card.message}</div>
+              <div style={{fontSize: '1.01rem', marginTop: 8, color: 'var(--text)'}}>{card.message}</div>
             </div>
           ))}
         </div>
@@ -200,8 +200,8 @@ function MessageOfTheDayPage({ onBack }) {
         style={{
           margin: '32px auto 0 auto', 
           display: 'block', 
-          background: canUpdate ? '#b484f7' : '#ccc', 
-          color: '#fff', 
+          background: canUpdate ? '#b484f7' : 'rgba(184,116,232,0.07)', 
+          color: 'var(--text)', 
           border: 'none', 
           borderRadius: 12, 
           padding: '12px 32px', 
@@ -210,7 +210,7 @@ function MessageOfTheDayPage({ onBack }) {
           fontSize: '1.01rem', 
           cursor: canUpdate ? 'pointer' : 'not-allowed', 
           boxShadow: '0 2px 8px 0 rgba(124,91,179,0.08)',
-          opacity: canUpdate ? 1 : 0.6
+          opacity: canUpdate ? 1 : 0.9
         }}>
         {canUpdate ? 'Показать послание' : `Следующее послание через ${timeUntilNext}`}
       </button>

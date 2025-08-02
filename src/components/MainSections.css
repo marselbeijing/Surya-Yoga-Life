@@ -165,7 +165,7 @@ body, #root, .App {
   font-family: 'Comfortaa', cursive;
   font-size: 0.65rem;
   font-weight: 700;
-  color: #a18cd1;
+  color: var(--text);
   margin: 0 0 0.2rem 0;
   letter-spacing: 0.02em;
 }
