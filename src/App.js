@@ -3264,6 +3264,14 @@ function App() {
                           showDiaryWishesPage ||
                           showDiaryGratitudePage;
 
+  const isHomeSubPageActive = selectedSection !== null ||
+                              selectedBreathPractice !== null ||
+                              showNailsPairPractice ||
+                              showChakraPage ||
+                              showDiaryStatesPage ||
+                              showDiaryWishesPage ||
+                              showDiaryGratitudePage;
+
   const handleTabChange = (tab) => {
     setActiveTab(tab);
   };
@@ -3320,39 +3328,37 @@ function App() {
         return <BreathTrianglePage onBack={() => setSelectedBreathPractice(null)} />;
       }
       return (
-        <div className="knowledge-page" style={{display: 'flex', flexDirection: 'column', minHeight: 'calc(100vh - 64px)'}}>
-          <div>
-            <button className="knowledge-back" onClick={() => setSelectedSection(null)} style={{display: 'block', margin: '-12px auto 4px auto'}}>← Назад</button>
-            <div style={{
-              fontFamily: 'Comfortaa, cursive',
-              fontWeight: 700,
-              fontSize: '0.85rem',
-              color: 'var(--text)',
-              background: 'rgba(184,116,232,0.07)',
-              borderRadius: 12,
-              padding: 18,
-              boxShadow: '0 1px 4px var(--shadow-color)',
-              marginBottom: 18,
-              textAlign: 'center',
-              lineHeight: 1.6,
-              letterSpacing: '0.01em',
-              maxWidth: 430,
-              margin: '18px auto 0 auto',
-            }}>
-              Правильное дыхание — основа йоги и ключ к внутренней гармонии. Оно успокаивает ум, насыщает тело кислородом, снижает стресс и восстанавливает энергию. Осознанное дыхание помогает контролировать эмоции, углубляет медитацию и пробуждает жизненную силу (прану). Начни дышать правильно — и почувствуй, как меняется всё внутри тебя.
-            </div>
-            <div className="breath-practice-row">
-              <div className="breath-square-icon" onClick={() => setSelectedBreathPractice('breath-square')}>
-                <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px'}}>
-                  <img src={process.env.PUBLIC_URL + '/breath-square.svg'} alt="Дыхание по квадрату" style={{width: '40px', height: '40px'}} />
-                  <span>Дыхание по квадрату</span>
-                </div>
+        <div style={{display: 'flex', flexDirection: 'column', minHeight: 'calc(100vh - 64px)', padding: '0', margin: '0', paddingTop: '0', marginTop: '0'}}>
+          <button className="knowledge-back" onClick={() => setSelectedSection(null)} style={{display: 'block', margin: '0 auto 4px auto'}}>← Назад</button>
+          <div style={{
+            fontFamily: 'Comfortaa, cursive',
+            fontWeight: 700,
+            fontSize: '0.85rem',
+            color: 'var(--text)',
+            background: 'rgba(184,116,232,0.07)',
+            borderRadius: 12,
+            padding: 18,
+            boxShadow: '0 1px 4px var(--shadow-color)',
+            marginBottom: 18,
+            textAlign: 'center',
+            lineHeight: 1.6,
+            letterSpacing: '0.01em',
+            maxWidth: 430,
+            margin: '8px auto 0 auto',
+          }}>
+            Правильное дыхание — основа йоги и ключ к внутренней гармонии. Оно успокаивает ум, насыщает тело кислородом, снижает стресс и восстанавливает энергию. Осознанное дыхание помогает контролировать эмоции, углубляет медитацию и пробуждает жизненную силу (прану). Начни дышать правильно — и почувствуй, как меняется всё внутри тебя.
+          </div>
+          <div className="breath-practice-row">
+            <div className="breath-square-icon" onClick={() => setSelectedBreathPractice('breath-square')}>
+              <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px'}}>
+                <img src={process.env.PUBLIC_URL + '/breath-square.svg'} alt="Дыхание по квадрату" style={{width: '40px', height: '40px'}} />
+                <span>Дыхание по квадрату</span>
               </div>
-              <div className="breath-square-icon" onClick={() => setSelectedBreathPractice('breath-triangle')}>
-                <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px'}}>
-                  <img src={process.env.PUBLIC_URL + '/breath-triangle.svg'} alt="Дыхание по треугольнику" style={{width: '40px', height: '40px'}} />
-                  <span>Дыхание по треугольнику</span>
-                </div>
+            </div>
+            <div className="breath-square-icon" onClick={() => setSelectedBreathPractice('breath-triangle')}>
+              <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px'}}>
+                <img src={process.env.PUBLIC_URL + '/breath-triangle.svg'} alt="Дыхание по треугольнику" style={{width: '40px', height: '40px'}} />
+                <span>Дыхание по треугольнику</span>
               </div>
             </div>
           </div>
@@ -3361,8 +3367,8 @@ function App() {
     }
     if (selectedSection === 'Йога') {
       return (
-        <div className="knowledge-page" style={{display: 'flex', flexDirection: 'column', minHeight: 'calc(100vh - 64px)'}}>
-          <button className="knowledge-back" onClick={() => setSelectedSection(null)} style={{display: 'block', margin: '-12px auto 4px auto'}}>
+        <div style={{display: 'flex', flexDirection: 'column', minHeight: 'calc(100vh - 64px)', padding: '0', margin: '0', paddingTop: '0', marginTop: '0'}}>
+          <button className="knowledge-back" onClick={() => setSelectedSection(null)} style={{display: 'block', margin: '0 auto 4px auto'}}>
             ← Назад
           </button>
           <div style={{
@@ -3379,7 +3385,7 @@ function App() {
             lineHeight: 1.6,
             letterSpacing: '0.01em',
             maxWidth: 430,
-            margin: '18px auto 0 auto',
+            margin: '8px auto 0 auto',
           }}>
             Открой силу йоги 🧘‍♂️<br/><br/>
             Йога — это не просто упражнения, это путь к внутреннему балансу, ясности и силе. Всего несколько минут практики в день помогают снять стресс, улучшить концентрацию и наполниться энергией. Ваше тело скажет спасибо. Ум — тоже.
@@ -3512,6 +3518,8 @@ function App() {
               style={{borderRadius: '12px', boxShadow: '0 2px 12px rgba(0,0,0,0.1)'}}
             />
           </div>
+
+
 
           {/* Кнопка "Записаться на сессию" */}
           <div style={{ width: '100%', display: 'flex', justifyContent: 'center', margin: '32px 0 0 0' }}>
@@ -3922,13 +3930,13 @@ function App() {
   };
 
   useEffect(() => {
-    if (activeTab === 'home' && !isSubPageActive) {
+    if (activeTab === 'home' && !isHomeSubPageActive) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
     }
     return () => { document.body.style.overflow = ''; };
-  }, [activeTab, isSubPageActive]);
+  }, [activeTab, isHomeSubPageActive]);
 
   const handleSectionClick = (key) => {
     if (key === 'Прокачка чакр') {
@@ -3941,7 +3949,7 @@ function App() {
 
   return (
     <div className="app-root">
-      {activeTab === 'home' && !isSubPageActive && <Header />}
+      {activeTab === 'home' && !isHomeSubPageActive && <Header />}
       <div className="mobile-frame">
         {renderContent()}
         <BottomBar activeTab={activeTab} setActiveTab={handleBottomBarTabChange} />
